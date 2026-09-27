@@ -5,14 +5,15 @@
 ## Домен
 
 - Основний: `zaryadnastantsiya.com.ua`
+- Preview (Cloudflare Workers): див. останній deploy URL
 
 ## Стек
 
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS 4
+- Next.js 16 (App Router) + OpenNext
+- Cloudflare Workers (`@opennextjs/cloudflare`)
+- TypeScript + Tailwind CSS 4
 
-## Запуск
+## Локальний запуск
 
 ```bash
 cd web
@@ -20,12 +21,30 @@ npm install
 npm run dev
 ```
 
-## Продуктова логіка
+## Cloudflare deploy
 
-1. SEO-сторінки під запити `зарядна станція`, `генератор`, `інвертор`
-2. Порівняння моделей за ємністю, потужністю та ціною
-3. Affiliate-переходи на пропозиції
-4. Claim/mailing flow для монтажних компаній і featured-розміщення
+```bash
+cd web
+export CLOUDFLARE_API_TOKEN=...   # Edit Cloudflare Workers
+export CLOUDFLARE_ACCOUNT_ID=...  # optional but recommended
+npm run deploy
+```
+
+Після деплою Worker з’явиться на `*.workers.dev`.
+
+### Кастомний домен `zaryadnastantsiya.com.ua`
+
+1. Додайте зону `zaryadnastantsiya.com.ua` у [Cloudflare Dashboard](https://dash.cloudflare.com) (DNS NS → Cloudflare).
+2. У `web/wrangler.jsonc` додайте:
+
+```jsonc
+"routes": [
+  { "pattern": "zaryadnastantsiya.com.ua", "custom_domain": true },
+  { "pattern": "www.zaryadnastantsiya.com.ua", "custom_domain": true }
+]
+```
+
+3. Знову `npm run deploy`.
 
 ## Структура
 
