@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
 import { homeFaq } from "@/data/faq";
+import { cities } from "@/data/cities";
 import { guidesByVolume } from "@/data/guides";
 import { featuredProducts } from "@/data/products";
 import { site } from "@/data/site";
@@ -93,6 +94,33 @@ export default function HomePage() {
         <p style={{ marginTop: "1.25rem" }}>
           <Link href="/gid" className="btn btn-ghost-ink">
             Усі гіди
+          </Link>
+        </p>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }} id="mista">
+        <div className="section-head">
+          <p className="eyebrow">Локальний попит</p>
+          <h2>Резерв по містах</h2>
+          <p>
+            Київ, Львів, Одеса, Харків, Дніпро — сценарій у калькуляторі й
+            монтажні бригади поруч.
+          </p>
+        </div>
+        <ol className="guide-index guide-index-home">
+          {cities.map((city, index) => (
+            <li key={city.slug}>
+              <span className="guide-index-rank">{index + 1}</span>
+              <div>
+                <Link href={`/misto/${city.slug}`}>{city.h1}</Link>
+                <p>{city.name}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p style={{ marginTop: "1.25rem" }}>
+          <Link href="/misto" className="btn btn-ghost-ink">
+            Усі міста
           </Link>
         </p>
       </section>
