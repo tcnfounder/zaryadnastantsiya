@@ -75,9 +75,19 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
                   }),
                 });
 
-                const payload = (await response.json()) as {
-                  error?: string;
-                };
+                const raw = await response.text();
+                let payload: { error?: string; ok?: boolean } = {};
+                try {
+                  payload = raw ? (JSON.parse(raw) as { error?: string; ok?: boolean }) : {};
+                } catch {
+                  setError(
+                    response.ok
+                      ? "Некоректна відповідь сервера."
+                      : `Сервер тимчасово недоступний (${response.status}). Спробуйте ще раз.`,
+                  );
+                  setState("error");
+                  return;
+                }
 
                 if (!response.ok) {
                   setError(payload.error || "Не вдалося надіслати заявку.");
