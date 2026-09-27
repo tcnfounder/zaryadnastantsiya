@@ -9,17 +9,23 @@ import { site } from "@/data/site";
 export default function HomePage() {
   return (
     <>
-      <section className="hero">
-        <div className="atmosphere" aria-hidden="true" />
-        <div className="hero-visual" aria-hidden="true">
-          <div className="hero-plane" />
-          <div className="hero-glow filament" />
+      <section className="hero-masthead">
+        <div className="hero-masthead-visual" aria-hidden="true">
+          <div className="hero-masthead-grid" />
+          <div className="hero-masthead-sun" />
+          <div className="hero-masthead-panel">
+            <span className="hero-masthead-cell" />
+            <span className="hero-masthead-cell" />
+            <span className="hero-masthead-cell" />
+            <span className="hero-masthead-cell" />
+            <span className="hero-masthead-stand" />
+          </div>
         </div>
-        <div className="hero-copy">
-          <p className="eyebrow rise-in">Незалежний гід для України</p>
-          <h1 className="rise-in-delay">Резервне живлення без хаосу</h1>
-          <p className="rise-in-delay-2">{site.tagline}</p>
-          <div className="hero-actions rise-in-delay-2">
+        <div className="hero-masthead-copy">
+          <p className="eyebrow">Незалежний гід для України</p>
+          <h1>Резервне живлення без хаосу</h1>
+          <p className="hero-lead">{site.tagline}</p>
+          <div className="hero-actions">
             <Link href="/#dobirky" className="btn btn-primary">
               Переглянути добірки
             </Link>
