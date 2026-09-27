@@ -47,11 +47,14 @@ Workers gerekmez.
 У Railway (сервіс `web`) можна задати:
 
 ```bash
-RESEND_API_KEY=...
+RESEND_API_KEY=re_xxx
 CLAIM_NOTIFY_TO=you@example.com
-CLAIM_NOTIFY_FROM="ZaryadnaStantsiya <onboarding@resend.dev>"
-CLAIM_WEBHOOK_URL=https://hooks.zapier.com/...   # опційно
+CLAIM_NOTIFY_FROM=onboarding@resend.dev
+# CLAIM_WEBHOOK_URL=https://hooks.zapier.com/...   # опційно
 ```
 
-Без цих змінних заявки все одно приймаються й пишуться в логи (`[claim-lead]`).
-З ключами — дублюються на email і/або webhook.
+**Railway tip:** `CLAIM_NOTIFY_FROM` için `İsim <mail@x>` yazma — `< >` env’i bozabilir. Sadece `onboarding@resend.dev` koy.
+
+`onboarding@resend.dev` ile Resend çoğu zaman yalnızca hesabına kayıtlı mail adresine gönderir. Zoho `info@...` için önce Resend’de domain doğrula, sonra `CLAIM_NOTIFY_TO=info@zaryadnastantsiya.com.ua` yap.
+
+Без ключів заявки все одно приймаються й пишуться в логи (`[claim-lead]`).
