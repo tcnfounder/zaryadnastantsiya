@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Manrope, Unbounded } from "next/font/google";
+import { Manrope, Syne, Unbounded } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";
@@ -23,9 +23,10 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-const brand = Bricolage_Grotesque({
+/* Wordmark: Syne — geometric, unusual, high recognition */
+const brand = Syne({
   variable: "--font-brand",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   weight: ["700", "800"],
 });
 
