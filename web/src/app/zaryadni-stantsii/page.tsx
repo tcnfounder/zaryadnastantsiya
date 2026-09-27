@@ -52,12 +52,22 @@ export default function StationsPage() {
             lineHeight: 1.05,
           }}
         >
-          Портативні станції під реальні години блекауту
+          Зарядні станції для квартири й дому
         </h1>
         <p>
           Порівнюйте ємність (Wh), вихідну потужність (W) і орієнтовну ціну в ₴.
-          Відкрийте картку моделі для SEO-огляду або одразу перейдіть до актуальних
-          пропозицій магазинів.
+          Для сценарію квартири читайте{" "}
+          <Link
+            href="/gid/zaryadna-stantsiya-dlya-kvartyry"
+            style={{ color: "var(--amber)", fontWeight: 600 }}
+          >
+            гід
+          </Link>{" "}
+          або одразу пройдіть{" "}
+          <Link href="/kalkulyator" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            калькулятор
+          </Link>
+          .
         </p>
       </div>
       <ProductList products={productsByCategory("station")} />

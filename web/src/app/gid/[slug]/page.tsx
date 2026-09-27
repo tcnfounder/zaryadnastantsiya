@@ -5,7 +5,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { getGuide, guides, relatedGuides } from "@/data/guides";
 import { site } from "@/data/site";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 
 const ctaHref = {
   calculator: "/kalkulyator",
@@ -69,10 +69,22 @@ export default async function GuidePage({ params }: PageProps) {
         ])}
       />
       <JsonLd data={faqJsonLd(guide.faqs)} />
+      <JsonLd
+        data={articleJsonLd({
+          title: guide.title,
+          description: guide.description,
+          path: `/gid/${guide.slug}`,
+          dateModified: guide.dateModified,
+          keywords: [guide.keyword, "резервне живлення", "Україна"],
+        })}
+      />
 
       <article className="guide-article">
         <div className="section-head">
-          <p className="eyebrow">Гід · ~{guide.searchVolume.toLocaleString("uk-UA")}/міс</p>
+          <p className="eyebrow">
+            Гід · ~{guide.searchVolume.toLocaleString("uk-UA")}/міс · оновлено{" "}
+            {new Date(guide.dateModified).toLocaleDateString("uk-UA")}
+          </p>
           <h1
             className="font-display"
             style={{

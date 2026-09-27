@@ -137,7 +137,16 @@ export default function CalculatorPage() {
             <Link href="/gid/pidklyuchennya-invertora">Підключення інвертора</Link>
           </li>
           <li>
-            <Link href="/generatory">Каталог генераторів</Link>
+            <Link href="/gid/generator-dlya-domu">Генератор для дому</Link>
+          </li>
+          <li>
+            <Link href="/gid/invertornyy-generator">Інверторний генератор</Link>
+          </li>
+          <li>
+            <Link href="/gid/generator-3-kvt">Генератор 3 кВт</Link>
+          </li>
+          <li>
+            <Link href="/gid/generator-5-kvt">Генератор 5 кВт</Link>
           </li>
         </ul>
       </nav>
