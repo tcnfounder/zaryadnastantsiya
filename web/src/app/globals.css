@@ -159,7 +159,10 @@ select {
   min-height: 0;
   height: auto;
   margin: 0;
-  padding: 0 clamp(1rem, 3.5vw, 2.75rem) 0.45rem;
+  padding:
+    calc(0.55rem + env(safe-area-inset-top, 0px))
+    clamp(1rem, 3.5vw, 2.75rem)
+    0.5rem;
 }
 
 .site-header.is-scrolled {
@@ -185,7 +188,7 @@ select {
   align-items: flex-start;
   gap: 0.14rem;
   margin: 0;
-  padding: 0.15rem 0 0;
+  padding: 0;
   font-family: var(--font-brand), "Arial Narrow", sans-serif;
   line-height: 0.85;
   white-space: nowrap;
@@ -277,16 +280,15 @@ select {
 
 @media (max-width: 859px) {
   :root {
-    --header-h: 2.65rem;
+    --header-h: 3.05rem;
   }
 
   .site-header-bar {
     grid-template-columns: 1fr auto;
-    padding-bottom: 0.35rem;
-  }
-
-  .brand-logo {
-    padding-top: 0.1rem;
+    padding:
+      calc(0.7rem + env(safe-area-inset-top, 0px))
+      1rem
+      0.55rem;
   }
 
   .brand-logo-main {
@@ -369,7 +371,7 @@ select {
   align-items: start;
   align-content: start;
   padding:
-    calc(var(--header-h) + 1.1rem)
+    calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1.25rem)
     clamp(1.25rem, 4vw, 3rem)
     clamp(2.75rem, 7vw, 4.75rem);
   overflow: hidden;
@@ -491,7 +493,7 @@ select {
   .hero-masthead {
     align-items: start;
     align-content: start;
-    padding-top: calc(var(--header-h) + 0.9rem);
+    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1.15rem);
   }
 
   .hero-masthead-copy h1 {
