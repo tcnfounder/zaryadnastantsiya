@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   claimPackages,
@@ -25,7 +26,17 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
 
   return (
     <div className="claim-panel" id="claim-form">
-      <div>
+      <div className="claim-copy">
+        <div className="claim-visual">
+          <Image
+            src="/hero-power-station.jpg"
+            alt="Резервне живлення та монтажні рішення для бізнесу"
+            fill
+            sizes="(max-width: 899px) 100vw, 48vw"
+            className="claim-visual-img"
+            priority={false}
+          />
+        </div>
         <p className="eyebrow">Для бізнесу</p>
         <h2
           className="font-display"
