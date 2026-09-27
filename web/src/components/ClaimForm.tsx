@@ -46,11 +46,11 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
             letterSpacing: "-0.035em",
           }}
         >
-          Заберіть профіль і виходьте на перші позиції
+          Заберіть ліди з калькулятора
         </h2>
         <p style={{ margin: 0, color: "var(--ink-soft)", lineHeight: 1.6 }}>
-          Залиште корпоративну пошту — надішлемо посилання для підтвердження
-          компанії, рахунок за обраний пакет і доступ до featured-розміщення.
+          Клієнт уже описав сценарій відключень. Залиште корпоративну пошту —
+          надішлемо claim, рахунок і доступ до Featured / City Priority.
         </p>
       </div>
 

@@ -976,7 +976,13 @@ select {
 
 @media (min-width: 768px) {
   .silo-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .silo-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1015,4 +1021,238 @@ select {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+
+/* —— Energy calculator —— */
+.calc-shell {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 960px) {
+  .calc-shell {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
+  }
+}
+
+.calc-form,
+.calc-result {
+  padding: 1.35rem 1.35rem 1.5rem;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.calc-form fieldset {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  border: 0;
+}
+
+.calc-form legend {
+  margin-bottom: 0.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.calc-options {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.calc-options-row {
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+}
+
+.calc-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.calc-option input {
+  margin-top: 0.2rem;
+  accent-color: var(--amber);
+}
+
+.calc-option span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.calc-option strong {
+  font-weight: 700;
+}
+
+.calc-option em {
+  font-style: normal;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+
+.calc-option.is-active {
+  border-color: rgba(196, 122, 26, 0.55);
+  background: var(--amber-soft);
+}
+
+.calc-city {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.15rem;
+  font-weight: 700;
+}
+
+.calc-city select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--ink);
+}
+
+.calc-result h2 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.calc-result > p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.calc-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.calc-metrics div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  background: rgba(36, 56, 72, 0.04);
+  border-radius: var(--radius-sm);
+}
+
+.calc-metrics span {
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.calc-metrics strong {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.calc-why {
+  margin: 0 0 1.25rem;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.calc-products h3,
+.calc-installer h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.calc-product-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.calc-product-list article {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.calc-product-list article:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.calc-product-list p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.calc-product-list span {
+  color: var(--ink-faint);
+  font-size: 0.92rem;
+}
+
+.calc-product-actions {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 0.35rem;
+}
+
+.calc-product-actions a {
+  color: var(--steel-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.calc-installer {
+  margin-top: 1.35rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+}
+
+.calc-installer ul {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.calc-installer li {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.calc-installer li span {
+  color: var(--ink-faint);
+  font-size: 0.92rem;
+}
+
+.calc-lead {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.calc-lead input,
+.calc-lead textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--ink);
+}
+
+.calc-lead p {
+  margin: 0;
+  color: var(--ink-soft);
 }

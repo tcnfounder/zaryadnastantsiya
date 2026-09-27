@@ -8,6 +8,7 @@ const staticRoutes = [
   { path: "/zaryadni-stantsii", changeFrequency: "weekly" as const, priority: 0.9 },
   { path: "/generatory", changeFrequency: "weekly" as const, priority: 0.9 },
   { path: "/invertory", changeFrequency: "weekly" as const, priority: 0.9 },
+  { path: "/kalkulyator", changeFrequency: "weekly" as const, priority: 0.95 },
   { path: "/claim", changeFrequency: "weekly" as const, priority: 0.7 },
 ];
 

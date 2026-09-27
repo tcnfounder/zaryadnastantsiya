@@ -34,13 +34,16 @@ Workers gerekmez.
 ## Структура
 
 - `/` — hero + добірки + FAQ + claim
+- `/kalkulyator` — підбір джерела енергії (станція / інвертор / генератор / СЕС) + лід на монтаж
 - `/zaryadni-stantsii` — станції + FAQ
 - `/generatory` — генератори + FAQ
 - `/invertory` — інвертори + FAQ
 - `/tovary/[id]` — SEO-картки моделей + JSON-LD
 - `/go/[id]` — affiliate redirect (лог кліків)
 - `/claim` — пакети Basic / Featured / City Priority + заявка
-- `/api/claim` — прийом лідів (Resend / webhook / Railway logs)
+- `/api/claim` — claim-ліди (Resend / webhook / Railway logs)
+- `/api/calc-lead` — ліди з калькулятора (ті самі env)
+- `docs/MONETIZATION-UA.md` — DataForSEO обсяги, цінність для монтажників, прогноз виручки
 
 ## Монетизація (env)
 

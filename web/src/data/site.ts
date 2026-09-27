@@ -12,5 +12,6 @@ export const navItems = [
   { href: "/zaryadni-stantsii", label: "Станції" },
   { href: "/generatory", label: "Генератори" },
   { href: "/invertory", label: "Інвертори" },
+  { href: "/kalkulyator", label: "Калькулятор" },
   { href: "/claim", label: "Для бізнесу" },
 ];

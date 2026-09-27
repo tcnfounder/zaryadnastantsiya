@@ -36,11 +36,11 @@ export default function HomePage() {
           <h1>Резервне живлення без хаосу</h1>
           <p className="hero-lead">{site.tagline}</p>
           <div className="hero-actions">
-            <Link href="/#dobirky" className="btn btn-primary">
-              Переглянути добірки
+            <Link href="/kalkulyator" className="btn btn-primary">
+              Підібрати джерело енергії
             </Link>
-            <Link href="/claim" className="btn btn-ghost">
-              Для монтажних компаній
+            <Link href="/#dobirky" className="btn btn-ghost">
+              Переглянути добірки
             </Link>
           </div>
         </div>
