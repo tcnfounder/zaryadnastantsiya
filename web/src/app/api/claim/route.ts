@@ -58,14 +58,8 @@ async function notifyResend(payload: {
 }) {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const to = process.env.CLAIM_NOTIFY_TO?.trim();
-<<<<<<< Updated upstream
-  const from =
-    process.env.CLAIM_NOTIFY_FROM?.trim() ||
-    "ZaryadnaStantsiya <onboarding@resend.dev>";
-=======
   // Prefer a plain address in Railway. Display-name + <brackets> often breaks env vars.
   const from = process.env.CLAIM_NOTIFY_FROM?.trim() || "onboarding@resend.dev";
->>>>>>> Stashed changes
 
   if (!apiKey || !to) {
     return { ok: false as const, reason: "resend_not_configured" };
