@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Syne, Unbounded } from "next/font/google";
+import { Fraunces, Manrope, Unbounded } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";
@@ -23,11 +23,12 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-/* Wordmark: Syne — geometric, unusual, high recognition */
-const brand = Syne({
+/* Soft optical serif — warmer, more ownable wordmark */
+const brand = Fraunces({
   variable: "--font-brand",
-  subsets: ["latin"],
-  weight: ["700", "800"],
+  subsets: ["latin", "latin-ext"],
+  weight: ["600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {

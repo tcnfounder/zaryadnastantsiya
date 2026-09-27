@@ -18,7 +18,7 @@
   --shadow-soft: 0 18px 40px rgba(36, 56, 72, 0.08);
   --radius: 14px;
   --radius-sm: 8px;
-  --header-h: 2.85rem;
+  --header-h: 3.35rem;
   --safe-top: env(safe-area-inset-top, 0px);
 }
 
@@ -174,26 +174,49 @@ select {
   min-width: 0;
 }
 
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 0.65rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 8px 18px rgba(26, 35, 48, 0.18);
+}
+
 .brand-wordmark {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.06em;
-  font-family: var(--font-brand), "Segoe UI", sans-serif;
-  font-size: clamp(1.15rem, 2.1vw, 1.55rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.12rem;
+  font-family: var(--font-brand), Georgia, "Times New Roman", serif;
+  line-height: 0.88;
   white-space: nowrap;
-  text-transform: none;
-  font-feature-settings: "ss01" on, "ss02" on;
 }
 
 .brand-wordmark-lead {
   color: var(--ink);
+  font-size: clamp(1.2rem, 2.15vw, 1.45rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.035em;
 }
 
 .brand-wordmark-tail {
   color: var(--amber);
+  font-size: clamp(0.62rem, 1.05vw, 0.72rem);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .sr-only {
@@ -232,7 +255,7 @@ select {
 
 @media (max-width: 767px) {
   :root {
-    --header-h: 2.65rem;
+    --header-h: 3.1rem;
   }
 
   .header-cta {
@@ -241,8 +264,22 @@ select {
     font-size: 0.82rem;
   }
 
-  .brand-wordmark {
-    font-size: 1rem;
+  .brand-mark {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .brand-lockup {
+    gap: 0.55rem;
+  }
+
+  .brand-wordmark-lead {
+    font-size: 1.08rem;
+  }
+
+  .brand-wordmark-tail {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
   }
 }
 
