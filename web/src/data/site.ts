@@ -14,5 +14,6 @@ export const navItems = [
   { href: "/invertory", label: "Інвертори" },
   { href: "/kalkulyator", label: "Калькулятор" },
   { href: "/gid", label: "Гіди" },
+  { href: "/misto", label: "Міста" },
   { href: "/claim", label: "Для бізнесу" },
 ];

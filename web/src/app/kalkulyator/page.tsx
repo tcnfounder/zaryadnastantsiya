@@ -148,6 +148,15 @@ export default function CalculatorPage() {
           <li>
             <Link href="/gid/generator-5-kvt">Генератор 5 кВт</Link>
           </li>
+          <li>
+            <Link href="/gid/kupyty-generator">Купити генератор</Link>
+          </li>
+          <li>
+            <Link href="/gid/kupyty-invertor">Купити інвертор</Link>
+          </li>
+          <li>
+            <Link href="/misto">Резерв по містах</Link>
+          </li>
         </ul>
       </nav>
 
