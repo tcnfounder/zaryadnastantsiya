@@ -57,13 +57,40 @@ export default function HomePage() {
         <SiloLinks />
       </section>
 
+      <section className="section photo-band" style={{ paddingTop: 0 }} aria-label="Як виглядає робота з резервом">
+        <div className="photo-band-grid">
+          <figure className="photo-band-card">
+            <Image
+              src="/hero-power-station.jpg"
+              alt="Портативна зарядна станція вдома під час відключення"
+              fill
+              sizes="(max-width: 860px) 100vw, 50vw"
+              className="photo-band-img"
+            />
+            <figcaption>Станція — швидкий старт без монтажу</figcaption>
+          </figure>
+          <figure className="photo-band-card">
+            <Image
+              src="/claim-installer-work.jpg"
+              alt="Монтаж резервного живлення для будинку"
+              fill
+              sizes="(max-width: 860px) 100vw, 50vw"
+              className="photo-band-img"
+            />
+            <figcaption>Інвертор / генератор — коли потрібен монтаж</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-head">
           <p className="eyebrow">Добірка тижня</p>
           <h2>Перевірені рішення з високим рейтингом</h2>
           <p>
             Короткий список моделей, які найкраще закривають типові сценарії
-            блекауту в квартирі, будинку й малому бізнесі.
+            блекауту в квартирі, будинку й малому бізнесі. Фото конкретних SKU
+            додамо з офіційних / партнерських джерел — зараз важливіші Wh, W і
+            сценарій.
           </p>
         </div>
         <ProductList products={featuredProducts()} />
