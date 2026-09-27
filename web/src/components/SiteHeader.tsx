@@ -5,12 +5,7 @@ import { useEffect, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { navItems } from "@/data/site";
 
-type SiteHeaderProps = {
-  /** When true, header is positioned inside the hero instead of the viewport shell. */
-  embedded?: boolean;
-};
-
-export function SiteHeader({ embedded = false }: SiteHeaderProps) {
+export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,9 +16,7 @@ export function SiteHeader({ embedded = false }: SiteHeaderProps) {
   }, []);
 
   return (
-    <header
-      className={`site-header${embedded ? " is-embedded" : ""}${scrolled ? " is-scrolled" : ""}`}
-    >
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <div className="site-header-bar">
         <Link
           href="/"

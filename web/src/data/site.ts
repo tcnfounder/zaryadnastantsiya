@@ -13,5 +13,6 @@ export const navItems = [
   { href: "/generatory", label: "Генератори" },
   { href: "/invertory", label: "Інвертори" },
   { href: "/kalkulyator", label: "Калькулятор" },
+  { href: "/gid", label: "Гіди" },
   { href: "/claim", label: "Для бізнесу" },
 ];
