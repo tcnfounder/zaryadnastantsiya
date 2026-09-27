@@ -1,0 +1,67 @@
+import type { Metadata } from "next";
+import { Manrope, Unbounded } from "next/font/google";
+import { SiteHeader } from "@/components/SiteHeader";
+import { site } from "@/data/site";
+import "./globals.css";
+
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["600", "700"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — підбір резервного живлення в Україні`,
+    template: `%s · ${site.name}`,
+  },
+  description: site.description,
+  keywords: [
+    "зарядна станція",
+    "портативна зарядна станція",
+    "генератор",
+    "інвертор",
+    "резервне живлення",
+    "EcoFlow",
+    "Україна",
+  ],
+  alternates: {
+    canonical: site.url,
+  },
+  openGraph: {
+    title: `${site.name} — підбір резервного живлення`,
+    description: site.tagline,
+    url: site.url,
+    siteName: site.name,
+    locale: "uk_UA",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="uk" className={`${unbounded.variable} ${manrope.variable} h-full`}>
+      <body className="site-shell min-h-full flex flex-col antialiased">
+        <SiteHeader />
+        <main className="flex flex-1 flex-col">{children}</main>
+        <footer className="site-footer">
+          <p>
+            {site.name} · незалежний гід по {site.domain}. Дані оновлюються для
+            сценаріїв квартири, будинку й бізнесу в Україні.
+          </p>
+        </footer>
+      </body>
+    </html>
+  );
+}
