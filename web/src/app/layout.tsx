@@ -8,7 +8,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#e8eef4",
+  themeColor: "#edf3f8",
 };
 
 const unbounded = Unbounded({
