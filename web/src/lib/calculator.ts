@@ -11,15 +11,10 @@ export type CalculatorInput = {
   criticalLoad: CriticalLoad;
   outdoorOk: boolean;
   budget: Budget;
-  wantsSolar: boolean;
   city: string;
 };
 
-export type SolutionKind =
-  | "station"
-  | "inverter"
-  | "generator"
-  | "solar_hybrid";
+export type SolutionKind = "station" | "inverter" | "generator";
 
 export type CalculatorResult = {
   kind: SolutionKind;
@@ -50,7 +45,6 @@ const OUTAGE_HOURS: Record<OutageHours, number> = {
 function estimateDemand(input: CalculatorInput) {
   const watts = LOAD_WATTS[input.criticalLoad];
   const hours = OUTAGE_HOURS[input.outageHours];
-  // ~70% diversity factor — not everything runs 100% of the outage
   const wh = Math.round(watts * hours * 0.7);
   return { watts, wh };
 }
@@ -66,7 +60,7 @@ function pickProducts(
 
   const pool = products
     .filter((p) => p.category === category)
-    .filter((p) => p.outputW >= Math.min(minW, 500) || category === "solar")
+    .filter((p) => p.outputW >= Math.min(minW, 500))
     .sort((a, b) => {
       const aFit = Math.abs(a.outputW - minW) + (a.priceUah > budgetCap ? 50_000 : 0);
       const bFit = Math.abs(b.outputW - minW) + (b.priceUah > budgetCap ? 50_000 : 0);
@@ -78,31 +72,6 @@ function pickProducts(
 
 export function recommendEnergy(input: CalculatorInput): CalculatorResult {
   const { watts, wh } = estimateDemand(input);
-
-  // Long-term solar on a house with mid/high budget → hybrid path
-  if (input.wantsSolar && input.housing === "house" && input.budget !== "low") {
-    return {
-      kind: "solar_hybrid",
-      title: "Гібридна СЕС + інвертор і АКБ",
-      summary:
-        "Для приватного будинку з довгостроковим горизонтом найкраще поєднання — сонячна генерація вдень і акумулятор на відключення.",
-      why: [
-        "Закриває довгі відключення без постійної витрати палива",
-        "Денний підзаряд знижує залежність від мережі",
-        "Потрібен професійний монтаж панелей, інвертора й захисту лінії",
-      ],
-      estimatedWatts: Math.max(watts, 3000),
-      estimatedWh: Math.max(wh, 5000),
-      needsInstaller: true,
-      installerReason:
-        "Монтаж СЕС і гібридного інвертора — це проєкт з проєктуванням, кріпленням і введенням в експлуатацію.",
-      categoryPath: "/invertory",
-      products: [
-        ...pickProducts("inverter", Math.max(watts, 3000), input.budget, 2),
-        ...pickProducts("solar", 400, input.budget, 1),
-      ],
-    };
-  }
 
   // Apartment: no outdoor generator → station or inverter+battery
   if (input.housing === "apartment" || !input.outdoorOk) {
@@ -173,16 +142,15 @@ export function recommendEnergy(input: CalculatorInput): CalculatorResult {
     };
   }
 
-  // Default house medium path → inverter, optionally mention station
   if (input.budget === "low" && watts <= 1800) {
     return {
       kind: "station",
       title: "Зарядна станція як швидкий старт",
       summary:
-        "За обмеженого бюджету портативна станція закриє базовий сценарій, поки не дозріє рішення з інвертором чи СЕС.",
+        "За обмеженого бюджету портативна станція закриє базовий сценарій, поки не дозріє інвертор або генератор.",
       why: [
         "Мінімум монтажу на старті",
-        "Можна пізніше додати панелі або інвертор",
+        "Пізніше можна додати інвертор або генератор",
         "Обирайте запас Wh під ваші години відключень",
       ],
       estimatedWatts: watts,
@@ -198,9 +166,9 @@ export function recommendEnergy(input: CalculatorInput): CalculatorResult {
     kind: "inverter",
     title: "Інвертор + АКБ для будинку",
     summary:
-      "Баланс між тишею, запасом годин і можливістю пізніше додати сонячні панелі.",
+      "Баланс між тишею й запасом годин без шуму генератора — типовий резерв для будинку.",
     why: [
-      "Підходить для середніх відключень без шуму генератора",
+      "Підходить для середніх відключень",
       "Масштабується ємністю батареї",
       "Монтаж і захист лінії підвищують надійність системи",
     ],

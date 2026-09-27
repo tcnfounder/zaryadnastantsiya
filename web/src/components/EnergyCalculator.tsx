@@ -45,7 +45,6 @@ const defaultInput: CalculatorInput = {
   criticalLoad: "fridge",
   outdoorOk: false,
   budget: "mid",
-  wantsSolar: false,
   city: "Київ",
 };
 
@@ -233,31 +232,6 @@ export function EnergyCalculator() {
           </div>
         </fieldset>
 
-        <fieldset>
-          <legend>Чи розглядаєте сонячну станцію на роки?</legend>
-          <div className="calc-options calc-options-row">
-            {[
-              { id: true, label: "Так, довгостроково" },
-              { id: false, label: "Ні, лише резерв" },
-            ].map((option) => (
-              <label
-                key={String(option.id)}
-                className={`calc-option${input.wantsSolar === option.id ? " is-active" : ""}`}
-              >
-                <input
-                  type="radio"
-                  name="solar"
-                  checked={input.wantsSolar === option.id}
-                  onChange={() => patch("wantsSolar", option.id)}
-                />
-                <span>
-                  <strong>{option.label}</strong>
-                </span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <label className="calc-city">
           Місто
           <select
@@ -386,7 +360,7 @@ export function EnergyCalculator() {
           ) : (
             <p className="form-note">
               Для цього сценарію монтаж не обов’язковий — можна стартувати з готової
-              станції. Якщо пізніше додасте СЕС або щит,{" "}
+              станції. Якщо пізніше знадобиться щит чи генератор,{" "}
               <Link href="/claim">монтажні компанії</Link> вже в каталозі.
             </p>
           )}

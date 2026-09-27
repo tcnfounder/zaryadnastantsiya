@@ -2,7 +2,7 @@ export type Product = {
   id: string;
   name: string;
   brand: string;
-  category: "station" | "generator" | "inverter" | "solar";
+  category: "station" | "generator" | "inverter";
   capacityWh: number;
   outputW: number;
   priceUah: number;
@@ -175,26 +175,10 @@ export const products: Product[] = [
     rating: 4.7,
     bestFor: "Потужний інвертор для будинку зі СЕС",
     seoDescription:
-      "Growatt SPF 5000 ES — потужний інвертор 5 кВт для будинку з сонячною станцією в Україні.",
+      "Growatt SPF 5000 ES — потужний інвертор 5 кВт для будинку з великим резервом в Україні.",
     guide:
-      "Орієнтир для будинку зі СЕС і більшим резервом. Поєднуйте з коректним банком АКБ і захистом лінії.",
+      "Орієнтир для будинку з більшим резервом і важчими споживачами. Поєднуйте з коректним банком АКБ і захистом лінії.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Growatt%20SPF%205000",
-  },
-  {
-    id: "longi-410",
-    name: "Hi-MO 5 410W",
-    brand: "LONGi",
-    category: "solar",
-    capacityWh: 0,
-    outputW: 410,
-    priceUah: 4200,
-    rating: 4.7,
-    bestFor: "Домашня СЕС і денний резерв",
-    seoDescription:
-      "LONGi Hi-MO 5 410W — сонячна панель для домашньої СЕС і денного підзаряду резерву в Україні.",
-    guide:
-      "Панель для денної генерації. Для автономії потрібні інвертор і АКБ — панель сама по собі не замінює нічний резерв.",
-    affiliateUrl: "https://rozetka.com.ua/ua/search/?text=LONGi%20410",
   },
 ];
 

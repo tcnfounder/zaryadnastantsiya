@@ -638,16 +638,9 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
 
 @media (min-width: 900px) {
   .claim-panel {
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1.1fr 0.9fr;
     align-items: stretch;
   }
-}
-
-.claim-main {
-  display: grid;
-  gap: 1.15rem;
-  align-content: start;
-  min-width: 0;
 }
 
 .claim-copy {
@@ -659,9 +652,8 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
 .claim-visual {
   position: relative;
   width: 100%;
-  min-height: 16rem;
-  aspect-ratio: 4 / 3;
-  margin: 0;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 1.15rem;
   overflow: hidden;
   border-radius: var(--radius-sm);
   background:
@@ -669,22 +661,15 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
     var(--bg-deep);
 }
 
-@media (min-width: 900px) {
-  .claim-visual {
-    min-height: 100%;
-    aspect-ratio: auto;
-  }
-}
-
 .claim-visual-img {
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 40%;
   transform: scale(1.02);
   transition: transform 0.7s ease;
 }
 
 .claim-panel:hover .claim-visual-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .claim-panel form {
