@@ -25,20 +25,27 @@ function sanitize(value: unknown, max = 200) {
 }
 
 async function notifyWebhook(payload: Record<string, unknown>) {
-  const webhook = process.env.CLAIM_WEBHOOK_URL;
+  const webhook = process.env.CLAIM_WEBHOOK_URL?.trim();
   if (!webhook) return { ok: false as const, reason: "webhook_not_configured" };
 
-  const response = await fetch(webhook, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
+  try {
+    const response = await fetch(webhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-  if (!response.ok) {
-    throw new Error(`Webhook failed with ${response.status}`);
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.error("[claim-webhook-error]", response.status, detail);
+      return { ok: false as const, reason: `webhook_${response.status}` };
+    }
+
+    return { ok: true as const };
+  } catch (error) {
+    console.error("[claim-webhook-error]", error);
+    return { ok: false as const, reason: "webhook_exception" };
   }
-
-  return { ok: true as const };
 }
 
 async function notifyResend(payload: {
@@ -49,44 +56,53 @@ async function notifyResend(payload: {
   phone: string;
   message: string;
 }) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CLAIM_NOTIFY_TO;
-  const from = process.env.CLAIM_NOTIFY_FROM || "ZaryadnaStantsiya <onboarding@resend.dev>";
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  const to = process.env.CLAIM_NOTIFY_TO?.trim();
+  const from =
+    process.env.CLAIM_NOTIFY_FROM?.trim() ||
+    "ZaryadnaStantsiya <onboarding@resend.dev>";
 
   if (!apiKey || !to) {
     return { ok: false as const, reason: "resend_not_configured" };
   }
 
   const pkg = claimPackages.find((item) => item.id === payload.packageId);
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: payload.email,
-      subject: `Claim: ${payload.company} · ${pkg?.name ?? payload.packageId}`,
-      text: [
-        `Компанія: ${payload.company}`,
-        `Email: ${payload.email}`,
-        `Місто: ${payload.city}`,
-        `Телефон: ${payload.phone || "—"}`,
-        `Пакет: ${pkg?.name ?? payload.packageId} (${pkg ? pkg.priceUah + " ₴/міс" : "—"})`,
-        `Повідомлення: ${payload.message || "—"}`,
-        `Час: ${new Date().toISOString()}`,
-      ].join("\n"),
-    }),
-  });
 
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Resend failed: ${response.status} ${detail}`);
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: payload.email,
+        subject: `Claim: ${payload.company} · ${pkg?.name ?? payload.packageId}`,
+        text: [
+          `Компанія: ${payload.company}`,
+          `Email: ${payload.email}`,
+          `Місто: ${payload.city}`,
+          `Телефон: ${payload.phone || "—"}`,
+          `Пакет: ${pkg?.name ?? payload.packageId} (${pkg ? pkg.priceUah + " ₴/міс" : "—"})`,
+          `Повідомлення: ${payload.message || "—"}`,
+          `Час: ${new Date().toISOString()}`,
+        ].join("\n"),
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.error("[claim-resend-error]", response.status, detail);
+      return { ok: false as const, reason: `resend_${response.status}` };
+    }
+
+    return { ok: true as const };
+  } catch (error) {
+    console.error("[claim-resend-error]", error);
+    return { ok: false as const, reason: "resend_exception" };
   }
-
-  return { ok: true as const };
 }
 
 export async function POST(request: Request) {
@@ -137,34 +153,31 @@ export async function POST(request: Request) {
     source: "zaryadnastantsiya.com.ua/claim",
   };
 
-  try {
-    const [webhookResult, resendResult] = await Promise.all([
-      notifyWebhook(lead),
-      notifyResend({ company, email, city, packageId, phone, message }),
-    ]);
+  const [webhookResult, resendResult] = await Promise.all([
+    notifyWebhook(lead),
+    notifyResend({ company, email, city, packageId, phone, message }),
+  ]);
 
-    console.info("[claim-lead]", JSON.stringify({
+  console.info(
+    "[claim-lead]",
+    JSON.stringify({
       ...lead,
       delivered: {
         webhook: webhookResult.ok,
         resend: resendResult.ok,
+        webhookReason: "reason" in webhookResult ? webhookResult.reason : null,
+        resendReason: "reason" in resendResult ? resendResult.reason : null,
       },
-    }));
+    }),
+  );
 
-    const delivered = webhookResult.ok || resendResult.ok;
+  const delivered = webhookResult.ok || resendResult.ok;
 
-    return NextResponse.json({
-      ok: true,
-      delivered,
-      // Still accept the lead when delivery channels are not configured yet —
-      // Railway logs keep a copy for manual follow-up.
-      mode: delivered ? "notified" : "logged",
-    });
-  } catch (error) {
-    console.error("[claim-lead-error]", error);
-    return NextResponse.json(
-      { error: "Не вдалося надіслати заявку. Спробуйте ще раз за хвилину." },
-      { status: 502 },
-    );
-  }
+  // Always accept a valid lead. Delivery failures stay in Railway logs so the
+  // form never dies with a Cloudflare 502 HTML page.
+  return NextResponse.json({
+    ok: true,
+    delivered,
+    mode: delivered ? "notified" : "logged",
+  });
 }
