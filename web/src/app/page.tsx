@@ -31,7 +31,7 @@ export default function HomePage() {
           <div className="hero-masthead-veil" />
         </div>
         <div className="hero-masthead-copy">
-          <p className="eyebrow">Незалежний гід для України</p>
+          <p className="eyebrow">Зарядні станції · інвертори · генератори</p>
           <h1>Резервне живлення без хаосу</h1>
           <p className="hero-lead">{site.tagline}</p>
           <div className="hero-actions">
