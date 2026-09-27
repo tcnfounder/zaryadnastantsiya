@@ -164,32 +164,26 @@ select {
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  line-height: 0;
 }
 
-.brand-lockup {
+.brand-wordmark {
   display: inline-flex;
-  align-items: center;
-  min-width: 0;
-  background: none;
-  border: 0;
-  box-shadow: none;
-  border-radius: 0;
-  padding: 0;
-  line-height: 0;
+  align-items: baseline;
+  gap: 0.08em;
+  font-family: var(--font-brand), "Segoe UI", sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.brand-mark-icon-img {
-  display: block;
-  width: 5.75rem;
-  height: auto;
-  max-height: 5.75rem;
-  flex-shrink: 0;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent !important;
-  object-fit: contain;
+.brand-wordmark-lead {
+  color: var(--ink);
+}
+
+.brand-wordmark-tail {
+  color: var(--amber);
 }
 
 .sr-only {
@@ -237,9 +231,8 @@ select {
     font-size: 0.88rem;
   }
 
-  .brand-mark-icon-img {
-    width: 4.5rem;
-    max-height: 4.5rem;
+  .brand-wordmark {
+    font-size: 1.15rem;
   }
 }
 

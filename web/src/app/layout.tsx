@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Unbounded } from "next/font/google";
+import { Bricolage_Grotesque, Manrope, Unbounded } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";
@@ -14,6 +14,12 @@ const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin", "latin-ext", "cyrillic"],
   weight: ["400", "500", "600", "700"],
+});
+
+const brand = Bricolage_Grotesque({
+  variable: "--font-brand",
+  subsets: ["latin", "latin-ext"],
+  weight: ["700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -56,7 +62,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className={`${unbounded.variable} ${manrope.variable} h-full`}>
+    <html
+      lang="uk"
+      className={`${unbounded.variable} ${manrope.variable} ${brand.variable} h-full`}
+    >
       <body className="site-shell min-h-full flex flex-col antialiased">
         <SiteHeader />
         <main className="flex flex-1 flex-col">{children}</main>

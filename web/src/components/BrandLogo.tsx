@@ -1,17 +1,11 @@
-import Image from "next/image";
+import { site } from "@/data/site";
 
 export function BrandLogo({ className = "" }: { className?: string }) {
   return (
-    <span className={`brand-lockup ${className}`.trim()}>
-      <Image
-        src="/logo-mark.png"
-        alt="ZaryadnaStantsiya"
-        width={184}
-        height={208}
-        className="brand-mark-icon-img"
-        priority
-        unoptimized
-      />
+    <span className={`brand-wordmark ${className}`.trim()} aria-hidden="true">
+      <span className="brand-wordmark-lead">Zaryadna</span>
+      <span className="brand-wordmark-tail">Stantsiya</span>
+      <span className="sr-only">{site.name}</span>
     </span>
   );
 }
