@@ -181,12 +181,16 @@ select {
   min-width: 0;
 }
 
+.brand-lockup-mark-only {
+  gap: 0;
+}
+
 .brand-mark-icon-img {
-  width: 2.55rem;
-  height: 2.55rem;
+  width: 3.35rem;
+  height: 3.35rem;
   flex-shrink: 0;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 24px rgba(36, 56, 72, 0.14);
+  border-radius: 0.9rem;
+  box-shadow: 0 12px 28px rgba(36, 56, 72, 0.16);
   object-fit: cover;
 }
 
@@ -260,12 +264,8 @@ select {
   }
 
   .brand-mark-icon-img {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
-
-  .brand-mark-text {
-    font-size: 0.98rem;
+    width: 2.9rem;
+    height: 2.9rem;
   }
 
   .hero {

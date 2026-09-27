@@ -1,31 +1,16 @@
 import Image from "next/image";
 
-export function BrandLogo({
-  className = "",
-  showWordmark = true,
-}: {
-  className?: string;
-  showWordmark?: boolean;
-}) {
+export function BrandLogo({ className = "" }: { className?: string }) {
   return (
-    <span className={`brand-lockup ${className}`.trim()}>
+    <span className={`brand-lockup brand-lockup-mark-only ${className}`.trim()}>
       <Image
         src="/logo-mark.png"
-        alt=""
-        width={96}
-        height={96}
+        alt="ZaryadnaStantsiya"
+        width={160}
+        height={160}
         className="brand-mark-icon-img"
-        aria-hidden
         priority
       />
-      {showWordmark ? (
-        <span className="brand-mark-text">
-          Zaryadna
-          <span>Stantsiya</span>
-        </span>
-      ) : (
-        <span className="sr-only">ZaryadnaStantsiya</span>
-      )}
     </span>
   );
 }
