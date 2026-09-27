@@ -51,18 +51,26 @@ export default function GeneratorsPage() {
             lineHeight: 1.05,
           }}
         >
-          Потужність для довгих відключень
+          Генератори для дому й бізнесу в Україні
         </h1>
         <p>
-          Добірка рішень для приватного будинку, ОСББ і малого бізнесу з
-          прозорими орієнтирами по потужності. Генератори — лише для відкритих
-          майданчиків; для квартири дивіться{" "}
+          Порівняння бензинових, дизельних та інверторних генераторів 3–5 кВт+
+          для довгих відключень. Лише для відкритих майданчиків; для квартири
+          дивіться{" "}
           <Link href="/zaryadni-stantsii" style={{ color: "var(--amber)", fontWeight: 600 }}>
-            станції
+            зарядні станції
           </Link>{" "}
           або{" "}
           <Link href="/invertory" style={{ color: "var(--amber)", fontWeight: 600 }}>
             інвертори
+          </Link>
+          . Спочатку{" "}
+          <Link href="/gid/generator-dlya-domu" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            гід «генератор для дому»
+          </Link>{" "}
+          або{" "}
+          <Link href="/kalkulyator" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            калькулятор
           </Link>
           .
         </p>

@@ -56,8 +56,8 @@ const kindMeta: Record<
   },
   generator: {
     label: "Генератор",
-    guideHref: "/generatory",
-    guideLabel: "Каталог генераторів",
+    guideHref: "/gid/generator-dlya-domu",
+    guideLabel: "Гід: генератор для дому",
   },
 };
 

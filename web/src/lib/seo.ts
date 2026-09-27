@@ -71,12 +71,40 @@ export function productJsonLd(product: Product) {
       availability: "https://schema.org/InStock",
       url: absoluteUrl(productPath(product)),
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      bestRating: 5,
-      ratingCount: Math.max(12, Math.round(product.rating * 24)),
+    // No aggregateRating until we have real review counts — fake ratings hurt trust/SEO.
+  };
+}
+
+export function articleJsonLd(input: {
+  title: string;
+  description: string;
+  path: string;
+  dateModified: string;
+  keywords?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.title,
+    description: input.description,
+    dateModified: input.dateModified,
+    datePublished: input.dateModified,
+    inLanguage: "uk-UA",
+    mainEntityOfPage: absoluteUrl(input.path),
+    author: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
     },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/logo.png"),
+      },
+    },
+    keywords: input.keywords?.join(", "),
   };
 }
 

@@ -31,8 +31,8 @@ export default function HomePage() {
           <div className="hero-masthead-veil" />
         </div>
         <div className="hero-masthead-copy">
-          <p className="eyebrow">Зарядні станції · інвертори · генератори</p>
-          <h1>Резервне живлення без хаосу</h1>
+          <p className="eyebrow">{site.name} · Україна</p>
+          <h1>Зарядна станція, інвертор чи генератор під блекаут</h1>
           <p className="hero-lead">{site.tagline}</p>
           <div className="hero-actions">
             <Link href="/kalkulyator" className="btn btn-primary">
@@ -75,7 +75,7 @@ export default function HomePage() {
           <h2>Гіди під запити, де вже є гроші</h2>
           <p>
             Сторінки під ключі з тисячами показів на місяць — від гібридного
-            інвертора до станції для квартири.
+            інвертора й інверторного генератора до станції для квартири.
           </p>
         </div>
         <ol className="guide-index guide-index-home">

@@ -10,12 +10,14 @@ import { site } from "@/data/site";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Інвертори та АКБ для резерву",
+  title: "Інвертори для дому — тихий резерв під блекаут",
   description:
-    "Порівняння інверторів для тихого резервного живлення квартири й будинку в Україні: Must, Growatt, сценарії з АКБ і СЕС.",
+    "Порівняння інверторів для тихого резервного живлення квартири й будинку в Україні: Must, Growatt, сценарії з АКБ без генератора.",
   keywords: [
     "інвертор",
+    "інвертор для дому",
     "інвертор з АКБ",
+    "гібридний інвертор",
     "резервне живлення",
     "Growatt",
     "Must",
@@ -24,9 +26,9 @@ export const metadata: Metadata = {
     canonical: `${site.url}/invertory`,
   },
   openGraph: {
-    title: "Інвертори — тихий резерв для України",
+    title: "Інвертори для дому — тихий резерв",
     description:
-      "Інверторні рішення для квартир і будинків без шуму генератора.",
+      "Інверторні рішення з АКБ для квартир і будинків без шуму генератора.",
     url: `${site.url}/invertory`,
     locale: "uk_UA",
   },
@@ -52,14 +54,31 @@ export default function InvertersPage() {
             lineHeight: 1.05,
           }}
         >
-          Тихий резерв без шуму генератора
+          Інвертори для дому з АКБ під блекаут
         </h1>
         <p>
-          Інверторні рішення для квартир і будинків, де важливі стабільність,
-          автономність і акустичний комфорт. Для денного підзаряду дивіться також
-          панелі в добірці; для портативного сценарію —{" "}
+          Тихий резерв для квартири й будинку: інвертор + акумулятор без вихлопу.
+          Спочатку прочитайте{" "}
+          <Link
+            href="/gid/invertor-dlya-domu"
+            style={{ color: "var(--amber)", fontWeight: 600 }}
+          >
+            гід «інвертор для дому»
+          </Link>{" "}
+          або{" "}
+          <Link
+            href="/gid/hibrydnyy-invertor"
+            style={{ color: "var(--amber)", fontWeight: 600 }}
+          >
+            гібридний інвертор
+          </Link>
+          ; для портативного сценарію —{" "}
           <Link href="/zaryadni-stantsii" style={{ color: "var(--amber)", fontWeight: 600 }}>
             зарядні станції
+          </Link>
+          , для довгих відключень на вулиці —{" "}
+          <Link href="/gid/generator-dlya-domu" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            генератор для дому
           </Link>
           .
         </p>
@@ -69,7 +88,7 @@ export default function InvertersPage() {
         <FaqSection
           items={inverterFaq}
           title="Як обрати інвертор"
-          intro="Тихий резерв, АКБ і можливість додати СЕС пізніше."
+          intro="Тихий резерв і ємність АКБ під ваші години відключень."
         />
       </div>
       <div className="featured-band" style={{ marginTop: "2rem" }}>
