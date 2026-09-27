@@ -23,29 +23,33 @@ npm run dev
 
 ## Cloudflare deploy
 
+Worker **gerekli** (Next.js SSR OpenNext ile Workers’ta çalışır). GitHub tek başına host etmez — CI ile senin Cloudflare hesabına kalıcı deploy eder. Geçici (`--temporary`) hesap kullanma; 522’nin sebebi oydu.
+
+### GitHub Actions (önerilen)
+
+Repo: https://github.com/tcnfounder/zaryadnastantsiya
+
+1. Cloudflare → **My Profile → API Tokens → Create Token**  
+   Template: **Edit Cloudflare Workers** (Account = domain’in olduğu hesap).
+2. GitHub repo → **Settings → Secrets and variables → Actions** ekle:
+   - `CLOUDFLARE_API_TOKEN` = token
+   - `CLOUDFLARE_ACCOUNT_ID` = `102794b6995d415c78ed2978c4e7b241`
+3. `main`’e push veya **Actions → Deploy to Cloudflare Workers → Run workflow**.
+
+### Manuel
+
 ```bash
 cd web
-export CLOUDFLARE_API_TOKEN=...   # Edit Cloudflare Workers
-export CLOUDFLARE_ACCOUNT_ID=...  # optional but recommended
+export CLOUDFLARE_API_TOKEN=...
+export CLOUDFLARE_ACCOUNT_ID=102794b6995d415c78ed2978c4e7b241
 npm run deploy
 ```
 
-Після деплою Worker з’явиться на `*.workers.dev`.
+Після деплою Worker з’явиться на `*.workers.dev` / custom domain.
 
 ### Кастомний домен `zaryadnastantsiya.com.ua`
 
-1. Додайте зону `zaryadnastantsiya.com.ua` у [Cloudflare Dashboard](https://dash.cloudflare.com) (DNS NS → Cloudflare).
-2. У `web/wrangler.jsonc` додайте:
-
-```jsonc
-"routes": [
-  { "pattern": "zaryadnastantsiya.com.ua", "custom_domain": true },
-  { "pattern": "www.zaryadnastantsiya.com.ua", "custom_domain": true }
-]
-```
-
-3. Знову `npm run deploy`.
-
+`web/wrangler.jsonc` içinde routes zaten var. Kalıcı hesapta `npm run deploy` domain’leri Worker’a bağlar.
 ## Структура
 
 - `/` — hero + добірки + claim
