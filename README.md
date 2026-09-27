@@ -9,10 +9,9 @@
 
 ## Стек
 
-- Next.js 16 (App Router)
-- Vercel (production host)
+- Next.js 16 (App Router) + standalone Docker
+- Railway (production host)
 - Cloudflare = sadece DNS (Workers şart değil)
-- TypeScript + Tailwind CSS 4
 
 ## Локальний запуск
 
@@ -22,14 +21,15 @@ npm install
 npm run dev
 ```
 
-## Deploy (Vercel)
+## Deploy (Railway)
 
-Workers gerekmez. Next.js native Vercel’de çalışır.
+Workers gerekmez.
 
-1. Vercel’e GitHub repo bağla (`tcnfounder/zaryadnastantsiya`)
-2. Root Directory: `web`
-3. Domain ekle: `zaryadnastantsiya.com.ua` + `www`
-4. Cloudflare DNS’te apex/www → Vercel’in verdiği CNAME/A kayıtları
+1. Railway’de `tcnfounder/zaryadnastantsiya` repo’sunu bağla
+2. Root Directory / Watch Path: `web`
+3. Dockerfile: `web/Dockerfile`
+4. Custom domain: `zaryadnastantsiya.com.ua` + `www`
+5. Cloudflare DNS → Railway’in verdiği CNAME
 
 ## Структура
 
