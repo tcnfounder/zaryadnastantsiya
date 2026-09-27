@@ -8,6 +8,8 @@ export type Product = {
   priceUah: number;
   rating: number;
   bestFor: string;
+  seoDescription: string;
+  guide: string;
   affiliateUrl: string;
   featured?: boolean;
 };
@@ -23,6 +25,10 @@ export const products: Product[] = [
     priceUah: 42999,
     rating: 4.8,
     bestFor: "Квартира під час відключень 6–10 годин",
+    seoDescription:
+      "EcoFlow DELTA 2 — портативна зарядна станція 1024 Wh / 1800 W для квартири та дому під час відключень в Україні.",
+    guide:
+      "DELTA 2 закриває типові сценарії блекауту в квартирі: роутер, ноутбук, освітлення, заряд телефонів і короткі цикли холодильника. Порівнюйте ємність Wh і пікову потужність W перед покупкою.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=EcoFlow%20DELTA%202",
     featured: true,
   },
@@ -36,6 +42,10 @@ export const products: Product[] = [
     priceUah: 39999,
     rating: 4.7,
     bestFor: "Дім і невеликий офіс",
+    seoDescription:
+      "Bluetti AC180 — зарядна станція 1152 Wh для дому й невеликого офісу в Україні: порівняння ємності, потужності та ціни.",
+    guide:
+      "AC180 підходить, коли потрібен запас понад 1 кВт·год без генератора. Добре працює як денний/нічний резерв для дому чи невеликого офісу.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Bluetti%20AC180",
     featured: true,
   },
@@ -49,6 +59,10 @@ export const products: Product[] = [
     priceUah: 12999,
     rating: 4.6,
     bestFor: "Ноутбук, роутер, освітлення",
+    seoDescription:
+      "EcoFlow RIVER 2 — компактна зарядна станція 256 Wh для роутера, ноутбука й освітлення під час відключень.",
+    guide:
+      "Компактний варіант для зв’язку й роботи. Не розраховуйте на холодильник — це станція для легких навантажень і мобільності.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=EcoFlow%20RIVER%202",
   },
   {
@@ -61,7 +75,12 @@ export const products: Product[] = [
     priceUah: 36999,
     rating: 4.6,
     bestFor: "Мобільний резерв для дачі й подорожей",
-    affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Jackery%20Explorer%201000",
+    seoDescription:
+      "Jackery Explorer 1000 — мобільна зарядна станція ~1000 Wh для дачі, подорожей і резервного живлення.",
+    guide:
+      "Зручний мобільний резерв, коли важлива портативність. Для важких пускових навантажень перевіряйте запас по W.",
+    affiliateUrl:
+      "https://rozetka.com.ua/ua/search/?text=Jackery%20Explorer%201000",
   },
   {
     id: "konner-3000",
@@ -73,6 +92,10 @@ export const products: Product[] = [
     priceUah: 28999,
     rating: 4.5,
     bestFor: "Приватний будинок і довгі відключення",
+    seoDescription:
+      "Könner & Söhnen KGE 3000 — бензиновий генератор ~3 кВт для приватного будинку під довгі відключення в Україні.",
+    guide:
+      "Базовий генератор для будинку: освітлення, насос, частина побутових приладів. Ставте лише на відкритому майданчику з відведенням вихлопу.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=generator%203000",
     featured: true,
   },
@@ -86,6 +109,10 @@ export const products: Product[] = [
     priceUah: 45999,
     rating: 4.4,
     bestFor: "ОСББ та малий бізнес",
+    seoDescription:
+      "Hyundai HY 5500 — генератор ~5.5 кВт для ОСББ і малого бізнесу в Україні під тривалі блекаути.",
+    guide:
+      "Більший запас потужності для ОСББ і бізнесу. Перед вибором порахуйте пускові струми насосів і холодильного обладнання.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Hyundai%20generator",
   },
   {
@@ -98,6 +125,10 @@ export const products: Product[] = [
     priceUah: 24999,
     rating: 4.3,
     bestFor: "Бюджетний резерв для будинку",
+    seoDescription:
+      "Forza FPG-3800SE — бюджетний генератор для резервного живлення приватного будинку в Україні.",
+    guide:
+      "Варіант з нижчою стартовою ціною для періодичних відключень. Порівнюйте шум, витрату палива й час автономної роботи.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Forza%20generator",
   },
   {
@@ -110,6 +141,10 @@ export const products: Product[] = [
     priceUah: 18999,
     rating: 4.5,
     bestFor: "Інвертор + АКБ для квартири",
+    seoDescription:
+      "Must PV1800 VPM — інвертор 1.8 кВт для тихого резерву квартири з АКБ в Україні.",
+    guide:
+      "Тихий сценарій для квартири: інвертор + акумулятор замість генератора. Плануйте ємність АКБ під години відключень.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Must%20PV1800",
     featured: true,
   },
@@ -123,6 +158,10 @@ export const products: Product[] = [
     priceUah: 24999,
     rating: 4.6,
     bestFor: "Будинок із базовим резервом",
+    seoDescription:
+      "Must PV3000 VPM — інвертор 3 кВт для базового резерву приватного будинку в Україні.",
+    guide:
+      "Закриває більше одночасних споживачів у будинку. Якщо плануєте СЕС — перевірте підтримку PV-входу.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Must%20PV3000",
   },
   {
@@ -135,6 +174,10 @@ export const products: Product[] = [
     priceUah: 32999,
     rating: 4.7,
     bestFor: "Потужний інвертор для будинку зі СЕС",
+    seoDescription:
+      "Growatt SPF 5000 ES — потужний інвертор 5 кВт для будинку з сонячною станцією в Україні.",
+    guide:
+      "Орієнтир для будинку зі СЕС і більшим резервом. Поєднуйте з коректним банком АКБ і захистом лінії.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Growatt%20SPF%205000",
   },
   {
@@ -147,9 +190,17 @@ export const products: Product[] = [
     priceUah: 4200,
     rating: 4.7,
     bestFor: "Домашня СЕС і денний резерв",
+    seoDescription:
+      "LONGi Hi-MO 5 410W — сонячна панель для домашньої СЕС і денного підзаряду резерву в Україні.",
+    guide:
+      "Панель для денної генерації. Для автономії потрібні інвертор і АКБ — панель сама по собі не замінює нічний резерв.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=LONGi%20410",
   },
 ];
+
+export function getProduct(id: string) {
+  return products.find((product) => product.id === id);
+}
 
 export function productsByCategory(category: Product["category"]) {
   return products.filter((product) => product.category === category);
@@ -157,6 +208,12 @@ export function productsByCategory(category: Product["category"]) {
 
 export function featuredProducts() {
   return products.filter((product) => product.featured);
+}
+
+export function relatedProducts(product: Product, limit = 3) {
+  return products
+    .filter((item) => item.category === product.category && item.id !== product.id)
+    .slice(0, limit);
 }
 
 export function formatPrice(priceUah: number) {

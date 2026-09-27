@@ -592,6 +592,7 @@ select {
 }
 
 .claim-panel form {
+  position: relative;
   display: grid;
   gap: 0.85rem;
 }
@@ -608,7 +609,8 @@ select {
 }
 
 .field input,
-.field textarea {
+.field textarea,
+.field select {
   width: 100%;
   min-height: 3rem;
   padding: 0.75rem 0.9rem;
@@ -628,9 +630,208 @@ select {
 }
 
 .field input:focus,
-.field textarea:focus {
+.field textarea:focus,
+.field select:focus {
   border-color: rgba(196, 122, 26, 0.55);
   box-shadow: 0 0 0 3px var(--amber-soft);
+}
+
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.error-note {
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(160, 40, 40, 0.35);
+  background: rgba(160, 40, 40, 0.08);
+  color: #6b1d1d;
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.product-title-link:hover {
+  color: var(--amber);
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+
+.breadcrumbs a:hover {
+  color: var(--amber);
+}
+
+.product-hero {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .product-hero {
+    grid-template-columns: 1.25fr 0.85fr;
+    align-items: start;
+  }
+}
+
+.product-hero h1 {
+  margin: 0.45rem 0 0.85rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.product-aside {
+  padding: 1.35rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.product-aside h2 {
+  margin: 0.45rem 0 0.75rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.product-aside p {
+  margin: 0 0 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.pricing-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-card {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+  padding: 1.5rem 1.25rem;
+  background: var(--panel-strong);
+}
+
+.pricing-card-hot {
+  background:
+    linear-gradient(180deg, rgba(196, 122, 26, 0.12), transparent 40%),
+    #fff;
+}
+
+.pricing-card-active {
+  outline: 2px solid rgba(196, 122, 26, 0.45);
+  outline-offset: -2px;
+}
+
+.pricing-card h3 {
+  margin: 0;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+}
+
+.pricing-price {
+  margin: 0;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.pricing-price span {
+  margin-left: 0.35rem;
+  color: var(--ink-faint);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.pricing-copy {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.pricing-features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.pricing-features li::before {
+  content: "— ";
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.faq-section {
+  margin-top: 0.5rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.faq-item {
+  padding: 1.1rem 1.25rem;
+  background: var(--panel-strong);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.faq-item[open] summary::after {
+  content: "–";
+}
+
+.faq-item p {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.55;
 }
 
 .featured-band {

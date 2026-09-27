@@ -1,14 +1,21 @@
 import Link from "next/link";
 import { ClaimForm } from "@/components/ClaimForm";
+import { FaqSection } from "@/components/FaqSection";
 import { FeaturedBand } from "@/components/FeaturedBand";
+import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
+import { homeFaq } from "@/data/faq";
 import { featuredProducts } from "@/data/products";
 import { site } from "@/data/site";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={websiteJsonLd()} />
+
       <section className="hero-masthead">
         <div className="hero-masthead-visual" aria-hidden="true">
           <div className="hero-masthead-grid" />
@@ -61,6 +68,14 @@ export default function HomePage() {
       </section>
 
       <FeaturedBand />
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <FaqSection
+          items={homeFaq}
+          title="Швидкі відповіді перед вибором"
+          intro="Станція, генератор чи інвертор — коротко, щоб не витрачати час на хаос у пошуку."
+        />
+      </section>
 
       <section className="section" style={{ paddingTop: 0 }}>
         <ClaimForm />

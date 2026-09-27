@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatPrice, type Product } from "@/data/products";
+import { affiliatePath, productPath } from "@/lib/seo";
 
 type ProductListProps = {
   products: Product[];
@@ -8,7 +9,7 @@ type ProductListProps = {
 
 export function ProductList({
   products,
-  ctaLabel = "Переглянути пропозицію",
+  ctaLabel = "Дивитись пропозиції",
 }: ProductListProps) {
   return (
     <div className="product-list">
@@ -19,7 +20,11 @@ export function ProductList({
               {product.brand}
               {product.featured ? " · Featured" : ""}
             </p>
-            <h3>{product.name}</h3>
+            <h3>
+              <Link href={productPath(product)} className="product-title-link">
+                {product.name}
+              </Link>
+            </h3>
           </div>
           <p style={{ margin: 0, color: "var(--ink-soft)", lineHeight: 1.5 }}>
             {product.bestFor}
@@ -40,9 +45,18 @@ export function ProductList({
               Ціна: <strong>{formatPrice(product.priceUah)}</strong>
             </span>
           </div>
-          <Link href={product.affiliateUrl} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-            {ctaLabel}
-          </Link>
+          <div className="product-actions">
+            <Link href={productPath(product)} className="btn btn-secondary">
+              Огляд моделі
+            </Link>
+            <Link
+              href={affiliatePath(product)}
+              className="btn btn-primary"
+              rel="sponsored noopener noreferrer"
+            >
+              {ctaLabel}
+            </Link>
+          </div>
         </article>
       ))}
     </div>
