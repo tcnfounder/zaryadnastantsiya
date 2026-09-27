@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Unbounded } from "next/font/google";
+import { Manrope, Teko, Unbounded } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";
@@ -21,6 +21,12 @@ const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin", "latin-ext", "cyrillic"],
   weight: ["400", "500", "600", "700"],
+});
+
+const brand = Teko({
+  variable: "--font-brand",
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -72,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="uk"
-      className={`${unbounded.variable} ${manrope.variable} h-full`}
+      className={`${unbounded.variable} ${manrope.variable} ${brand.variable} h-full`}
     >
       <body className="site-shell min-h-full flex flex-col antialiased">
         <SiteHeader />
