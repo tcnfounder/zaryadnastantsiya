@@ -33,8 +33,25 @@ Workers gerekmez.
 
 ## Структура
 
-- `/` — hero + добірки + claim
-- `/zaryadni-stantsii` — станції
-- `/generatory` — генератори
-- `/invertory` — інвертори
-- `/claim` — заявка бізнесу на профіль
+- `/` — hero + добірки + FAQ + claim
+- `/zaryadni-stantsii` — станції + FAQ
+- `/generatory` — генератори + FAQ
+- `/invertory` — інвертори + FAQ
+- `/tovary/[id]` — SEO-картки моделей + JSON-LD
+- `/go/[id]` — affiliate redirect (лог кліків)
+- `/claim` — пакети Basic / Featured / City Priority + заявка
+- `/api/claim` — прийом лідів (Resend / webhook / Railway logs)
+
+## Монетизація (env)
+
+У Railway (сервіс `web`) можна задати:
+
+```bash
+RESEND_API_KEY=...
+CLAIM_NOTIFY_TO=you@example.com
+CLAIM_NOTIFY_FROM="ZaryadnaStantsiya <onboarding@resend.dev>"
+CLAIM_WEBHOOK_URL=https://hooks.zapier.com/...   # опційно
+```
+
+Без цих змінних заявки все одно приймаються й пишуться в логи (`[claim-lead]`).
+З ключами — дублюються на email і/або webhook.
