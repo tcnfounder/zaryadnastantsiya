@@ -5,6 +5,7 @@ import { FeaturedBand } from "@/components/FeaturedBand";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
+import { SiteHeader } from "@/components/SiteHeader";
 import { homeFaq } from "@/data/faq";
 import { featuredProducts } from "@/data/products";
 import { site } from "@/data/site";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
 
       <section className="hero-masthead">
+        <SiteHeader embedded />
         <div className="hero-masthead-visual" aria-hidden="true">
           <div className="hero-masthead-grid" />
           <div className="hero-masthead-sun" />

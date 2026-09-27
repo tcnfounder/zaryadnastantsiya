@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Teko, Unbounded } from "next/font/google";
-import { SiteHeader } from "@/components/SiteHeader";
+import { AppHeader } from "@/components/AppHeader";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -8,7 +8,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#edf3f8",
+  themeColor: "#f0ebe3",
 };
 
 const unbounded = Unbounded({
@@ -81,7 +81,7 @@ export default function RootLayout({
       className={`${unbounded.variable} ${manrope.variable} ${brand.variable} h-full`}
     >
       <body className="site-shell min-h-full flex flex-col antialiased">
-        <SiteHeader />
+        <AppHeader />
         <main className="flex flex-1 flex-col">{children}</main>
         <footer className="site-footer">
           <p>
