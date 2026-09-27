@@ -138,17 +138,13 @@ select {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 1000;
   margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
   transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-/* Home: header still fixed, but rendered inside hero so first paint is hero */
-.site-header.is-embedded {
-  position: fixed;
+  pointer-events: none;
 }
 
 .site-header-bar {
@@ -163,13 +159,13 @@ select {
     calc(0.55rem + env(safe-area-inset-top, 0px))
     clamp(1rem, 3.5vw, 2.75rem)
     0.5rem;
+  pointer-events: auto;
 }
 
 .site-header.is-scrolled {
-  background: rgba(240, 235, 227, 0.94);
-  border-bottom: 1px solid rgba(26, 35, 48, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: #f0ebe3;
+  border-bottom: 1px solid rgba(26, 35, 48, 0.1);
+  box-shadow: 0 1px 0 rgba(26, 35, 48, 0.04);
 }
 
 .brand-home {
@@ -371,7 +367,7 @@ select {
   align-items: end;
   align-content: end;
   padding:
-    calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1.5rem)
+    calc(var(--header-h) + env(safe-area-inset-top, 0px) + 4.25rem)
     clamp(1.25rem, 4vw, 3rem)
     clamp(2.75rem, 8vw, 5.5rem);
   overflow: hidden;
@@ -455,26 +451,26 @@ select {
   border-color: rgba(244, 240, 232, 0.7);
 }
 
-/* Light wordmark/nav over dark photo until scroll solidifies cream bar */
-.hero-masthead .site-header:not(.is-scrolled) .brand-logo-main {
+/* Light wordmark/nav over dark home hero until scroll solidifies cream bar */
+body:has(.hero-masthead) .site-header:not(.is-scrolled) .brand-logo-main {
   color: #f4f0e8;
 }
 
-.hero-masthead .site-header:not(.is-scrolled) .site-nav-link {
+body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-nav-link {
   color: rgba(244, 240, 232, 0.78);
 }
 
-.hero-masthead .site-header:not(.is-scrolled) .site-nav-link:hover {
+body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-nav-link:hover {
   color: #f4f0e8;
   background: rgba(244, 240, 232, 0.08);
 }
 
-.hero-masthead .site-header:not(.is-scrolled) .site-header-cta {
+body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta {
   background: var(--amber);
   color: #1a2330;
 }
 
-.hero-masthead .site-header:not(.is-scrolled) .site-header-cta:hover {
+body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   background: var(--amber-bright);
 }
 
@@ -492,7 +488,7 @@ select {
     align-items: end;
     align-content: end;
     min-height: 100svh;
-    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 1.25rem);
+    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 3.25rem);
     padding-bottom: clamp(2.25rem, 10vw, 3.5rem);
   }
 
@@ -538,15 +534,20 @@ select {
 
 .section {
   position: relative;
-  z-index: 2;
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
   padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem);
 }
 
 .page-section {
   position: relative;
-  z-index: 2;
   padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(1.5rem, 4vw, 2.5rem))
     clamp(1.25rem, 4vw, 3rem) clamp(3.5rem, 8vw, 6rem);
+}
+
+#claim-form,
+#dobirky,
+#gidy {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
 .section-head {
@@ -651,7 +652,7 @@ select {
 .claim-visual {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   margin: 0 0 1.15rem;
   overflow: hidden;
   border-radius: var(--radius-sm);
@@ -1027,13 +1028,21 @@ select {
 /* —— Energy calculator —— */
 .calc-shell {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 960px) {
   .calc-shell {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: start;
+    gap: 1.5rem;
+  }
+
+  .calc-result {
+    position: sticky;
+    top: calc(var(--header-h) + 1rem);
+    max-height: calc(100dvh - var(--header-h) - 2rem);
+    overflow: auto;
   }
 }
 
@@ -1043,6 +1052,116 @@ select {
   background: var(--panel-strong);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+}
+
+.calc-step {
+  margin: 0 0 0.85rem;
+  color: var(--amber);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.calc-scenario {
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0.8rem;
+  background: rgba(36, 56, 72, 0.05);
+  border-radius: var(--radius-sm);
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.calc-kind-chip {
+  display: inline-flex;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--amber-soft);
+  color: var(--steel-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+}
+
+.calc-alts {
+  margin: 0 0 1.25rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.calc-alts h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+}
+
+.calc-alts ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.calc-alts li {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.calc-alts span {
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+
+.calc-result-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
+}
+
+.calc-jump-btn {
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .calc-jump-btn {
+    display: none;
+  }
+}
+
+.calc-installer-soft {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.calc-seo-links {
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.calc-seo-links h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+.calc-seo-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.calc-seo-links a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .calc-form fieldset {
@@ -1255,4 +1374,139 @@ select {
 .calc-lead p {
   margin: 0;
   color: var(--ink-soft);
+}
+
+
+.btn-ghost-ink {
+  background: transparent;
+  border-color: rgba(26, 35, 48, 0.22);
+  color: var(--ink);
+}
+
+.btn-ghost-ink:hover {
+  background: rgba(26, 35, 48, 0.05);
+  border-color: rgba(26, 35, 48, 0.4);
+}
+
+.guide-article {
+  max-width: 46rem;
+}
+
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+}
+
+.guide-block {
+  margin: 0 0 1.75rem;
+}
+
+.guide-block h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+  letter-spacing: -0.03em;
+}
+
+.guide-block p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.guide-related {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.guide-related h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.guide-related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.guide-related li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+}
+
+.guide-related a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.guide-related span {
+  color: var(--ink-faint);
+  font-size: 0.92rem;
+}
+
+.guide-index {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.guide-index li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.9rem 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.guide-index li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.guide-index-rank {
+  color: var(--amber);
+  font-family: var(--font-unbounded), sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.guide-index a {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.guide-index p {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.guide-index strong {
+  color: var(--ink-faint);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .guide-index li {
+    grid-template-columns: auto 1fr;
+  }
+
+  .guide-index strong {
+    grid-column: 2;
+  }
 }

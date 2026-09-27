@@ -6,8 +6,8 @@ import { FeaturedBand } from "@/components/FeaturedBand";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
-import { SiteHeader } from "@/components/SiteHeader";
 import { homeFaq } from "@/data/faq";
+import { guidesByVolume } from "@/data/guides";
 import { featuredProducts } from "@/data/products";
 import { site } from "@/data/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -19,7 +19,6 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
 
       <section className="hero-masthead">
-        <SiteHeader embedded />
         <div className="hero-masthead-media" aria-hidden="true">
           <Image
             src="/hero-power-station.jpg"
@@ -32,15 +31,15 @@ export default function HomePage() {
           <div className="hero-masthead-veil" />
         </div>
         <div className="hero-masthead-copy">
-          <p className="eyebrow">Незалежний гід для України</p>
+          <p className="eyebrow">Зарядні станції · інвертори · генератори</p>
           <h1>Резервне живлення без хаосу</h1>
           <p className="hero-lead">{site.tagline}</p>
           <div className="hero-actions">
             <Link href="/kalkulyator" className="btn btn-primary">
               Підібрати джерело енергії
             </Link>
-            <Link href="/#dobirky" className="btn btn-ghost">
-              Переглянути добірки
+            <Link href="/gid" className="btn btn-ghost">
+              Гіди під запити
             </Link>
           </div>
         </div>
@@ -68,6 +67,34 @@ export default function HomePage() {
           </p>
         </div>
         <ProductList products={featuredProducts()} />
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }} id="gidy">
+        <div className="section-head">
+          <p className="eyebrow">Попит у пошуку</p>
+          <h2>Гіди під запити, де вже є гроші</h2>
+          <p>
+            Сторінки під ключі з тисячами показів на місяць — від гібридного
+            інвертора до станції для квартири.
+          </p>
+        </div>
+        <ol className="guide-index guide-index-home">
+          {guidesByVolume.slice(0, 6).map((guide, index) => (
+            <li key={guide.slug}>
+              <span className="guide-index-rank">{index + 1}</span>
+              <div>
+                <Link href={`/gid/${guide.slug}`}>{guide.h1}</Link>
+                <p>{guide.keyword}</p>
+              </div>
+              <strong>~{guide.searchVolume.toLocaleString("uk-UA")}/міс</strong>
+            </li>
+          ))}
+        </ol>
+        <p style={{ marginTop: "1.25rem" }}>
+          <Link href="/gid" className="btn btn-ghost-ink">
+            Усі гіди
+          </Link>
+        </p>
       </section>
 
       <FeaturedBand />

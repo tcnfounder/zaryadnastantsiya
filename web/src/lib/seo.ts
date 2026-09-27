@@ -5,14 +5,12 @@ export const categoryPaths = {
   station: "/zaryadni-stantsii",
   generator: "/generatory",
   inverter: "/invertory",
-  solar: "/invertory",
 } as const;
 
 export const categoryLabels = {
   station: "Зарядні станції",
   generator: "Генератори",
   inverter: "Інвертори",
-  solar: "Сонячні панелі",
 } as const;
 
 export function productPath(product: Pick<Product, "id">) {

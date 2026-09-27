@@ -10,6 +10,7 @@ import {
   type CriticalLoad,
   type Housing,
   type OutageHours,
+  type SolutionKind,
 } from "@/lib/calculator";
 import { affiliatePath, productPath } from "@/lib/seo";
 import { formatPrice } from "@/data/products";
@@ -39,50 +40,94 @@ const budgetOptions: { id: Budget; label: string }[] = [
   { id: "high", label: "45 000 ₴+" },
 ];
 
+const kindMeta: Record<
+  SolutionKind,
+  { label: string; guideHref: string; guideLabel: string }
+> = {
+  station: {
+    label: "Зарядна станція",
+    guideHref: "/gid/zaryadna-stantsiya-dlya-kvartyry",
+    guideLabel: "Гід: станція для квартири",
+  },
+  inverter: {
+    label: "Інвертор + АКБ",
+    guideHref: "/gid/invertor-dlya-domu",
+    guideLabel: "Гід: інвертор для дому",
+  },
+  generator: {
+    label: "Генератор",
+    guideHref: "/generatory",
+    guideLabel: "Каталог генераторів",
+  },
+};
+
 const defaultInput: CalculatorInput = {
   housing: "apartment",
   outageHours: "medium",
   criticalLoad: "fridge",
   outdoorOk: false,
   budget: "mid",
-  wantsSolar: false,
   city: "Київ",
 };
 
+function scenarioLine(input: CalculatorInput) {
+  const housing = input.housing === "apartment" ? "квартира" : "будинок";
+  const hours =
+    input.outageHours === "short"
+      ? "до 4 год"
+      : input.outageHours === "medium"
+        ? "4–10 год"
+        : "10+ год";
+  const load =
+    input.criticalLoad === "light"
+      ? "легке навантаження"
+      : input.criticalLoad === "fridge"
+        ? "з холодильником"
+        : input.criticalLoad === "pump"
+          ? "з насосом/котлом"
+          : "майже весь об’єкт";
+  return `${housing} · ${hours} · ${load} · ${input.city}`;
+}
+
 export function EnergyCalculator() {
   const [input, setInput] = useState<CalculatorInput>(defaultInput);
-  const [submitted, setSubmitted] = useState(false);
   const [leadStatus, setLeadStatus] = useState<"idle" | "ok" | "error">("idle");
   const [pending, startTransition] = useTransition();
   const [contact, setContact] = useState({ name: "", phone: "", note: "" });
 
-  const result = useMemo(
-    () => (submitted ? recommendEnergy(input) : null),
-    [submitted, input],
-  );
+  const result = useMemo(() => recommendEnergy(input), [input]);
+  const meta = kindMeta[result.kind];
 
   const matchedInstallers = useMemo(() => {
-    if (!result?.needsInstaller) return [];
+    if (!result.needsInstaller) return [];
     return installers
       .filter((item) => item.city === input.city || item.featured)
       .slice(0, 3);
-  }, [result, input.city]);
+  }, [result.needsInstaller, input.city]);
+
+  const alternatives = useMemo(() => {
+    const kinds: SolutionKind[] = ["station", "inverter", "generator"];
+    return kinds
+      .filter((kind) => kind !== result.kind)
+      .map((kind) => ({
+        kind,
+        ...kindMeta[kind],
+        why:
+          kind === "station"
+            ? "Швидкий старт без щита — якщо навантаження легке"
+            : kind === "inverter"
+              ? "Тихий резерв із нарощуванням АКБ"
+              : "Максимум годин на важких споживачах (потрібна вулиця)",
+      }));
+  }, [result.kind]);
 
   function patch<K extends keyof CalculatorInput>(key: K, value: CalculatorInput[K]) {
-    setSubmitted(false);
     setLeadStatus("idle");
     setInput((prev) => ({ ...prev, [key]: value }));
   }
 
-  function onCalculate(event: FormEvent) {
-    event.preventDefault();
-    setSubmitted(true);
-    setLeadStatus("idle");
-  }
-
   function onLead(event: FormEvent) {
     event.preventDefault();
-    if (!result) return;
     startTransition(async () => {
       try {
         const response = await fetch("/api/calc-lead", {
@@ -108,7 +153,17 @@ export function EnergyCalculator() {
 
   return (
     <div className="calc-shell">
-      <form className="calc-form" onSubmit={onCalculate}>
+      <form
+        className="calc-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          document.getElementById("calc-result")?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
+        }}
+      >
+        <p className="calc-step">Крок 1 · Сценарій</p>
         <fieldset>
           <legend>Де потрібен резерв?</legend>
           <div className="calc-options">
@@ -122,7 +177,6 @@ export function EnergyCalculator() {
                   name="housing"
                   checked={input.housing === option.id}
                   onChange={() => {
-                    setSubmitted(false);
                     setLeadStatus("idle");
                     setInput((prev) => ({
                       ...prev,
@@ -233,31 +287,6 @@ export function EnergyCalculator() {
           </div>
         </fieldset>
 
-        <fieldset>
-          <legend>Чи розглядаєте сонячну станцію на роки?</legend>
-          <div className="calc-options calc-options-row">
-            {[
-              { id: true, label: "Так, довгостроково" },
-              { id: false, label: "Ні, лише резерв" },
-            ].map((option) => (
-              <label
-                key={String(option.id)}
-                className={`calc-option${input.wantsSolar === option.id ? " is-active" : ""}`}
-              >
-                <input
-                  type="radio"
-                  name="solar"
-                  checked={input.wantsSolar === option.id}
-                  onChange={() => patch("wantsSolar", option.id)}
-                />
-                <span>
-                  <strong>{option.label}</strong>
-                </span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <label className="calc-city">
           Місто
           <select
@@ -272,36 +301,56 @@ export function EnergyCalculator() {
           </select>
         </label>
 
-        <button type="submit" className="btn btn-primary">
-          Показати підбір
+        <button type="submit" className="btn btn-primary calc-jump-btn">
+          До результату
         </button>
       </form>
 
-      {result ? (
-        <div className="calc-result rise-in" aria-live="polite">
-          <p className="eyebrow">Рекомендація</p>
-          <h2>{result.title}</h2>
-          <p>{result.summary}</p>
-          <div className="calc-metrics">
-            <div>
-              <span>Орієнтир потужності</span>
-              <strong>~{result.estimatedWatts} W</strong>
-            </div>
-            <div>
-              <span>Орієнтир запасу</span>
-              <strong>~{result.estimatedWh} Wh</strong>
-            </div>
+      <aside className="calc-result" id="calc-result" aria-live="polite">
+        <p className="calc-step">Крок 2 · Живий підбір</p>
+        <p className="calc-scenario">{scenarioLine(input)}</p>
+        <p className="eyebrow">Рекомендація</p>
+        <h2>{result.title}</h2>
+        <p>{result.summary}</p>
+
+        <div className="calc-kind-chip" data-kind={result.kind}>
+          {meta.label}
+        </div>
+
+        <div className="calc-metrics">
+          <div>
+            <span>Орієнтир потужності</span>
+            <strong>~{result.estimatedWatts} W</strong>
           </div>
-          <ul className="calc-why">
-            {result.why.map((item) => (
-              <li key={item}>{item}</li>
+          <div>
+            <span>Орієнтир запасу</span>
+            <strong>~{result.estimatedWh} Wh</strong>
+          </div>
+        </div>
+
+        <ul className="calc-why">
+          {result.why.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+
+        <div className="calc-alts">
+          <h3>Інші варіанти</h3>
+          <ul>
+            {alternatives.map((item) => (
+              <li key={item.kind}>
+                <strong>{item.label}</strong>
+                <span>{item.why}</span>
+              </li>
             ))}
           </ul>
+        </div>
 
-          <div className="calc-products">
-            <h3>Моделі для старту</h3>
-            <div className="calc-product-list">
-              {result.products.map((product) => (
+        <div className="calc-products">
+          <h3>Моделі для старту</h3>
+          <div className="calc-product-list">
+            {result.products.length > 0 ? (
+              result.products.map((product) => (
                 <article key={product.id}>
                   <p>
                     {product.brand} {product.name}
@@ -316,82 +365,95 @@ export function EnergyCalculator() {
                     <Link href={affiliatePath(product)}>Де купити</Link>
                   </div>
                 </article>
-              ))}
-            </div>
-            <Link href={result.categoryPath} className="btn btn-ghost">
+              ))
+            ) : (
+              <p className="form-note">У цій категорії поки немає моделей під бюджет.</p>
+            )}
+          </div>
+          <div className="calc-result-links">
+            <Link href={result.categoryPath} className="btn btn-ghost-ink">
               Уся категорія
             </Link>
+            <Link href={meta.guideHref} className="btn btn-ghost-ink">
+              {meta.guideLabel}
+            </Link>
           </div>
+        </div>
 
-          {result.needsInstaller ? (
-            <div className="calc-installer">
-              <h3>Потрібен монтаж</h3>
-              <p>{result.installerReason}</p>
-              {matchedInstallers.length > 0 ? (
-                <ul>
-                  {matchedInstallers.map((item) => (
-                    <li key={item.id}>
-                      <strong>{item.name}</strong>
-                      <span>
-                        {item.city} · {item.specialties.join(", ")}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
+        {result.needsInstaller ? (
+          <div className="calc-installer">
+            <h3>Потрібен монтаж у {input.city}</h3>
+            <p>{result.installerReason}</p>
+            {matchedInstallers.length > 0 ? (
+              <ul>
+                {matchedInstallers.map((item) => (
+                  <li key={item.id}>
+                    <strong>{item.name}</strong>
+                    <span>
+                      {item.city} · {item.specialties.join(", ")}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
 
-              {leadStatus === "ok" ? (
-                <p className="form-note">
-                  Заявку надіслано. Монтажна компанія або ми зв’яжемося з вами.
-                </p>
-              ) : (
-                <form className="calc-lead" onSubmit={onLead}>
-                  <p>Залиште контакт — підберемо бригаду під сценарій у вашому місті.</p>
-                  <input
-                    required
-                    name="name"
-                    placeholder="Ім’я"
-                    value={contact.name}
-                    onChange={(event) =>
-                      setContact((prev) => ({ ...prev, name: event.target.value }))
-                    }
-                  />
-                  <input
-                    required
-                    name="phone"
-                    placeholder="Телефон"
-                    value={contact.phone}
-                    onChange={(event) =>
-                      setContact((prev) => ({ ...prev, phone: event.target.value }))
-                    }
-                  />
-                  <textarea
-                    name="note"
-                    placeholder="Коротко про об’єкт (опційно)"
-                    rows={3}
-                    value={contact.note}
-                    onChange={(event) =>
-                      setContact((prev) => ({ ...prev, note: event.target.value }))
-                    }
-                  />
-                  <button type="submit" className="btn btn-primary" disabled={pending}>
-                    {pending ? "Надсилаємо…" : "Отримати монтажника"}
-                  </button>
-                  {leadStatus === "error" ? (
-                    <p className="form-note">Не вдалося надіслати. Спробуйте ще раз.</p>
-                  ) : null}
-                </form>
-              )}
-            </div>
-          ) : (
-            <p className="form-note">
-              Для цього сценарію монтаж не обов’язковий — можна стартувати з готової
-              станції. Якщо пізніше додасте СЕС або щит,{" "}
+            {leadStatus === "ok" ? (
+              <p className="form-note">
+                Заявку надіслано. Монтажна компанія або ми зв’яжемося з вами.
+              </p>
+            ) : (
+              <form className="calc-lead" onSubmit={onLead}>
+                <p>Залиште контакт — підберемо бригаду під цей сценарій.</p>
+                <input
+                  required
+                  name="name"
+                  placeholder="Ім’я"
+                  value={contact.name}
+                  onChange={(event) =>
+                    setContact((prev) => ({ ...prev, name: event.target.value }))
+                  }
+                />
+                <input
+                  required
+                  name="phone"
+                  placeholder="Телефон"
+                  value={contact.phone}
+                  onChange={(event) =>
+                    setContact((prev) => ({ ...prev, phone: event.target.value }))
+                  }
+                />
+                <textarea
+                  name="note"
+                  placeholder="Коротко про об’єкт (опційно)"
+                  rows={3}
+                  value={contact.note}
+                  onChange={(event) =>
+                    setContact((prev) => ({ ...prev, note: event.target.value }))
+                  }
+                />
+                <button type="submit" className="btn btn-primary" disabled={pending}>
+                  {pending ? "Надсилаємо…" : "Отримати монтажника"}
+                </button>
+                {leadStatus === "error" ? (
+                  <p className="form-note">Не вдалося надіслати. Спробуйте ще раз.</p>
+                ) : null}
+              </form>
+            )}
+          </div>
+        ) : (
+          <div className="calc-installer calc-installer-soft">
+            <h3>Монтаж не обов’язковий</h3>
+            <p>
+              Для цього сценарію можна стартувати з готової станції. Якщо пізніше
+              знадобиться щит чи генератор —{" "}
               <Link href="/claim">монтажні компанії</Link> вже в каталозі.
             </p>
-          )}
-        </div>
-      ) : null}
+            <Link href="/zaryadni-stantsii" className="btn btn-primary">
+              Дивитись станції
+            </Link>
+          </div>
+        )}
+      </aside>
     </div>
   );
 }

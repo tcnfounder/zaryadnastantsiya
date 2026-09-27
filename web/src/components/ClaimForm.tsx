@@ -29,8 +29,8 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
       <div className="claim-copy">
         <div className="claim-visual">
           <Image
-            src="/hero-power-station.jpg"
-            alt="Резервне живлення та монтажні рішення для бізнесу"
+            src="/claim-installer-work.jpg"
+            alt="Монтаж резервного живлення: зарядна станція, інвертор і генератор"
             fill
             sizes="(max-width: 899px) 100vw, 48vw"
             className="claim-visual-img"
@@ -89,7 +89,9 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
                 const raw = await response.text();
                 let payload: { error?: string; ok?: boolean } = {};
                 try {
-                  payload = raw ? (JSON.parse(raw) as { error?: string; ok?: boolean }) : {};
+                  payload = raw
+                    ? (JSON.parse(raw) as { error?: string; ok?: boolean })
+                    : {};
                 } catch {
                   setError(
                     response.ok
@@ -160,7 +162,7 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
             <textarea
               id="message"
               name="message"
-              placeholder="Монтаж станцій і СЕС у Києві..."
+              placeholder="Монтаж станцій, інверторів і генераторів у Києві..."
             />
           </div>
           <div className="hp-field" aria-hidden="true">
