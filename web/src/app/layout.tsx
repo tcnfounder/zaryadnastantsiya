@@ -66,7 +66,14 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "uk_UA",
     type: "website",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: site.name }],
+    images: [
+      {
+        url: "/hero-power-station.jpg",
+        width: 1920,
+        height: 1080,
+        alt: `${site.name} — резервне живлення`,
+      },
+    ],
   },
 };
 

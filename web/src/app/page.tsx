@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ClaimForm } from "@/components/ClaimForm";
 import { FaqSection } from "@/components/FaqSection";
@@ -19,16 +20,16 @@ export default function HomePage() {
 
       <section className="hero-masthead">
         <SiteHeader embedded />
-        <div className="hero-masthead-visual" aria-hidden="true">
-          <div className="hero-masthead-grid" />
-          <div className="hero-masthead-sun" />
-          <div className="hero-masthead-panel">
-            <span className="hero-masthead-cell" />
-            <span className="hero-masthead-cell" />
-            <span className="hero-masthead-cell" />
-            <span className="hero-masthead-cell" />
-            <span className="hero-masthead-stand" />
-          </div>
+        <div className="hero-masthead-media" aria-hidden="true">
+          <Image
+            src="/hero-power-station.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-masthead-photo"
+          />
+          <div className="hero-masthead-veil" />
         </div>
         <div className="hero-masthead-copy">
           <p className="eyebrow">Незалежний гід для України</p>
@@ -38,7 +39,7 @@ export default function HomePage() {
             <Link href="/#dobirky" className="btn btn-primary">
               Переглянути добірки
             </Link>
-            <Link href="/claim" className="btn btn-secondary">
+            <Link href="/claim" className="btn btn-ghost">
               Для монтажних компаній
             </Link>
           </div>
