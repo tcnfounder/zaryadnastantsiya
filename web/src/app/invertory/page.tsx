@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function InvertersPage() {
   return (
-    <div className="section" style={{ paddingTop: "2rem" }}>
+    <div className="page-section">
       <div className="section-head">
         <p className="eyebrow">Інвертори</p>
         <h2>Тихий резерв без шуму генератора</h2>

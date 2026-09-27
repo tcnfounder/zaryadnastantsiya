@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function GeneratorsPage() {
   return (
-    <div className="section" style={{ paddingTop: "2rem" }}>
+    <div className="page-section">
       <div className="section-head">
         <p className="eyebrow">Генератори</p>
         <h2>Потужність для довгих відключень</h2>

@@ -154,23 +154,19 @@ select {
 }
 
 .site-header {
-  position: absolute;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem clamp(1.25rem, 4vw, 3rem);
-  background: linear-gradient(
-    180deg,
-    rgba(232, 238, 244, 0.92) 0%,
-    rgba(232, 238, 244, 0.55) 70%,
-    transparent 100%
-  );
-  backdrop-filter: blur(8px);
+  padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
+  background: rgba(237, 243, 248, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 28px rgba(36, 56, 72, 0.06);
 }
 
 .brand-home {
@@ -253,8 +249,8 @@ select {
 
 @media (max-width: 767px) {
   .site-header {
-    padding-top: 0.85rem;
-    padding-bottom: 0.85rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .header-cta {
@@ -274,7 +270,8 @@ select {
 
   .hero {
     align-items: end;
-    padding-top: 5.5rem;
+    min-height: calc(100dvh - 4.25rem);
+    padding-top: 1.5rem;
     padding-bottom: 2.25rem;
   }
 
@@ -348,10 +345,10 @@ select {
 
 .hero {
   position: relative;
-  min-height: 100dvh;
+  min-height: calc(100dvh - 4.75rem);
   display: grid;
   align-items: end;
-  padding: 5.5rem clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+  padding: 2rem clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
   overflow: hidden;
 }
 
@@ -415,6 +412,13 @@ select {
   position: relative;
   z-index: 2;
   padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.page-section {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 5vw, 3.25rem) clamp(1.25rem, 4vw, 3rem)
+    clamp(3.5rem, 8vw, 6rem);
 }
 
 .section-head {

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function StationsPage() {
   return (
-    <div className="section" style={{ paddingTop: "2rem" }}>
+    <div className="page-section">
       <div className="section-head">
         <p className="eyebrow">Зарядні станції</p>
         <h2>Портативні станції під реальні години блекауту</h2>

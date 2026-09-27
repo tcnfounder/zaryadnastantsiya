@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ClaimPage() {
   return (
-    <div className="section" style={{ paddingTop: "2rem" }}>
+    <div className="page-section">
       <div className="section-head">
         <p className="eyebrow">Mailing claim</p>
         <h2>Один лист — і компанія підтверджує профіль</h2>
