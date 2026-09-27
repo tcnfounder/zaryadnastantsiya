@@ -32,6 +32,10 @@ export const metadata: Metadata = {
     "EcoFlow",
     "Україна",
   ],
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    apple: [{ url: "/logo.png" }],
+  },
   alternates: {
     canonical: site.url,
   },
@@ -42,6 +46,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "uk_UA",
     type: "website",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: site.name }],
   },
 };
 

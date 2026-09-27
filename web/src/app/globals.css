@@ -163,7 +163,50 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+  padding: 1rem clamp(1.25rem, 4vw, 3rem);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 238, 244, 0.92) 0%,
+    rgba(232, 238, 244, 0.55) 70%,
+    transparent 100%
+  );
+  backdrop-filter: blur(8px);
+}
+
+.brand-home {
+  display: inline-flex;
+  min-width: 0;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.brand-mark-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  flex-shrink: 0;
+  border-radius: 0.55rem;
+  box-shadow: 0 8px 18px rgba(36, 56, 72, 0.18);
+}
+
+.brand-mark-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-mark-text span {
+  color: var(--amber);
 }
 
 .brand-mark {
@@ -183,9 +226,10 @@ select {
 
 .nav-links {
   display: none;
-  gap: 1.5rem;
+  gap: 1.35rem;
   color: var(--ink-soft);
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -195,22 +239,47 @@ select {
 }
 
 @media (max-width: 767px) {
-  .site-header .btn {
-    display: none;
+  .site-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .header-cta {
+    min-height: 2.5rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.88rem;
+  }
+
+  .brand-mark-text {
+    font-size: 0.98rem;
+  }
+
+  .brand-mark-icon {
+    width: 2.1rem;
+    height: 2.1rem;
   }
 
   .hero {
-    align-items: center;
-    padding-top: 5rem;
-    padding-bottom: 2rem;
+    align-items: end;
+    padding-top: 5.5rem;
+    padding-bottom: 2.25rem;
   }
 
   .hero-copy {
     padding-bottom: 0;
+    max-width: 100%;
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.2rem, 11vw, 3.2rem);
+    font-size: clamp(2.35rem, 11vw, 3.35rem);
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 auto;
   }
 }
 

@@ -16,7 +16,7 @@ export default function HomePage() {
           <div className="hero-glow filament" />
         </div>
         <div className="hero-copy">
-          <p className="eyebrow rise-in">{site.name}</p>
+          <p className="eyebrow rise-in">Незалежний гід для України</p>
           <h1 className="rise-in-delay">Резервне живлення без хаосу</h1>
           <p className="rise-in-delay-2">{site.tagline}</p>
           <div className="hero-actions rise-in-delay-2">
