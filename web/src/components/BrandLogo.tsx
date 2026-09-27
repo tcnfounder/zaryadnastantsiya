@@ -7,31 +7,25 @@ export function BrandLogo({
   className?: string;
   showWordmark?: boolean;
 }) {
-  if (showWordmark) {
-    return (
-      <span className={`brand-lockup brand-lockup-image ${className}`.trim()}>
-        <Image
-          src="/logo-wordmark.png"
-          alt="ZaryadnaStantsiya"
-          width={320}
-          height={72}
-          className="brand-wordmark-img"
-          priority
-        />
-      </span>
-    );
-  }
-
   return (
     <span className={`brand-lockup ${className}`.trim()}>
       <Image
         src="/logo-mark.png"
         alt=""
-        width={48}
-        height={48}
+        width={96}
+        height={96}
         className="brand-mark-icon-img"
         aria-hidden
+        priority
       />
+      {showWordmark ? (
+        <span className="brand-mark-text">
+          Zaryadna
+          <span>Stantsiya</span>
+        </span>
+      ) : (
+        <span className="sr-only">ZaryadnaStantsiya</span>
+      )}
     </span>
   );
 }
