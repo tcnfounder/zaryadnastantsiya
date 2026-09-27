@@ -53,8 +53,11 @@ CLAIM_NOTIFY_FROM=onboarding@resend.dev
 # CLAIM_WEBHOOK_URL=https://hooks.zapier.com/...   # опційно
 ```
 
-**Railway tip:** `CLAIM_NOTIFY_FROM` için `İsim <mail@x>` yazma — `< >` env’i bozabilir. Sadece `onboarding@resend.dev` koy.
+**Railway tip:** `CLAIM_NOTIFY_FROM` için `İsim <mail@x>` yazma — `< >` env’i bozabilir. Domain doğrulandıysa `info@zaryadnastantsiya.com.ua` kullan.
 
-`onboarding@resend.dev` ile Resend çoğu zaman yalnızca hesabına kayıtlı mail adresine gönderir. Zoho `info@...` için önce Resend’de domain doğrula, sonra `CLAIM_NOTIFY_TO=info@zaryadnastantsiya.com.ua` yap.
+GA4 için:
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
 
 Без ключів заявки все одно приймаються й пишуться в логи (`[claim-lead]`).

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Teko, Unbounded } from "next/font/google";
 import { AppHeader } from "@/components/AppHeader";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -88,6 +89,7 @@ export default function RootLayout({
       className={`${unbounded.variable} ${manrope.variable} ${brand.variable} h-full`}
     >
       <body className="site-shell min-h-full flex flex-col antialiased">
+        <GoogleAnalytics />
         <AppHeader />
         <main className="flex flex-1 flex-col">{children}</main>
         <footer className="site-footer">
