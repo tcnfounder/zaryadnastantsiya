@@ -363,11 +363,12 @@ select {
   isolation: isolate;
   margin: 0;
   min-height: 100dvh;
-  display: grid;
-  align-items: end;
-  align-content: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Clear air under sticky header — padding-top is the visible gap */
   padding:
-    calc(var(--header-h) + env(safe-area-inset-top, 0px) + 4.25rem)
+    calc(var(--header-h) + env(safe-area-inset-top, 0px) + 5.75rem)
     clamp(1.25rem, 4vw, 3rem)
     clamp(2.75rem, 8vw, 5.5rem);
   overflow: hidden;
@@ -408,6 +409,7 @@ select {
   position: relative;
   z-index: 1;
   max-width: 38rem;
+  margin-top: 0.5rem;
   animation: rise-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -485,10 +487,8 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
 
 @media (max-width: 767px) {
   .hero-masthead {
-    align-items: end;
-    align-content: end;
     min-height: 100svh;
-    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 3.25rem);
+    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 4.5rem);
     padding-bottom: clamp(2.25rem, 10vw, 3.5rem);
   }
 
