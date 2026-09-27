@@ -181,15 +181,16 @@ select {
 
 .brand-mark-icon-img {
   display: block;
-  width: 4.75rem;
+  width: 5.75rem;
   height: auto;
-  max-height: 4.75rem;
+  max-height: 5.75rem;
   flex-shrink: 0;
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  background: transparent;
+  background: transparent !important;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .sr-only {
@@ -238,8 +239,8 @@ select {
   }
 
   .brand-mark-icon-img {
-    width: 3.85rem;
-    max-height: 3.85rem;
+    width: 4.5rem;
+    max-height: 4.5rem;
   }
 }
 
@@ -313,12 +314,13 @@ select {
 .hero-masthead-grid {
   position: absolute;
   inset: 0;
+  top: 18%;
   background-image:
-    linear-gradient(rgba(36, 56, 72, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36, 56, 72, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 78%);
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 78%);
+    linear-gradient(rgba(36, 56, 72, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 56, 72, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.35) 18%, transparent 82%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.35) 18%, transparent 82%);
 }
 
 .hero-masthead-sun {

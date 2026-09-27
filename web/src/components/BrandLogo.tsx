@@ -6,8 +6,8 @@ export function BrandLogo({ className = "" }: { className?: string }) {
       <Image
         src="/logo-mark.png"
         alt="ZaryadnaStantsiya"
-        width={168}
-        height={192}
+        width={184}
+        height={208}
         className="brand-mark-icon-img"
         priority
         unoptimized
