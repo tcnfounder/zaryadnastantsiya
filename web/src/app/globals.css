@@ -163,10 +163,9 @@ select {
 }
 
 .site-header.is-scrolled {
-  background: rgba(240, 235, 227, 0.94);
-  border-bottom: 1px solid rgba(26, 35, 48, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: #f0ebe3;
+  border-bottom: 1px solid rgba(26, 35, 48, 0.1);
+  box-shadow: 0 1px 0 rgba(26, 35, 48, 0.04);
 }
 
 .brand-home {
@@ -535,6 +534,7 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
 
 .section {
   position: relative;
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
   padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem);
 }
 
@@ -542,6 +542,12 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   position: relative;
   padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(1.5rem, 4vw, 2.5rem))
     clamp(1.25rem, 4vw, 3rem) clamp(3.5rem, 8vw, 6rem);
+}
+
+#claim-form,
+#dobirky,
+#gidy {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
 .section-head {
