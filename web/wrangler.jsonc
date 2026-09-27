@@ -12,5 +12,15 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "routes": [
+    {
+      "pattern": "zaryadnastantsiya.com.ua",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.zaryadnastantsiya.com.ua",
+      "custom_domain": true
+    }
+  ]
 }
