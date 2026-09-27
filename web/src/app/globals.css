@@ -162,9 +162,11 @@ select {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem clamp(1.25rem, 4vw, 3rem);
-  background: transparent;
+  background: rgba(237, 243, 248, 0.94);
   border-bottom: none;
   box-shadow: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .brand-home {
@@ -194,9 +196,9 @@ select {
   width: 4.75rem;
   height: 4.75rem;
   flex-shrink: 0;
-  border-radius: 0;
+  border-radius: 0.85rem;
   box-shadow: none;
-  background: none;
+  background: transparent;
   object-fit: contain;
 }
 
