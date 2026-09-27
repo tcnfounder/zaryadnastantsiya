@@ -154,7 +154,10 @@ select {
 }
 
 .site-header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -188,6 +191,26 @@ select {
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header .btn {
+    display: none;
+  }
+
+  .hero {
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-copy {
+    padding-bottom: 0;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
   }
 }
 
@@ -243,10 +266,10 @@ select {
 
 .hero {
   position: relative;
-  min-height: min(100vh, 920px);
+  min-height: 100dvh;
   display: grid;
   align-items: end;
-  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+  padding: 5.5rem clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
   overflow: hidden;
 }
 
