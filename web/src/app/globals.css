@@ -152,7 +152,7 @@ select {
   align-items: center;
   gap: 1.25rem;
   min-height: var(--header-h);
-  padding: 0.55rem clamp(1rem, 3.5vw, 2.75rem);
+  padding: 0.35rem clamp(1rem, 3.5vw, 2.75rem) 0.4rem;
 }
 
 .site-header.is-scrolled {
@@ -264,7 +264,7 @@ select {
 
 @media (max-width: 859px) {
   :root {
-    --header-h: 3.15rem;
+    --header-h: 3rem;
   }
 
   .site-header-bar {
