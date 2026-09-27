@@ -190,7 +190,6 @@ select {
   box-shadow: none;
   background: transparent !important;
   object-fit: contain;
-  mix-blend-mode: multiply;
 }
 
 .sr-only {
