@@ -56,14 +56,25 @@ Also refreshed volume: `купити зарядну станцію` → **9 90
 | `rezervne-zhyvlennya` | резервне живлення | 1 600 |
 | `generator-3-kvt` (retarget) | купити генератор 3 квт | 9 900 |
 
+## Batch 3 shipped (2026-09-28 volumes)
+
+| Slug | Keyword | Vol |
+|---|---|---:|
+| `invertor-2-kvt` | інвертор 2 квт | 5 400 |
+| `hibrydnyy-invertor-5-kvt` | гібридний інвертор 5 квт | 3 600 |
+| `invertor-6-kvt` | інвертор 6 квт | 4 400 |
+| `deye-6-kvt` | deye 6 квт | **8 100** |
+
+Also confirmed: `гібридний інвертор` 14 800 (existing hub). `монтаж інвертора київ` only ~20 — skip as head page; use claim/city instead.
+
 ## Next queue
 
 | Keyword | Vol | Why |
 |---|---:|---|
-| інвертор 2 квт | 5 400 | Size ladder with 3/5 |
-| гібридний інвертор 5 квт | 3 600 | Hybrid cluster |
-| інвертор 6 квт / deye 6 квт | 4 400+ | Brand+size |
-| City long-tails | — | `/misto/*` + «монтаж інвертора [місто]» |
+| інвертор 8 квт / 10 квт | check | Upper size ladder |
+| акумулятор lifepo4 | check | АКБ cluster |
+| зарядна станція 1 квт / 3 квт | check | Station size ladder |
+| City hubs | — | `/misto/*` only when volume justifies |
 
 ## Operating rhythm
 

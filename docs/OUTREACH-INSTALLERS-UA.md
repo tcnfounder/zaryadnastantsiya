@@ -135,13 +135,36 @@ https://zaryadnastantsiya.com.ua/claim?package=leads
 
 ---
 
-## Telegram / Viber (kısa)
+## Telegram / WhatsApp / Viber (kısa) — **telefon konuşması yok**
+
+Ukraynaca konuşmak zorunda değilsin. **Ara**ma: metni kopyala → WhatsApp/Telegram’a yapıştır (numara aynıysa genelde WA açılır). Cevap gelirse Google Translate / UA template ile devam.
 
 ```
 Привіт! ZaryadnaStantsiya — гід по резерву під блекаут.
 Калькулятор дає лід зі сценарієм (квартира/будинок, години, навантаження).
-Featured 3999 ₴/міс для [Місто]: claim → https://zaryadnastantsiya.com.ua/claim?package=featured
+Featured 3999 ₴/міс для Київ: https://zaryadnastantsiya.com.ua/claim?package=featured
 Якщо не цікаво — ок, більше не писатиму.
+```
+
+### Top 8 Kyiv (WhatsApp/Telegram — kopyala-yapıştır)
+
+| # | Firma | Numara | WA link |
+|---|---|---|---|
+| 1 | InsolEnergy | +380985675767 | https://wa.me/380985675767 |
+| 2 | Home4You | +380683686818 | https://wa.me/380683686818 |
+| 3 | The Power | +380503882755 | https://wa.me/380503882755 |
+| 4 | My Sun Energy | +380987220077 | https://wa.me/380987220077 |
+| 5 | Energoone | +380673650093 | https://wa.me/380673650093 |
+| 6 | PSG | +380662000105 | https://wa.me/380662000105 |
+| 7 | E-Lifepo4 | +380672453777 | https://wa.me/380672453777 |
+| 8 | Alpindustriya | +380980227277 | https://wa.me/380980227277 |
+
+Cevap gelirse kısa UA reply (kopyala):
+
+```
+Дякую! Ось заявка на 1 хв: https://zaryadnastantsiya.com.ua/claim?package=featured
+Після заявки надішлемо рахунок і слот Featured для Києва.
+Питання можна сюди в чат.
 ```
 
 ---
