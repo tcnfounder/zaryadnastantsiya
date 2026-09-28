@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   claimPackages,
+  formatPackagePrice,
   type ClaimPackageId,
 } from "@/data/packages";
+import { site } from "@/data/site";
 
 type ClaimState = "idle" | "success" | "error";
 
@@ -14,15 +16,15 @@ type ClaimFormProps = {
   initialPackageId?: ClaimPackageId;
 };
 
+const payUrl = process.env.NEXT_PUBLIC_CLAIM_PAY_URL?.trim();
+const telegramUrl = process.env.NEXT_PUBLIC_CLAIM_TELEGRAM_URL?.trim();
+
 export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
   const [state, setState] = useState<ClaimState>("idle");
   const [error, setError] = useState("");
   const [packageId, setPackageId] = useState<ClaimPackageId>(initialPackageId);
   const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    setPackageId(initialPackageId);
-  }, [initialPackageId]);
+  const selectedPackage = claimPackages.find((item) => item.id === packageId);
 
   return (
     <div className="claim-panel" id="claim-form">
@@ -56,9 +58,38 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
 
       {state === "success" ? (
         <div className="success-note" role="status">
-          Заявку прийнято. Перевірте пошту протягом кількох хвилин — надішлемо
-          підтвердження профілю й деталі оплати пакета{" "}
-          <strong>{claimPackages.find((item) => item.id === packageId)?.name}</strong>.
+          <p style={{ margin: "0 0 0.75rem" }}>
+            Заявку прийнято на пакет{" "}
+            <strong>
+              {selectedPackage?.name}
+              {selectedPackage
+                ? ` · ${formatPackagePrice(selectedPackage.priceUah)}/міс`
+                : ""}
+            </strong>
+            . Перевірте пошту — лист із наступними кроками вже в дорозі.
+          </p>
+          <p style={{ margin: "0 0 1rem", color: "var(--ink-soft)" }}>
+            Щоб швидше закрити розміщення — напишіть на{" "}
+            <a href={`mailto:${site.salesEmail}`} style={{ color: "var(--amber)", fontWeight: 600 }}>
+              {site.salesEmail}
+            </a>
+            {" "}або оплатіть пакет за реквізитами з листа.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem" }}>
+            {payUrl ? (
+              <a className="btn btn-primary" href={payUrl} target="_blank" rel="noreferrer">
+                Оплатити зараз
+              </a>
+            ) : null}
+            {telegramUrl ? (
+              <a className="btn btn-secondary" href={telegramUrl} target="_blank" rel="noreferrer">
+                Telegram
+              </a>
+            ) : null}
+            <a className="btn btn-secondary" href={`mailto:${site.salesEmail}?subject=Claim%20${selectedPackage?.name ?? ""}`}>
+              Написати на пошту
+            </a>
+          </div>
         </div>
       ) : (
         <form
