@@ -1,0 +1,1153 @@
+{
+  "akmangil-muhasebe": {
+    "title": "Akmangil Boekhoudkantoor"
+  },
+  "inburgeren-coach-ai": {
+    "title": "Inburgeren Coach AI — Mobiele app"
+  },
+  "cleanads-tg-reklam": {
+    "title": "TG Advertentieproject — cleanads.ai"
+  },
+  "buketgo": {
+    "title": "BuketGo",
+    "caseStudy": {
+      "summary": "Online boeketbestelling en bezorgplatform in heel Oekraïne: klantwinkel, floristoperatiepaneel, adminbeheer en lokale betalingsintegraties in een end-to-end marktplaatservaring.",
+      "sector": "E-commerce & Bezorging",
+      "duration": "14 weken",
+      "challenge": {
+        "title": "Het merk verbinden met lokale producenten",
+        "paragraphs": [
+          "BuketGo is een bloemenmarktplaats in het model van een verticale platform: het merk beheert vraag en betaling terwijl lokale floristen produceren en bezorgen. Het vereiste Oekraïne-specifieke bezorgslots, Same Day-flows en meertalige ondersteuning.",
+          "Aan klantzijde waren betrouwbare checkout, ordertracking en advertentiemeting nodig; floristen hadden dagelijkse voorraad, orderbeheer en winkelprofielen nodig; operatie had een adminpaneel en onderhoudsmodus nodig — alles in één platform."
+        ]
+      },
+      "approach": {
+        "title": "Marktplaatsarchitectuur met meerdere rollen",
+        "paragraphs": [
+          "We bouwden winkel-, checkout- en bezorgplanningflows in Next.js met floristtoewijzingslogica. We integreerden lokale betalingsproviders zoals LiqPay, Monobank en WayForPay zonder Stripe.",
+          "Het floristpaneel dekt dagelijkse voorraadselectie, Same Day-beschikbaarheid en orderstatussen; het adminpaneel dekt orders, voorraad, bezorging en reviewmoderatie met gescheiden rechtenlagen. Meta Pixel en CAPI koppelen advertentiemeting aan checkout- en aankoopevents."
+        ],
+        "highlights": [
+          "Klantwinkel en checkout",
+          "Floristoperatiepaneel",
+          "Adminbeheer en onderhoudsmodus",
+          "Lokale betalingen en bezorgslots"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Productontdekking",
+          "description": "Marktplaatsmodel, bezorgregels en MVP-scope vastgesteld."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI",
+          "description": "Winkel-, checkout-, florist- en admininterfaces ontworpen."
+        },
+        {
+          "phase": "03",
+          "title": "Platformontwikkeling",
+          "description": "Orders, voorraad, betalingscallbacks en multi-role panels geïmplementeerd."
+        },
+        {
+          "phase": "04",
+          "title": "Launchvoorbereiding",
+          "description": "Kyiv-pilot, cronjobs, advertentiemeting en livegang."
+        }
+      ],
+      "results": [
+        {
+          "value": "3",
+          "label": "Gebruikerspanelen"
+        },
+        {
+          "value": "14 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "UA",
+          "label": "Lokale betalingen"
+        }
+      ],
+      "techStack": [
+        "Next.js",
+        "PostgreSQL",
+        "Prisma",
+        "Meta CAPI",
+        "Responsive UI"
+      ]
+    }
+  },
+  "zaryadnastantsiya": {
+    "title": "Zaryadna Stantsiya",
+    "caseStudy": {
+      "summary": "Onafhankelijke SEO-gids en installateur-leadplatform voor black-outscenario’s in Oekraïne: vergelijkingen van powerstations, omvormers en generatoren, stadshubs, claimflow voor installateurs en een volledige leadfunnel.",
+      "sector": "Energie & SEO",
+      "duration": "8 weken",
+      "challenge": {
+        "title": "Black-outzoekverkeer omzetten in een betrouwbare koopgids",
+        "paragraphs": [
+          "Door stroomuitval zochten gebruikers naar powerstations, omvormers en generatoren. Marktplaatsen toonden producten, maar misten scenariogebaseerde keuze en lokale installateurs.",
+          "Zaryadna Stantsiya had organische zichtbaarheid en gekwalificeerde leads voor installateurs nodig — zonder telefoon- of WhatsApp-verkoop."
+        ]
+      },
+      "approach": {
+        "title": "Mid-tailcontent plus monetisatiefunnel voor installateurs",
+        "paragraphs": [
+          "We bouwden stads-, product- en gids-hubs op Next.js App Router en prioriteerden UA mid-tailpagina’s met DataForSEO-intentiedata.",
+          "Claimpakketten, e-mailautomatisering en een Jettfy-portfolio-crosslink voegden vertrouwen en de eerste referring domain toe."
+        ],
+        "highlights": [
+          "UA mid-tail SEO-gidsen en stadshubs",
+          "Vergelijkingsfunnel powerstation / omvormer / generator",
+          "Claim-monetisatie voor installateurs",
+          "GA4 + GSC-meting en technische SEO"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Onderzoek & keywords",
+          "description": "DataForSEO UA-intentie, SERP-gaten en contentkaart."
+        },
+        {
+          "phase": "02",
+          "title": "UX & informatiearchitectuur",
+          "description": "Hero, hubs, gidssjablonen en claimflow."
+        },
+        {
+          "phase": "03",
+          "title": "Bouw & lancering",
+          "description": "Next.js-pagina’s, schema, sitemap en Railway-deploy."
+        },
+        {
+          "phase": "04",
+          "title": "Monetisatie & distributie",
+          "description": "Installateur-outreach, e-mailautomatisering en portfolio-backlink."
+        }
+      ],
+      "results": [
+        {
+          "value": "40+",
+          "label": "SEO-gids / hubpagina’s"
+        },
+        {
+          "value": "8 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "UA",
+          "label": "Lokaal zoekgericht"
+        }
+      ]
+    }
+  },
+  "gelinikon": {
+    "title": "Gelinikon",
+    "caseStudy": {
+      "summary": "Een uitgebreid planningsplatform voor bruiden en bruidegoms: een webapplicatie die locatie-, leveranciers- en budgetbeheer onder één dak brengt.",
+      "sector": "Evenementen & Bruiloften",
+      "duration": "12 weken",
+      "challenge": {
+        "title": "Een gefragmenteerd planningsproces",
+        "paragraphs": [
+          "Bruiloftplanning omvat tientallen afzonderlijke beslissingen, leveranciers en budgetposten. Het Gelinikon-team stelde zich een platform voor waar koppels dit complexe proces in één digitale omgeving konden beheren.",
+          "Bestaande oplossingen waren te generiek of gericht op slechts één behoefte. Gelinikon had een gebruiksvriendelijke, schaalbare webapplicatie nodig, afgestemd op de Turkse markt."
+        ]
+      },
+      "approach": {
+        "title": "Ontwikkeling gericht op de gebruikersreis",
+        "paragraphs": [
+          "We hebben de planningsstappen van koppels van begin tot eind in kaart gebracht: registratie, locatiekeuze, themaontdekking, budgetbeheer en takenlijsten. Elke module is ontworpen om onafhankelijk te kunnen worden ontwikkeld, terwijl ze met elkaar geïntegreerd blijven.",
+          "We streefden naar een heldere, begeleide ervaring in de interface, met stapsgewijze flows in plaats van complexe formulieren. Aan de backend kregen veilig sessiebeheer en data-integriteit prioriteit."
+        ],
+        "highlights": [
+          "Modulaire webapplicatie-architectuur",
+          "Gebruikersregistratie en profielbeheer",
+          "Modules voor leveranciers- en locatieontdekking",
+          "Budget- en checklistbeheer"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Product discovery",
+          "description": "Gebruikersscenario's, MVP-scope en technische architectuurbeslissingen."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI",
+          "description": "Flowdiagrammen, wireframes en visueel interfacedesign."
+        },
+        {
+          "phase": "03",
+          "title": "Kernontwikkeling",
+          "description": "Auth-, profiel-, locatie- en leveranciersmodules gecodeerd."
+        },
+        {
+          "phase": "04",
+          "title": "Testen & lancering",
+          "description": "UAT, prestatietests en go-live."
+        }
+      ],
+      "results": [
+        {
+          "value": "5+",
+          "label": "Kernmodules"
+        },
+        {
+          "value": "12 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "∞",
+          "label": "Schaalbare infrastructuur"
+        }
+      ],
+      "techStack": [
+        "React",
+        "Next.js",
+        "API-integratie",
+        "Responsive design"
+      ]
+    }
+  },
+  "gastro-baklava": {
+    "title": "Gastro Baklava",
+    "caseStudy": {
+      "summary": "Een e-commerceplatform vanaf de grond opgebouwd voor een traditioneel baklavamerk met wortels in Gaziantep: productcatalogus, online bestellen, verzendintegratie en een op maat gemaakte interface die de warme toon van het merk weerspiegelt.",
+      "sector": "Voeding & Retail",
+      "duration": "8 weken",
+      "challenge": {
+        "title": "Ontbrekende digitale winkel",
+        "paragraphs": [
+          "Gastro Baklava is een merk dat al jaren produceert met kwaliteit en vakmanschap, maar het miste een platform om dat verhaal te vertellen en online bestellingen te ontvangen. Klanten konden producten alleen bestellen in de fysieke winkel of telefonisch.",
+          "Het doel was om de warme, betrouwbare toon van het merk naar de digitale ruimte te brengen, tientallen productvariëteiten in een overzichtelijke catalogus te presenteren, het online bestelproces te vereenvoudigen met gewichts- en verpakkingsopties, en landelijke verzendinfrastructuur te integreren."
+        ]
+      },
+      "approach": {
+        "title": "Merkgericht e-commercedesign",
+        "paragraphs": [
+          "Tijdens de discovery-fase hebben we de visuele identiteit van het merk, productgroepen (baklava, dolama, şöbiyet, midye, enz.) en klantverwachtingen samen in kaart gebracht. We hebben de informatiearchitectuur opgebouwd rond productcategorieën, detailpagina's en de checkoutflow, en zijn vervolgens overgegaan op mobile-first interfacedesign.",
+          "Tijdens de ontwikkeling hebben we vroegtijdig aandacht besteed aan prestaties, SEO, SSL-beveiliging en de behoeften van het adminpanel. Op productdetailpagina's werden voedingswaarden, ingrediëntinformatie en bezorgopties in een duidelijke hiërarchie gepresenteerd; we lieten een duurzame structuur achter voor campagnes na de lancering."
+        ],
+        "highlights": [
+          "Mobile-first responsive design",
+          "Productcatalogus en categoriestructuur",
+          "Gewichts- en verpakkingsopties",
+          "Veilige betalings- en verzendintegratie"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & strategie",
+          "description": "Merkanalyse, productinventaris, concurrentieonderzoek en doelgroepprofilering."
+        },
+        {
+          "phase": "02",
+          "title": "Design & prototype",
+          "description": "Startpagina, productoverzicht en detailpagina's ontworpen en goedgekeurd."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "E-commerceinfrastructuur, winkelwagen, betaling en verzendflows gecodeerd."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, testen en support in de eerste week afgerond."
+        }
+      ],
+      "results": [
+        {
+          "value": "20+",
+          "label": "Productvariëteiten"
+        },
+        {
+          "value": "8 weken",
+          "label": "Van discovery tot lancering"
+        },
+        {
+          "value": "7/24",
+          "label": "Online bestellen"
+        }
+      ],
+      "techStack": [
+        "E-commerce",
+        "Responsive UI",
+        "SEO",
+        "SSL & 3D Secure"
+      ]
+    }
+  },
+  "ozikizler-kunefe": {
+    "title": "Özikizler Künefe",
+    "caseStudy": {
+      "summary": "Een premium corporate website voor een künefe-merk uit Ankara: erfgoedverhaal, smakencatalogus, filiaalinformatie en een op maat gemaakte interface die de warme, traditionele toon van het merk weerspiegelt.",
+      "sector": "Voeding & Restaurant",
+      "duration": "6 weken",
+      "challenge": {
+        "title": "Merkerfgoed naar de digitale ruimte brengen",
+        "paragraphs": [
+          "Özikizler Künefe is een merk dat jarenlang vakmanschap en de smaaktraditie van Hatay naar Ankara brengt, maar het had een digitale showcase nodig om dat verhaal te vertellen en het assortiment smaken te tonen. De meeste klanten kenden het merk van de fysieke locatie en hadden online beperkte informatie.",
+          "Het doel was om de warme, betrouwbare toon van het merk naar de digitale ruimte te brengen, tientallen künefevariëteiten in een visueel rijke catalogus te presenteren, de merkidentiteit te versterken via erfgoed- en verhalenpagina's, en een mobile-first, snelle ervaring te leveren."
+        ]
+      },
+      "approach": {
+        "title": "Traditionele esthetiek, moderne ervaring",
+        "paragraphs": [
+          "Tijdens de discovery-fase hebben we de visuele identiteit van het merk, het smakenportfolio (Special, Mozaik, Cevizzade, Hasır Kaymaklı, enz.) en de verwachtingen van de doelgroep samen in kaart gebracht. We hebben de informatiearchitectuur opgebouwd rond startpagina, erfgoedverhaal, smaken, filialen en contactflows, en een premium interface ontworpen met donkere tonen en gouden accenten.",
+          "Tijdens de ontwikkeling hebben we vroegtijdig aandacht besteed aan prestaties, SEO en afbeeldingsoptimalisatie. Op smakenpagina's werden productfoto's, portie-informatie en beschrijvingen in een duidelijke hiërarchie gepresenteerd; we versterkten social proof met klantbeoordelingen en Instagram-integratie."
+        ],
+        "highlights": [
+          "Mobile-first responsive design",
+          "Smakencatalogus en productdetails",
+          "Erfgoed- en merkverhalenpagina's",
+          "Klantbeoordelingen en sociale integratie"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & strategie",
+          "description": "Merkanalyse, smakeninventaris, concurrentieonderzoek en doelgroepprofilering."
+        },
+        {
+          "phase": "02",
+          "title": "Design & prototype",
+          "description": "Startpagina, smaken en erfgoedpagina's ontworpen en goedgekeurd."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Contentmanagement, galerij, contactformulieren en SEO-infrastructuur gecodeerd."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, testen en support in de eerste week afgerond."
+        }
+      ],
+      "results": [
+        {
+          "value": "15+",
+          "label": "Smaakvariëteiten"
+        },
+        {
+          "value": "6 weken",
+          "label": "Van discovery tot lancering"
+        },
+        {
+          "value": "100%",
+          "label": "Mobiel responsive"
+        }
+      ],
+      "techStack": [
+        "Responsive UI",
+        "SEO",
+        "Afbeeldingsoptimalisatie",
+        "Contentmanagement"
+      ]
+    }
+  },
+  "treemec": {
+    "title": "Treemec",
+    "caseStudy": {
+      "summary": "Een meertalige corporate website voor een HVAC-fabrikant in Nederland: productcatalogi, technische documentatie en een betrouwbare digitale showcase gericht op de Europese B2B-markt.",
+      "sector": "Industrie & HVAC",
+      "duration": "6 weken",
+      "challenge": {
+        "title": "Een verspreide productshowcase",
+        "paragraphs": [
+          "Treemec produceert klimaatregelings- en ventilatie-units, maar de website communiceerde het productassortiment, technische details en corporate geloofwaardigheid niet tegelijk duidelijk.",
+          "Ingenieurs, installateurs en distributeurs op de Europese markt hadden informatie in verschillende talen nodig. De bestaande structuur was verouderd, productcategorieën waren verspreid en B2B-conversiepaden waren zwak."
+        ]
+      },
+      "approach": {
+        "title": "Architectuur van technische content tot verkoop",
+        "paragraphs": [
+          "We hebben productgroepen herstructureerd in een hiërarchie die past bij de HVAC-sector: luchtbehandelingsunits, warmteterugwinning, keukensystemen en servicepagina's werden via duidelijke navigatie met elkaar verbonden.",
+          "We ontwierpen een heldere interface die de groene corporate identiteit weerspiegelt, met meertalige content, gebieden voor technische documentatie en offerte-/contactflows. We hebben vroeg in het proces aandacht besteed aan prestaties en SEO-basis."
+        ],
+        "highlights": [
+          "Meertalige contentstructuur (NL / EN / DE)",
+          "Productcategorie- en technische detailpagina's",
+          "Service- en projectreferentie-showcases",
+          "B2B-gerichte offerte- en contactflows"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & contentmap",
+          "description": "Productinventaris, doelmarkten en structurering van bestaande materialen."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Designs voor startpagina, productcatalogus, diensten en corporate pagina's."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive codering, meertalige ondersteuning, SEO en contentintegratie."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, testen en teamtraining."
+        }
+      ],
+      "results": [
+        {
+          "value": "3 dil",
+          "label": "Taalondersteuning"
+        },
+        {
+          "value": "6 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "B2B",
+          "label": "Gerichte architectuur"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "Meertalig",
+        "SEO",
+        "CMS-integratie"
+      ]
+    }
+  },
+  "renkten-kozmetik": {
+    "title": "Renkten Kozmetik",
+    "caseStudy": {
+      "summary": "Een end-to-end webshop voor een cosmetica e-commercemerk: productcatalogi, filtering, winkelwagen- en checkoutflows, en een mobile-first winkelervaring.",
+      "sector": "Cosmetica & E-commerce",
+      "duration": "10 weken",
+      "challenge": {
+        "title": "Behoefte aan schaalbare e-commerce",
+        "paragraphs": [
+          "Renkten Kozmetik is een cosmeticamerk met een breed productassortiment, maar het had een platform nodig dat de merkidentiteit weerspiegelde en een snelle, betrouwbare winkelervaring via digitale kanalen leverde.",
+          "Duizenden SKU's, campagneperiodes en zwaar mobiel verkeer vereisten dat categoriestructuur, filtering, productdetail en winkelwagenflows samen werden ontworpen."
+        ]
+      },
+      "approach": {
+        "title": "Conversiegerichte e-commercearchitectuur",
+        "paragraphs": [
+          "We hebben productcategorieën gestructureerd in een hiërarchie die past bij de cosmeticasector: make-up, huidverzorging, haarverzorging en merkfilters werden via duidelijke navigatie met elkaar verbonden.",
+          "We ontwierpen een heldere interface die de roze-witte merkidentiteit weerspiegelt, met campagnebanners, productoverzichten, detailpagina's en winkelwagenflows geoptimaliseerd met een mobile-first aanpak."
+        ],
+        "highlights": [
+          "Mobile-first responsive design",
+          "Categorie- en merkfiltering",
+          "Productdetail- en winkelwagenflows",
+          "Campagne- en kortingshowcases"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & catalogusstructuur",
+          "description": "Productinventaris, categoriekaart en planning van winkelstroom."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Startpagina, categorie-, productdetail- en winkelwagenschermen."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "E-commerceinfrastructuur, filtering, betalingsintegratie en prestatieoptimalisatie."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, testen en training contentmanagement."
+        }
+      ],
+      "results": [
+        {
+          "value": "1000+",
+          "label": "Product-SKU's"
+        },
+        {
+          "value": "10 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "Mobil",
+          "label": "Eerste ervaring"
+        }
+      ],
+      "techStack": [
+        "E-commerce",
+        "Responsive web",
+        "SEO",
+        "Betalingsintegratie"
+      ]
+    }
+  },
+  "hakelsu": {
+    "title": "Hakelsu"
+  },
+  "zeynep-akcay-yaylim": {
+    "title": "Zeynep Akçay Yaylım",
+    "caseStudy": {
+      "summary": "Een dienstenshowcase voor een educatie- en coachingmerk: programmavoorstellingen, registratieflows en een betrouwbare corporate identiteit.",
+      "sector": "Onderwijs & Coaching",
+      "duration": "5 weken",
+      "challenge": {
+        "title": "Digitale vertrouwen opbouwen",
+        "paragraphs": [
+          "Zeynep Akçay Yaylım is een erkende naam in persoonlijke ontwikkeling en onderwijs. De digitale showcase moest diensten duidelijk uitleggen en tegelijk het vertrouwen van bezoekers opbouwen.",
+          "Verschillende programmatypes, workshops en een-op-een coachingpakketten moesten coherent op één site worden gepresenteerd, met eenvoudige registratie- en contactflows."
+        ]
+      },
+      "approach": {
+        "title": "Een corporate site die een verhaal vertelt",
+        "paragraphs": [
+          "We ontwikkelden een visuele taal die de warme en professionele toon van het merk weerspiegelt. We structureerden dienstenpagina's per programmatype, met duidelijke voordelen en inhoudssamenvattingen voor elk programma.",
+          "We mikten op organisch verkeer met blog- en resourcegebieden. We verkortten conversiepaden met contactformulieren en WhatsApp-integratie."
+        ],
+        "highlights": [
+          "Programmagebaseerde dienstenpagina's",
+          "Vertrouwensgerichte contentstructuur",
+          "Blog- en resourcegebied",
+          "Snelle contactkanalen"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Merk & content",
+          "description": "Toon, messaging en dienstenkaart gedefinieerd."
+        },
+        {
+          "phase": "02",
+          "title": "Design",
+          "description": "Startpagina, diensten en over-ons pagina's."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive codering en formulierintegraties."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering",
+          "description": "Go-live en SEO-setup."
+        }
+      ],
+      "results": [
+        {
+          "value": "5 weken",
+          "label": "Levertijd"
+        },
+        {
+          "value": "10+",
+          "label": "Dienst-/programmapagina's"
+        },
+        {
+          "value": "SEO",
+          "label": "Organische zichtbaarheid"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "CMS",
+        "Formulierintegratie",
+        "SEO"
+      ]
+    }
+  },
+  "hiso-dating": {
+    "title": "HiSo Dating",
+    "caseStudy": {
+      "summary": "Een premium datingplatform: een webapplicatie onderscheiden door veilig matchen, profielverificatie en een moderne mobielvriendelijke interface.",
+      "sector": "Sociaal & Dating",
+      "duration": "16 weken",
+      "challenge": {
+        "title": "Verwachtingen van vertrouwen en kwaliteit",
+        "paragraphs": [
+          "HiSo Dating richt zich op een hooginkomenspubliek, met beloftes van vertrouwen, privacy en kwaliteitsmatches. Naast standaard datingapps moest het een verfijnde ervaring leveren.",
+          "Aan de technische kant waren realtime interactie, profielverificatieflows en schaalbare infrastructuur kritieke prioriteiten."
+        ]
+      },
+      "approach": {
+        "title": "Premium ervaring, solide infrastructuur",
+        "paragraphs": [
+          "We versterkten het premium gevoel met een donker thema en minimale interface. We ontwierpen registratie- en verificatieflows stap voor stap om gebruikersvertrouwen op te bouwen.",
+          "We bouwden een prestatiegerichte backend-architectuur voor matchingalgoritmen en berichtenmodules. We brachten de mobiele browserervaring dicht bij native app-kwaliteit."
+        ],
+        "highlights": [
+          "Premium dark-mode interface",
+          "Profielverificatieflows",
+          "Realtime matchinginfrastructuur",
+          "PWA-compatibele mobiele ervaring"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Strategie & scope",
+          "description": "Doelgroep, concurrentieanalyse en MVP-definitie."
+        },
+        {
+          "phase": "02",
+          "title": "Designsystem",
+          "description": "Dark theme UI-kit en componentbibliotheek."
+        },
+        {
+          "phase": "03",
+          "title": "Platformontwikkeling",
+          "description": "Auth-, profiel-, matching- en berichtenmodules."
+        },
+        {
+          "phase": "04",
+          "title": "Beta & optimalisatie",
+          "description": "Gesloten beta, feedbackloop en prestatieverbeteringen."
+        }
+      ],
+      "results": [
+        {
+          "value": "<2s",
+          "label": "Paginalaaddoel"
+        },
+        {
+          "value": "16 weken",
+          "label": "Platformontwikkeling"
+        },
+        {
+          "value": "PWA",
+          "label": "Mobielvriendelijke ervaring"
+        }
+      ],
+      "techStack": [
+        "Next.js",
+        "Realtime API",
+        "PWA",
+        "Auth & beveiliging"
+      ]
+    }
+  },
+  "santora-kuafor": {
+    "title": "Santora Kapsalon",
+    "caseStudy": {
+      "summary": "Een corporate website voor een schoonheidssalonketen uit Izmir: dienstencatalogus, filiaalshowcase, afspraakroutering en meertalige structuur die de merkervaring online brengt.",
+      "sector": "Schoonheid & Kapsalon",
+      "duration": "6 weken",
+      "challenge": {
+        "title": "De salonervaring digitaal weerspiegelen",
+        "paragraphs": [
+          "Santora Kuaför is een gevestigd schoonheidsmerk dat sinds 2010 Izmir bedient met 4 filialen. Het brede dienstenaanbod — van haardesign tot manicure, lash lifting en microblading — moest online duidelijk en aantrekkelijk worden gepresenteerd.",
+          "Bezoekers moesten diensten kunnen verkennen en snel filialen en afspraken kunnen bereiken. De premium salonsfeer van het merk moest ook in de webinterface voelbaar zijn."
+        ]
+      },
+      "approach": {
+        "title": "Visueel gedreven salonshowcase",
+        "paragraphs": [
+          "We bouwden een startpagina met een donkere zijbalk en full-screen afbeeldingsgrid die de esthetische taal van de salon weerspiegelt. We verzamelden diensten, filialen, media, beoordelingen en blogmodules onder één navigatie, met een conversiegerichte flow via een sectie populaire diensten.",
+          "We voegden Turkse, Engelse en Duitse taalondersteuning toe. We ontwierpen korte conversiepaden die bezoekers via WhatsApp-integratie, afspraak-CTA's en filiaalcontactgegevens naar de fysieke salon leiden."
+        ],
+        "highlights": [
+          "Full-screen afbeeldingsgrid startpagina",
+          "Dienstencatalogus en showcase populaire diensten",
+          "4 filiaal- en contactmodules",
+          "TR / EN / DE taalondersteuning"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & content",
+          "description": "Diensteninventaris, filiaalinformatie en sitemapplanning."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Startpagina gridstructuur, diensten- en filiaalpagina-designs."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive codering, meertalige structuur en contactintegraties."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering",
+          "description": "Go-live, SEO-setup en contentupdates."
+        }
+      ],
+      "results": [
+        {
+          "value": "4",
+          "label": "Filiaalshowcases"
+        },
+        {
+          "value": "3 dil",
+          "label": "Taalondersteuning"
+        },
+        {
+          "value": "6 weken",
+          "label": "Projectduur"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "Meertalig",
+        "SEO",
+        "WhatsApp-integratie"
+      ]
+    }
+  },
+  "kartek-aydinlatma": {
+    "title": "Kartek Verlichting",
+    "caseStudy": {
+      "summary": "Een corporate website voor een verlichtings- en elektronicafabrikant uit Izmir: plafondverlichting en elektriciteitsmeter productcatalogi, dealernetwerk, blog en persshowcase die sectorsgeloofwaardigheid weerspiegelt.",
+      "sector": "Verlichting & Elektronica",
+      "duration": "6 weken",
+      "challenge": {
+        "title": "Productiekracht digitaal tonen",
+        "paragraphs": [
+          "Kartek Aydınlatma is een gevestigd bedrijf dat sinds 1992 plafondarmaturen, LED-panelen, elektriciteitsmeters en elektronische producten produceert. Het brede productassortiment en de merken LUNA en Protokol moesten duidelijk op één site worden gepresenteerd; het corporate verhaal en de productiecapaciteit moesten in een betrouwbare stem worden gecommuniceerd.",
+          "Productgroepen, zakenpartners, blog en perssecties moesten samenkomen onder georganiseerde navigatie; bezoekers moesten zowel technische productdetails als contactkanalen snel kunnen bereiken."
+        ]
+      },
+      "approach": {
+        "title": "Productgerichte corporate showcase",
+        "paragraphs": [
+          "Op de startpagina benadrukten we plafondverlichtingsproducten en de productieomgeving met een full-screen slider. We creëerden aparte productgroepen voor plafondverlichting en elektriciteitsmeters; subproducten werden in een duidelijke hiërarchie onder elke categorie weergegeven.",
+          "We verenigden corporate, dealers, blog en persmodules onder een consistente menustructuur. De contactknop bleef op elke pagina toegankelijk; responsive design leverde een mobiele ervaring die geschikt is voor showroom- en veldgebruik."
+        ],
+        "highlights": [
+          "Full-screen hero slider en productshowcase",
+          "Productgroep- en catalogusstructuur",
+          "Dealers- en zakenpartnerspagina",
+          "Blog- en persmodules"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & contentmap",
+          "description": "Productgroepen, merkverhaal en site-architectuurplanning."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Designs voor startpagina, productcatalogi, corporate en contactpagina's."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive codering, productoverzichten, blog en formulierintegraties."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, SEO-setup en contentmanagementondersteuning."
+        }
+      ],
+      "results": [
+        {
+          "value": "30+",
+          "label": "Jaren ervaring benadrukt"
+        },
+        {
+          "value": "6 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "2",
+          "label": "Hoofdproductgroepen"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "Productcatalogus",
+        "CMS",
+        "SEO"
+      ]
+    }
+  },
+  "jadeite-health": {
+    "title": "Jadeite Health"
+  },
+  "zeyakademi": {
+    "title": "Zeyakademi"
+  },
+  "ofisdek": {
+    "title": "Ofisdek"
+  },
+  "nuvion-learning": {
+    "title": "Nuvion Learning",
+    "caseStudy": {
+      "summary": "Een corporate website voor een adviesmerk actief in ISO-normen, kwaliteitsmanagement en professionele training: trainingsprogramma's, adviesdiensten, documentencentrum en blog als betrouwbare digitale showcase.",
+      "sector": "Onderwijs & Advies",
+      "duration": "7 weken",
+      "challenge": {
+        "title": "Een complex dienstenportfolio duidelijk presenteren",
+        "paragraphs": [
+          "Nuvion Learning is een onderwijs- en adviesbureau met meer dan 21 jaar ervaring in ISO-normen, kwaliteitsmanagement en certificatieprocessen. Het brede dienstenaanbod — advies, trainingsprogramma's, auditondersteuning en documentencentrum — was echter verspreid en moeilijk te volgen in de digitale ruimte.",
+          "Het doel was een modern corporate site die institutioneel vertrouwen weerspiegelt, diensten duidelijk categoriseert, eenvoudige toegang biedt tot trainings- en blogcontent, en contactconversies verhoogt."
+        ]
+      },
+      "approach": {
+        "title": "Vertrouwensgerichte corporate architectuur",
+        "paragraphs": [
+          "We hebben het dienstenportfolio herstructureerd onder de koppen advies, training, audit en documentencentrum. We ontwierpen duidelijke voordelen-, proces- en CTA-gebieden voor elke dienst; op de startpagina benadrukten we vertrouwen opbouwen via ervaring, referenties en klantgetuigenissen.",
+          "We ontwikkelden een heldere interface die de blauw-witte corporate identiteit weerspiegelt, met blog, FAQ en contactformulieren geïntegreerd in een SEO-vriendelijke structuur. Mobile-first responsive design en snelle paginalading leverden een consistente ervaring op alle apparaten."
+        ],
+        "highlights": [
+          "Dienstgebaseerde pagina-architectuur",
+          "Trainingsprogramma's en documentencentrum",
+          "Blog- en FAQ-contentgebieden",
+          "Mobile-first responsive design"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & contentmap",
+          "description": "Dienstenportfolio, doelgroep en structurering van bestaande content."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Designs voor startpagina, diensten, training en contactpagina's."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive codering, formulierintegraties, blog en SEO-infrastructuur."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, testen en contentmanagementondersteuning."
+        }
+      ],
+      "results": [
+        {
+          "value": "21+",
+          "label": "Jaren ervaring getoond"
+        },
+        {
+          "value": "7 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "500+",
+          "label": "Referentiebedrijven benadrukt"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "CMS",
+        "Formulierintegratie",
+        "SEO"
+      ]
+    }
+  },
+  "dide-tekstil": {
+    "title": "Dide Textiel",
+    "caseStudy": {
+      "summary": "Een corporate website voor een herenouterwearfabrikant uit Izmir: productshowcase, fabrieksprocessen, showroom en referentiemodules die productiekracht en merkidentiteit online brengen.",
+      "sector": "Textiel & Mode",
+      "duration": "6 weken",
+      "challenge": {
+        "title": "Productiekracht en collecties digitaal tonen",
+        "paragraphs": [
+          "Dide Tekstil is een gevestigd merk dat sinds 2010 herenouterwear produceert in Izmir, met export naar 17 landen. Producten, fabrieksprocessen en de showroomervaring moesten duidelijk en overtuigend op één site worden verteld.",
+          "Bezoekers moesten het merkverhaal kunnen ontdekken en snel fabriek, showroom en contactkanalen kunnen bereiken. De nadruk op kwaliteit en productie in de textielsector moest ook in de webinterface voelbaar zijn."
+        ]
+      },
+      "approach": {
+        "title": "Product- en productiegerichte corporate showcase",
+        "paragraphs": [
+          "Op de startpagina benadrukten we de boodschappen \"Your Style\", \"Your Fashion\" en \"Your Quality\" met een full-screen slider. In het fabrieksgedeelte presenteerden we zeven productieprocessen van design tot logistiek via modulaire kaarten.",
+          "We verenigden corporate, producten, showroom, referenties en contactpagina's onder consistente navigatie. We ontwierpen korte conversiepaden die bezoekers via showroom- en fabrieks-CTA's naar de fysieke ervaring leiden."
+        ],
+        "highlights": [
+          "Full-screen hero slider en merkboodschappen",
+          "Fabrieksprocesmodules",
+          "Producten- en showroomshowcase",
+          "Referenties en contactroutering"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & content",
+          "description": "Productstructuur, fabrieksprocessen en sitemapplanning."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Startpagina slider, fabrieks- en corporate pagina-designs."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive codering, productoverzichten en contactintegraties."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering",
+          "description": "Go-live, SEO-setup en contentupdates."
+        }
+      ],
+      "results": [
+        {
+          "value": "17",
+          "label": "Exportlanden benadrukt"
+        },
+        {
+          "value": "7",
+          "label": "Fabrieksprocesmodules"
+        },
+        {
+          "value": "6 weken",
+          "label": "Projectduur"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "CMS",
+        "SEO",
+        "Multi-page corporate structuur"
+      ]
+    }
+  },
+  "ozgurce-koclukla-gelisim": {
+    "title": "Vrij Groeien door Coaching Workshop"
+  },
+  "yapi-lift-mimarlik": {
+    "title": "Yapı Lift Architectuur",
+    "caseStudy": {
+      "summary": "Een corporate website voor een architectuur- en bouwbedrijf: projectshowcases, 3D-visualisaties, dienstencatalogus en meertalige structuur die een betrouwbare digitale identiteit levert.",
+      "sector": "Architectuur & Bouw",
+      "duration": "8 weken",
+      "challenge": {
+        "title": "Projecten vertellen in de digitale ruimte",
+        "paragraphs": [
+          "Yapı Lift Mimarlık wilde zijn residentiële en commerciële projecten indrukwekkend presenteren aan zowel investeerders als eindgebruikers. De bestaande digitale aanwezigheid weerspiegelde de on-site ervaring en projectkwaliteit van het bureau onvoldoende.",
+          "Projectgalerij, dienstenvoorstellingen, evenementen en blogcontent moesten coherent op één site worden georganiseerd, met Turkse en Engelse taalondersteuning voor internationaal bereik."
+        ]
+      },
+      "approach": {
+        "title": "Projectgerichte corporate showcase",
+        "paragraphs": [
+          "We versterkten eerste indrukken op de startpagina met een full-screen projectslider en 3D-visualisaties. Residentiële projecten, locatie-informatie en statuslabels werden in een duidelijke hiërarchie gepresenteerd; toegang tot detailpagina's met één klik werd mogelijk gemaakt.",
+          "We verenigden corporate, diensten, projecten, galerij en blogmodules onder consistente navigatie. We verkortten conversiepaden voor potentiële klanten met WhatsApp-integratie en snelle contactkanalen."
+        ],
+        "highlights": [
+          "Full-screen projectslider en 3D-showcase",
+          "Projectdetail- en galerijmodules",
+          "Turkse / Engelse taalondersteuning",
+          "Mobiel responsive design"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & contentmap",
+          "description": "Projectinventaris, dienstencategorieën en site-architectuurplanning."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Designs voor startpagina, projectdetail, diensten en corporate pagina's."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Frontend, meertalige structuur, projectgalerij en contactmodules gecodeerd."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, SEO-setup en training contentmanagement."
+        }
+      ],
+      "results": [
+        {
+          "value": "20+",
+          "label": "Projectshowcases"
+        },
+        {
+          "value": "8 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "2 dil",
+          "label": "Taalondersteuning"
+        }
+      ],
+      "techStack": [
+        "Responsive web",
+        "Meertalig",
+        "SEO",
+        "CMS-integratie"
+      ]
+    }
+  },
+  "hassa-pazarlama": {
+    "title": "Hassa Marketing"
+  },
+  "benna-aluminyum": {
+    "title": "Benna Aluminium"
+  },
+  "mb-creative-ajans": {
+    "title": "MB Creative Agency — Bureauwerk"
+  },
+  "tcn-protocol-zero": {
+    "title": "Tcn.Gg — Blockchain-gameproject",
+    "caseStudy": {
+      "summary": "Een merksite en documentatieplatform voor het cyberpunk-thema mobiele game Protocol Zero: instapritueel, lore en spelgids, economiemodules met Web3-integratie — een meeslepende showcase die de Operator-ervaring online brengt.",
+      "sector": "Gaming & Web3",
+      "duration": "10 weken",
+      "challenge": {
+        "title": "Een lore-rijk universum omzetten in een heldere ervaring",
+        "paragraphs": [
+          "The Clean Network (TCN) is een mobiel gameproject gesitueerd in het Protocol Zero-universum. Gelaagde content zoals het manifesto, Operator-identiteit, squad-systeem en $TON-economie moest toegankelijk worden gepresenteerd voor zowel spelers als de community.",
+          "Cyberpunk-esthetiek staat centraal in de merkidentiteit; de site moest een indrukwekkende instapervaring combineren met een uitgebreide documentatiestructuur in dezelfde sfeer."
+        ]
+      },
+      "approach": {
+        "title": "Meeslepende instap + gestructureerde docs",
+        "paragraphs": [
+          "We ontwierpen het instapscherm en connectieritueel met een donker thema en neonaccenten. Aan de documentatiekant groepeerden we welkom, aan de slag, economie en toekomstmodules hiërarchisch via zijbalknavigatie.",
+          "Kritieke pagina's zoals The Architect's Message, How to Play, Interface Guide en Liquidity Pool werden ondersteund met rijke visuals. Roadmap- en officiële linkssecties presenteerden communityvertrouwen en langetermijnvisie onder één dak."
+        ],
+        "highlights": [
+          "Cyberpunk instap- en connectie-ervaring",
+          "Zijbalk docs — lore, spelgids, economie",
+          "Squad-systeem en interfacegids",
+          "Roadmap- en officiële linksmodules"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Universum & contentmap",
+          "description": "Planning documentatiestructuur voor lore, spelmechanica en economiemodules."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Instapritueel, docs-zijbalk en cyberpunk interfacedesign voor contentpagina's."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Responsive frontend, docs-routing, visuele content en prestatieoptimalisatie."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering",
+          "description": "Go-live, communityfeedback en contentupdates."
+        }
+      ],
+      "results": [
+        {
+          "value": "7+",
+          "label": "Docs-modules"
+        },
+        {
+          "value": "10 weken",
+          "label": "Projectduur"
+        },
+        {
+          "value": "Web3",
+          "label": "$TON-integratie"
+        }
+      ],
+      "techStack": [
+        "Next.js",
+        "Responsive web",
+        "Docs-platform",
+        "Web3"
+      ]
+    }
+  },
+  "bridolog": {
+    "title": "Bridolog — Webproject"
+  },
+  "tsuba-ai": {
+    "title": "Tsuba.Ai",
+    "caseStudy": {
+      "summary": "Een Web3-geïntegreerde webapplicatie voor een AI-gedreven wedstrijdanalyse- en voorspellingsplatform: walletverbinding, multi-chain ondersteuning, realtime analyse-showcase en premium gebruikerservaring.",
+      "sector": "Sport & Web3",
+      "duration": "12 weken",
+      "challenge": {
+        "title": "Complexe data, eenvoudige ervaring",
+        "paragraphs": [
+          "Tsuba.Ai is een platform dat wedstrijdanalyse biedt via AI-modellen die duizenden datapunten verwerken. De technische infrastructuur, walletintegratie en betalingsflows samen vereisten echter een heldere gebruikerservaring.",
+          "De doelgroep omvat professionele gebruikers en de Web3-community; het platform moest vertrouwen inspireren terwijl het analyseresultaten snel leverde. Multi-chain ondersteuning voor Chiliz Chain en Solana moest ook in de interface worden geïntegreerd."
+        ]
+      },
+      "approach": {
+        "title": "Datagedreven, conversiegerichte interface",
+        "paragraphs": [
+          "We ontwierpen een premium dashboard met een donker thema en groene accenten. Op de startpagina werden AI-nauwkeurigheidspercentage, analysemetrieken en populaire wedstrijden in een duidelijke hiërarchie gepresenteerd; de walletverbindingsflow werd benadrukt in het rechterpaneel.",
+          "Web3-betaalmethoden, ondersteunde netwerken en liquiditeitspools werden visueel gegroepeerd. Responsive structuur leverde een consistente ervaring op desktop en mobiel; prestaties en SEO-basis werden vroegtijdig aangepakt."
+        ],
+        "highlights": [
+          "AI-analyse-showcase en metriekpanelen",
+          "Walletverbinding en multi-chain ondersteuning",
+          "Premium dark theme UI/UX",
+          "Mobiel responsive design"
+        ]
+      },
+      "timeline": [
+        {
+          "phase": "01",
+          "title": "Discovery & productmap",
+          "description": "Planning analyseflows, Web3-integraties en gebruikerssegmenten."
+        },
+        {
+          "phase": "02",
+          "title": "UX & UI-design",
+          "description": "Dashboard-, walletpaneel- en wedstrijdanalyseschermdesigns."
+        },
+        {
+          "phase": "03",
+          "title": "Ontwikkeling",
+          "description": "Frontend, API-integraties, wallet- en betalingsflows gecodeerd."
+        },
+        {
+          "phase": "04",
+          "title": "Lancering & support",
+          "description": "Go-live, testen en prestatieoptimalisatie."
+        }
+      ],
+      "results": [
+        {
+          "value": "73%",
+          "label": "AI-nauwkeurigheidspercentage"
+        },
+        {
+          "value": "14K+",
+          "label": "Actieve gebruikers"
+        },
+        {
+          "value": "50+",
+          "label": "Betaalmethoden"
+        }
+      ],
+      "techStack": [
+        "Next.js",
+        "Web3",
+        "AI-integratie",
+        "Responsive web"
+      ]
+    }
+  }
+}

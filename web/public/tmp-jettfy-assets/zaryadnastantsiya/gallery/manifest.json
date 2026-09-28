@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "id": "desktop-anasayfa",
+      "label": "Anasayfa — masaüstü"
+    },
+    {
+      "id": "mobile-anasayfa",
+      "label": "Anasayfa — mobil"
+    }
+  ]
+}
