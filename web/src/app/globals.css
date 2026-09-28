@@ -963,6 +963,33 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   font-size: 0.92rem;
 }
 
+.site-footer-credit {
+  margin-top: 0.65rem;
+}
+
+.site-footer-credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-footer-credit-link:hover {
+  color: var(--ink);
+}
+
+.site-footer-credit-logo {
+  display: block;
+  height: 1.05rem;
+  width: auto;
+  opacity: 0.88;
+}
+
+.site-footer-credit-link:hover .site-footer-credit-logo {
+  opacity: 1;
+}
+
 .form-note {
   margin: 0;
   color: var(--ink-faint);
