@@ -60,6 +60,36 @@ export default async function ClaimPage({ searchParams }: PageProps) {
         </p>
       </div>
 
+      <ul className="guide-index" style={{ marginBottom: "2.5rem" }}>
+        <li>
+          <span className="guide-index-rank">1</span>
+          <div>
+            <strong>Лід уже зі сценарієм</strong>
+            <p>Житло, години, навантаження, місто — не «просто цікавиться».</p>
+          </div>
+        </li>
+        <li>
+          <span className="guide-index-rank">2</span>
+          <div>
+            <strong>Дешевше за Google Ads</strong>
+            <p>
+              Featured від 3 999 ₴/міс поруч із органічним трафіком на резерв —
+              не холодний CPC на «монтаж».
+            </p>
+          </div>
+        </li>
+        <li>
+          <span className="guide-index-rank">3</span>
+          <div>
+            <strong>Міста під вашу бригаду</strong>
+            <p>
+              Київ, Львів, Одеса, Харків, Дніпро — локальні сторінки + City
+              Priority.
+            </p>
+          </div>
+        </li>
+      </ul>
+
       <PricingPackages selectedId={packageId} />
 
       <div style={{ marginTop: "2.5rem" }}>

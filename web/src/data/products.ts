@@ -66,6 +66,24 @@ export const products: Product[] = [
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=EcoFlow%20RIVER%202",
   },
   {
+    id: "ecoflow-delta-2-max",
+    name: "DELTA 2 Max",
+    brand: "EcoFlow",
+    category: "station",
+    capacityWh: 2048,
+    outputW: 2400,
+    priceUah: 69999,
+    rating: 4.8,
+    bestFor: "Довгі відключення в квартирі чи будинку",
+    seoDescription:
+      "EcoFlow DELTA 2 Max — зарядна станція ~2048 Wh / 2400 W для довших блекаутів у квартирі й будинку в Україні.",
+    guide:
+      "Більший запас за DELTA 2: зручно, коли холодильник і кілька споживачів мають триматися довше. Порівнюйте з інвертором+АКБ, якщо плануєте масштабувати резерв.",
+    affiliateUrl:
+      "https://rozetka.com.ua/ua/search/?text=EcoFlow%20DELTA%202%20Max",
+    featured: true,
+  },
+  {
     id: "jackery-explorer-1000",
     name: "Explorer 1000",
     brand: "Jackery",
