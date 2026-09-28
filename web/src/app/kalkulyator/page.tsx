@@ -155,6 +155,15 @@ export default function CalculatorPage() {
             <Link href="/gid/kupyty-invertor">Купити інвертор</Link>
           </li>
           <li>
+            <Link href="/gid/vidklyuchennya-svitla">Відключення світла</Link>
+          </li>
+          <li>
+            <Link href="/gid/zaryadna-stantsiya">Зарядна станція</Link>
+          </li>
+          <li>
+            <Link href="/gid/ecoflow">EcoFlow</Link>
+          </li>
+          <li>
             <Link href="/misto">Резерв по містах</Link>
           </li>
         </ul>

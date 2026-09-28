@@ -75,12 +75,12 @@ export default function HomePage() {
           <p className="eyebrow">Попит у пошуку</p>
           <h2>Гіди під запити, де вже є гроші</h2>
           <p>
-            Сторінки під ключі з тисячами показів на місяць — від гібридного
-            інвертора й інверторного генератора до станції для квартири.
+            Від «відключення світла» й EcoFlow до генератора та інвертора для
+            дому — гіди ведуть у калькулятор і до моделей.
           </p>
         </div>
         <ol className="guide-index guide-index-home">
-          {guidesByVolume.slice(0, 6).map((guide, index) => (
+          {guidesByVolume.slice(0, 8).map((guide, index) => (
             <li key={guide.slug}>
               <span className="guide-index-rank">{index + 1}</span>
               <div>
