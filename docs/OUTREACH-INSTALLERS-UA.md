@@ -1,7 +1,8 @@
 # Montajcı cold outreach — ZaryadnaStantsiya
 
 Amaç: **ürün satmak değil** — Featured / City / Lead Pack satmak.  
-Kanal: e-posta (önce), sonra Telegram/Viber. Dil: **Ukraynaca** (alıcı UA).
+Kanal: e-posta (önce), sonra Telegram/Viber. Dil: **Ukraynaca** (alıcı UA).  
+**From (zorunlu):** `info@zaryadnastantsiya.com.ua` — asla başka marka domaininden (buketgo vs.) atma.
 
 ## Ne zaman atılır?
 
