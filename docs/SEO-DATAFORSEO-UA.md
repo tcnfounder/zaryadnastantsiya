@@ -43,18 +43,27 @@ Avoid EV intent cannibalization: `зарядна станція для елек�
 
 Also refreshed volume: `купити зарядну станцію` → **9 900**.
 
-## Next queue (not yet built)
+## Batch 2 shipped (same PR / follow-up commit)
+
+| Slug | Keyword | Vol |
+|---|---|---:|
+| `invertor-3-kvt` | інвертор 3 квт | 18 100 |
+| `invertor-5-kvt` | інвертор 5 квт | 14 800 |
+| `invertor-deye` | інвертор deye | 8 100 |
+| `invertor-dlya-kotla` | інвертор для котла | 4 400 |
+| `invertor-dlya-kvartyry` | інвертор для квартири | 4 400 |
+| `zaryadna-stantsiya-anker` | зарядна станція anker | 2 400 |
+| `rezervne-zhyvlennya` | резервне живлення | 1 600 |
+| `generator-3-kvt` (retarget) | купити генератор 3 квт | 9 900 |
+
+## Next queue
 
 | Keyword | Vol | Why |
 |---|---:|---|
-| інвертор 3 квт | 18 100 | Size landing + calc CTA |
-| інвертор 5 квт | 14 800 | Same |
-| інвертор deye | 8 100 | Brand + claim |
-| інвертор для котла | 4 400 | Cross-link котла station guide |
-| інвертор для квартири | 4 400 | Apartment cluster |
-| зарядна станція anker | 2 400 | Brand page |
-| купити генератор 3 квт | 9 900 | Strengthen existing `/gid/generator-3-kvt` title/H1 |
-| резервне живлення | (expand) | Hub page candidate |
+| інвертор 2 квт | 5 400 | Size ladder with 3/5 |
+| гібридний інвертор 5 квт | 3 600 | Hybrid cluster |
+| інвертор 6 квт / deye 6 квт | 4 400+ | Brand+size |
+| City long-tails | — | `/misto/*` + «монтаж інвертора [місто]» |
 
 ## Operating rhythm
 
