@@ -182,8 +182,8 @@ select {
 .brand-logo-img {
   display: block;
   width: auto;
-  height: 2.55rem;
-  max-width: min(11.5rem, 42vw);
+  height: 2.85rem;
+  max-width: min(13.5rem, 56vw);
   object-fit: contain;
 }
 
@@ -255,7 +255,7 @@ select {
   }
 
   .brand-logo-img {
-    height: 2.25rem;
+    height: 2.45rem;
   }
 
   .site-header-cta {

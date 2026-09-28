@@ -19,8 +19,8 @@ export function BrandLogo({
     <Image
       src={src}
       alt="ZaryadnaStantsiya"
-      width={306}
-      height={160}
+      width={552}
+      height={288}
       className={`brand-logo-img ${className}`.trim()}
       priority
     />
