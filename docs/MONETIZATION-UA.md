@@ -67,8 +67,9 @@ Kapsam (MVP): konut tipi → kesinti süresi → kritik yükler → dış mekân
 | Basic | 1 499 ₴/ay | Doğrulanmış katalog profili |
 | Featured | 3 999 ₴/ay | Kategori + ana sayfa önceliği, 1 şehir |
 | City Priority | 7 999 ₴/ay | 3 şehir top + CTA + lead raporu |
+| Lead Pack | 12 000 ₴/ay | City üstü + öncelikli nitelikli lead kuyruğu (500–2 000 ₴/lead bandı paket içinde) |
 
-İleride: calculator lead ücreti **500–2 000 ₴ / nitelikli lead** (SES/hibrit); portable istasyonlarda affiliate.
+Portable istasyonlarda affiliate; montaj senaryolarında Lead Pack.
 
 ### Gerçekçi aralıklar (UAH/ay, net site geliri)
 

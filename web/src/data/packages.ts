@@ -1,4 +1,4 @@
-export type ClaimPackageId = "basic" | "featured" | "city";
+export type ClaimPackageId = "basic" | "featured" | "city" | "leads";
 
 export type ClaimPackage = {
   id: ClaimPackageId;
@@ -49,6 +49,20 @@ export const claimPackages: ClaimPackage[] = [
       "Топ-позиція в 3 містах",
       "CTA після рекомендації калькулятора",
       "Щомісячний звіт лідів",
+    ],
+  },
+  {
+    id: "leads",
+    name: "Lead Pack",
+    priceUah: 12000,
+    period: "/ міс",
+    description:
+      "Плата за кваліфіковані ліди з калькулятора (інвертор / генератор / монтаж) поверх City Priority.",
+    features: [
+      "Усе з City Priority",
+      "Пріоритетна черга лідів у ваших містах",
+      "Орієнтир 500–2 000 ₴ за кваліфікований лід у пакеті",
+      "Щомісячний розбір конверсії форм",
     ],
   },
 ];
