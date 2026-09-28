@@ -420,12 +420,13 @@ select {
 }
 
 .hero-masthead-copy h1 {
-  margin: 0.85rem 0 1rem;
+  margin: 0.7rem 0 0.9rem;
   font-family: var(--font-unbounded), sans-serif;
-  font-size: clamp(2.7rem, 7.2vw, 5.15rem);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: -0.045em;
+  /* Was up to ~5.15rem — too loud; keep hero presence without crushing the brand */
+  font-size: clamp(2rem, 4.4vw, 3.15rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: #f7f3eb;
   text-wrap: balance;
 }
@@ -515,7 +516,7 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   }
 
   .hero-masthead-copy h1 {
-    font-size: clamp(2.4rem, 11.5vw, 3.4rem);
+    font-size: clamp(1.8rem, 7.6vw, 2.45rem);
   }
 
   .hero-actions {
