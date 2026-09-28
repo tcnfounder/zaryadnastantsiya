@@ -160,11 +160,13 @@ Featured 3999 ₴/міс для [Місто]: claim → https://zaryadnastantsiy
 - Aynı anda 200 mail blast — domain yakar  
 - Sahte rating / sahte “binlerce müşteri”  
 
-## İlk 20 hedef (şablon satır)
+## Lead list (Kyiv batch 1)
 
-| # | Firma | Місто | Email | Mail1 | Follow | Sonuç |
-|---|---|---|---|---|---|---|
-| 1 |  | Київ |  |  |  |  |
-| 2 |  | Київ |  |  |  |  |
-| 3 |  | Львів |  |  |  |  |
-| … |  |  |  |  |  |  |
+Hazır CSV: [`docs/INSTALLER-LEADS-KYIV.csv`](./INSTALLER-LEADS-KYIV.csv) — **23** firma, kamuya açık e-posta (site footer / контакти).
+
+Öncelik atış sırası (Featured, Mail 1):
+1. The Power · Home4You · E-Lifepo4 · InsolEnergy · Ekorezerv  
+2. Boreyra · Alpindustriya · ПАРТНЕР/PSG · ProfElectrika · AllServices  
+3. Energoone · Konektis · TL-GEN · EBMS · Generator.ua  
+
+`status` kolonunu güncelle: `new` → `sent` → `followup` → `replied` / `paid` / `no`.
