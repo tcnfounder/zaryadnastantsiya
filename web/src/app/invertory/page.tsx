@@ -59,18 +59,22 @@ export default function InvertersPage() {
         <p>
           Тихий резерв для квартири й будинку: інвертор + акумулятор без вихлопу.
           Спочатку прочитайте{" "}
+          <Link href="/gid/invertor" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            гід «інвертор»
+          </Link>
+          ,{" "}
           <Link
             href="/gid/invertor-dlya-domu"
             style={{ color: "var(--amber)", fontWeight: 600 }}
           >
-            гід «інвертор для дому»
+            для дому
           </Link>{" "}
           або{" "}
           <Link
             href="/gid/hibrydnyy-invertor"
             style={{ color: "var(--amber)", fontWeight: 600 }}
           >
-            гібридний інвертор
+            гібридний
           </Link>
           ; для портативного сценарію —{" "}
           <Link href="/zaryadni-stantsii" style={{ color: "var(--amber)", fontWeight: 600 }}>

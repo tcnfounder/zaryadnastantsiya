@@ -17,32 +17,33 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const fallbackDate = new Date();
 
   const pages = staticRoutes.map((route) => ({
     url: `${site.url}${route.path}`,
-    lastModified,
+    lastModified: fallbackDate,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
 
   const guidePages = guides.map((guide) => ({
     url: `${site.url}/gid/${guide.slug}`,
-    lastModified,
+    lastModified: new Date(guide.dateModified),
     changeFrequency: "weekly" as const,
-    priority: guide.searchVolume >= 3000 ? 0.9 : 0.8,
+    priority:
+      guide.searchVolume >= 50000 ? 0.95 : guide.searchVolume >= 3000 ? 0.9 : 0.8,
   }));
 
   const cityPages = cities.map((city) => ({
     url: `${site.url}/misto/${city.slug}`,
-    lastModified,
+    lastModified: fallbackDate,
     changeFrequency: "weekly" as const,
     priority: 0.86,
   }));
 
   const productPages = products.map((product) => ({
     url: `${site.url}${productPath(product)}`,
-    lastModified,
+    lastModified: fallbackDate,
     changeFrequency: "weekly" as const,
     priority: product.featured ? 0.85 : 0.75,
   }));

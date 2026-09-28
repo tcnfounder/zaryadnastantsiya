@@ -56,14 +56,26 @@ export default function StationsPage() {
         </h1>
         <p>
           Порівнюйте ємність (Wh), вихідну потужність (W) і орієнтовну ціну в ₴.
-          Для сценарію квартири читайте{" "}
+          Читайте{" "}
+          <Link href="/gid/zaryadna-stantsiya" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            гід «зарядна станція»
+          </Link>
+          ,{" "}
           <Link
             href="/gid/zaryadna-stantsiya-dlya-kvartyry"
             style={{ color: "var(--amber)", fontWeight: 600 }}
           >
-            гід
+            для квартири
+          </Link>
+          ,{" "}
+          <Link href="/gid/ecoflow" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            EcoFlow
           </Link>{" "}
-          або одразу пройдіть{" "}
+          /{" "}
+          <Link href="/gid/bluetti" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            Bluetti
+          </Link>{" "}
+          або{" "}
           <Link href="/kalkulyator" style={{ color: "var(--amber)", fontWeight: 600 }}>
             калькулятор
           </Link>

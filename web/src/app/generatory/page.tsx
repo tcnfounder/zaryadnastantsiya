@@ -65,8 +65,12 @@ export default function GeneratorsPage() {
             інвертори
           </Link>
           . Спочатку{" "}
+          <Link href="/gid/generator" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            гід «генератор»
+          </Link>
+          ,{" "}
           <Link href="/gid/generator-dlya-domu" style={{ color: "var(--amber)", fontWeight: 600 }}>
-            гід «генератор для дому»
+            для дому
           </Link>{" "}
           або{" "}
           <Link href="/kalkulyator" style={{ color: "var(--amber)", fontWeight: 600 }}>

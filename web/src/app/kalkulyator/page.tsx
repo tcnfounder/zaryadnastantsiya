@@ -164,6 +164,15 @@ export default function CalculatorPage() {
             <Link href="/gid/ecoflow">EcoFlow</Link>
           </li>
           <li>
+            <Link href="/gid/bluetti">Bluetti</Link>
+          </li>
+          <li>
+            <Link href="/gid/invertor">Інвертор</Link>
+          </li>
+          <li>
+            <Link href="/gid/generator">Генератор</Link>
+          </li>
+          <li>
             <Link href="/misto">Резерв по містах</Link>
           </li>
         </ul>
