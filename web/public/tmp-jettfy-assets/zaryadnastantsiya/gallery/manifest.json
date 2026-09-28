@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "id": "lifestyle-anasayfa",
+      "label": "Anasayfa — tanıtım mockup'u"
+    },
+    {
+      "id": "desktop-anasayfa",
+      "label": "Anasayfa — masaüstü"
+    },
+    {
+      "id": "mobile-anasayfa",
+      "label": "Anasayfa — mobil"
+    }
+  ]
+}
