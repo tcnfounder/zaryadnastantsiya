@@ -67,14 +67,24 @@ Also refreshed volume: `купити зарядну станцію` → **9 90
 
 Also confirmed: `гібридний інвертор` 14 800 (existing hub). `монтаж інвертора київ` only ~20 — skip as head page; use claim/city instead.
 
+## Batch 4 (volumes 2026-09-28)
+
+| Slug | Keyword | Vol |
+|---|---|---:|
+| `akumulyator-lifepo4` | акумулятор lifepo4 | **14 800** |
+| `ecoflow-delta-2` | екофлоу дельта 2 | **14 800** |
+| `invertor-10-kvt` | інвертор 10 квт | 4 400 |
+| `hibrydnyy-invertor-6-kvt` | гібридний інвертор 6 квт | 2 900 |
+
 ## Next queue
 
 | Keyword | Vol | Why |
 |---|---:|---|
-| інвертор 8 квт / 10 квт | check | Upper size ladder |
-| акумулятор lifepo4 | check | АКБ cluster |
-| зарядна станція 1 квт / 3 квт | check | Station size ladder |
-| City hubs | — | `/misto/*` only when volume justifies |
+| інвертор 8 квт | 1 300 | Upper ladder fill |
+| зарядна станція 1 квт / 3 квт | 1 600 / 1 900 | Station size ladder |
+| City hubs | — | only when volume justifies |
+
+Backlink ops: [`docs/SEO-BACKLINKS-UA.md`](./SEO-BACKLINKS-UA.md).
 
 ## Operating rhythm
 
