@@ -86,3 +86,7 @@ Also confirmed: `гібридний інвертор` 14 800 (existing hub). `
 ## Money link
 
 Every new gid ends in **calculator** or **claim** CTA — SEO traffic → affiliate or Featured installer package.
+
+## Full audit
+
+See [`docs/SEO-AUDIT-UA.md`](./SEO-AUDIT-UA.md) — OnPage scores, **0 referring domains**, SERP competitors, backlink plan, GSC index status.
