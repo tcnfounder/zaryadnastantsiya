@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
+import { guidesForProduct } from "@/data/guides";
 import {
   formatPrice,
   getProduct,
@@ -58,6 +59,7 @@ export default async function ProductPage({ params }: PageProps) {
 
   const categoryHref = categoryPaths[product.category];
   const related = relatedProducts(product);
+  const relatedGuides = guidesForProduct(product);
 
   return (
     <div className="page-section">
@@ -129,6 +131,22 @@ export default async function ProductPage({ params }: PageProps) {
           </p>
         </aside>
       </div>
+
+      {relatedGuides.length > 0 ? (
+        <nav className="calc-seo-links" style={{ marginTop: "2.5rem" }} aria-label="Гіди">
+          <h2>Корисні гіди перед покупкою</h2>
+          <ul>
+            {relatedGuides.map((guide) => (
+              <li key={guide.slug}>
+                <Link href={`/gid/${guide.slug}`}>{guide.h1}</Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/kalkulyator">Калькулятор сценарію</Link>
+            </li>
+          </ul>
+        </nav>
+      ) : null}
 
       <section style={{ marginTop: "3rem" }}>
         <div className="section-head">

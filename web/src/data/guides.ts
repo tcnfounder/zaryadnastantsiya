@@ -14,7 +14,7 @@ export type Guide = {
 };
 
 /** Shared freshness date for guide Article JSON-LD (YYYY-MM-DD). */
-const GUIDE_UPDATED = "2026-09-27";
+const GUIDE_UPDATED = "2026-09-28";
 
 export const guides: Guide[] = [
   {
@@ -692,10 +692,177 @@ export const guides: Guide[] = [
       "vidklyuchennya-svitla",
     ],
   },
+  {
+    slug: "invertor",
+    title: "Інвертор: як обрати для резерву під блекаут",
+    h1: "Інвертор — тихий резерв з АКБ",
+    description:
+      "Що таке інвертор для резерву в Україні: потужність, АКБ, гібрид, порівняння зі станцією й генератором під відключення світла.",
+    keyword: "інвертор",
+    searchVolume: 110000,
+    dateModified: GUIDE_UPDATED,
+    intro:
+      "Інвертор із акумулятором — тихий резерв без вихлопу. Для квартири й будинку це основна альтернатива генератору, коли важливі години автономії й комфорт сусідів.",
+    sections: [
+      {
+        heading: "Інвертор чи зарядна станція",
+        body: "Станція — готовий пристрій у розетку. Інвертор+АКБ гнучкіший по ємності й частіше йде в щит. Калькулятор покаже, що ближче до вашого навантаження.",
+      },
+      {
+        heading: "Потужність і пускові струми",
+        body: "Дивіться не лише номінал кВт, а пуски холодильника й насоса. Для квартири часто 1.8–3 кВт, для будинку — 5 кВт+.",
+      },
+      {
+        heading: "Гібрид і монтаж",
+        body: "Гібридний інвертор зручніший із мережею й АКБ. Підключення до щита — робота монтажника; гід «підключення інвертора» пояснює ризики.",
+      },
+      {
+        heading: "Де порівняти моделі",
+        body: "Каталог інверторів і гіди «інвертор для дому» / «купити інвертор». Ціни в ₴ орієнтовні — перевіряйте магазин перед оплатою.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Який інвертор потрібен для квартири?",
+        answer:
+          "Часто 1.8–3 кВт із літієвим АКБ. Спочатку список критичних приладів і години блекауту.",
+      },
+      {
+        question: "Інвертор чи генератор?",
+        answer:
+          "Інвертор — тиша й квартира. Генератор — довгі відключення на відкритому майданчику.",
+      },
+    ],
+    cta: "inverters",
+    relatedSlugs: [
+      "invertor-dlya-domu",
+      "hibrydnyy-invertor",
+      "kupyty-invertor",
+    ],
+  },
+  {
+    slug: "generator",
+    title: "Генератор: як обрати під відключення світла",
+    h1: "Генератор — резерв для довгих блекаутів",
+    description:
+      "Як обрати генератор в Україні: 3 чи 5 кВт, бензин, дизель, інверторний тип, безпека та порівняння з інвертором і станцією.",
+    keyword: "генератор",
+    searchVolume: 74000,
+    dateModified: GUIDE_UPDATED,
+    intro:
+      "Генератор дає години резерву там, де є вулиця й паливо. У квартирі він не варіант — там станція або інвертор. Для будинку спочатку порахуйте кВт і пускові струми.",
+    sections: [
+      {
+        heading: "Кому потрібен генератор",
+        body: "Приватний будинок, ОСББ-майданчик, бізнес із довгими відключеннями. Немає відкритого місця — обирайте станцію чи інвертор.",
+      },
+      {
+        heading: "3 кВт, 5 кВт, інверторний",
+        body: "3 кВт — базовий дім. 5 кВт — більше ліній. Інверторний генератор тихіший і з чистішою синусоїдою. Окремі гіди вже є під ці запити.",
+      },
+      {
+        heading: "Паливо й монтаж",
+        body: "Рахуйте л/год і запас бака. Підключення до щита — з АВР і монтажником, не через «скрутку».",
+      },
+      {
+        heading: "Підбір перед покупкою",
+        body: "Калькулятор збере сценарій; каталог генераторів покаже моделі з ціною в ₴. Гід «купити генератор» — про типові помилки.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Який генератор обрати для будинку?",
+        answer:
+          "Часто 3–5 кВт із запасом на пуски. Для котла й електроніки дивіться інверторний тип.",
+      },
+      {
+        question: "Чи можна ставити генератор у квартирі?",
+        answer:
+          "Ні. Потрібні вулиця й відведення вихлопу. Для квартири — станція або інвертор з АКБ.",
+      },
+    ],
+    cta: "generators",
+    relatedSlugs: [
+      "generator-dlya-domu",
+      "invertornyy-generator",
+      "kupyty-generator",
+    ],
+  },
+  {
+    slug: "bluetti",
+    title: "Bluetti в Україні: які станції обрати під блекаут",
+    h1: "Bluetti — порівняння станцій",
+    description:
+      "Огляд Bluetti для України: AC180 та сценарії блекауту, Wh/W, ціни та порівняння з EcoFlow і інвертором.",
+    keyword: "bluetti",
+    searchVolume: 12100,
+    dateModified: GUIDE_UPDATED,
+    intro:
+      "Bluetti — популярна альтернатива EcoFlow у сегменті портативних станцій. Для блекауту важливі реальна ємність Wh і пікова потужність W, а не лише бренд.",
+    sections: [
+      {
+        heading: "AC180 як орієнтир",
+        body: "AC180 (~1152 Wh / 1800 W) закриває дім і невеликий офіс без генератора. Порівнюйте з EcoFlow DELTA 2 у каталозі.",
+      },
+      {
+        heading: "Коли вистачить Bluetti",
+        body: "Квартира, короткі й середні відключення, холодильник по черзі з іншими споживачами. Довгі години й насос — дивіться більший запас або інвертор.",
+      },
+      {
+        heading: "Bluetti чи EcoFlow",
+        body: "Обидва бренди закривають портативний сценарій. Обирайте за Wh/W, ціною в ₴ і наявністю, не за рекламою «швидкого заряду».",
+      },
+      {
+        heading: "Далі по воронці",
+        body: "Пройдіть калькулятор, потім картку моделі. Якщо потрібен монтаж щита — заявка монтажній компанії після сценарію.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Яку Bluetti купити для квартири?",
+        answer:
+          "AC180 — частий старт для дому з холодильником. Для лише роутера/ноутбука можна меншу ємність.",
+      },
+      {
+        question: "Bluetti чи інвертор з АКБ?",
+        answer:
+          "Bluetti — без монтажу. Інвертор масштабується по АКБ, але потребує грамотного підключення.",
+      },
+    ],
+    cta: "stations",
+    relatedSlugs: [
+      "ecoflow",
+      "zaryadna-stantsiya",
+      "zaryadna-stantsiya-dlya-kvartyry",
+    ],
+  },
 ];
 
 export function getGuide(slug: string) {
   return guides.find((guide) => guide.slug === slug);
+}
+
+/** Guides to surface on a product page by category / brand. */
+export function guidesForProduct(product: {
+  category: "station" | "generator" | "inverter";
+  brand: string;
+}) {
+  const brand = product.brand.toLowerCase();
+  const slugs: string[] = ["vidklyuchennya-svitla"];
+  if (product.category === "station") {
+    slugs.push("zaryadna-stantsiya", "zaryadna-stantsiya-dlya-kvartyry");
+  }
+  if (product.category === "generator") {
+    slugs.push("generator", "generator-dlya-domu");
+  }
+  if (product.category === "inverter") {
+    slugs.push("invertor", "invertor-dlya-domu");
+  }
+  if (brand.includes("ecoflow")) slugs.push("ecoflow");
+  if (brand.includes("bluetti")) slugs.push("bluetti");
+  return [...new Set(slugs)]
+    .map((slug) => getGuide(slug))
+    .filter((item): item is Guide => Boolean(item));
 }
 
 export function relatedGuides(guide: Guide) {
