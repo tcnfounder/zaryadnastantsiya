@@ -182,8 +182,8 @@ select {
 .brand-logo-img {
   display: block;
   width: auto;
-  height: 2.85rem;
-  max-width: min(13.5rem, 56vw);
+  height: 2.7rem;
+  max-width: min(15.5rem, 62vw);
   object-fit: contain;
 }
 
