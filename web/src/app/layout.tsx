@@ -101,6 +101,16 @@ export default function RootLayout({
             {site.name} · незалежний гід по {site.domain}. Дані оновлюються для
             сценаріїв квартири, будинку й бізнесу в Україні.
           </p>
+          <p style={{ marginTop: "0.65rem" }}>
+            <a
+              href="https://www.jettfy.com/uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "0.15em" }}
+            >
+              Розробка: Jettfy
+            </a>
+          </p>
         </footer>
       </body>
     </html>
