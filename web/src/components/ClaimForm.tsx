@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -19,10 +19,6 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
   const [error, setError] = useState("");
   const [packageId, setPackageId] = useState<ClaimPackageId>(initialPackageId);
   const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    setPackageId(initialPackageId);
-  }, [initialPackageId]);
 
   return (
     <div className="claim-panel" id="claim-form">

@@ -93,7 +93,7 @@ export default async function ClaimPage({ searchParams }: PageProps) {
       <PricingPackages selectedId={packageId} />
 
       <div style={{ marginTop: "2.5rem" }}>
-        <ClaimForm initialPackageId={packageId} />
+        <ClaimForm key={packageId} initialPackageId={packageId} />
       </div>
 
       <div className="section-head" style={{ marginTop: "3rem" }}>
