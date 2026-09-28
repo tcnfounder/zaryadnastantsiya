@@ -90,3 +90,12 @@ Abartı yok: önce SEO + calculator lead kanıtı, sonra fiyat artırımı.
 3. Mid-tail içerik: для квартири, для дому, підключення інвертора, монтаж (şehir).
 4. Affiliate linkleri güçlendir.
 5. Lead-fee paketi (City üstü).
+
+## Outbound (montajcı mail)
+
+Hazır UA mail metinleri + haftalık ritim: [`OUTREACH-INSTALLERS-UA.md`](./OUTREACH-INSTALLERS-UA.md).
+
+- Faz A (şimdi): Featured cold mail, abartısız vaat  
+- Faz B: City (trafik/lead kanıtı sonrası)  
+- Faz C: Lead Pack  
+
