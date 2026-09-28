@@ -20,16 +20,16 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
 
       <section className="hero-masthead">
-        <div className="hero-masthead-media" aria-hidden="true">
+        <div className="hero-masthead-media">
           <Image
             src="/hero-power-station.jpg"
-            alt=""
+            alt="Портативна зарядна станція для резерву під час відключення світла в Україні"
             fill
             priority
             sizes="100vw"
             className="hero-masthead-photo"
           />
-          <div className="hero-masthead-veil" />
+          <div className="hero-masthead-veil" aria-hidden="true" />
         </div>
         <div className="hero-masthead-copy">
           <p className="eyebrow">{site.name} · Україна</p>

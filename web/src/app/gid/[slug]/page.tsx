@@ -38,7 +38,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: guide.title,
     description: guide.description,
-    keywords: [guide.keyword, "Україна", "резервне живлення", "блекаут"],
     alternates: {
       canonical: `${site.url}/gid/${guide.slug}`,
     },
