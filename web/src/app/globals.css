@@ -18,7 +18,8 @@
   --shadow-soft: 0 18px 40px rgba(36, 56, 72, 0.08);
   --radius: 14px;
   --radius-sm: 8px;
-  --header-h: 3.15rem;
+  /* Logo (2 lines) + top/bottom bar padding — keep in sync with .site-header-bar */
+  --header-h: 5.85rem;
 }
 
 @theme inline {
@@ -150,15 +151,16 @@ select {
 .site-header-bar {
   display: grid;
   grid-template-columns: 1fr auto auto;
-  align-items: start;
+  align-items: center;
   gap: 1rem 1.25rem;
   min-height: 0;
   height: auto;
   margin: 0;
+  /* Visible air above logo/nav and below the bar (scrolled + transparent) */
   padding:
-    calc(0.55rem + env(safe-area-inset-top, 0px))
+    calc(2rem + env(safe-area-inset-top, 0px))
     clamp(1rem, 3.5vw, 2.75rem)
-    0.5rem;
+    1.45rem;
   pointer-events: auto;
 }
 
@@ -276,15 +278,15 @@ select {
 
 @media (max-width: 859px) {
   :root {
-    --header-h: 3.05rem;
+    --header-h: 5.5rem;
   }
 
   .site-header-bar {
     grid-template-columns: 1fr auto;
     padding:
-      calc(0.7rem + env(safe-area-inset-top, 0px))
+      calc(1.75rem + env(safe-area-inset-top, 0px))
       1rem
-      0.55rem;
+      1.25rem;
   }
 
   .brand-logo-main {
