@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { claimPackages, type ClaimPackageId } from "@/data/packages";
+import { site } from "@/data/site";
 
 export const runtime = "nodejs";
 
@@ -48,24 +49,17 @@ async function notifyWebhook(payload: Record<string, unknown>) {
   }
 }
 
-async function notifyResend(payload: {
-  company: string;
-  email: string;
-  city: string;
-  packageId: ClaimPackageId;
-  phone: string;
-  message: string;
+async function sendResendEmail(input: {
+  from: string;
+  to: string;
+  replyTo?: string;
+  subject: string;
+  text: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY?.trim();
-  const to = process.env.CLAIM_NOTIFY_TO?.trim();
-  // Prefer a plain address in Railway. Display-name + <brackets> often breaks env vars.
-  const from = process.env.CLAIM_NOTIFY_FROM?.trim() || "onboarding@resend.dev";
-
-  if (!apiKey || !to) {
+  if (!apiKey) {
     return { ok: false as const, reason: "resend_not_configured" };
   }
-
-  const pkg = claimPackages.find((item) => item.id === payload.packageId);
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -75,19 +69,11 @@ async function notifyResend(payload: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: payload.email,
-        subject: `Claim: ${payload.company} · ${pkg?.name ?? payload.packageId}`,
-        text: [
-          `Компанія: ${payload.company}`,
-          `Email: ${payload.email}`,
-          `Місто: ${payload.city}`,
-          `Телефон: ${payload.phone || "—"}`,
-          `Пакет: ${pkg?.name ?? payload.packageId} (${pkg ? pkg.priceUah + " ₴/міс" : "—"})`,
-          `Повідомлення: ${payload.message || "—"}`,
-          `Час: ${new Date().toISOString()}`,
-        ].join("\n"),
+        from: input.from,
+        to: [input.to],
+        reply_to: input.replyTo,
+        subject: input.subject,
+        text: input.text,
       }),
     });
 
@@ -102,6 +88,89 @@ async function notifyResend(payload: {
     console.error("[claim-resend-error]", error);
     return { ok: false as const, reason: "resend_exception" };
   }
+}
+
+async function notifyOwner(payload: {
+  company: string;
+  email: string;
+  city: string;
+  packageId: ClaimPackageId;
+  phone: string;
+  message: string;
+}) {
+  const to = process.env.CLAIM_NOTIFY_TO?.trim();
+  // Prefer a plain address in Railway. Display-name + <brackets> often breaks env vars.
+  const from = process.env.CLAIM_NOTIFY_FROM?.trim() || "onboarding@resend.dev";
+
+  if (!to) {
+    return { ok: false as const, reason: "resend_not_configured" };
+  }
+
+  const pkg = claimPackages.find((item) => item.id === payload.packageId);
+
+  return sendResendEmail({
+    from,
+    to,
+    replyTo: payload.email,
+    subject: `Claim: ${payload.company} · ${pkg?.name ?? payload.packageId}`,
+    text: [
+      `Компанія: ${payload.company}`,
+      `Email: ${payload.email}`,
+      `Місто: ${payload.city}`,
+      `Телефон: ${payload.phone || "—"}`,
+      `Пакет: ${pkg?.name ?? payload.packageId} (${pkg ? pkg.priceUah + " ₴/міс" : "—"})`,
+      `Повідомлення: ${payload.message || "—"}`,
+      `Час: ${new Date().toISOString()}`,
+    ].join("\n"),
+  });
+}
+
+/** Auto-reply to installer so the money loop does not depend on manual inbox triage. */
+async function notifyApplicant(payload: {
+  company: string;
+  email: string;
+  city: string;
+  packageId: ClaimPackageId;
+}) {
+  // Prefer project-domain From for installer-facing mail (never another brand).
+  const from =
+    process.env.CLAIM_APPLICANT_FROM?.trim() ||
+    (process.env.CLAIM_NOTIFY_FROM?.includes("zaryadnastantsiya.com.ua")
+      ? process.env.CLAIM_NOTIFY_FROM.trim()
+      : site.salesEmail);
+  const payUrl = process.env.CLAIM_PAY_URL?.trim();
+  const telegram = process.env.CLAIM_TELEGRAM_URL?.trim();
+  const pkg = claimPackages.find((item) => item.id === payload.packageId);
+  const price = pkg
+    ? new Intl.NumberFormat("uk-UA").format(pkg.priceUah) + " ₴/міс"
+    : "—";
+
+  return sendResendEmail({
+    from,
+    to: payload.email,
+    replyTo: site.salesEmail,
+    subject: `${site.name}: заявка на ${pkg?.name ?? "пакет"} прийнята`,
+    text: [
+      `Добрий день, ${payload.company}!`,
+      "",
+      `Заявку на пакет ${pkg?.name ?? payload.packageId} (${price}) для міста ${payload.city} прийнято.`,
+      "",
+      "Наступні кроки:",
+      "1) Підтвердіть корпоративну пошту у відповіді на цей лист (Reply).",
+      "2) Отримаєте рахунок / реквізити на обраний пакет.",
+      "3) Після оплати профіль з’явиться у добірках протягом 1–2 робочих днів.",
+      "",
+      payUrl ? `Швидка оплата: ${payUrl}` : null,
+      telegram ? `Telegram: ${telegram}` : null,
+      `Питання: ${site.salesEmail}`,
+      `Сайт: ${site.url}/claim?package=${payload.packageId}`,
+      "",
+      "З повагою,",
+      site.name,
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  });
 }
 
 export async function POST(request: Request) {
@@ -152,9 +221,10 @@ export async function POST(request: Request) {
     source: "zaryadnastantsiya.com.ua/claim",
   };
 
-  const [webhookResult, resendResult] = await Promise.all([
+  const [webhookResult, ownerResult, applicantResult] = await Promise.all([
     notifyWebhook(lead),
-    notifyResend({ company, email, city, packageId, phone, message }),
+    notifyOwner({ company, email, city, packageId, phone, message }),
+    notifyApplicant({ company, email, city, packageId }),
   ]);
 
   console.info(
@@ -163,14 +233,18 @@ export async function POST(request: Request) {
       ...lead,
       delivered: {
         webhook: webhookResult.ok,
-        resend: resendResult.ok,
+        owner: ownerResult.ok,
+        applicant: applicantResult.ok,
         webhookReason: "reason" in webhookResult ? webhookResult.reason : null,
-        resendReason: "reason" in resendResult ? resendResult.reason : null,
+        ownerReason: "reason" in ownerResult ? ownerResult.reason : null,
+        applicantReason:
+          "reason" in applicantResult ? applicantResult.reason : null,
       },
     }),
   );
 
-  const delivered = webhookResult.ok || resendResult.ok;
+  const delivered =
+    webhookResult.ok || ownerResult.ok || applicantResult.ok;
 
   // Always accept a valid lead. Delivery failures stay in Railway logs so the
   // form never dies with a Cloudflare 502 HTML page.

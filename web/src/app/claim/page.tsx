@@ -90,6 +90,24 @@ export default async function ClaimPage({ searchParams }: PageProps) {
         </li>
       </ul>
 
+      <p
+        style={{
+          margin: "0 0 2rem",
+          padding: "1rem 0",
+          borderTop: "1px solid color-mix(in srgb, var(--ink) 12%, transparent)",
+          borderBottom: "1px solid color-mix(in srgb, var(--ink) 12%, transparent)",
+          color: "var(--ink-soft)",
+          lineHeight: 1.55,
+          maxWidth: "40rem",
+        }}
+      >
+        <strong style={{ color: "var(--ink)" }}>Окупність:</strong> один
+        закритий монтаж інвертора / гібриду часто{" "}
+        <strong style={{ color: "var(--ink)" }}>80–400+ тис. ₴</strong>. Featured
+        (3 999 ₴/міс) дешевший за тиждень Ads на «монтаж інвертора» — і клієнт уже
+        в кінці воронки.
+      </p>
+
       <PricingPackages selectedId={packageId} />
 
       <div style={{ marginTop: "2.5rem" }}>

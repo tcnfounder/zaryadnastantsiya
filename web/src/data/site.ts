@@ -6,6 +6,8 @@ export const site = {
   description:
     "Незалежний гід і порівняння зарядних станцій, інверторів та генераторів для квартири, будинку й бізнесу в Україні.",
   url: "https://zaryadnastantsiya.com.ua",
+  /** B2B / claim — always project domain, never another brand mailbox */
+  salesEmail: "info@zaryadnastantsiya.com.ua",
 };
 
 export const navItems = [
