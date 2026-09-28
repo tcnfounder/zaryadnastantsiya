@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { navItems } from "@/data/site";
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const onHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -14,6 +17,8 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const logoVariant = onHome && !scrolled ? "light" : "dark";
 
   return (
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
@@ -23,7 +28,7 @@ export function SiteHeader() {
           className="brand-home"
           aria-label="ZaryadnaStantsiya — на головну"
         >
-          <BrandLogo />
+          <BrandLogo variant={logoVariant} />
         </Link>
 
         <nav className="site-nav" aria-label="Основна навігація">

@@ -32,7 +32,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: absoluteUrl("/logo.png"),
+    logo: absoluteUrl("/brand/logo-mark.png"),
     description: site.description,
     areaServed: "UA",
   };
@@ -101,7 +101,7 @@ export function articleJsonLd(input: {
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/logo.png"),
+        url: absoluteUrl("/brand/logo-mark.png"),
       },
     },
     keywords: input.keywords?.join(", "),

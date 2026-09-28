@@ -172,54 +172,19 @@ select {
 
 .brand-home {
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   min-width: 0;
   justify-self: start;
   margin: 0;
   padding: 0;
 }
 
-/* Text-only wordmark with crafted hierarchy */
-.brand-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.14rem;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-brand), "Arial Narrow", sans-serif;
-  line-height: 0.85;
-  white-space: nowrap;
-}
-
-.brand-logo-main {
-  color: var(--ink);
-  font-size: clamp(1.55rem, 2.8vw, 1.95rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.brand-logo-sub {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.brand-logo-rule {
+.brand-logo-img {
   display: block;
-  width: 1.15rem;
-  height: 2px;
-  background: var(--amber);
-  border-radius: 1px;
-}
-
-.brand-logo-subtext {
-  color: var(--amber);
-  font-size: clamp(0.78rem, 1.35vw, 0.92rem);
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  width: auto;
+  height: 2.55rem;
+  max-width: min(11.5rem, 42vw);
+  object-fit: contain;
 }
 
 .site-nav {
@@ -289,13 +254,8 @@ select {
       1.25rem;
   }
 
-  .brand-logo-main {
-    font-size: 1.35rem;
-  }
-
-  .brand-logo-subtext {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+  .brand-logo-img {
+    height: 2.25rem;
   }
 
   .site-header-cta {
@@ -456,11 +416,7 @@ select {
   border-color: rgba(244, 240, 232, 0.7);
 }
 
-/* Light wordmark/nav over dark home hero until scroll solidifies cream bar */
-body:has(.hero-masthead) .site-header:not(.is-scrolled) .brand-logo-main {
-  color: #f4f0e8;
-}
-
+/* Light nav/CTA over dark home hero until scroll solidifies cream bar */
 body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-nav-link {
   color: rgba(244, 240, 232, 0.78);
 }

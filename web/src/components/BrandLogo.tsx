@@ -1,11 +1,28 @@
-export function BrandLogo({ className = "" }: { className?: string }) {
+import Image from "next/image";
+
+type BrandLogoProps = {
+  className?: string;
+  /** Dark wordmark for cream bars; light for transparent hero header */
+  variant?: "dark" | "light";
+};
+
+export function BrandLogo({
+  className = "",
+  variant = "dark",
+}: BrandLogoProps) {
+  const src =
+    variant === "light"
+      ? "/brand/logo-wordmark-light.png"
+      : "/brand/logo-wordmark.png";
+
   return (
-    <span className={`brand-logo ${className}`.trim()}>
-      <span className="brand-logo-main">Zaryadna</span>
-      <span className="brand-logo-sub">
-        <span className="brand-logo-rule" aria-hidden="true" />
-        <span className="brand-logo-subtext">Stantsiya</span>
-      </span>
-    </span>
+    <Image
+      src={src}
+      alt="ZaryadnaStantsiya"
+      width={306}
+      height={160}
+      className={`brand-logo-img ${className}`.trim()}
+      priority
+    />
   );
 }
