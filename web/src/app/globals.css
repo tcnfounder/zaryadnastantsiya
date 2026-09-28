@@ -179,7 +179,7 @@ select {
   padding: 0;
 }
 
-/* Text-only wordmark with crafted hierarchy */
+/* Text wordmark only — no mark icon beside the name */
 .brand-logo {
   display: flex;
   flex-direction: column;
