@@ -173,6 +173,14 @@ export default function CalculatorPage() {
             <Link href="/gid/generator">Генератор</Link>
           </li>
           <li>
+            <Link href="/gid/stantsiya-chy-invertor-chy-generator">
+              Станція, інвертор чи генератор
+            </Link>
+          </li>
+          <li>
+            <Link href="/gid/kupyty-zaryadnu-stantsiyu">Купити зарядну станцію</Link>
+          </li>
+          <li>
             <Link href="/misto">Резерв по містах</Link>
           </li>
         </ul>
