@@ -24,13 +24,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: city.title,
     description: city.description,
-    keywords: [
-      `резервне живлення ${city.name}`,
-      `зарядна станція ${city.name}`,
-      `інвертор ${city.name}`,
-      `генератор ${city.name}`,
-      `монтаж інвертора ${city.name}`,
-    ],
     alternates: {
       canonical: `${site.url}/misto/${city.slug}`,
     },
