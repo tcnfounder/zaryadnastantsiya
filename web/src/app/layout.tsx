@@ -37,17 +37,6 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.description,
-  keywords: [
-    "зарядна станція",
-    "зарядна станція для квартири",
-    "зарядні станції для дому",
-    "інвертор для дому",
-    "гібридний інвертор",
-    "генератор",
-    "резервне живлення",
-    "EcoFlow",
-    "Україна",
-  ],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

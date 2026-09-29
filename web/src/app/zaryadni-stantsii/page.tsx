@@ -13,13 +13,6 @@ export const metadata: Metadata = {
   title: "Зарядні станції для дому та квартири",
   description:
     "Порівняння портативних зарядних станцій в Україні: ємність Wh, потужність W, сценарії відключень, ціни та огляди моделей EcoFlow, Bluetti, Jackery.",
-  keywords: [
-    "зарядна станція",
-    "портативна зарядна станція",
-    "EcoFlow",
-    "Bluetti",
-    "резервне живлення квартира",
-  ],
   alternates: {
     canonical: `${site.url}/zaryadni-stantsii`,
   },

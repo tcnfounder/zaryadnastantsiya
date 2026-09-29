@@ -43,8 +43,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) return {};
+  // Absolute title keeps SERP length ≤ ~60 (template would push money guides over limit).
+  const fullTitle = `${guide.title} · ${site.name}`;
   return {
-    title: guide.title,
+    title: { absolute: fullTitle.length > 60 ? `${guide.h1} · ${site.name}` : fullTitle },
     description: guide.description,
     alternates: {
       canonical: `${site.url}/gid/${guide.slug}`,
@@ -135,8 +137,13 @@ export default async function GuidePage({ params }: PageProps) {
             </section>
             {isMoneyGuide && index === midAfterIndex ? (
               <MidCalcCta
-                title={`Підібрати під «${guide.keyword}»`}
-                text="Вкажіть години відключень і прилади — одразу побачите станцію, інвертор або генератор з орієнтиром W/Wh і моделями в ₴."
+                title={
+                  guide.midCta?.title ?? `Підібрати під «${guide.keyword}»`
+                }
+                text={
+                  guide.midCta?.text ??
+                  "Зберіть години блекауту й критичні прилади — калькулятор покаже клас резерву та моделі в ₴."
+                }
               />
             ) : null}
           </div>
