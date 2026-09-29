@@ -96,7 +96,7 @@ export const products: Product[] = [
     seoDescription:
       "Jackery Explorer 1000 — мобільна зарядна станція ~1000 Wh для дачі, подорожей і резервного живлення.",
     guide:
-      "Зручний мобільний резерв, коли важлива портативність. Для важких пускових навантажень перевіряйте запас по W.",
+      "Зручоий мобільний резерв, коли важлива портативність. Для важких пускових навантажень перевіряйте запас по W.",
     affiliateUrl:
       "https://rozetka.com.ua/ua/search/?text=Jackery%20Explorer%201000",
   },
@@ -146,7 +146,7 @@ export const products: Product[] = [
     seoDescription:
       "Forza FPG-3800SE — бюджетний генератор для резервного живлення приватного будинку в Україні.",
     guide:
-      "Варіант з нижчою стартовою ціною для періодичних відключень. Порівнюйте шум, витрату палива й час автономної роботи.",
+      "Варіант з нижчою стартовню ціною для періодичних відключень. Порівнюйте шум, витрату палива й час автономної роботи.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Forza%20generator",
   },
   {
@@ -210,6 +210,30 @@ export function productsByCategory(category: Product["category"]) {
 
 export function featuredProducts() {
   return products.filter((product) => product.featured);
+}
+
+/** 3 models to surface at the end of high-intent money guides. */
+export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
+  if (slug === "ecoflow") {
+    return products.filter((p) => p.brand.toLowerCase().includes("ecoflow")).slice(0, limit);
+  }
+  if (slug === "generator") {
+    return productsByCategory("generator").slice(0, limit);
+  }
+  if (slug === "invertor") {
+    return productsByCategory("inverter").slice(0, limit);
+  }
+  if (slug === "zaryadna-stantsiya") {
+    return productsByCategory("station").slice(0, limit);
+  }
+  // vidklyuchennya-svitla and fallback: mixed featured ladder
+  const featured = featuredProducts();
+  const mix = [
+    featured.find((p) => p.category === "station"),
+    featured.find((p) => p.category === "inverter"),
+    featured.find((p) => p.category === "generator"),
+  ].filter((p): p is Product => Boolean(p));
+  return mix.slice(0, limit);
 }
 
 export function relatedProducts(product: Product, limit = 3) {
