@@ -1435,6 +1435,47 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   margin: 0 0 2rem;
 }
 
+.mid-calc-cta {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(196, 122, 26, 0.45);
+  border-radius: var(--radius-sm);
+  background: var(--amber-soft);
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+}
+
+.mid-calc-cta-title {
+  margin: 0;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+
+.mid-calc-cta-text {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.guide-models {
+  margin: 2.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.guide-models h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.guide-models > p {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+}
+
 .guide-block {
   margin: 0 0 1.75rem;
 }
