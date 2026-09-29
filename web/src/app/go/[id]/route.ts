@@ -9,8 +9,12 @@ export async function GET(request: Request, context: RouteContext) {
   const { id } = await context.params;
   const product = getProduct(id);
 
+  const noindex = { "X-Robots-Tag": "noindex, nofollow" };
+
   if (!product) {
-    return NextResponse.redirect(new URL("/", request.url), 302);
+    const res = NextResponse.redirect(new URL("/", request.url), 302);
+    Object.entries(noindex).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
 
   console.info(
@@ -23,5 +27,7 @@ export async function GET(request: Request, context: RouteContext) {
     }),
   );
 
-  return NextResponse.redirect(product.affiliateUrl, 302);
+  const res = NextResponse.redirect(product.affiliateUrl, 302);
+  Object.entries(noindex).forEach(([k, v]) => res.headers.set(k, v));
+  return res;
 }

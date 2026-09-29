@@ -4,6 +4,13 @@ import { site } from "@/data/site";
 
 export const runtime = "nodejs";
 
+const NOINDEX = { "X-Robots-Tag": "noindex, nofollow" };
+
+/** Empty GET — stops bot/browser noise on the lead endpoint. */
+export async function GET() {
+  return new NextResponse(null, { status: 204, headers: NOINDEX });
+}
+
 type ClaimBody = {
   company?: string;
   email?: string;

@@ -3,9 +3,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
-import { getGuide, guides, relatedGuides } from "@/data/guides";
+import { MidCalcCta } from "@/components/MidCalcCta";
+import { ProductList } from "@/components/ProductList";
+import { getGuide, guides, relatedGuides, MONEY_GUIDE_SLUGS } from "@/data/guides";
+import { productsForMoneyGuide } from "@/data/products";
 import { site } from "@/data/site";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  guideHowToJsonLd,
+} from "@/lib/seo";
 
 const ctaHref = {
   calculator: "/kalkulyator",
@@ -57,6 +65,9 @@ export default async function GuidePage({ params }: PageProps) {
   if (!guide) notFound();
 
   const related = relatedGuides(guide);
+  const isMoneyGuide = MONEY_GUIDE_SLUGS.has(guide.slug);
+  const midAfterIndex = 0;
+  const models = isMoneyGuide ? productsForMoneyGuide(guide.slug, 3) : [];
 
   return (
     <div className="page-section">
@@ -77,6 +88,15 @@ export default async function GuidePage({ params }: PageProps) {
           keywords: [guide.keyword, "резервне живлення", "Україна"],
         })}
       />
+      {isMoneyGuide ? (
+        <JsonLd
+          data={guideHowToJsonLd({
+            name: `Як обрати: ${guide.keyword}`,
+            description: guide.description,
+            path: `/gid/${guide.slug}`,
+          })}
+        />
+      ) : null}
 
       <article className="guide-article">
         <div className="section-head">
@@ -107,11 +127,19 @@ export default async function GuidePage({ params }: PageProps) {
           </Link>
         </div>
 
-        {guide.sections.map((section) => (
-          <section key={section.heading} className="guide-block">
-            <h2>{section.heading}</h2>
-            <p>{section.body}</p>
-          </section>
+        {guide.sections.map((section, index) => (
+          <div key={section.heading}>
+            <section className="guide-block">
+              <h2>{section.heading}</h2>
+              <p>{section.body}</p>
+            </section>
+            {isMoneyGuide && index === midAfterIndex ? (
+              <MidCalcCta
+                title={`Підібрати під «${guide.keyword}»`}
+                text="Вкажіть години відключень і прилади — одразу побачите станцію, інвертор або генератор з орієнтиром W/Wh і моделями в ₴."
+              />
+            ) : null}
+          </div>
         ))}
 
         <FaqSection
@@ -119,6 +147,22 @@ export default async function GuidePage({ params }: PageProps) {
           title="Часті питання"
           intro={`Коротко по запиту «${guide.keyword}».`}
         />
+
+        {models.length > 0 ? (
+          <section className="guide-models">
+            <h2>Моделі для старту</h2>
+            <p>
+              Орієнтовні ціни в ₴, Wh і W — звіряйте наявність у магазині перед
+              оплатою. Точніший підбір — у калькуляторі.
+            </p>
+            <ProductList products={models} />
+            <p style={{ marginTop: "1.25rem" }}>
+              <Link href="/kalkulyator" className="btn btn-primary">
+                Порахувати свій сценарій
+              </Link>
+            </p>
+          </section>
+        ) : null}
 
         {related.length > 0 ? (
           <aside className="guide-related">

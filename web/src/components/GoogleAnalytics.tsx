@@ -16,7 +16,16 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${measurementId}', { anonymize_ip: true });
+          // Skip /api and affiliate /go redirects — they pollute engagement reports.
+          var path = (location && location.pathname) || '';
+          if (path.indexOf('/api/') === 0 || path.indexOf('/go/') === 0) {
+            /* no page_view */
+          } else {
+            gtag('config', '${measurementId}', {
+              anonymize_ip: true,
+              send_page_view: true
+            });
+          }
         `}
       </Script>
     </>

@@ -4,12 +4,16 @@ import { EnergyCalculator } from "@/components/EnergyCalculator";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/data/site";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  calculatorWebAppJsonLd,
+  faqJsonLd,
+} from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Калькулятор зарядної станції, інвертора й генератора",
   description:
-    "Онлайн-калькулятор резервного живлення для квартири й будинку в Україні: підберіть зарядну станцію, інвертор або генератор за годинами відключень, навантаженням і бюджетом.",
+    "Онлайн-калькулятор резервного живлення для квартири й будинку в Україні: вкажіть години відключень і прилади — отримаєте сценарій (станція, інвертор або генератор) з орієнтиром W/Wh і моделями.",
   keywords: [
     "калькулятор зарядної станції",
     "калькулятор інвертора",
@@ -17,6 +21,7 @@ export const metadata: Metadata = {
     "який інвертор вибрати",
     "резервне живлення калькулятор",
     "генератор для будинку",
+    "відключення світла калькулятор",
   ],
   alternates: {
     canonical: `${site.url}/kalkulyator`,
@@ -24,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Калькулятор резервного живлення",
     description:
-      "Живий підбір: станція, інвертор або генератор під ваш сценарій блекауту.",
+      "Години відключень → сценарій + моделі: станція, інвертор або генератор під блекаут.",
     url: `${site.url}/kalkulyator`,
     locale: "uk_UA",
     type: "website",
@@ -91,6 +96,7 @@ export default function CalculatorPage() {
       />
       <JsonLd data={faqJsonLd(calcFaq)} />
       <JsonLd data={howToJsonLd} />
+      <JsonLd data={calculatorWebAppJsonLd()} />
 
       <div className="section-head">
         <p className="eyebrow">Калькулятор резервного живлення</p>
@@ -103,20 +109,49 @@ export default function CalculatorPage() {
             lineHeight: 1.05,
           }}
         >
-          Підберіть станцію, інвертор або генератор
+          Години відключень → станція, інвертор або генератор
         </h1>
         <p>
-          Ліва колонка — ваш сценарій блекауту. Права одразу показує рекомендацію,
-          орієнтир потужності й моделі. Без порожнього екрану: змінюєте відповідь —
-          оновлюється підбір.
+          Вкажіть житло, години блекауту й критичні прилади — одразу побачите
+          сценарій, орієнтир W/Wh і моделі в ₴. Без порожнього екрану: змінюєте
+          відповідь — оновлюється підбір. Результат можна зберегти як посилання
+          на цю сторінку й повернутись до каталогу.
+        </p>
+        <p style={{ marginTop: "0.85rem" }}>
+          Каталоги:{" "}
+          <Link href="/zaryadni-stantsii">зарядні станції</Link>
+          {" · "}
+          <Link href="/invertory">інвертори</Link>
+          {" · "}
+          <Link href="/generatory">генератори</Link>
         </p>
       </div>
 
       <EnergyCalculator />
 
       <nav className="calc-seo-links" aria-label="Пов’язані гіди">
-        <h2>Корисні гіди після підбору</h2>
+        <h2>Спочатку гіди з найбільшим попитом</h2>
         <ul>
+          <li>
+            <Link href="/gid/vidklyuchennya-svitla">Відключення світла</Link>
+          </li>
+          <li>
+            <Link href="/gid/zaryadna-stantsiya">Зарядна станція</Link>
+          </li>
+          <li>
+            <Link href="/gid/invertor">Інвертор</Link>
+          </li>
+          <li>
+            <Link href="/gid/generator">Генератор</Link>
+          </li>
+          <li>
+            <Link href="/gid/ecoflow">EcoFlow</Link>
+          </li>
+          <li>
+            <Link href="/gid/stantsiya-chy-invertor-chy-generator">
+              Станція, інвертор чи генератор
+            </Link>
+          </li>
           <li>
             <Link href="/gid/zaryadna-stantsiya-dlya-kvartyry">
               Зарядна станція для квартири
@@ -143,42 +178,16 @@ export default function CalculatorPage() {
             <Link href="/gid/invertornyy-generator">Інверторний генератор</Link>
           </li>
           <li>
-            <Link href="/gid/generator-3-kvt">Генератор 3 кВт</Link>
-          </li>
-          <li>
-            <Link href="/gid/generator-5-kvt">Генератор 5 кВт</Link>
-          </li>
-          <li>
-            <Link href="/gid/kupyty-generator">Купити генератор</Link>
+            <Link href="/gid/kupyty-zaryadnu-stantsiyu">Купити зарядну станцію</Link>
           </li>
           <li>
             <Link href="/gid/kupyty-invertor">Купити інвертор</Link>
           </li>
           <li>
-            <Link href="/gid/vidklyuchennya-svitla">Відключення світла</Link>
-          </li>
-          <li>
-            <Link href="/gid/zaryadna-stantsiya">Зарядна станція</Link>
-          </li>
-          <li>
-            <Link href="/gid/ecoflow">EcoFlow</Link>
+            <Link href="/gid/kupyty-generator">Купити генератор</Link>
           </li>
           <li>
             <Link href="/gid/bluetti">Bluetti</Link>
-          </li>
-          <li>
-            <Link href="/gid/invertor">Інвертор</Link>
-          </li>
-          <li>
-            <Link href="/gid/generator">Генератор</Link>
-          </li>
-          <li>
-            <Link href="/gid/stantsiya-chy-invertor-chy-generator">
-              Станція, інвертор чи генератор
-            </Link>
-          </li>
-          <li>
-            <Link href="/gid/kupyty-zaryadnu-stantsiyu">Купити зарядну станцію</Link>
           </li>
           <li>
             <Link href="/misto">Резерв по містах</Link>

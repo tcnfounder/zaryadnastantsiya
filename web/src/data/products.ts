@@ -212,6 +212,30 @@ export function featuredProducts() {
   return products.filter((product) => product.featured);
 }
 
+/** 3 models to surface at the end of high-intent money guides. */
+export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
+  if (slug === "ecoflow") {
+    return products.filter((p) => p.brand.toLowerCase().includes("ecoflow")).slice(0, limit);
+  }
+  if (slug === "generator") {
+    return productsByCategory("generator").slice(0, limit);
+  }
+  if (slug === "invertor") {
+    return productsByCategory("inverter").slice(0, limit);
+  }
+  if (slug === "zaryadna-stantsiya") {
+    return productsByCategory("station").slice(0, limit);
+  }
+  // vidklyuchennya-svitla and fallback: mixed featured ladder
+  const featured = featuredProducts();
+  const mix = [
+    featured.find((p) => p.category === "station"),
+    featured.find((p) => p.category === "inverter"),
+    featured.find((p) => p.category === "generator"),
+  ].filter((p): p is Product => Boolean(p));
+  return mix.slice(0, limit);
+}
+
 export function relatedProducts(product: Product, limit = 3) {
   return products
     .filter((item) => item.category === product.category && item.id !== product.id)

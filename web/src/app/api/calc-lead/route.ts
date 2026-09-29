@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
 
+const NOINDEX = { "X-Robots-Tag": "noindex, nofollow" };
+
+/** Bots that GET this path should not pollute GA with 405/404 HTML. */
+export async function GET() {
+  return new NextResponse(null, { status: 204, headers: NOINDEX });
+}
+
 type CalcLeadBody = {
   name?: string;
   phone?: string;
@@ -74,13 +81,19 @@ export async function POST(request: Request) {
   try {
     body = (await request.json()) as CalcLeadBody;
   } catch {
-    return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "invalid_json" },
+      { status: 400, headers: NOINDEX },
+    );
   }
 
   const name = String(body.name ?? "").trim();
   const phone = String(body.phone ?? "").trim();
   if (name.length < 2 || phone.length < 7) {
-    return NextResponse.json({ ok: false, error: "invalid_contact" }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "invalid_contact" },
+      { status: 400, headers: NOINDEX },
+    );
   }
 
   const lead = {
@@ -102,5 +115,5 @@ export async function POST(request: Request) {
   await Promise.all([notifyWebhook(lead), notifyResend(lead)]);
   console.info("[calc-lead]", lead);
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true }, { headers: NOINDEX });
 }
