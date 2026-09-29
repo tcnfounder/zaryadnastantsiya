@@ -35,6 +35,15 @@ export function organizationJsonLd() {
     logo: absoluteUrl("/brand/logo-mark.png"),
     description: site.description,
     areaServed: "UA",
+    knowsAbout: [
+      "зарядна станція",
+      "інвертор",
+      "генератор",
+      "резервне живлення",
+      "відключення світла",
+      "EcoFlow",
+      "Bluetti",
+    ],
   };
 }
 
@@ -49,7 +58,71 @@ export function websiteJsonLd() {
     publisher: {
       "@type": "Organization",
       name: site.name,
+      url: site.url,
     },
+  };
+}
+
+/** Calculator hub — WebApplication for rich results / entity clarity. */
+export function calculatorWebAppJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Калькулятор резервного живлення",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Web",
+    url: absoluteUrl("/kalkulyator"),
+    description:
+      "Онлайн-підбір зарядної станції, інвертора або генератора під години відключень і навантаження в Україні.",
+    inLanguage: "uk-UA",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "UAH",
+    },
+    provider: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
+  };
+}
+
+export function guideHowToJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: input.name,
+    description: input.description,
+    totalTime: "PT5M",
+    step: [
+      {
+        "@type": "HowToStep",
+        name: "Список критичних приладів",
+        text: "Запишіть, що має працювати під час блекауту: роутер, світло, холодильник, котел, насос.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Години відключень",
+        text: "Оцініть типові години без світла — від цього залежить Wh станції або ємність АКБ.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Підібрати в калькуляторі",
+        text: "Відкрийте калькулятор ZaryadnaStantsiya — отримаєте сценарій (станція / інвертор / генератор) і моделі.",
+        url: absoluteUrl("/kalkulyator"),
+      },
+      {
+        "@type": "HowToStep",
+        name: "Перевірити гід і моделі",
+        text: `Поверніться до гіда та каталогу: ${absoluteUrl(input.path)}.`,
+        url: absoluteUrl(input.path),
+      },
+    ],
   };
 }
 

@@ -62,12 +62,12 @@ export const metadata: Metadata = {
     shortcut: ["/favicon.ico"],
   },
   alternates: {
-    canonical: site.url,
+    canonical: `${site.url}/`,
   },
   openGraph: {
     title: `${site.name} — підбір резервного живлення`,
     description: site.tagline,
-    url: site.url,
+    url: `${site.url}/`,
     siteName: site.name,
     locale: "uk_UA",
     type: "website",
