@@ -2,6 +2,25 @@
 
 Goal: leave **0 referring domains**. No WhatsApp. Channels you control: Telegram (`tcnfounder`, BuketGo) + email from `info@zaryadnastantsiya.com.ua`.
 
+## Day 5–6 update (2026-09-30)
+
+### GSC / IndexNow
+| URL | Status |
+|---|---|
+| `/gid/zaryadna-stantsiya-dlya-kotla` | Indexed (PASS) · lastCrawl 2026-09-28 → **Request indexing refresh** |
+| `/gid/zaryadna-stantsiya-2-kvt` | Indexed (PASS) · lastCrawl 2026-09-28 → **Request indexing refresh** |
+| Sitemap | Re-submitted 2026-09-30 |
+| IndexNow | Pinged Day 5 money + priority guides (HTTP 200) |
+
+### Manual GSC queue (add)
+```
+https://zaryadnastantsiya.com.ua/gid/zaryadna-stantsiya-dlya-kotla
+https://zaryadnastantsiya.com.ua/gid/zaryadna-stantsiya-2-kvt
+https://rakhuno.com/guides/rahunok-faktura
+```
+
+---
+
 ## GSC status (2026-09-28)
 
 Sitemap re-submitted: `https://zaryadnastantsiya.com.ua/sitemap.xml`
@@ -66,6 +85,18 @@ https://zaryadnastantsiya.com.ua/gid/hibrydnyy-invertor-6-kvt
 
 Pin Post A for 7 days on at least one channel.
 
+### Post D — Day 5 money (kotel + 2 кВт)
+
+```
+Блекаут: котел і 2 кВт станція — що реально тягне?
+
+• Зарядна станція для котла → https://zaryadnastantsiya.com.ua/gid/zaryadna-stantsiya-dlya-kotla
+• Зарядна станція 2 кВт (Wh ≠ W) → https://zaryadnastantsiya.com.ua/gid/zaryadna-stantsiya-2-kvt
+• Калькулятор → https://zaryadnastantsiya.com.ua/kalkulyator
+```
+
+
+
 ---
 
 ## Editorial pitch (email — backlinks, not installer sales)
@@ -99,6 +130,33 @@ Prioritize domains that already publish energy/home guides (pattern from competi
 
 Track in a simple table: `domain | contact | sent_at | status (sent/replied/linked/no)`.
 
+### Batch sent 2026-09-30 (From: info@zaryadnastantsiya.com.ua)
+
+Full log: `docs/OUTREACH-SENT-2026-09-30.csv` — **10 editorial** + **10 Featured** (regions; Kyiv CSV skipped).
+
+| Domain / firm | Contact | Type | Status |
+|---|---|---|---|
+| storgom.ua | marketing@storgom.ua | editorial | sent |
+| sea.com.ua | info@sea.com.ua | editorial | sent |
+| solar.biz.ua | info@solar.biz.ua | editorial | sent |
+| charge2go.ua | info@charge2go.ua | editorial | sent |
+| mind.ua | editor@mind.ua | editorial | sent |
+| itc.ua | news@itc.ua | editorial | sent |
+| mezha.ua | taras@mezha.ua | editorial | sent |
+| opticstore.com.ua | info@opticstore.com.ua | editorial | sent |
+| budmir.com.ua | budmir01@gmail.com | editorial | sent |
+| vector.org.ua | info@vector.org.ua | editorial | sent |
+| ep.lviv.ua | info@ep.lviv.ua | featured / Львів | sent |
+| electricpro.od.ua | info@electricpro.od.ua | featured / Одеса | sent |
+| alterno.com.ua | info@alterno.com.ua | featured / Дніпро | sent |
+| power-klinik.com.ua | info@power-klinik.com.ua | featured | sent |
+| sanlarix.com.ua | contact@sanlarix.com.ua | featured / Львів | sent |
+| grandenergobud | grandenergobud@gmail.com | featured / Одеса | sent |
+| lviv.elk.pp.ua | lviv@elk.pp.ua | featured / Львів | sent |
+| e-station.com.ua | estation.dnipro@gmail.com | featured / Дніпро | sent |
+| sun-energy.com.ua | sale@sun-energy.com.ua | featured / Львів | sent |
+| domashnij-master (Харків) | domashnyj.master@gmail.com | featured / Харків | sent |
+
 ---
 
 ## Weekly rhythm
@@ -111,3 +169,18 @@ Track in a simple table: `domain | contact | sent_at | status (sent/replied/link
 | Fri | DataForSEO volume check on next seeds · update audit KPIs |
 
 KPI 30 days: **10–25 referring domains**, GSC impressions >1000, all shipped `/gid` known to Google.
+
+
+---
+
+## Mini Ads (Day 6 — pending budget)
+
+See `docs/DAY6-MINI-ADS.md`. Do not launch until daily budget confirmed.
+
+Suggested UA queries (Search / Meta traffic):
+1. зарядна станція для котла
+2. зарядна станція 2 кВт
+3. зарядна станція для квартири
+
+Landing: matching `/gid/...` money pages (not homepage).
+Daily cap proposal: **$5–10/day**, 3–5 days, then Day 7 review.
