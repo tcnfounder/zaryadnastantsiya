@@ -218,7 +218,9 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "ecoflow" ||
     slug === "ecoflow-delta-2" ||
     slug === "portatyvna-zaryadna-stantsiya" ||
-    slug === "zaryadna-stantsiya-dlya-kvartyry"
+    slug === "zaryadna-stantsiya-dlya-kvartyry" ||
+    slug === "zaryadna-stantsiya-dlya-kotla" ||
+    slug === "zaryadna-stantsiya-2-kvt"
   ) {
     return products.filter((p) => p.category === "station").slice(0, limit);
   }
