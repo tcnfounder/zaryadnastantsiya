@@ -5,7 +5,7 @@ import { site } from "@/data/site";
 import { productPath } from "@/lib/seo";
 
 /** Public IndexNow ownership key (also hosted at /{key}.txt). */
-export const INDEXNOW_KEY = "493412e7d112a33d341c97da12d1fb75";
+export const INDEXNOW_KEY = "3b8c52078c06493597e733bef4820a74";
 
 export const INDEXNOW_HOST = site.domain;
 

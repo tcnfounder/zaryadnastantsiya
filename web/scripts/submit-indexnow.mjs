@@ -16,7 +16,7 @@ const SITE_URL = (process.env.SITE_URL || "https://zaryadnastantsiya.com.ua").re
   "",
 );
 const KEY =
-  process.env.INDEXNOW_KEY || "493412e7d112a33d341c97da12d1fb75";
+  process.env.INDEXNOW_KEY || "3b8c52078c06493597e733bef4820a74";
 const KEY_LOCATION = `${SITE_URL}/${KEY}.txt`;
 const HOST = new URL(SITE_URL).hostname;
 
