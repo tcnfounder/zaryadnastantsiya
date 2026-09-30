@@ -23,3 +23,20 @@ jobs:
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: railway up --service zaryadnastantsiya --detach
+
+      # IndexNow (Bing): notify after deploy. Waits for key file to be live.
+      - name: Submit IndexNow
+        working-directory: web
+        continue-on-error: true
+        run: |
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://zaryadnastantsiya.com.ua/3b8c52078c06493597e733bef4820a74.txt" || true)
+            if [ "$code" = "200" ]; then
+              node scripts/submit-indexnow.mjs
+              exit 0
+            fi
+            echo "key file not ready yet (HTTP $code), retry $i..."
+            sleep 30
+          done
+          echo "IndexNow skipped: key file never became ready"
+          exit 1
