@@ -1494,6 +1494,55 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   font-size: 1.05rem;
 }
 
+.guide-table-wrap {
+  margin: 0 0 2rem;
+}
+
+.guide-table-wrap figcaption {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.guide-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--paper) 88%, var(--amber-soft));
+}
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 28rem;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.45;
+}
+
+.guide-table th {
+  font-weight: 650;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--amber-soft) 55%, transparent);
+  white-space: nowrap;
+}
+
+.guide-table td {
+  color: var(--ink-soft);
+}
+
+.guide-table tr:last-child td {
+  border-bottom: none;
+}
+
 .guide-related {
   margin-top: 2.5rem;
   padding-top: 1.5rem;

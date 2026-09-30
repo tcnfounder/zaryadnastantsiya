@@ -129,6 +129,34 @@ export default async function GuidePage({ params }: PageProps) {
           </Link>
         </div>
 
+        {guide.tables?.map((table) => (
+          <figure key={table.caption} className="guide-table-wrap">
+            <figcaption>{table.caption}</figcaption>
+            <div className="guide-table-scroll">
+              <table className="guide-table">
+                <thead>
+                  <tr>
+                    {table.headers.map((header) => (
+                      <th key={header} scope="col">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {table.rows.map((row) => (
+                    <tr key={row.join("|")}>
+                      {row.map((cell, cellIndex) => (
+                        <td key={`${row[0]}-${cellIndex}`}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </figure>
+        ))}
+
         {guide.sections.map((section, index) => (
           <div key={section.heading}>
             <section className="guide-block">
