@@ -99,6 +99,33 @@ Prioritize domains that already publish energy/home guides (pattern from competi
 
 Track in a simple table: `domain | contact | sent_at | status (sent/replied/linked/no)`.
 
+### Batch sent 2026-09-30 (From: info@zaryadnastantsiya.com.ua)
+
+Full log: `docs/OUTREACH-SENT-2026-09-30.csv` — **10 editorial** + **10 Featured** (regions; Kyiv CSV skipped).
+
+| Domain / firm | Contact | Type | Status |
+|---|---|---|---|
+| storgom.ua | marketing@storgom.ua | editorial | sent |
+| sea.com.ua | info@sea.com.ua | editorial | sent |
+| solar.biz.ua | info@solar.biz.ua | editorial | sent |
+| charge2go.ua | info@charge2go.ua | editorial | sent |
+| mind.ua | editor@mind.ua | editorial | sent |
+| itc.ua | news@itc.ua | editorial | sent |
+| mezha.ua | taras@mezha.ua | editorial | sent |
+| opticstore.com.ua | info@opticstore.com.ua | editorial | sent |
+| budmir.com.ua | budmir01@gmail.com | editorial | sent |
+| vector.org.ua | info@vector.org.ua | editorial | sent |
+| ep.lviv.ua | info@ep.lviv.ua | featured / Львів | sent |
+| electricpro.od.ua | info@electricpro.od.ua | featured / Одеса | sent |
+| alterno.com.ua | info@alterno.com.ua | featured / Дніпро | sent |
+| power-klinik.com.ua | info@power-klinik.com.ua | featured | sent |
+| sanlarix.com.ua | contact@sanlarix.com.ua | featured / Львів | sent |
+| grandenergobud | grandenergobud@gmail.com | featured / Одеса | sent |
+| lviv.elk.pp.ua | lviv@elk.pp.ua | featured / Львів | sent |
+| e-station.com.ua | estation.dnipro@gmail.com | featured / Дніпро | sent |
+| sun-energy.com.ua | sale@sun-energy.com.ua | featured / Львів | sent |
+| domashnij-master (Харків) | domashnyj.master@gmail.com | featured / Харків | sent |
+
 ---
 
 ## Weekly rhythm
