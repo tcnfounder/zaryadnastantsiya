@@ -238,6 +238,16 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
   if (slug === "zaryadna-stantsiya") {
     return productsByCategory("station").slice(0, limit);
   }
+  if (slug === "stantsiya-chy-invertor-chy-generator") {
+    // one of each type — decision page
+    const featured = featuredProducts();
+    const mix = [
+      featured.find((p) => p.category === "station"),
+      featured.find((p) => p.category === "inverter"),
+      featured.find((p) => p.category === "generator"),
+    ].filter((p): p is Product => Boolean(p));
+    return mix.slice(0, limit);
+  }
   // vidklyuchennya-svitla and fallback: mixed featured ladder
   const featured = featuredProducts();
   const mix = [
