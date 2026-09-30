@@ -7,3 +7,4 @@ dist/
 .env*
 agent-tools/
 repos/
+tmp/

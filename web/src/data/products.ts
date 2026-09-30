@@ -214,13 +214,24 @@ export function featuredProducts() {
 
 /** 3 models to surface at the end of high-intent money guides. */
 export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
-  if (slug === "ecoflow") {
-    return products.filter((p) => p.brand.toLowerCase().includes("ecoflow")).slice(0, limit);
+  if (
+    slug === "ecoflow" ||
+    slug === "ecoflow-delta-2" ||
+    slug === "portatyvna-zaryadna-stantsiya"
+  ) {
+    return products.filter((p) => p.category === "station").slice(0, limit);
   }
   if (slug === "generator") {
     return productsByCategory("generator").slice(0, limit);
   }
-  if (slug === "invertor") {
+  if (
+    slug === "invertor" ||
+    slug === "invertor-3-kvt" ||
+    slug === "invertor-5-kvt" ||
+    slug === "invertor-12-220" ||
+    slug === "deye-6-kvt" ||
+    slug === "akumulyator-lifepo4"
+  ) {
     return productsByCategory("inverter").slice(0, limit);
   }
   if (slug === "zaryadna-stantsiya") {
