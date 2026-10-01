@@ -1,7 +1,7 @@
 # SEO hızlanma — 7 gün savaş planı
 
 Primary: **ZaryadnaStantsiya** · Secondary: **Rakhuno**  
-Başlangıç: 2026-09-30 · Güncellendi: 2026-09-30 (Day 5 close + Day 6 start)
+Başlangıç: 2026-09-30 · Güncellendi: 2026-10-01 (Day 7 measurement snapshot)
 
 ## Day 1 — frenleri kaldır ✅
 - [x] GSC sitemap resubmit (ikisi)
@@ -36,26 +36,35 @@ Hedef: `зарядна станція для котла` + `2 квт`
 - [x] Sitemap resubmit + IndexNow ping (2026-09-30)
 - [ ] GSC UI Request indexing refresh (lastCrawlTime hâlâ 2026-09-28 — yeni title crawl bekliyor)
 
-## Day 6 — dağıtım (in progress)
+## Day 6 — dağıtım (organic only — ads SKIP)
 - [x] Editorial + Featured outreach batch already sent (20 mails) — log in `OUTREACH-SENT-2026-09-30.csv`  
   Draft PR to land on main: https://github.com/tcnfounder/zaryadnastantsiya/pull/29
 - [x] IndexNow: Zaryadna Day 5 URLs + Rakhuno priority guides
 - [ ] Telegram Post D (kotla / 2 кВт) → `tcnfounder` / BuketGo — **manuel**
-- [ ] Merge draft outreach PR #29 (or this Day 6 docs PR)
+- [ ] Merge Day 6 docs PR #34 (supersedes draft #29)
 - [x] Jettfy case pages live (dofollow-ish outbound):  
   https://www.jettfy.com/projelerimiz/zaryadnastantsiya → zaryadnastantsiya.com.ua  
   https://www.jettfy.com/projelerimiz/rakhuno → rakhuno.com
-- [ ] Mini Ads test — bütçe onayı bekliyor (`docs/DAY6-MINI-ADS.md`)
+- [x] Mini Ads — **SKIP / cancelled** (2026-10-01; no budget play)
 
-## Day 7 — ölçüm
-| Metrik | Hedef | Baseline notu |
+## Day 7 — ölçüm (snapshot 2026-10-01)
+Detay: `docs/DAY7-MEASUREMENT.md`
+
+| Metrik | Hedef | Sonuç (20 Eyl–1 Eki, incomplete from 29) |
 |---|---|---|
-| Zaryadna GSC gösterim | ×5–10 vs 29 Eyl | GSC rows 20–30 Eyl şu an boş/lag |
-| Rakhuno GSC gösterim | ×3+ | |
-| Zaryadna günlük UA tıklama | ≥1 | |
-| Rakhuno invoice create (gerçek) | ≥10 | |
-| Rakhuno http | 301 → https ✅ | |
+| Zaryadna GSC gösterim | ×5–10 vs 29 Eyl | **5 impr** (29:3 + 30:2) · 26–28:0 — sinyal başladı, hedef yok |
+| Rakhuno GSC gösterim | ×3+ | **19 impr** · 2 clicks (27–28) |
+| Zaryadna günlük UA tıklama | ≥1 | **0** |
+| Rakhuno invoice create (gerçek) | ≥10 | GSC dışı — ayrı bak |
+| Rakhuno http | 301 → https ✅ | CF OK; GSC hâlâ `http://` impr gösteriyor |
 | www → apex | 301 ✅ | |
+| Money pages index | PASS | kotla/2-kvt/kvartyry PASS · lastCrawl 28 Eyl |
+| rahunok-faktura | indexed | ❌ *Crawled – not indexed* |
+
+- [x] GSC analytics pull (date/page/query)
+- [x] Priority URL inspect recheck
+- [x] IndexNow re-ping
+- [ ] Re-measure 2026-10-03 (incomplete dates finalize)
 
 ## Senin 2 dakikalık işin
 1. GSC → Request indexing:  
@@ -63,4 +72,5 @@ Hedef: `зарядна станція для котла` + `2 квт`
    - `https://zaryadnastantsiya.com.ua/gid/zaryadna-stantsiya-2-kvt`  
    - `https://rakhuno.com/guides/rahunok-faktura`
 2. Telegram Post D’yi pin’le (metin `SEO-BACKLINKS-UA.md` içinde)
-3. Mini Ads günlük bütçeyi onayla (öneri: 5–10 $/gün, 3 sorgu)
+
+Mini Ads: **yok** — organic Day 6/7.
