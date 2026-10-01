@@ -1,7 +1,7 @@
 # SEO hızlanma — 7 gün savaş planı
 
 Primary: **ZaryadnaStantsiya** · Secondary: **Rakhuno**  
-Başlangıç: 2026-09-30 · Güncellendi: 2026-09-30 (Day 5 close + Day 6 start)
+Başlangıç: 2026-09-30 · Güncellendi: 2026-10-01 (Day 6: mini ads SKIP)
 
 ## Day 1 — frenleri kaldır ✅
 - [x] GSC sitemap resubmit (ikisi)
@@ -36,16 +36,16 @@ Hedef: `зарядна станція для котла` + `2 квт`
 - [x] Sitemap resubmit + IndexNow ping (2026-09-30)
 - [ ] GSC UI Request indexing refresh (lastCrawlTime hâlâ 2026-09-28 — yeni title crawl bekliyor)
 
-## Day 6 — dağıtım (in progress)
+## Day 6 — dağıtım (organic only — ads SKIP)
 - [x] Editorial + Featured outreach batch already sent (20 mails) — log in `OUTREACH-SENT-2026-09-30.csv`  
   Draft PR to land on main: https://github.com/tcnfounder/zaryadnastantsiya/pull/29
 - [x] IndexNow: Zaryadna Day 5 URLs + Rakhuno priority guides
 - [ ] Telegram Post D (kotla / 2 кВт) → `tcnfounder` / BuketGo — **manuel**
-- [ ] Merge draft outreach PR #29 (or this Day 6 docs PR)
+- [ ] Merge Day 6 docs PR #34 (supersedes draft #29)
 - [x] Jettfy case pages live (dofollow-ish outbound):  
   https://www.jettfy.com/projelerimiz/zaryadnastantsiya → zaryadnastantsiya.com.ua  
   https://www.jettfy.com/projelerimiz/rakhuno → rakhuno.com
-- [ ] Mini Ads test — bütçe onayı bekliyor (`docs/DAY6-MINI-ADS.md`)
+- [x] Mini Ads — **SKIP / cancelled** (2026-10-01; no budget play)
 
 ## Day 7 — ölçüm
 | Metrik | Hedef | Baseline notu |
@@ -63,4 +63,5 @@ Hedef: `зарядна станція для котла` + `2 квт`
    - `https://zaryadnastantsiya.com.ua/gid/zaryadna-stantsiya-2-kvt`  
    - `https://rakhuno.com/guides/rahunok-faktura`
 2. Telegram Post D’yi pin’le (metin `SEO-BACKLINKS-UA.md` içinde)
-3. Mini Ads günlük bütçeyi onayla (öneri: 5–10 $/gün, 3 sorgu)
+
+Mini Ads: **yok** — organic Day 6/7.

@@ -173,9 +173,9 @@ KPI 30 days: **10–25 referring domains**, GSC impressions >1000, all shipped `
 
 ---
 
-## Mini Ads (Day 6 — pending budget)
+## Mini Ads (Day 6 — CANCELLED 2026-10-01)
 
-See `docs/DAY6-MINI-ADS.md`. Do not launch until daily budget confirmed.
+Skipped. See `docs/DAY6-MINI-ADS.md`. Organic distribution only.
 
 Suggested UA queries (Search / Meta traffic):
 1. зарядна станція для котла
