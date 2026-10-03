@@ -4,7 +4,7 @@ import { site } from '@/data/site';
 export const dynamic = 'force-dynamic';
 
 /** Public-agent authorize entry — documents client_credentials instead of browser redirects. */
-dxport async function GET() {
+export async function GET() {
   const origin = site.url;
   return NextResponse.json(
     {
