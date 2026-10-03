@@ -39,10 +39,20 @@ ${topGuides}
 ## City pages
 ${cityLines}
 
+## Agent discovery
+- [auth.md](${site.url}/auth.md)
+- [MCP server card](${site.url}/.well-known/mcp/server-card.json)
+- [MCP endpoint](${site.url}/mcp)
+- [API catalog](${site.url}/.well-known/api-catalog)
+- [Agent skills](${site.url}/.well-known/agent-skills/index.json)
+- [AI catalog](${site.url}/.well-known/ai-catalog.json)
+- [OAuth protected resource](${site.url}/.well-known/oauth-protected-resource)
+
 ## Notes for assistants
 - Do not invent product ratings or fake review counts.
 - Prefer the calculator for “what should I buy” questions.
 - Installer monetization is featured/city/lead packages, not product resale.
+- Public MCP tools: get_site_info, list_product_categories, get_contact.
 `;
 
   return new Response(body, {
