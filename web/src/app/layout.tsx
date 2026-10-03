@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Teko, Unbounded } from "next/font/google";
 import { AppHeader } from "@/components/AppHeader";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import WebMcpRegister from "@/components/WebMcpRegister";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -83,6 +84,7 @@ export default function RootLayout({
     >
       <body className="site-shell min-h-full flex flex-col antialiased">
         <GoogleAnalytics />
+        <WebMcpRegister />
         <AppHeader />
         <main className="flex flex-1 flex-col">{children}</main>
         <footer className="site-footer">
