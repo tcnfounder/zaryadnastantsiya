@@ -52,7 +52,7 @@ export const COMPANY = {
 export const CATEGORIES = [
   {
     name: 'Зарядні станції',
-    path: '/zaryadni-stantsii',
+    path: '/zaryadnis-stantsii',
     description:
       'Портативні зарядні станції (power stations) для квартири й дому під час відключень.',
   },
@@ -89,7 +89,7 @@ export const PRIORITY_PAGES: Record<string, { title: string; summary: string }> 
     title: site.name,
     summary: COMPANY.summary,
   },
-  '/zaryadni-stantsii': {
+  '/zaryadnis-stantsii': {
     title: 'Зарядні станції',
     summary:
       'Порівняння портативних зарядних станцій для квартири й дому в Україні: ємність Wh, потужність W, ціна.',
