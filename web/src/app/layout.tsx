@@ -31,7 +31,7 @@ const brand = Teko({
   weight: ["500", "600", "700"],
 });
 
-export const metadata: =etadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — підбір резервного живлення в Україні`,
