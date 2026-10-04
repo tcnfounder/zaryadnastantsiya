@@ -134,28 +134,33 @@ Track in a simple table: `domain | contact | sent_at | status (sent/replied/link
 
 Full log: `docs/OUTREACH-SENT-2026-09-30.csv` — **10 editorial** + **10 Featured** (regions; Kyiv CSV skipped).
 
+### Mail 2 follow-up sent 2026-10-04 (From: info@zaryadnastantsiya.com.ua)
+
+Full log: [`docs/OUTREACH-FOLLOWUP-2026-10-04.csv`](./OUTREACH-FOLLOWUP-2026-10-04.csv) — **33 Featured** (10 regional + 23 Kyiv) + **10 editorial**. Zoho EU all **200 success**. Inbox check before send: no replies from these recipients.
+
 | Domain / firm | Contact | Type | Status |
 |---|---|---|---|
-| storgom.ua | marketing@storgom.ua | editorial | sent |
-| sea.com.ua | info@sea.com.ua | editorial | sent |
-| solar.biz.ua | info@solar.biz.ua | editorial | sent |
-| charge2go.ua | info@charge2go.ua | editorial | sent |
-| mind.ua | editor@mind.ua | editorial | sent |
-| itc.ua | news@itc.ua | editorial | sent |
-| mezha.ua | taras@mezha.ua | editorial | sent |
-| opticstore.com.ua | info@opticstore.com.ua | editorial | sent |
-| budmir.com.ua | budmir01@gmail.com | editorial | sent |
-| vector.org.ua | info@vector.org.ua | editorial | sent |
-| ep.lviv.ua | info@ep.lviv.ua | featured / Львів | sent |
-| electricpro.od.ua | info@electricpro.od.ua | featured / Одеса | sent |
-| alterno.com.ua | info@alterno.com.ua | featured / Дніпро | sent |
-| power-klinik.com.ua | info@power-klinik.com.ua | featured | sent |
-| sanlarix.com.ua | contact@sanlarix.com.ua | featured / Львів | sent |
-| grandenergobud | grandenergobud@gmail.com | featured / Одеса | sent |
-| lviv.elk.pp.ua | lviv@elk.pp.ua | featured / Львів | sent |
-| e-station.com.ua | estation.dnipro@gmail.com | featured / Дніпро | sent |
-| sun-energy.com.ua | sale@sun-energy.com.ua | featured / Львів | sent |
-| domashnij-master (Харків) | domashnyj.master@gmail.com | featured / Харків | sent |
+| storgom.ua | marketing@storgom.ua | editorial | followup |
+| sea.com.ua | info@sea.com.ua | editorial | followup |
+| solar.biz.ua | info@solar.biz.ua | editorial | followup |
+| charge2go.ua | info@charge2go.ua | editorial | followup |
+| mind.ua | editor@mind.ua | editorial | followup |
+| itc.ua | news@itc.ua | editorial | followup |
+| mezha.ua | taras@mezha.ua | editorial | followup |
+| opticstore.com.ua | info@opticstore.com.ua | editorial | followup |
+| budmir.com.ua | budmir01@gmail.com | editorial | followup |
+| vector.org.ua | info@vector.org.ua | editorial | followup |
+| ep.lviv.ua | info@ep.lviv.ua | featured / Львів | followup |
+| electricpro.od.ua | info@electricpro.od.ua | featured / Одеса | followup |
+| alterno.com.ua | info@alterno.com.ua | featured / Дніпро | followup |
+| power-klinik.com.ua | info@power-klinik.com.ua | featured | followup |
+| sanlarix.com.ua | contact@sanlarix.com.ua | featured / Львів | followup |
+| grandenergobud | grandenergobud@gmail.com | featured / Одеса | followup |
+| lviv.elk.pp.ua | lviv@elk.pp.ua | featured / Львів | followup |
+| e-station.com.ua | estation.dnipro@gmail.com | featured / Дніпро | followup |
+| sun-energy.com.ua | sale@sun-energy.com.ua | featured / Львів | followup |
+| domashnij-master (Харків) | domashnyj.master@gmail.com | featured / Харків | followup |
+| Kyiv CSV (23 firms) | see INSTALLER-LEADS-KYIV.csv | featured / Київ | followup |
 
 ---
 
