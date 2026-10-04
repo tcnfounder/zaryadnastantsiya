@@ -11,7 +11,6 @@ import { site } from "@/data/site";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
-  faqJsonLd,
   guideHowToJsonLd,
 } from "@/lib/seo";
 
@@ -80,7 +79,7 @@ export default async function GuidePage({ params }: PageProps) {
           { name: guide.h1, path: `/gid/${guide.slug}` },
         ])}
       />
-      <JsonLd data={faqJsonLd(guide.faqs)} />
+      {/* FAQPage JSON-LD comes from FaqSection once — avoid duplicate schema. */}
       <JsonLd
         data={articleJsonLd({
           title: guide.title,

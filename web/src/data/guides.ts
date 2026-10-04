@@ -24,7 +24,7 @@ export type Guide = {
 };
 
 /** Shared freshness date for guide Article JSON-LD (YYYY-MM-DD). */
-const GUIDE_UPDATED = "2026-09-30";
+const GUIDE_UPDATED = "2026-10-04";
 
 /**
  * Money-intent attack set — mid-CTA, HowTo, model cards, comparison tables.
@@ -49,6 +49,21 @@ export const MONEY_GUIDE_SLUGS = new Set([
   "generator",
   "ecoflow",
 ]);
+
+/**
+ * Homepage silo order — mid-tail money pages first (beat shops there),
+ * not bare 110k head terms owned by Rozetka/Prom.
+ */
+export const HOME_MONEY_GUIDE_SLUGS = [
+  "zaryadna-stantsiya-dlya-kvartyry",
+  "zaryadna-stantsiya-dlya-kotla",
+  "zaryadna-stantsiya-2-kvt",
+  "stantsiya-chy-invertor-chy-generator",
+  "portatyvna-zaryadna-stantsiya",
+  "ecoflow-delta-2",
+  "deye-6-kvt",
+  "invertor-3-kvt",
+] as const;
 
 export const guides: Guide[] = [
   {
@@ -180,7 +195,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "zaryadna-stantsiya-dlya-kvartyry",
-    title: "Зарядна станція для квартири: як обрати під блекаут",
+    title: "Зарядна станція для квартири під блекаут",
     h1: "Зарядна станція для квартири",
     description:
       "Зарядна станція для квартири в Україні: який Wh/W потрібен, чи потягне холодильник, станція чи інвертор, орієнтир моделей і калькулятор сценарію.",
@@ -1139,7 +1154,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "stantsiya-chy-invertor-chy-generator",
-    title: "Станція чи інвертор чи генератор: що обрати під блекаут",
+    title: "Станція чи інвертор чи генератор",
     h1: "Станція, інвертор чи генератор — що обрати",
     description:
       "Станція чи інвертор чи генератор під блекаут в Україні: порівняння для квартири й будинку — шум, монтаж, години, Wh/W і коли який тип обрати. Калькулятор сценарію.",
@@ -1659,6 +1674,10 @@ export const guides: Guide[] = [
       {
         heading: "Як не переплатити",
         body: "Не купуйте «2 кВт» як магічне число. Внесіть сценарій у калькулятор, порівняйте Wh у каталозі станцій, звіряйте наявність і гарантію в Україні.",
+      },
+      {
+        heading: "Типові помилки при купівлі «2 кВт»",
+        body: "Плутати кВт і кВт·год; ігнорувати пусковий струм холодильника; планувати чайник як базове навантаження; брати хаб без запасу Wh «бо 2000 W звучить солідно». Якщо сценарій — квартира з холодильником на ніч, дивіться гід «зарядна станція для квартири» й рахуйте години, а не лише W на коробці.",
       },
     ],
     faqs: [
@@ -2519,6 +2538,10 @@ export const guides: Guide[] = [
         heading: "Що звірити перед оплатою в ₴",
         body: "Наявність, комплектація, гарантія, реальний Wh/W у картці. У каталозі станцій на ZaryadnaStantsiya — орієнтовні ціни; перед оплатою звіряйте магазин. Окремий бренд-гід — EcoFlow.",
       },
+      {
+        heading: "Коли DELTA 2 вже тісно",
+        body: "Довгі графіки з кількома споживачами, котел у щиті, насос, або план «майже весь дім» — дивіться більший клас станції, інвертор 3–5 кВт з LiFePO4 або порівняльний гід «станція чи інвертор чи генератор». DELTA 2 лишається сильним стартом для квартири, не універсальною відповіддю на будь-який блекаут.",
+      },
     ],
     faqs: [
       {
@@ -2710,3 +2733,24 @@ export function relatedGuides(guide: Guide) {
 export const guidesByVolume = [...guides].sort(
   (a, b) => b.searchVolume - a.searchVolume,
 );
+
+/** Homepage “money silo” picks — mid-tail first, then fill by volume. */
+export function homeGuidePicks(limit = 8): Guide[] {
+  const picked: Guide[] = [];
+  const seen = new Set<string>();
+  for (const slug of HOME_MONEY_GUIDE_SLUGS) {
+    const guide = getGuide(slug);
+    if (guide && !seen.has(guide.slug)) {
+      picked.push(guide);
+      seen.add(guide.slug);
+    }
+    if (picked.length >= limit) return picked;
+  }
+  for (const guide of guidesByVolume) {
+    if (seen.has(guide.slug)) continue;
+    picked.push(guide);
+    seen.add(guide.slug);
+    if (picked.length >= limit) break;
+  }
+  return picked;
+}

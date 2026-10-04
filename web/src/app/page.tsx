@@ -8,7 +8,7 @@ import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
 import { homeFaq } from "@/data/faq";
 import { cities } from "@/data/cities";
-import { guidesByVolume } from "@/data/guides";
+import { homeGuidePicks } from "@/data/guides";
 import { featuredProducts } from "@/data/products";
 import { site } from "@/data/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -72,15 +72,15 @@ export default function HomePage() {
 
       <section className="section" style={{ paddingTop: 0 }} id="gidy">
         <div className="section-head">
-          <p className="eyebrow">Попит у пошуку</p>
+          <p className="eyebrow">Mid-tail · де є шанс</p>
           <h2>Гіди під запити, де вже є гроші</h2>
           <p>
-            Від «відключення світла» й EcoFlow до генератора та інвертора для
-            дому — гіди ведуть у калькулятор і до моделей.
+            Квартира, котел, 2 кВт, порівняння станція/інвертор/генератор —
+            не head-маркети, а сценарії з калькулятором і моделями.
           </p>
         </div>
         <ol className="guide-index guide-index-home">
-          {guidesByVolume.slice(0, 8).map((guide, index) => (
+          {homeGuidePicks(8).map((guide, index) => (
             <li key={guide.slug}>
               <span className="guide-index-rank">{index + 1}</span>
               <div>
