@@ -1,5 +1,5 @@
 import { cities } from "@/data/cities";
-import { guides } from "@/data/guides";
+import { guides, HOME_MONEY_GUIDE_SLUGS } from "@/data/guides";
 import { products } from "@/data/products";
 import { site } from "@/data/site";
 import { productPath } from "@/lib/seo";
@@ -41,6 +41,16 @@ export function collectIndexNowUrls(): string[] {
   }
 
   return [...urls];
+}
+
+/** Priority money URLs for post-deploy / manual IndexNow pings. */
+export function collectPriorityIndexNowUrls(): string[] {
+  const urls = [
+    `${site.url}/`,
+    `${site.url}/kalkulyator`,
+    ...HOME_MONEY_GUIDE_SLUGS.map((slug) => `${site.url}/gid/${slug}`),
+  ];
+  return [...new Set(urls)];
 }
 
 export type IndexNowResult = {
