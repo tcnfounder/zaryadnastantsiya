@@ -39,6 +39,7 @@ Hedef: `зарядна станція для котла` + `2 квт`
 ## Day 6 — dağıtım (in progress)
 - [x] Editorial + Featured outreach batch already sent (20 mails) — log in `OUTREACH-SENT-2026-09-30.csv`  
   Draft PR to land on main: https://github.com/tcnfounder/zaryadnastantsiya/pull/29
+- [x] Mail 2 follow-up 2026-10-04: **33 Featured** (regional+Kyiv) + **10 editorial** — `OUTREACH-FOLLOWUP-2026-10-04.csv`
 - [x] IndexNow: Zaryadna Day 5 URLs + Rakhuno priority guides
 - [ ] Telegram Post D (kotla / 2 кВт) → `tcnfounder` / BuketGo — **manuel**
 - [ ] Merge draft outreach PR #29 (or this Day 6 docs PR)

@@ -91,6 +91,11 @@ ZaryadnaStantsiya
 [Ім’я]
 ```
 
+### Sent: Mail 2 batch 2026-10-04
+
+From `info@zaryadnastantsiya.com.ua` (Zoho EU): **33 Featured** follow-ups (10 regional + 23 Kyiv) — all API **200**.  
+Log: [`docs/OUTREACH-FOLLOWUP-2026-10-04.csv`](./OUTREACH-FOLLOWUP-2026-10-04.csv). Kyiv CSV `status` → `followup`.
+
 ---
 
 ## Mail 3 — City Priority (Faz B, proof sonrası)

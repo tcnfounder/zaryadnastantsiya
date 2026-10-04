@@ -1,21 +1,21 @@
 type,company,city,email,subject,status,sent_at,from_address,source_url,notes
-editorial,Storgom,Київ,marketing@storgom.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://storgom.ua/contact.html,PR/marketing dept
-editorial,SEA,Україна,info@sea.com.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://sea.com.ua/kontakty/,energy guides
-editorial,Solar.biz,Київ/Львів,info@solar.biz.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://solar.biz.ua/kontaktna-informatsiya/,
-editorial,Charge2Go,Україна,info@charge2go.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://charge2go.com.ua/,
-editorial,Mind.ua,Україна,editor@mind.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://mind.ua/contacts,business media
-editorial,ITC.ua,Україна,news@itc.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://itc.ua/about/,tech media
-editorial,Mezha,Україна,taras@mezha.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://mezha.media/about/,tech media
-editorial,Opticstore,Україна,info@opticstore.com.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://opticstore.com.ua/contacts/,
-editorial,Budmir,Україна,budmir01@gmail.com,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://budmir.com.ua/kontakty/,home/DIY
-editorial,Vector,Україна,info@vector.org.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://vector.org.ua/,
-featured,Енергія Досконалості,Львів,info@ep.lviv.ua,Ліди з калькулятора резервного живлення — Львів,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://ep.lviv.ua/,Featured 3999
-featured,Electric Pro,Одеса,info@electricpro.od.ua,Ліди з калькулятора резервного живлення — Одеса,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://electricpro.od.ua/,Featured 3999
-featured,Alterno,Дніпро,info@alterno.com.ua,Ліди з калькулятора резервного живлення — Дніпро,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://alterno.com.ua/,Featured 3999
-featured,Power Klinik,Україна,info@power-klinik.com.ua,Featured-слот для монтажу інверторів — Україна,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://power-klinik.com.ua/,Featured 3999
-featured,Sanlarix,Львів,contact@sanlarix.com.ua,Ліди з калькулятора резервного живлення — Львів,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://sanlarix.com.ua/,Featured 3999
-featured,Гранд Енерго Буд,Одеса,grandenergobud@gmail.com,Ліди з калькулятора резервного живлення — Одеса,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://www.grandenergobud.com.ua/,Featured 3999
-featured,ELK Львів,Львів,lviv@elk.pp.ua,Ліди з калькулятора резервного живлення — Львів,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://lviv.elk.pp.ua/montazh-generatoriv,Featured 3999
-featured,E-Station,Дніпро,estation.dnipro@gmail.com,Ліди з калькулятора резервного живлення — Дніпро,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://e-station.com.ua/contacts/,Featured 3999
-featured,Sun-Energy,Львів,sale@sun-energy.com.ua,Ліди з калькулятора резервного живлення — Львів,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://sun-energy.com.ua/contacts/,Featured 3999
-featured,Домашній Майстер,Харків,domashnyj.master@gmail.com,Ліди з калькулятора резервного живлення — Харків,sent,2026-09-30,info@zaryadnastantsiya.com.ua,https://kharkiv.domashnij-master.com.ua/,Featured 3999
+editorial,Storgom,Київ,marketing@storgom.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://storgom.ua/contact.html,PR/marketing dept; Mail2 2026-10-04
+editorial,SEA,Україна,info@sea.com.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://sea.com.ua/kontakty/,energy guides; Mail2 2026-10-04
+editorial,Solar.biz,Київ/Львів,info@solar.biz.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://solar.biz.ua/kontaktna-informatsiya/,Mail2 2026-10-04
+editorial,Charge2Go,Україна,info@charge2go.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://charge2go.com.ua/,Mail2 2026-10-04
+editorial,Mind.ua,Україна,editor@mind.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://mind.ua/contacts,business media; Mail2 2026-10-04
+editorial,ITC.ua,Україна,news@itc.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://itc.ua/about/,tech media; Mail2 2026-10-04
+editorial,Mezha,Україна,taras@mezha.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://mezha.media/about/,tech media; Mail2 2026-10-04
+editorial,Opticstore,Україна,info@opticstore.com.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://opticstore.com.ua/contacts/,Mail2 2026-10-04
+editorial,Budmir,Україна,budmir01@gmail.com,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://budmir.com.ua/kontakty/,home/DIY; Mail2 2026-10-04
+editorial,Vector,Україна,info@vector.org.ua,Гостьовий матеріал / цитата: резерв під блекаут (Wh vs W),followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://vector.org.ua/,Mail2 2026-10-04
+featured,Енергія Досконалості,Львів,info@ep.lviv.ua,Ліди з калькулятора резервного живлення — Львів,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://ep.lviv.ua/,Featured 3999; Mail2 2026-10-04
+featured,Electric Pro,Одеса,info@electricpro.od.ua,Ліди з калькулятора резервного живлення — Одеса,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://electricpro.od.ua/,Featured 3999; Mail2 2026-10-04
+featured,Alterno,Дніпро,info@alterno.com.ua,Ліди з калькулятора резервного живлення — Дніпро,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://alterno.com.ua/,Featured 3999; Mail2 2026-10-04
+featured,Power Klinik,Україна,info@power-klinik.com.ua,Featured-слот для монтажу інверторів — Україна,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://power-klinik.com.ua/,Featured 3999; Mail2 2026-10-04
+featured,Sanlarix,Львів,contact@sanlarix.com.ua,Ліди з калькулятора резервного живлення — Львів,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://sanlarix.com.ua/,Featured 3999; Mail2 2026-10-04
+featured,Гранд Енерго Буд,Одеса,grandenergobud@gmail.com,Ліди з калькулятора резервного живлення — Одеса,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://www.grandenergobud.com.ua/,Featured 3999; Mail2 2026-10-04
+featured,ELK Львів,Львів,lviv@elk.pp.ua,Ліди з калькулятора резервного живлення — Львів,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://lviv.elk.pp.ua/montazh-generatoriv,Featured 3999; Mail2 2026-10-04
+featured,E-Station,Дніпро,estation.dnipro@gmail.com,Ліди з калькулятора резервного живлення — Дніпро,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://e-station.com.ua/contacts/,Featured 3999; Mail2 2026-10-04
+featured,Sun-Energy,Львів,sale@sun-energy.com.ua,Ліди з калькулятора резервного живлення — Львів,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://sun-energy.com.ua/contacts/,Featured 3999; Mail2 2026-10-04
+featured,Домашній Майстер,Харків,domashnyj.master@gmail.com,Ліди з калькулятора резервного живлення — Харків,followup,2026-09-30,info@zaryadnastantsiya.com.ua,https://kharkiv.domashnij-master.com.ua/,Featured 3999; Mail2 2026-10-04
