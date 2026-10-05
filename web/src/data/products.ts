@@ -220,7 +220,9 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "portatyvna-zaryadna-stantsiya" ||
     slug === "zaryadna-stantsiya-dlya-kvartyry" ||
     slug === "zaryadna-stantsiya-dlya-kotla" ||
-    slug === "zaryadna-stantsiya-2-kvt"
+    slug === "zaryadna-stantsiya-2-kvt" ||
+    slug === "zaryadna-stantsiya-1-kvt" ||
+    slug === "zaryadna-stantsiya-3-kvt"
   ) {
     return products.filter((p) => p.category === "station").slice(0, limit);
   }
@@ -231,6 +233,7 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "invertor" ||
     slug === "invertor-3-kvt" ||
     slug === "invertor-5-kvt" ||
+    slug === "invertor-8-kvt" ||
     slug === "invertor-12-220" ||
     slug === "deye-6-kvt" ||
     slug === "akumulyator-lifepo4"

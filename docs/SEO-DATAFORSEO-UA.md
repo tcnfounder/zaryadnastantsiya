@@ -76,13 +76,20 @@ Also confirmed: `гібридний інвертор` 14 800 (existing hub). `
 | `invertor-10-kvt` | інвертор 10 квт | 4 400 |
 | `hibrydnyy-invertor-6-kvt` | гібридний інвертор 6 квт | 2 900 |
 
+## Batch 5 shipped (2026-10-05)
+
+| Slug | Keyword | Vol |
+|---|---|---:|
+| `zaryadna-stantsiya-1-kvt` | зарядна станція 1 квт | 1 600 |
+| `zaryadna-stantsiya-3-kvt` | зарядна станція 3 квт | 1 900 |
+| `invertor-8-kvt` | інвертор 8 квt | 1 300 |
+
 ## Next queue
 
 | Keyword | Vol | Why |
 |---|---:|---|
-| інвертор 8 квт | 1 300 | Upper ladder fill |
-| зарядна станція 1 квт / 3 квт | 1 600 / 1 900 | Station size ladder |
 | City hubs | — | only when volume justifies |
+| Thicken money gids | — | 600+ words on kotla / kvartira / 2 kVt |
 
 Backlink ops: [`docs/SEO-BACKLINKS-UA.md`](./SEO-BACKLINKS-UA.md).
 
