@@ -35,15 +35,25 @@ function withAgentHeaders(response: NextResponse, origin: string) {
   return response;
 }
 
+function isPublicStaticPath(pathname: string): boolean {
+  return /\.[a-zA-Z0-9]+$/.test(pathname);
+}
+
 export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // Public files must never 301 here — `/_next/image` loads them via an internal
+  // HTTP subrequest that carries x-forwarded-proto: http.
+  if (isPublicStaticPath(pathname)) {
+    return NextResponse.next();
+  }
+
   const url = req.nextUrl.clone();
   const host = requestHost(req);
-  const proto = (
-    req.headers.get('x-forwarded-proto') || url.protocol.replace(':', '')
-  )
-    .split(',')[0]
-    .trim()
-    .toLowerCase();
+  // Only upgrade when the edge explicitly says the client used HTTP.
+  // Internal subrequests (e.g. `/_next/image` fetching `/hero.jpg`) have no
+  // x-forwarded-proto; treating them as http caused 301 HTML → broken images.
+  const forwardedProto = req.headers.get('x-forwarded-proto')?.split(',')[0].trim().toLowerCase();
 
   let needsRedirect = false;
 
@@ -52,7 +62,7 @@ export function middleware(req: NextRequest) {
     needsRedirect = true;
   }
 
-  if (proto === 'http') {
+  if (forwardedProto === 'http') {
     url.protocol = 'https:';
     needsRedirect = true;
   }
@@ -61,7 +71,6 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  const { pathname } = req.nextUrl;
   const origin = site.url;
 
   // Serve robots from middleware so CDN/static caches cannot hide Content-Signal.
@@ -80,10 +89,6 @@ export function middleware(req: NextRequest) {
   }
 
   if (SKIP_PREFIXES.some((prefix) => pathname.startsWith(prefix))) {
-    return NextResponse.next();
-  }
-
-  if (/\.[a-zP-Z0-9]+$/.test(pathname)) {
     return NextResponse.next();
   }
 
