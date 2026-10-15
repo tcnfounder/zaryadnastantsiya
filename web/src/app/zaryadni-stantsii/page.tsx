@@ -55,10 +55,17 @@ export default function StationsPage() {
           </Link>
           ,{" "}
           <Link
-            href="/gid/zaryadna-stantsiya-dlya-kvartyry"
+            href="/gid/portatyvna-zaryadna-stantsiya"
             style={{ color: "var(--amber)", fontWeight: 600 }}
           >
-            для квартири
+            портативну
+          </Link>
+          ,{" "}
+          <Link
+            href="/gid/kupyty-zaryadnu-stantsiyu"
+            style={{ color: "var(--amber)", fontWeight: 600 }}
+          >
+            як купити
           </Link>
           ,{" "}
           <Link href="/gid/ecoflow" style={{ color: "var(--amber)", fontWeight: 600 }}>

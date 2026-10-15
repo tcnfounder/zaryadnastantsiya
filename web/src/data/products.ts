@@ -214,17 +214,33 @@ export function featuredProducts() {
 
 /** 3 models to surface at the end of high-intent money guides. */
 export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
+  if (slug === "ecoflow" || slug === "ecoflow-delta-2") {
+    const stations = products.filter((p) => p.category === "station");
+    return [
+      ...stations.filter((p) => p.brand === "EcoFlow"),
+      ...stations.filter((p) => p.brand !== "EcoFlow"),
+    ].slice(0, limit);
+  }
   if (
-    slug === "ecoflow" ||
-    slug === "ecoflow-delta-2" ||
     slug === "portatyvna-zaryadna-stantsiya" ||
     slug === "zaryadna-stantsiya-dlya-kvartyry" ||
     slug === "zaryadna-stantsiya-dlya-kotla" ||
     slug === "zaryadna-stantsiya-2-kvt" ||
     slug === "zaryadna-stantsiya-1-kvt" ||
-    slug === "zaryadna-stantsiya-3-kvt"
+    slug === "zaryadna-stantsiya-3-kvt" ||
+    slug === "kupyty-zaryadnu-stantsiyu"
   ) {
     return products.filter((p) => p.category === "station").slice(0, limit);
+  }
+  if (slug === "zaryadna-stantsiya-dlya-elektromobilya") {
+    return [];
+  }
+  if (slug === "bluetti") {
+    const stations = products.filter((p) => p.category === "station");
+    return [
+      ...stations.filter((p) => p.brand === "Bluetti"),
+      ...stations.filter((p) => p.brand !== "Bluetti"),
+    ].slice(0, limit);
   }
   if (slug === "generator") {
     return productsByCategory("generator").slice(0, limit);
