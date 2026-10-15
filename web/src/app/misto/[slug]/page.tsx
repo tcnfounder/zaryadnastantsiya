@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { FaqSection } from "@/components/FaqSection";
 import { InstallerList } from "@/components/InstallerList";
 import { JsonLd } from "@/components/JsonLd";
+import { ProductList } from "@/components/ProductList";
 import { cities, getCity } from "@/data/cities";
 import { installers } from "@/data/installers";
+import { productsByCategory } from "@/data/products";
 import { site } from "@/data/site";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 
@@ -45,7 +47,7 @@ export default async function CityPage({ params }: PageProps) {
   const localInstallers = installers.filter(
     (item) => item.city === city.name || item.featured,
   );
-  const dateModified = "2026-09-27";
+  const dateModified = "2026-10-15";
 
   return (
     <div className="page-section">
@@ -64,8 +66,8 @@ export default async function CityPage({ params }: PageProps) {
           path: `/misto/${city.slug}`,
           dateModified,
           keywords: [
-            `резервне живлення ${city.name}`,
-            `монтаж ${city.name}`,
+            `купити зарядну станцію ${city.name}`,
+            `зарядна станція ${city.name}`,
             "блекаут",
           ],
         })}
@@ -92,10 +94,38 @@ export default async function CityPage({ params }: PageProps) {
           <Link href="/kalkulyator" className="btn btn-primary">
             Калькулятор сценарію
           </Link>
-          <Link href="/claim" className="btn btn-ghost-ink">
-            Для монтажних компаній
+          <Link href="/gid/kupyty-zaryadnu-stantsiyu" className="btn btn-ghost-ink">
+            Як купити станцію
           </Link>
         </div>
+
+        <section className="guide-block">
+          <h2>Ціна, вати і кому підходить</h2>
+          <p>{city.buyNote}</p>
+          <p>
+            Порівняйте також{" "}
+            <Link href="/gid/portatyvna-zaryadna-stantsiya" style={{ color: "var(--amber)", fontWeight: 600 }}>
+              портативну зарядну станцію
+            </Link>
+            ,{" "}
+            <Link href="/gid/ecoflow" style={{ color: "var(--amber)", fontWeight: 600 }}>
+              EcoFlow
+            </Link>{" "}
+            і{" "}
+            <Link href="/gid/bluetti" style={{ color: "var(--amber)", fontWeight: 600 }}>
+              Bluetti
+            </Link>
+            . Зарядка електромобіля —{" "}
+            <Link
+              href="/gid/zaryadna-stantsiya-dlya-elektromobilya"
+              style={{ color: "var(--amber)", fontWeight: 600 }}
+            >
+              інший клас, у кіловатах
+            </Link>
+            .
+          </p>
+        </section>
+        <ProductList products={productsByCategory("station")} />
 
         {city.sections.map((section) => (
           <section key={section.heading} className="guide-block">

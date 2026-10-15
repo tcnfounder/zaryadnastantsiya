@@ -29,7 +29,7 @@ Pull date: **2026-09-28**. Endpoints used:
 - `портативна зарядна станція` → Comfy, Rozetka, Foxtrot, brand stores. **No strong neutral comparison guide in top 10.**
 - `акумулятор для інвертора` → shop category pages + 1–2 blog how-tos. Room for calculator-led guide.
 
-Avoid EV intent cannibalization: `зарядна станція для електромобілів` (8.1k) is **out of scope**.
+`зарядна станція для електромобіля` (8.1k, ads medium) is a **different product** from a blackout power station. Shipped as its own guide with kW, price, and who it fits — the page says a 1 kWh EcoFlow/Bluetti does not charge a car overnight.
 
 ## Shipped this sprint (`/gid/…`)
 
@@ -84,12 +84,27 @@ Also confirmed: `гібридний інвертор` 14 800 (existing hub). `
 | `zaryadna-stantsiya-3-kvt` | зарядна станція 3 квт | 1 900 |
 | `invertor-8-kvt` | інвертор 8 квt | 1 300 |
 
+## Batch 6 shipped (2026-10-15 pull, location Ukraine / uk)
+
+Fastest organic wedge on this domain: head `зарядна станція` is **110 000 / KD 10**, paid competition HIGH. Shops own the head SERP; the modifiers below are where a comparison page can rank. Every page in this batch states **price, watts, and who it fits**. Catalog prices stay aligned with `web/src/data/products.ts`.
+
+| URL | Keyword | Vol | Ads | Note |
+|---|---|---:|---|---|
+| `/gid/zaryadna-stantsiya` | зарядна станція | 110 000 | HIGH, KD 10 | Price/W/who table added |
+| `/gid/portatyvna-zaryadna-stantsiya` | портативна зарядна станція | 8 100 | HIGH, KD 11 | Same |
+| `/gid/kupyty-zaryadnu-stantsiyu` | купити зарядну станцію | 9 900 | HIGH, KD 25 | Aug print was 14 800; brief’s 12 100 sits in that band. Current Ads volume is 9 900 |
+| `/gid/bluetti` | зарядна станція bluetti | 8 100 | HIGH | Head `bluetti` is ~40 500; `блюетті` is 5 400, KD 16. One URL, not three thin ones |
+| `/gid/ecoflow` | ecoflow | 74 000 | HIGH, KD 21 | Commercial modifier `зарядна станція ecoflow` is 5 400, KD 16. Table is on the brand URL |
+| `/gid/zaryadna-stantsiya-dlya-elektromobilya` | зарядна станція для електромобіля | 8 100 | MEDIUM | 7 kW from ~6 900 ₴, 22 kW from ~16 000 ₴. Not a blackout station |
+
+City + `купити` does **not** get a separate guide URL. DataForSEO: `купити зарядну станцію київ` ~110 (KD 14), `львів` ~50. Odesa / Kharkiv / Dnipro returned no volume. Buy blocks (price, watts, who) live on the existing `/misto/*` pages so we don’t spin doorway URLs.
+
 ## Next queue
 
 | Keyword | Vol | Why |
 |---|---:|---|
-| City hubs | — | only when volume justifies |
 | Thicken money gids | — | 600+ words on kotla / kvartira / 2 kVt |
+| Index the batch-6 URLs | — | GSC request indexing after deploy |
 
 Backlink ops: [`docs/SEO-BACKLINKS-UA.md`](./SEO-BACKLINKS-UA.md).
 

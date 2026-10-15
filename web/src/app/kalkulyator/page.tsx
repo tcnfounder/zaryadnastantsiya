@@ -187,7 +187,15 @@ export default function CalculatorPage() {
             <Link href="/gid/invertornyy-generator">Інверторний генератор</Link>
           </li>
           <li>
+            <Link href="/gid/portatyvna-zaryadna-stantsiya">Портативна зарядна станція</Link>
+          </li>
+          <li>
             <Link href="/gid/kupyty-zaryadnu-stantsiyu">Купити зарядну станцію</Link>
+          </li>
+          <li>
+            <Link href="/gid/zaryadna-stantsiya-dlya-elektromobilya">
+              Зарядна станція для електромобіля
+            </Link>
           </li>
           <li>
             <Link href="/gid/kupyty-invertor">Купити інвертор</Link>

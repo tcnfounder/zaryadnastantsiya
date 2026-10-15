@@ -72,11 +72,12 @@ export default function HomePage() {
 
       <section className="section" style={{ paddingTop: 0 }} id="gidy">
         <div className="section-head">
-          <p className="eyebrow">Mid-tail · де є шанс</p>
-          <h2>Гіди під запити, де вже є гроші</h2>
+          <p className="eyebrow">Де є шанс обійти вітрину</p>
+          <h2>Гіди з ціною, ватами і тим, кому підходить</h2>
           <p>
-            Квартира, котел, 2 кВт, порівняння станція/інвертор/генератор —
-            не head-маркети, а сценарії з калькулятором і моделями.
+            Портативна станція, купити, Bluetti, EcoFlow і зарядка для
+            електромобіля — окремі запити. У кожному гіді є орієнтир у гривнях
+            і клас потужності.
           </p>
         </div>
         <ol className="guide-index guide-index-home">
@@ -100,11 +101,11 @@ export default function HomePage() {
 
       <section className="section" style={{ paddingTop: 0 }} id="mista">
         <div className="section-head">
-          <p className="eyebrow">Локальний попит</p>
-          <h2>Резерв по містах</h2>
+          <p className="eyebrow">Місто і «купити»</p>
+          <h2>Купити зарядну станцію у своєму місті</h2>
           <p>
-            Київ, Львів, Одеса, Харків, Дніпро — сценарій у калькуляторі й
-            монтажні бригади поруч.
+            Київ, Львів, Одеса, Харків, Дніпро — та сама таблиця ціни й ват,
+            плюс монтаж, якщо коробки вже мало.
           </p>
         </div>
         <ol className="guide-index guide-index-home">

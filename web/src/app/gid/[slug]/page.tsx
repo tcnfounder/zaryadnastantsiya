@@ -198,6 +198,19 @@ export default async function GuidePage({ params }: PageProps) {
           </section>
         ) : null}
 
+        {guide.extraLinks && guide.extraLinks.length > 0 ? (
+          <section className="guide-block">
+            <h2>Купити у своєму місті</h2>
+            <ul>
+              {guide.extraLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         {related.length > 0 ? (
           <aside className="guide-related">
             <h2>Читайте також</h2>
