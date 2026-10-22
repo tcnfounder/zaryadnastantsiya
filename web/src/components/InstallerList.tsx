@@ -12,7 +12,7 @@ export function InstallerList({ items = installers }: InstallerListProps) {
           <div>
             <p className="eyebrow" style={{ marginBottom: "0.45rem" }}>
               {installer.city}
-              {installer.featured ? " · Featured" : ""}
+              {installer.featured ? " · Реклама" : ""}
             </p>
             <h3>{installer.name}</h3>
           </div>

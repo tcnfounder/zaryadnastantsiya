@@ -18,7 +18,7 @@ export function ProductList({
           <div>
             <p className="eyebrow" style={{ marginBottom: "0.45rem" }}>
               {product.brand}
-              {product.featured ? " · Featured" : ""}
+              {product.featured ? " · Вибір редакції" : ""}
             </p>
             <h3>
               <Link href={productPath(product)} className="product-title-link">
@@ -39,7 +39,7 @@ export function ProductList({
               Потужність: <strong>{product.outputW} W</strong>
             </span>
             <span>
-              Рейтинг: <strong>{product.rating.toFixed(1)}</strong>
+              Оцінка редакції: <strong>{product.rating.toFixed(1)}</strong>
             </span>
             <span>
               Ціна: <strong>{formatPrice(product.priceUah)}</strong>

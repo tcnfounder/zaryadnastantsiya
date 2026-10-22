@@ -72,12 +72,12 @@ export default function HomePage() {
 
       <section className="section" style={{ paddingTop: 0 }} id="gidy">
         <div className="section-head">
-          <p className="eyebrow">Де є шанс обійти вітрину</p>
+          <p className="eyebrow">Гіди з підбору</p>
           <h2>Гіди з ціною, ватами і тим, кому підходить</h2>
           <p>
-            Портативна станція, купити, Bluetti, EcoFlow і зарядка для
-            електромобіля — окремі запити. У кожному гіді є орієнтир у гривнях
-            і клас потужності.
+            Портативні станції, Bluetti, EcoFlow, інвертори й зарядка для
+            електромобіля — у кожному гіді є орієнтир у гривнях, клас потужності
+            й те, кому модель підходить.
           </p>
         </div>
         <ol className="guide-index guide-index-home">
@@ -86,9 +86,9 @@ export default function HomePage() {
               <span className="guide-index-rank">{index + 1}</span>
               <div>
                 <Link href={`/gid/${guide.slug}`}>{guide.h1}</Link>
-                <p>{guide.keyword}</p>
+                <p>{guide.description}</p>
               </div>
-              <strong>~{guide.searchVolume.toLocaleString("uk-UA")}/міс</strong>
+              <strong>{new Date(guide.dateModified).toLocaleDateString("uk-UA")}</strong>
             </li>
           ))}
         </ol>

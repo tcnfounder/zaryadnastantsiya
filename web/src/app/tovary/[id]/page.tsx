@@ -84,7 +84,7 @@ export default async function ProductPage({ params }: PageProps) {
         <div>
           <p className="eyebrow">
             {product.brand}
-            {product.featured ? " · Featured" : ""}
+            {product.featured ? " · Вибір редакції" : ""}
           </p>
           <h1>
             {product.brand} {product.name}
@@ -102,7 +102,7 @@ export default async function ProductPage({ params }: PageProps) {
               Потужність: <strong>{product.outputW} W</strong>
             </span>
             <span>
-              Рейтинг: <strong>{product.rating.toFixed(1)}</strong>
+              Оцінка редакції: <strong>{product.rating.toFixed(1)}</strong>
             </span>
             <span>
               Ціна від: <strong>{formatPrice(product.priceUah)}</strong>

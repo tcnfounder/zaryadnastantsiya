@@ -102,7 +102,7 @@ export default async function GuidePage({ params }: PageProps) {
       <article className="guide-article">
         <div className="section-head">
           <p className="eyebrow">
-            Гід · ~{guide.searchVolume.toLocaleString("uk-UA")}/міс · оновлено{" "}
+            Гід · оновлено{" "}
             {new Date(guide.dateModified).toLocaleDateString("uk-UA")}
           </p>
           <h1
@@ -218,7 +218,6 @@ export default async function GuidePage({ params }: PageProps) {
               {related.map((item) => (
                 <li key={item.slug}>
                   <Link href={`/gid/${item.slug}`}>{item.h1}</Link>
-                  <span>~{item.searchVolume.toLocaleString("uk-UA")}/міс</span>
                 </li>
               ))}
             </ul>
