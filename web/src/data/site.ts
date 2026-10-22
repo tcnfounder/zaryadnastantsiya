@@ -8,6 +8,11 @@ export const site = {
   url: "https://zaryadnastantsiya.com.ua",
   /** B2B / claim — always project domain, never another brand mailbox */
   salesEmail: "info@zaryadnastantsiya.com.ua",
+  /**
+   * Last real update of catalog, city and static pages (prices, specs, copy).
+   * Bump this when that content changes — the sitemap uses it as lastmod.
+   */
+  contentUpdatedAt: "2026-10-15",
 };
 
 export const navItems = [

@@ -15,11 +15,12 @@ const staticRoutes = [
   { path: "/gid", changeFrequency: "weekly" as const, priority: 0.92 },
   { path: "/misto", changeFrequency: "weekly" as const, priority: 0.88 },
   { path: "/claim", changeFrequency: "weekly" as const, priority: 0.7 },
-  { path: "/llms.txt", changeFrequency: "weekly" as const, priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const fallbackDate = new Date();
+  // Fixed content date: a build-time `new Date()` made every lastmod identical
+  // and meaningless, so search engines learn to ignore the field.
+  const fallbackDate = new Date(site.contentUpdatedAt);
 
   const pages = staticRoutes.map((route) => ({
     url: route.path === "/" ? `${site.url}/` : `${site.url}${route.path}`,

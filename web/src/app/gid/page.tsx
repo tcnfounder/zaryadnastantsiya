@@ -34,11 +34,12 @@ export default function GuidesIndexPage() {
             lineHeight: 1.05,
           }}
         >
-          Підбір під реальні запити українців
+          Гіди з підбору резервного живлення
         </h1>
         <p>
-          Сторінки зібрані навколо попиту на станції, інвертори й генератори.
-          Кожен гід веде в калькулятор або до монтажної компанії.
+          Як обрати станцію, інвертор чи генератор: ціни в гривнях, Wh і W,
+          типові сценарії відключень. Кожен гід веде в калькулятор або до
+          монтажної компанії.
         </p>
       </div>
 
@@ -50,7 +51,7 @@ export default function GuidesIndexPage() {
               <Link href={`/gid/${guide.slug}`}>{guide.h1}</Link>
               <p>{guide.description}</p>
             </div>
-            <strong>~{guide.searchVolume.toLocaleString("uk-UA")}/міс</strong>
+            <strong>{new Date(guide.dateModified).toLocaleDateString("uk-UA")}</strong>
           </li>
         ))}
       </ol>

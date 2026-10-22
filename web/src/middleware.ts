@@ -39,6 +39,11 @@ function isPublicStaticPath(pathname: string): boolean {
   return /\.[a-zA-Z0-9]+$/.test(pathname);
 }
 
+const LEGACY_GUIDE_REDIRECTS: Record<string, string> = {
+  '/gid/zaryadna-stantsiya-dlya-котла': '/gid/zaryadna-stantsiya-dlya-kotla',
+  '/gid/invertor-dlya-котла': '/gid/invertor-dlya-kotla',
+};
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
@@ -56,6 +61,19 @@ export function middleware(req: NextRequest) {
   const forwardedProto = req.headers.get('x-forwarded-proto')?.split(',')[0].trim().toLowerCase();
 
   let needsRedirect = false;
+
+  // Legacy guide slugs had a Cyrillic tail ("котла") mixed into Latin slugs.
+  let decodedPath = pathname;
+  try {
+    decodedPath = decodeURIComponent(pathname);
+  } catch {
+    // keep raw pathname
+  }
+  const legacySlug = LEGACY_GUIDE_REDIRECTS[decodedPath];
+  if (legacySlug) {
+    url.pathname = legacySlug;
+    needsRedirect = true;
+  }
 
   if (host == `www.${CANONICAL_HOST}`) {
     url.host = CANONICAL_HOST;
