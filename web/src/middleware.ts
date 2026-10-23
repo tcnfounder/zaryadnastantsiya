@@ -49,6 +49,21 @@ export function middleware(req: NextRequest) {
 
   // Public files must never 301 here — `/_next/image` loads them via an internal
   // HTTP subrequest that carries x-forwarded-proto: http.
+  // robots.txt matches the static-extension check. Serve the agent copy first
+  // so Content-Signal is not replaced by app/robots.ts.
+  if (pathname === '/robots.txt') {
+    return new NextResponse(buildRobotsTxt(site.url), {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+        'CDN-Cache-Control': 'no-store',
+        'Content-Signal': CONTENT_SIGNAL,
+        Link: buildAgentLinkHeader(site.url),
+      },
+    });
+  }
+
   if (isPublicStaticPath(pathname)) {
     return NextResponse.next();
   }
