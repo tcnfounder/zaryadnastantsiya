@@ -15,6 +15,7 @@ const staticRoutes = [
   { path: "/gid", changeFrequency: "weekly" as const, priority: 0.92 },
   { path: "/misto", changeFrequency: "weekly" as const, priority: 0.88 },
   { path: "/claim", changeFrequency: "weekly" as const, priority: 0.7 },
+  { path: "/pro-nas", changeFrequency: "monthly" as const, priority: 0.5 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

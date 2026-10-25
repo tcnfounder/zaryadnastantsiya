@@ -228,9 +228,15 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "zaryadna-stantsiya-2-kvt" ||
     slug === "zaryadna-stantsiya-1-kvt" ||
     slug === "zaryadna-stantsiya-3-kvt" ||
-    slug === "kupyty-zaryadnu-stantsiyu"
+    slug === "kupyty-zaryadnu-stantsiyu" ||
+    slug === "reytynh-zaryadnykh-stantsiy" ||
+    slug === "zaryadna-stantsiya-z-sonyachnoyu-panellyu"
   ) {
     return products.filter((p) => p.category === "station").slice(0, limit);
+  }
+  if (slug === "zaryadna-stantsiya-300-vt" || slug === "dbzh-dlya-routera") {
+    const stations = products.filter((p) => p.category === "station");
+    return [...stations].sort((a, b) => a.priceUah - b.priceUah).slice(0, limit);
   }
   if (slug === "zaryadna-stantsiya-dlya-elektromobilya") {
     return [];
@@ -242,7 +248,12 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
       ...stations.filter((p) => p.brand !== "Bluetti"),
     ].slice(0, limit);
   }
-  if (slug === "generator") {
+  if (
+    slug === "generator" ||
+    slug === "invertornyy-generator" ||
+    slug === "benzynovyy-generator" ||
+    slug === "kupyty-generator"
+  ) {
     return productsByCategory("generator").slice(0, limit);
   }
   if (
@@ -252,7 +263,10 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "invertor-8-kvt" ||
     slug === "invertor-12-220" ||
     slug === "deye-6-kvt" ||
-    slug === "akumulyator-lifepo4"
+    slug === "akumulyator-lifepo4" ||
+    slug === "kupyty-invertor" ||
+    slug === "invertor-dlya-kotla" ||
+    slug === "dbzh"
   ) {
     return productsByCategory("inverter").slice(0, limit);
   }

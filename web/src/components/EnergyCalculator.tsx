@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState, useTransition, type FormEvent } from "react";
+import { track } from "@/lib/track";
 import {
   calculatorCities,
   recommendEnergy,
@@ -145,6 +146,14 @@ export function EnergyCalculator() {
           }),
         });
         setLeadStatus(response.ok ? "ok" : "error");
+        if (response.ok) {
+          track("generate_lead", {
+            lead_source: "calculator",
+            solution: result.kind,
+            city: input.city,
+            needs_installer: result.needsInstaller,
+          });
+        }
       } catch {
         setLeadStatus("error");
       }
@@ -157,6 +166,11 @@ export function EnergyCalculator() {
         className="calc-form"
         onSubmit={(event) => {
           event.preventDefault();
+          track("calculator_result", {
+            solution: result.kind,
+            housing: input.housing,
+            estimated_wh: result.estimatedWh,
+          });
           document.getElementById("calc-result")?.scrollIntoView({
             behavior: "smooth",
             block: "nearest",

@@ -24,7 +24,7 @@ export default function GuidesIndexPage() {
         ])}
       />
       <div className="section-head">
-        <p className="eyebrow">SEO-гіди</p>
+        <p className="eyebrow">Гіди</p>
         <h1
           className="font-display"
           style={{
@@ -38,8 +38,8 @@ export default function GuidesIndexPage() {
         </h1>
         <p>
           Як обрати станцію, інвертор чи генератор: ціни в гривнях, Wh і W,
-          типові сценарії відключень. Кожен гід веде в калькулятор або до
-          монтажної компанії.
+          типові сценарії відключень. Кожен гід містить розрахунок, який можна
+          перевірити, і веде в калькулятор для точного підбору.
         </p>
       </div>
 

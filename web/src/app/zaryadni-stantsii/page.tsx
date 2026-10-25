@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
-import { featuredBandCopy } from "@/data/copy";
+import { ScenarioLinks } from "@/components/ScenarioLinks";
 import { stationFaq } from "@/data/faq";
 import { productsByCategory } from "@/data/products";
 import { site } from "@/data/site";
@@ -90,18 +90,20 @@ export default function StationsPage() {
           intro="Короткі відповіді по ємності, потужності та сценаріях квартири."
         />
       </div>
-      <div className="featured-band" style={{ marginTop: "2rem" }}>
-        <div>
-          <p className="eyebrow" style={{ color: "var(--amber-bright)" }}>
-            Featured
-          </p>
-          <h2>{featuredBandCopy.title}</h2>
-          <p>{featuredBandCopy.body}</p>
-        </div>
-        <Link href="/claim" className="btn btn-primary">
-          Забрати профіль
-        </Link>
-      </div>
+      <ScenarioLinks
+        title="Підбір станції за сценарієм"
+        intro="Оберіть свою ситуацію — у кожному гіді є розрахунок Вт·год під ваші прилади й години відключень."
+        items={[
+            { href: "/gid/zaryadna-stantsiya-dlya-kvartyry", title: "Для квартири", text: "Роутер, світло, холодильник: скільки Вт·год потрібно на 4–12 годин." },
+            { href: "/gid/zaryadni-stantsii-dlya-domu", title: "Для приватного будинку", text: "Що реально покриє станція, а де потрібен інвертор чи генератор." },
+            { href: "/gid/zaryadna-stantsiya-dlya-kotla", title: "Для газового котла", text: "Чиста синусоїда, споживання котла й насоса, години роботи." },
+            { href: "/gid/dbzh-dlya-routera", title: "Тільки інтернет", text: "ДБЖ або повербанк для роутера й оптичного терміналу." },
+            { href: "/gid/zaryadna-stantsiya-300-vt", title: "Компактна 300 Вт", text: "Телефони, ноутбук, роутер — і чого вона не потягне." },
+            { href: "/gid/zaryadna-stantsiya-2-kvt", title: "Потужна 2 кВт", text: "Холодильник, мікрохвильовка, чайник короткочасно." },
+            { href: "/gid/reytynh-zaryadnykh-stantsiy", title: "Рейтинг 2026", text: "Порівняння моделей за ціною за Вт·год і потужністю." },
+            { href: "/gid/zaryadna-stantsiya-z-sonyachnoyu-panellyu", title: "З сонячною панеллю", text: "Скільки реально дасть панель восени й узимку." },
+          ]}
+      />
     </div>
   );
 }

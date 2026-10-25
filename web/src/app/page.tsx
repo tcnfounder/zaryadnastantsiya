@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ClaimForm } from "@/components/ClaimForm";
 import { FaqSection } from "@/components/FaqSection";
-import { FeaturedBand } from "@/components/FeaturedBand";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
@@ -126,7 +124,24 @@ export default function HomePage() {
         </p>
       </section>
 
-      <FeaturedBand />
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="section-head">
+          <p className="eyebrow">Як ми працюємо</p>
+          <h2 className="font-display">Розрахунок, який можна перевірити</h2>
+          <p>
+            Кожен гід показує формулу: потужність приладів у Вт × години
+            відключення = потрібні Вт·год, з поправкою на ККД інвертора й
+            корисну ємність акумулятора. Характеристики — з офіційних
+            специфікацій, ціни — орієнтовні на дату оновлення. Ми не магазин і
+            прямо позначаємо партнерські посилання.
+          </p>
+          <p style={{ marginTop: "1rem" }}>
+            <Link href="/pro-nas" className="btn btn-ghost-ink">
+              Про нас і методологія
+            </Link>
+          </p>
+        </div>
+      </section>
 
       <section className="section" style={{ paddingTop: 0 }}>
         <FaqSection
@@ -136,9 +151,6 @@ export default function HomePage() {
         />
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
-        <ClaimForm />
-      </section>
     </>
   );
 }
