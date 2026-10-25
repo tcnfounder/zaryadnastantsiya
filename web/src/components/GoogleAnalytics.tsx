@@ -52,10 +52,10 @@ export function GoogleAnalytics() {
               if (qs.indexOf('ga_internal=0') !== -1) localStorage.removeItem('${INTERNAL_KEY}');
               internal = localStorage.getItem('${INTERNAL_KEY}') === '1';
             } catch (e) {}
-            var cfg = { anonymize_ip: true, send_page_view: true };
-            // Team devices: open any page once with ?ga_internal=1 → excluded by GA4 "Internal traffic" filter.
-            if (internal) cfg.traffic_type = 'internal';
-            gtag('config', '${measurementId}', cfg);
+            // Team devices: open any page once with ?ga_internal=1 → GA fully disabled on that browser
+            // (Google's official opt-out flag), so no internal hits reach reports. ?ga_internal=0 re-enables.
+            if (internal) window['ga-disable-${measurementId}'] = true;
+            gtag('config', '${measurementId}', { anonymize_ip: true, send_page_view: true });
           }
           // Affiliate exits: /go/<id> links are server redirects, so record the click here.
           document.addEventListener('click', function (e) {
