@@ -1,29 +1,7 @@
-export type GuideTable = {
-  caption: string;
-  headers: string[];
-  rows: string[][];
-};
+import type { Guide, GuideTable } from "./guide-types";
+import { guideOverrides, newGuides } from "./guide-content";
 
-export type Guide = {
-  slug: string;
-  title: string;
-  h1: string;
-  description: string;
-  keyword: string;
-  searchVolume: number;
-  dateModified: string;
-  intro: string;
-  sections: { heading: string; body: string }[];
-  /** Optional comparison / Wh-W matrices for rank-ready money pages. */
-  tables?: GuideTable[];
-  faqs: { question: string; answer: string }[];
-  cta: "calculator" | "claim" | "stations" | "inverters" | "generators";
-  relatedSlugs: string[];
-  /** Unique mid-article calculator CTA (money guides). Avoid identical copy across pages. */
-  midCta?: { title: string; text: string };
-  /** Extra in-article links (city buy pages, etc.) that are not other guides. */
-  extraLinks?: { href: string; label: string }[];
-};
+export type { Guide, GuideTable };
 
 /** Shared freshness date for guide Article JSON-LD (YYYY-MM-DD). */
 const GUIDE_UPDATED = "2026-10-05";
@@ -51,6 +29,17 @@ export const MONEY_GUIDE_SLUGS = new Set([
   "bluetti",
   "kupyty-zaryadnu-stantsiyu",
   "zaryadna-stantsiya-dlya-elektromobilya",
+  // Oct 2026 sprint
+  "dbzh-dlya-routera",
+  "dbzh",
+  "invertor-dlya-kotla",
+  "zaryadna-stantsiya-300-vt",
+  "reytynh-zaryadnykh-stantsiy",
+  "zaryadna-stantsiya-z-sonyachnoyu-panellyu",
+  "invertornyy-generator",
+  "benzynovyy-generator",
+  "kupyty-generator",
+  "kupyty-invertor",
   // hubs kept for product cards / HowTo
   "zaryadna-stantsiya",
   "invertor",
@@ -64,17 +53,18 @@ export const MONEY_GUIDE_SLUGS = new Set([
  * (portable, buy, Bluetti/EcoFlow, EV charger) are where a thin guide can rank.
  */
 export const HOME_MONEY_GUIDE_SLUGS = [
+  "dbzh-dlya-routera",
+  "zaryadna-stantsiya-dlya-kvartyry",
   "portatyvna-zaryadna-stantsiya",
   "kupyty-zaryadnu-stantsiyu",
   "bluetti",
   "ecoflow",
   "zaryadna-stantsiya-dlya-elektromobilya",
-  "zaryadna-stantsiya-dlya-kvartyry",
   "zaryadna-stantsiya-2-kvt",
   "ecoflow-delta-2",
 ] as const;
 
-export const guides: Guide[] = [
+const baseGuides: Guide[] = [
   {
     slug: "hibrydnyy-invertor",
     title: "Гібридний інвертор: як обрати для дому в Україні",
@@ -101,7 +91,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Коли кликати монтажника",
-        body: "Підключення до щита, захист лінії, переріз кабелю й схема АКБ — зона професійного монтажу. Помилка тут дорожча за пакет Featured на рік.",
+        body: "Підключення до щита, захист лінії, переріз кабелю й схема АКБ — зона професійного монтажу. Помилка в схемі коштує дорожче за роботу кваліфікованого електрика.",
       },
     ],
     faqs: [
@@ -389,13 +379,7 @@ export const guides: Guide[] = [
       text: "Вкажіть котел (або його Вт), години блекауту й інші прилади — калькулятор покаже клас станції або чи вже потрібен інвертор.",
     },
     cta: "calculator",
-    relatedSlugs: [
-      "invertor-dlya-kotla",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "zaryadna-stantsiya-2-kvt",
-      "stantsiya-chy-invertor-chy-generator",
-      "invertor-dlya-domu",
-    ],
+    relatedSlugs: ["invertor-dlya-kotla", "dbzh", "zaryadna-stantsiya-dlya-kvartyry", "zaryadna-stantsiya-2-kvt", "stantsiya-chy-invertor-chy-generator", "invertor-dlya-domu"],
   },
   {
     slug: "komplekt-rezervnogo-zhyvlennya-kvartyra",
@@ -641,7 +625,7 @@ export const guides: Guide[] = [
       },
     ],
     cta: "calculator",
-    relatedSlugs: ["generator-3-kvt", "generator-dlya-domu", "invertornyy-generator"],
+    relatedSlugs: ["avr-dlya-generatora", "generator-3-kvt", "generator-dlya-domu", "invertornyy-generator"],
   },
   {
     slug: "kupyty-generator",
@@ -817,13 +801,7 @@ export const guides: Guide[] = [
       text: "Впишіть години блекауту й список «має працювати» — калькулятор розкладе, чи вистачить станції, чи вже потрібен інвертор з АКБ (або генератор зовні).",
     },
     cta: "calculator",
-    relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "ecoflow-delta-2",
-      "invertor-3-kvt",
-      "akumulyator-lifepo4",
-      "stantsiya-chy-invertor-chy-generator",
-    ],
+    relatedSlugs: ["dbzh-dlya-routera", "zaryadna-stantsiya-dlya-kvartyry", "invertor-dlya-kotla", "portatyvna-zaryadna-stantsiya", "ecoflow-delta-2", "invertor-3-kvt"],
   },
   {
     slug: "ecoflow",
@@ -990,15 +968,7 @@ export const guides: Guide[] = [
       text: "Задайте години блекауту й прилади — калькулятор порахує орієнтир Wh/W і покаже станції (або скаже, що вже потрібен інвертор).",
     },
     cta: "stations",
-    relatedSlugs: [
-      "vidklyuchennya-svitla",
-      "portatyvna-zaryadna-stantsiya",
-      "kupyty-zaryadnu-stantsiyu",
-      "ecoflow",
-      "bluetti",
-      "zaryadna-stantsiya-dlya-elektromobilya",
-      "zaryadna-stantsiya-dlya-kvartyry",
-    ],
+    relatedSlugs: ["reytynh-zaryadnykh-stantsiy", "zaryadna-stantsiya-300-vt", "vidklyuchennya-svitla", "portatyvna-zaryadna-stantsiya", "kupyty-zaryadnu-stantsiyu", "ecoflow"],
   },
   {
     slug: "invertor",
@@ -1064,13 +1034,7 @@ export const guides: Guide[] = [
       text: "Список приладів і години відключень → калькулятор підкаже клас інвертора (чи станцію замість нього) і орієнтир моделей у ₴.",
     },
     cta: "inverters",
-    relatedSlugs: [
-      "vidklyuchennya-svitla",
-      "invertor-3-kvt",
-      "hibrydnyy-invertor",
-      "akumulyator-dlya-invertora",
-      "invertor-dlya-domu",
-    ],
+    relatedSlugs: ["dbzh", "akumulyator-dlya-invertora", "vidklyuchennya-svitla", "invertor-3-kvt", "hibrydnyy-invertor", "invertor-dlya-domu"],
   },
   {
     slug: "generator",
@@ -1136,13 +1100,7 @@ export const guides: Guide[] = [
       text: "Опишіть житло, години й важкі споживачі (насос, котел). Калькулятор покаже, чи логічний генератор зовні, чи тихіший шлях через інвертор/станцію.",
     },
     cta: "generators",
-    relatedSlugs: [
-      "vidklyuchennya-svitla",
-      "generator-dlya-domu",
-      "invertornyy-generator",
-      "kupyty-generator",
-      "stantsiya-chy-invertor-chy-generator",
-    ],
+    relatedSlugs: ["invertornyy-generator", "avr-dlya-generatora", "hazovyy-generator", "vidklyuchennya-svitla", "generator-dlya-domu", "kupyty-generator"],
   },
   {
     slug: "bluetti",
@@ -1545,13 +1503,7 @@ export const guides: Guide[] = [
       text: "Вкажіть години блекауту й прилади — калькулятор покаже, чи вистачить компактного класу, чи вже потрібен DELTA/AC180 або інвертор з АКБ.",
     },
     cta: "stations",
-    relatedSlugs: [
-      "kupyty-zaryadnu-stantsiyu",
-      "ecoflow",
-      "bluetti",
-      "zaryadna-stantsiya-dlya-elektromobilya",
-      "zaryadna-stantsiya-dlya-kvartyry",
-    ],
+    relatedSlugs: ["zaryadna-stantsiya-z-sonyachnoyu-panellyu", "reytynh-zaryadnykh-stantsiy", "kupyty-zaryadnu-stantsiyu", "ecoflow", "bluetti", "zaryadna-stantsiya-dlya-elektromobilya"],
   },
   {
     slug: "zaryadna-stantsiya-dlya-elektromobilya",
@@ -1860,7 +1812,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж",
-        body: "АВР, кабель, майданчик — зона монтажної компанії. City Priority / Featured якраз про такі бригади.",
+        body: "АВР, кабель і майданчик — робота кваліфікованого електрика: неправильне підключення небезпечне для вас і для енергетиків на лінії.",
       },
     ],
     faqs: [
@@ -2060,13 +2012,7 @@ export const guides: Guide[] = [
       text: "Внесіть прилади й години — калькулятор покаже, чи клас ~1000 W достатній, чи логічніший 2 кВт або інвертор.",
     },
     cta: "calculator",
-    relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "zaryadna-stantsiya-2-kvt",
-      "zaryadna-stantsiya-3-kvt",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "stantsiya-chy-invertor-chy-generator",
-    ],
+    relatedSlugs: ["zaryadna-stantsiya-300-vt", "portatyvna-zaryadna-stantsiya", "zaryadna-stantsiya-2-kvt", "zaryadna-stantsiya-3-kvt", "zaryadna-stantsiya-dlya-kvartyry", "stantsiya-chy-invertor-chy-generator"],
   },
   {
     slug: "zaryadna-stantsiya-3-kvt",
@@ -2252,7 +2198,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж",
-        body: "Підключення до щита, захист і схема АКБ — робота бригади. Саморобні «скрутки» небезпечні. Після підбору кВт можна лишити заявку монтажникам на /claim.",
+        body: "Підключення до щита, захист і схема АКБ — робота кваліфікованого електрика. Саморобні «скрутки» небезпечні.",
       },
     ],
     faqs: [
@@ -2337,7 +2283,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж і щит",
-        body: "АВР/пріоритетні лінії, захист, переріз кабелю — зона монтажника. Після підбору замовляйте claim-профіль бригади: ліди зі сценарієм, не холодні «є інвертор?».",
+        body: "АВР, пріоритетні лінії, захист і переріз кабелю — зона кваліфікованого електрика. Прийдіть до монтажника з готовим списком навантажень — так розмова буде предметною.",
       },
     ],
     faqs: [
@@ -2401,7 +2347,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж",
-        body: "Налаштування гібриду й щита — робота досвідченої бригади. Featured-монтажники на сайті якраз під такі підключення.",
+        body: "Налаштування гібриду й підключення до щита — робота досвідченого електрика або сертифікованого інсталятора.",
       },
     ],
     faqs: [
@@ -2593,7 +2539,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж",
-        body: "Якщо схема йде в щит — беріть перевірену бригаду (claim / Featured).",
+        body: "Якщо схема йде в щит — довірте підключення кваліфікованому електрику.",
       },
     ],
     faqs: [
@@ -2609,11 +2555,7 @@ export const guides: Guide[] = [
       },
     ],
     cta: "calculator",
-    relatedSlugs: [
-      "stantsiya-chy-invertor-chy-generator",
-      "vidklyuchennya-svitla",
-      "komplekt-rezervnogo-zhyvlennya-kvartyra",
-    ],
+    relatedSlugs: ["dbzh-dlya-routera", "dbzh", "stantsiya-chy-invertor-chy-generator", "vidklyuchennya-svitla", "komplekt-rezervnogo-zhyvlennya-kvartyra"],
   },
   {
     slug: "invertor-2-kvt",
@@ -2689,7 +2631,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж у щит",
-        body: "АВР, захист, переріз кабелю — робота монтажника. Після підбору кВт замовляйте claim-профіль бригади.",
+        body: "АВР, захист і переріз кабелю — робота кваліфікованого електрика.",
       },
     ],
     faqs: [
@@ -2802,7 +2744,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж",
-        body: "Щит, АВР, захист, переріз кабелю — лише бригада. Після підбору кВт — заявка для монтажників (claim / Featured).",
+        body: "Щит, АВР, захист і переріз кабелю — лише кваліфікований електрик. Спершу визначте потрібні кВт у калькуляторі, потім обговорюйте схему з монтажником.",
       },
     ],
     faqs: [
@@ -2881,8 +2823,8 @@ export const guides: Guide[] = [
         body: "Багато хто бере Deye як гібрид під СЕС. Для старту резерву достатньо мережа + АКБ; панелі можна додати другим етапом, якщо бюджет і дах дозволяють. Не оплачуйте «сонячний пакет», якщо зараз болить лише блекаут.",
       },
       {
-        heading: "Монтаж і claim",
-        body: "Підключення до щита, захист і АВР — робота бригади. Після підбору кВт замовляйте Featured-профіль монтажника на ZaryadnaStantsiya — ліди зі сценарієм, не холодні дзвінки.",
+        heading: "Монтаж і безпека",
+        body: "Підключення до щита, захист і АВР — робота кваліфікованого електрика. Підготуйте список навантажень із калькулятора — так монтажник швидше запропонує правильну схему.",
       },
     ],
     faqs: [
@@ -2976,7 +2918,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж і безпека",
-        body: "Переріз кабелю, захист, вентиляція й кріплення — зона монтажника. Для щита беріть перевірену бригаду (claim), а не саморобні скрутки.",
+        body: "Переріз кабелю, захист, вентиляція й кріплення — зона монтажника. Для щита беріть перевіреного електрика, а не саморобні скрутки.",
       },
     ],
     faqs: [
@@ -3011,13 +2953,7 @@ export const guides: Guide[] = [
       text: "Вкажіть години блекауту й прилади — калькулятор оцінить потрібний Wh до того, як ви замовите «мінімальну» батарею з вітрини.",
     },
     cta: "calculator",
-    relatedSlugs: [
-      "akumulyator-dlya-invertora",
-      "invertor-3-kvt",
-      "invertor-5-kvt",
-      "deye-6-kvt",
-      "invertor-12-220",
-    ],
+    relatedSlugs: ["helevyy-akumulyator", "akumulyator-dlya-invertora", "invertor-3-kvt", "invertor-5-kvt", "deye-6-kvt", "invertor-12-220"],
   },
   {
     slug: "ecoflow-delta-2",
@@ -3133,7 +3069,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Монтаж",
-        body: "Щит, захист, АВР, кабель — лише професійна бригада. Після підбору кВт — claim-профіль монтажника.",
+        body: "Щит, захист, АВР і кабель — лише професійний електрик.",
       },
     ],
     faqs: [
@@ -3181,8 +3117,8 @@ export const guides: Guide[] = [
         body: "Частіше 48 В LiFePO4. Ємність Wh визначає години, не наклейка кВт на інверторі.",
       },
       {
-        heading: "Монтаж і claim",
-        body: "Щит і захист — зона бригади. Після підбору — Featured на ZaryadnaStantsiya для монтажних партнерів.",
+        heading: "Монтаж і безпека",
+        body: "Щит і захист — зона кваліфікованого електрика; самостійне підключення до щита небезпечне.",
       },
     ],
     faqs: [
@@ -3204,6 +3140,17 @@ export const guides: Guide[] = [
       "hibrydnyy-invertor-5-kvt",
     ],
   },
+];
+
+const overrideMap = new Map(guideOverrides.map((g) => [g.slug, g]));
+
+/**
+ * Live guide list. Rewritten long-form guides in `guide-content/` replace
+ * their thin originals by slug; brand-new guides are appended.
+ */
+export const guides: Guide[] = [
+  ...baseGuides.map((g) => overrideMap.get(g.slug) ?? g),
+  ...newGuides.filter((g) => !baseGuides.some((b) => b.slug === g.slug)),
 ];
 
 export function getGuide(slug: string) {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
-import { featuredBandCopy } from "@/data/copy";
+import { ScenarioLinks } from "@/components/ScenarioLinks";
 import { inverterFaq } from "@/data/faq";
 import { productsByCategory } from "@/data/products";
 import { site } from "@/data/site";
@@ -86,18 +86,20 @@ export default function InvertersPage() {
           intro="Тихий резерв і ємність АКБ під ваші години відключень."
         />
       </div>
-      <div className="featured-band" style={{ marginTop: "2rem" }}>
-        <div>
-          <p className="eyebrow" style={{ color: "var(--amber-bright)" }}>
-            Featured
-          </p>
-          <h2>{featuredBandCopy.title}</h2>
-          <p>{featuredBandCopy.body}</p>
-        </div>
-        <Link href="/claim" className="btn btn-primary">
-          Забрати профіль
-        </Link>
-      </div>
+      <ScenarioLinks
+        title="Підбір інвертора за сценарієм"
+        intro="Інвертор з акумулятором — тихий резерв на довгі відключення. Почніть із гіда під вашу ситуацію."
+        items={[
+            { href: "/gid/invertor-dlya-kvartyry", title: "Для квартири", text: "Де розмістити, LiFePO4 чи AGM, яку потужність брати." },
+            { href: "/gid/invertor-dlya-domu", title: "Для будинку", text: "Окрема лінія резерву в щитку, розрахунок АКБ." },
+            { href: "/gid/invertor-dlya-kotla", title: "ДБЖ для котла", text: "Чиста синусоїда й акумулятор на 8–24 години роботи котла." },
+            { href: "/gid/hibrydnyy-invertor", title: "Гібридний інвертор", text: "Мережа, АКБ і сонячні панелі в одному пристрої." },
+            { href: "/gid/akumulyator-dlya-invertora", title: "Акумулятор", text: "12/24/48 В, А·год у Вт·год, LiFePO4 проти AGM і GEL." },
+            { href: "/gid/dbzh", title: "ДБЖ (безперебійник)", text: "Типи ДБЖ, ВА проти Вт, коли краще інвертор." },
+            { href: "/gid/invertor-2-kvt", title: "Інвертор 2 кВт", text: "Що потягне, 12 чи 24 В, перетин кабелю." },
+            { href: "/gid/kupyty-invertor", title: "Як купити", text: "Чекліст перед оплатою й типові пастки в характеристиках." },
+          ]}
+      />
     </div>
   );
 }

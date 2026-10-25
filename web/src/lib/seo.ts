@@ -153,6 +153,7 @@ export function articleJsonLd(input: {
   description: string;
   path: string;
   dateModified: string;
+  datePublished?: string;
   keywords?: string[];
 }) {
   return {
@@ -161,13 +162,13 @@ export function articleJsonLd(input: {
     headline: input.title,
     description: input.description,
     dateModified: input.dateModified,
-    datePublished: input.dateModified,
+    datePublished: input.datePublished ?? input.dateModified,
     inLanguage: "uk-UA",
     mainEntityOfPage: absoluteUrl(input.path),
     author: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
+      name: `Редакція ${site.name}`,
+      url: absoluteUrl("/pro-nas"),
     },
     publisher: {
       "@type": "Organization",

@@ -9,6 +9,7 @@ import {
   type ClaimPackageId,
 } from "@/data/packages";
 import { site } from "@/data/site";
+import { track } from "@/lib/track";
 
 type ClaimState = "idle" | "success" | "error";
 
@@ -138,6 +139,13 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
                   setState("error");
                   return;
                 }
+
+                track("generate_lead", {
+                  lead_source: "claim",
+                  package_id: packageId,
+                  value: selectedPackage?.priceUah ?? 0,
+                  currency: "UAH",
+                });
 
                 setState("success");
                 form.reset();

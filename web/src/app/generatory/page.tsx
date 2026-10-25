@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
-import { featuredBandCopy } from "@/data/copy";
+import { ScenarioLinks } from "@/components/ScenarioLinks";
 import { generatorFaq } from "@/data/faq";
 import { productsByCategory } from "@/data/products";
 import { site } from "@/data/site";
@@ -81,18 +81,20 @@ export default function GeneratorsPage() {
           intro="Потужність, паливо й безпека встановлення — коротко перед порівнянням моделей."
         />
       </div>
-      <div className="featured-band" style={{ marginTop: "2rem" }}>
-        <div>
-          <p className="eyebrow" style={{ color: "var(--amber-bright)" }}>
-            Featured
-          </p>
-          <h2>{featuredBandCopy.title}</h2>
-          <p>{featuredBandCopy.body}</p>
-        </div>
-        <Link href="/claim" className="btn btn-primary">
-          Забрати профіль
-        </Link>
-      </div>
+      <ScenarioLinks
+        title="Підбір генератора за сценарієм"
+        intro="Генератор дає найбільше годин на важких навантаженнях — але тільки надворі й з правильним підключенням."
+        items={[
+            { href: "/gid/invertornyy-generator", title: "Інверторний", text: "Чиста синусоїда для котла й електроніки, тиха робота." },
+            { href: "/gid/benzynovyy-generator", title: "Бензиновий", text: "Як порахувати потужність і витрату пального." },
+            { href: "/gid/dyzelnyy-generator", title: "Дизельний", text: "Економніший під навантаженням, нюанси зимового пуску." },
+            { href: "/gid/hazovyy-generator", title: "Газовий", text: "Магістральний газ чи балон, вимоги до підключення." },
+            { href: "/gid/generator-3-kvt", title: "Генератор 3 кВт", text: "Що реально потягне і чого не варто вмикати разом." },
+            { href: "/gid/generator-dlya-domu", title: "Для будинку", text: "План навантажень, АВР, гібрид із акумуляторами." },
+            { href: "/gid/avr-dlya-generatora", title: "АВР і автозапуск", text: "Безпечне підключення до щитка без зворотного живлення мережі." },
+            { href: "/gid/kupyty-generator", title: "Як купити", text: "Номінальна чи максимальна потужність, сервіс, гарантія." },
+          ]}
+      />
     </div>
   );
 }

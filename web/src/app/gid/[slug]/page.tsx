@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaqSection } from "@/components/FaqSection";
+import { GuideBody } from "@/components/GuideBody";
 import { JsonLd } from "@/components/JsonLd";
 import { MidCalcCta } from "@/components/MidCalcCta";
 import { ProductList } from "@/components/ProductList";
@@ -86,6 +87,7 @@ export default async function GuidePage({ params }: PageProps) {
           description: guide.description,
           path: `/gid/${guide.slug}`,
           dateModified: guide.dateModified,
+          datePublished: guide.datePublished,
           keywords: [guide.keyword, "резервне живлення", "Україна"],
         })}
       />
@@ -117,6 +119,11 @@ export default async function GuidePage({ params }: PageProps) {
             {guide.h1}
           </h1>
           <p>{guide.intro}</p>
+          <p className="guide-byline">
+            Автор: <Link href="/pro-nas">Редакція {site.name}</Link> · Перевірено{" "}
+            {new Date(guide.dateModified).toLocaleDateString("uk-UA")} ·{" "}
+            <Link href="/pro-nas#metodolohiya">Як ми готуємо гіди</Link>
+          </p>
         </div>
 
         <div className="guide-actions">
@@ -160,7 +167,7 @@ export default async function GuidePage({ params }: PageProps) {
           <div key={section.heading}>
             <section className="guide-block">
               <h2>{section.heading}</h2>
-              <p>{section.body}</p>
+              <GuideBody text={section.body} />
             </section>
             {isMoneyGuide && index === midAfterIndex ? (
               <MidCalcCta

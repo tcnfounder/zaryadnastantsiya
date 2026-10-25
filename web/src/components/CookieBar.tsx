@@ -87,10 +87,10 @@ export function CookieBar({
     } catch {
       /* private mode */
     }
-    if (next === "accepted") {
-      const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-      gtag?.("consent", "update", { analytics_storage: "granted" });
-    }
+    const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+    gtag?.("consent", "update", {
+      analytics_storage: next === "accepted" ? "granted" : "denied",
+    });
     setOpen(false);
   }
 
