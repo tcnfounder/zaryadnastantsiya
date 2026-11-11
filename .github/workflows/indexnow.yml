@@ -1,0 +1,61 @@
+name: IndexNow
+
+# Production is served by Vercel (Git integration). Vercel does not emit
+# GitHub deployment events here, so after a push to main we wait until the
+# live site serves a NEW Vercel deployment id, then ping IndexNow (Bing/Yandex).
+# Replaces the old "Deploy to Railway" workflow, which had been failing on an
+# empty RAILWAY_TOKEN since 2026-10-24 and so never reached its IndexNow step.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Wait for the new Vercel deployment to go live
+        if: github.event_name == 'push'
+        run: |
+          site="https://zaryadnastantsiya.com.ua/"
+          dpl() { curl -s "$site" | grep -o 'dpl=dpl_[A-Za-z0-9]*' | head -1; }
+          before="$(dpl)"
+          echo "live before: ${before:-none}"
+          for i in $(seq 1 60); do
+            sleep 15
+            now="$(dpl)"
+            if [ -n "$now" ] && [ "$now" != "$before" ]; then
+              echo "new deployment live: $now"
+              exit 0
+            fi
+          done
+          echo "No new deployment seen in 15 min (build failed, or no-op push); submitting anyway."
+
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://zaryadnastantsiya.com.ua/3b8c52078c06493597e733bef4820a74.txt" || true)
+            if [ "$code" = "200" ]; then
+              node scripts/submit-indexnow.mjs
+              exit 0
+            fi
+            echo "key file not ready (HTTP $code), retry $i..."
+            sleep 20
+          done
+          echo "::error::IndexNow key file never became reachable"
+          exit 1
