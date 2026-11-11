@@ -21,7 +21,6 @@ export function ProductList({
             <div className="product-row-head">
               <p className="eyebrow" style={{ marginBottom: "0.35rem" }}>
                 {product.brand}
-                {product.featured ? " · Вибір редакції" : ""}
               </p>
               <h3>
                 <Link href={productPath(product)} className="product-title-link">

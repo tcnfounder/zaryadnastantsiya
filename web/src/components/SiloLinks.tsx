@@ -28,7 +28,6 @@ export function SiloLinks() {
     <div className="silo-grid">
       {silos.map((silo) => (
         <Link key={silo.href} href={silo.href} className="silo-link">
-          <span>Категорія</span>
           <h3>{silo.label}</h3>
           <p>{silo.copy}</p>
         </Link>

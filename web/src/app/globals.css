@@ -2509,3 +2509,86 @@ h2,
 h3 {
   overflow-wrap: break-word;
 }
+
+/* ── UX v2.1: winter callout + homepage rhythm ── */
+.winter-section {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: 0;
+}
+
+.winter-callout {
+  display: grid;
+  gap: 1rem 2.5rem;
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(196, 122, 26, 0.35);
+  border-left: 4px solid var(--amber);
+  border-radius: 14px;
+  background: var(--panel-strong);
+}
+
+.winter-callout-kicker {
+  margin: 0 0 0.35rem;
+  color: var(--amber);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.winter-callout h2 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.winter-callout p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.winter-callout ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.winter-callout a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.winter-callout a:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+@media (min-width: 900px) {
+  .winter-callout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+}
+
+.trust-section {
+  padding-top: clamp(1.75rem, 4vw, 2.5rem);
+  padding-bottom: 0;
+}
+
+#dobirky {
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+}

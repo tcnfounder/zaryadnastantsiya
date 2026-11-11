@@ -73,23 +73,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" id="zyma" style={{ paddingBottom: 0 }}>
-        <aside className="guide-table-wrap" style={{ padding: "1.25rem 1.5rem", borderLeft: "4px solid var(--amber)" }}>
-          <p className="eyebrow" style={{ margin: 0 }}>Зима 2026/27</p>
-          <h2 style={{ margin: "0.25rem 0 0.5rem" }}>Підготуйтеся до відключень до морозів</h2>
-          <p style={{ margin: "0 0 0.75rem" }}>
-            Котел, інтернет і холодильник — що потрібно саме вам і скільки годин це протримає.
-          </p>
-          <p style={{ margin: 0, display: "flex", flexWrap: "wrap", gap: "0.5rem 1.25rem", fontWeight: 600 }}>
-            <Link href="/gid/zyma-bez-svitla" style={{ color: "var(--amber)" }}>Чекліст: зима без світла</Link>
-            <Link href="/gid/zaryadna-stantsiya-dlya-kotla" style={{ color: "var(--amber)" }}>Станція для котла</Link>
-            <Link href="/gid/dbzh-dlya-routera" style={{ color: "var(--amber)" }}>ДБЖ для роутера</Link>
-            <Link href="/gid/paverbank" style={{ color: "var(--amber)" }}>Павербанк</Link>
-          </p>
+      <section className="section winter-section" id="zyma">
+        <aside className="winter-callout">
+          <div>
+            <p className="winter-callout-kicker">Зима 2026/27</p>
+            <h2>Підготуйтеся до відключень до морозів</h2>
+            <p>Котел, інтернет і холодильник — що потрібно саме вам і скільки годин це протримає.</p>
+          </div>
+          <ul>
+            <li><Link href="/gid/zyma-bez-svitla">Чекліст: зима без світла</Link></li>
+            <li><Link href="/gid/zaryadna-stantsiya-dlya-kotla">Станція для котла</Link></li>
+            <li><Link href="/gid/dbzh-dlya-routera">ДБЖ для роутера</Link></li>
+            <li><Link href="/gid/paverbank">Павербанк</Link></li>
+          </ul>
         </aside>
       </section>
 
-      <section className="section" aria-label="Чому нам можна довіряти" style={{ paddingBottom: 0 }}>
+      <section className="section trust-section" aria-label="Чому нам можна довіряти">
         <ul
           style={{
             listStyle: "none",
@@ -128,11 +128,10 @@ export default function HomePage() {
 
       <section className="section" id="dobirky">
         <div className="section-head">
-          <p className="eyebrow">Категорії</p>
-          <h2>Один маршрут під ваш сценарій відключень</h2>
+          <h2>Станція, інвертор чи генератор?</h2>
           <p>
-            Порівнюйте станції, генератори й інвертори за ємністю, потужністю та
-            реальною ціною в Україні.
+            Порівнюйте за ємністю, потужністю та реальною ціною в Україні — або
+            дайте калькулятору вибрати за вас.
           </p>
         </div>
         <SiloLinks />
@@ -140,11 +139,11 @@ export default function HomePage() {
 
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-head">
-          <p className="eyebrow">Добірка тижня</p>
-          <h2>Перевірені рішення з високим рейтингом</h2>
+          <h2>Моделі, які ми радимо найчастіше</h2>
           <p>
-            Короткий список моделей, які найкраще закривають типові сценарії
-            блекауту в квартирі, будинку й малому бізнесі.
+            Під типові сценарії квартири, будинку й малого бізнесу. Години роботи
+            пораховані за нашою{" "}
+            <Link href="/yak-my-rakhuyemo">методологією</Link>.
           </p>
         </div>
         <ProductList products={featuredProducts()} />
@@ -194,7 +193,6 @@ export default function HomePage() {
               <span className="guide-index-rank">{index + 1}</span>
               <div>
                 <Link href={`/misto/${city.slug}`}>{city.h1}</Link>
-                <p>{city.name}</p>
               </div>
             </li>
           ))}

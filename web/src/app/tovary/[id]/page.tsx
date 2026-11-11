@@ -85,7 +85,6 @@ export default async function ProductPage({ params }: PageProps) {
         <div>
           <p className="eyebrow">
             {product.brand}
-            {product.featured ? " · Вибір редакції" : ""}
           </p>
           <h1>
             {product.brand} {product.name}
