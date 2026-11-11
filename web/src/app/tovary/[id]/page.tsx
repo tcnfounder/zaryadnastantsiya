@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { runtimeHints } from "@/lib/runtime";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
@@ -89,9 +90,7 @@ export default async function ProductPage({ params }: PageProps) {
           <h1>
             {product.brand} {product.name}
           </h1>
-          <p className="hero-lead" style={{ marginBottom: "1.25rem" }}>
-            {product.seoDescription}
-          </p>
+          <p className="product-lead">{product.seoDescription}</p>
           <div className="product-meta" style={{ marginBottom: "1.5rem" }}>
             {product.capacityWh > 0 ? (
               <span>
@@ -108,6 +107,25 @@ export default async function ProductPage({ params }: PageProps) {
               Ціна від: <strong>{formatPrice(product.priceUah)}</strong>
             </span>
           </div>
+          {runtimeHints(product).length > 0 ? (
+            <div className="product-runtime-block">
+              <h2>Скільки протримає (орієнтовно, × 0,85)</h2>
+              <ul className="product-runtime">
+                {runtimeHints(product).map((hint) => (
+                  <li key={hint.key}>
+                    <span>
+                      {hint.label} (~{hint.watts} Вт)
+                    </span>
+                    <strong>≈ {hint.hours} год</strong>
+                  </li>
+                ))}
+              </ul>
+              <p className="form-note" style={{ marginTop: "0.5rem" }}>
+                <Link href="/yak-my-rakhuyemo">Як ми рахуємо</Link> · точніше під ваші прилади —{" "}
+                <Link href="/kalkulyator">калькулятор</Link>
+              </p>
+            </div>
+          ) : null}
           <div className="hero-actions">
             <Link
               href={affiliatePath(product)}

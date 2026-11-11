@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, useTransition, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition, type FormEvent } from "react";
 import { track } from "@/lib/track";
 import {
   calculatorCities,
@@ -97,6 +97,20 @@ export function EnergyCalculator() {
   const [contact, setContact] = useState({ name: "", phone: "", note: "" });
 
   const result = useMemo(() => recommendEnergy(input), [input]);
+  // Phones: the result card sits below the form, so mirror it in a sticky bar
+  // until the card itself scrolls into view.
+  const resultRef = useRef<HTMLElement>(null);
+  const [resultInView, setResultInView] = useState(false);
+  useEffect(() => {
+    const el = resultRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setResultInView(entry.isIntersecting),
+      { rootMargin: "0px 0px -35% 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const meta = kindMeta[result.kind];
 
   const matchedInstallers = useMemo(() => {
@@ -320,7 +334,7 @@ export function EnergyCalculator() {
         </button>
       </form>
 
-      <aside className="calc-result" id="calc-result" aria-live="polite">
+      <aside className="calc-result" id="calc-result" aria-live="polite" ref={resultRef}>
         <p className="calc-step">Крок 2 · Живий підбір</p>
         <p className="calc-scenario">{scenarioLine(input)}</p>
         <p className="eyebrow">Рекомендація</p>
@@ -468,6 +482,20 @@ export function EnergyCalculator() {
           </div>
         )}
       </aside>
+      <a
+        href="#calc-result"
+        className={`calc-live-bar${resultInView ? " is-hidden" : ""}`}
+        aria-hidden={resultInView}
+        tabIndex={resultInView ? -1 : 0}
+      >
+        <span className="calc-live-bar-main">
+          <strong>{meta.label}</strong>
+          <span>
+            ~{result.estimatedWatts} W · ~{result.estimatedWh} Wh
+          </span>
+        </span>
+        <span className="calc-live-bar-cta">Результат ↓</span>
+      </a>
     </div>
   );
 }

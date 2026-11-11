@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Link from "next/link";
 import { Manrope, Teko, Unbounded } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { AppHeader } from "@/components/AppHeader";
@@ -91,6 +92,47 @@ export default function RootLayout({
         <AppHeader />
         <main className="flex flex-1 flex-col">{children}</main>
         <footer className="site-footer">
+          <div className="site-footer-cols">
+            <nav aria-label="Розділи">
+              <p className="site-footer-heading">Розділи</p>
+              <ul>
+                <li><Link href="/zaryadni-stantsii">Зарядні станції</Link></li>
+                <li><Link href="/invertory">Інвертори</Link></li>
+                <li><Link href="/generatory">Генератори</Link></li>
+                <li><Link href="/kalkulyator">Калькулятор резерву</Link></li>
+                <li><Link href="/gid">Усі гіди</Link></li>
+              </ul>
+            </nav>
+            <nav aria-label="Популярні гіди">
+              <p className="site-footer-heading">Популярне взимку</p>
+              <ul>
+                <li><Link href="/gid/zyma-bez-svitla">Зима без світла: чекліст</Link></li>
+                <li><Link href="/gid/zaryadna-stantsiya-dlya-kotla">Станція для котла</Link></li>
+                <li><Link href="/gid/zaryadna-stantsiya-dlya-kvartyry">Станція для квартири</Link></li>
+                <li><Link href="/gid/dbzh-dlya-routera">ДБЖ для роутера</Link></li>
+                <li><Link href="/gid/paverbank">Павербанк</Link></li>
+              </ul>
+            </nav>
+            <nav aria-label="Міста">
+              <p className="site-footer-heading">Міста</p>
+              <ul>
+                <li><Link href="/misto/kyiv">Київ</Link></li>
+                <li><Link href="/misto/lviv">Львів</Link></li>
+                <li><Link href="/misto/odesa">Одеса</Link></li>
+                <li><Link href="/misto/kharkiv">Харків</Link></li>
+                <li><Link href="/misto/dnipro">Дніпро</Link></li>
+              </ul>
+            </nav>
+            <nav aria-label="Про проєкт">
+              <p className="site-footer-heading">Про проєкт</p>
+              <ul>
+                <li><Link href="/pro-nas">Про нас</Link></li>
+                <li><Link href="/yak-my-rakhuyemo">Як ми рахуємо</Link></li>
+                <li><Link href="/claim">Для монтажних компаній</Link></li>
+                <li><a href={`mailto:${site.salesEmail}`}>{site.salesEmail}</a></li>
+              </ul>
+            </nav>
+          </div>
           <p>
             {site.name} · незалежний гід по {site.domain}. Дані оновлюються для
             сценаріїв квартири, будинку й бізнесу в Україні.

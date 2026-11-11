@@ -41,6 +41,35 @@ export default function HomePage() {
               Гіди під запити
             </Link>
           </div>
+          <nav className="hero-scenarios" aria-label="Швидкий вибір сценарію">
+            <p>Що потрібно живити?</p>
+            <ul>
+              <li>
+                <Link href="/gid/zaryadna-stantsiya-dlya-kvartyry">
+                  <strong>Квартира</strong>
+                  <span>роутер, світло, холодильник</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/gid/zaryadna-stantsiya-dlya-kotla">
+                  <strong>Газовий котел</strong>
+                  <span>опалення без світла</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/gid/dbzh-dlya-routera">
+                  <strong>Тільки інтернет</strong>
+                  <span>роутер і термінал</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/gid/invertor-dlya-domu">
+                  <strong>Весь будинок</strong>
+                  <span>інвертор + АКБ</span>
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </section>
 

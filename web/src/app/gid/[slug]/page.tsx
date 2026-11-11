@@ -5,6 +5,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { GuideBody } from "@/components/GuideBody";
 import { JsonLd } from "@/components/JsonLd";
 import { MidCalcCta } from "@/components/MidCalcCta";
+import { GuideToc, type TocItem } from "@/components/GuideToc";
 import { ProductList } from "@/components/ProductList";
 import { getGuide, guides, relatedGuides, MONEY_GUIDE_SLUGS } from "@/data/guides";
 import { productsForMoneyGuide } from "@/data/products";
@@ -72,6 +73,11 @@ export default async function GuidePage({ params }: PageProps) {
   const isMoneyGuide = MONEY_GUIDE_SLUGS.has(guide.slug);
   const midAfterIndex = 0;
   const models = isMoneyGuide ? productsForMoneyGuide(guide.slug, 3) : [];
+  const toc: TocItem[] = [
+    ...guide.sections.map((section, i) => ({ id: `r${i + 1}`, label: section.heading })),
+    ...(guide.faqs.length > 0 ? [{ id: "faq", label: "Часті питання" }] : []),
+    ...(models.length > 0 ? [{ id: "modeli", label: "Моделі для старту" }] : []),
+  ];
 
   return (
     <div className="page-section">
@@ -103,7 +109,8 @@ export default async function GuidePage({ params }: PageProps) {
         />
       ) : null}
 
-      <article className="guide-article">
+      <div className="guide-layout">
+      <article className="guide-article" id="top">
         <div className="section-head">
           <p className="eyebrow">
             Гід · оновлено{" "}
@@ -120,13 +127,17 @@ export default async function GuidePage({ params }: PageProps) {
           >
             {guide.h1}
           </h1>
-          <p>{guide.intro}</p>
+          <div className="guide-intro">
+            <GuideBody text={guide.intro} />
+          </div>
           <p className="guide-byline">
             Автор: <Link href="/pro-nas">Редакція {site.name}</Link> · Перевірено{" "}
             {new Date(guide.dateModified).toLocaleDateString("uk-UA")} ·{" "}
             <Link href="/yak-my-rakhuyemo">Як ми рахуємо</Link>
           </p>
         </div>
+
+        <GuideToc items={toc} variant="inline" />
 
         <div className="guide-actions">
           <Link href={ctaHref[guide.cta]} className="btn btn-primary">
@@ -166,7 +177,9 @@ export default async function GuidePage({ params }: PageProps) {
                   {table.rows.map((row) => (
                     <tr key={row.join("|")}>
                       {row.map((cell, cellIndex) => (
-                        <td key={`${row[0]}-${cellIndex}`}>{cell}</td>
+                        <td key={`${row[0]}-${cellIndex}`} data-label={table.headers[cellIndex]}>
+                          {cell}
+                        </td>
                       ))}
                     </tr>
                   ))}
@@ -178,7 +191,7 @@ export default async function GuidePage({ params }: PageProps) {
 
         {guide.sections.map((section, index) => (
           <div key={section.heading}>
-            <section className="guide-block">
+            <section className="guide-block" id={`r${index + 1}`}>
               <h2>{section.heading}</h2>
               <GuideBody text={section.body} />
             </section>
@@ -196,6 +209,7 @@ export default async function GuidePage({ params }: PageProps) {
           </div>
         ))}
 
+        <div id="faq" className="guide-anchor" />
         <FaqSection
           items={guide.faqs}
           title="Часті питання"
@@ -203,7 +217,7 @@ export default async function GuidePage({ params }: PageProps) {
         />
 
         {models.length > 0 ? (
-          <section className="guide-models">
+          <section className="guide-models" id="modeli">
             <h2>Моделі для старту</h2>
             <p>
               Орієнтовні ціни в ₴, Wh і W — звіряйте наявність у магазині перед
@@ -249,6 +263,10 @@ export default async function GuidePage({ params }: PageProps) {
           </aside>
         ) : null}
       </article>
+      <aside className="guide-side">
+        <GuideToc items={toc} variant="side" />
+      </aside>
+      </div>
     </div>
   );
 }

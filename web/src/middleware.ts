@@ -95,7 +95,8 @@ export function middleware(req: NextRequest) {
     needsRedirect = true;
   }
 
-  if (forwardedProto === 'http') {
+  // Skip on localhost: `next dev` sends x-forwarded-proto=http and would loop to https.
+  if (forwardedProto === 'http' && !host.startsWith('localhost')) {
     url.protocol = 'https:';
     needsRedirect = true;
   }
