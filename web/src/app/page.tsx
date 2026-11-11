@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaqSection } from "@/components/FaqSection";
 import { HeroEstimator } from "@/components/HeroEstimator";
@@ -18,7 +19,17 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
 
       <section className="hero-masthead">
-        <div className="hero-grid-bg" aria-hidden="true" />
+        <div className="hero-photo" aria-hidden="true">
+          <Image
+            src="/hero-night.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-photo-img"
+          />
+          <div className="hero-photo-veil" />
+        </div>
         <div className="hero-layout">
         <div className="hero-masthead-copy">
           <p className="eyebrow">{site.name} · Україна</p>
@@ -139,7 +150,9 @@ export default function HomePage() {
             <Link href="/yak-my-rakhuyemo">методологією</Link>.
           </p>
         </div>
-        <ProductList products={featuredProducts()} />
+        <div className="product-grid-3">
+          <ProductList products={featuredProducts()} />
+        </div>
       </section>
 
       <section className="section" style={{ paddingTop: 0 }} id="gidy">

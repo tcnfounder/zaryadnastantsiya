@@ -64,6 +64,7 @@ export const products: Product[] = [
     guide:
       "Компактний варіант для зв’язку й роботи. Не розраховуйте на холодильник — це станція для легких навантажень і мобільності.",
     affiliateUrl: "https://rozetka.com.ua/ua/search/?text=EcoFlow%20RIVER%202",
+    featured: true,
   },
   {
     id: "ecoflow-delta-2-max",

@@ -111,6 +111,35 @@ export function EnergyCalculator() {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  // Phones: one question per screen (wizard). Desktop keeps every question visible.
+  const steps = [
+    "housing",
+    "outage",
+    "load",
+    ...(input.housing === "house" ? ["outdoor"] : []),
+    "budget",
+    "city",
+  ];
+  const [stepIndex, setStepIndex] = useState(0);
+  const step = Math.min(stepIndex, steps.length - 1);
+  const formRef = useRef<HTMLFormElement>(null);
+  const isPhone = () =>
+    typeof window !== "undefined" && window.matchMedia("(max-width: 959px)").matches;
+  const goTo = (next: number) => {
+    setStepIndex(Math.max(0, Math.min(next, steps.length - 1)));
+    const form = formRef.current;
+    if (form && isPhone()) {
+      const top = form.getBoundingClientRect().top + window.scrollY - 80;
+      if (window.scrollY > top) window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
+  /** Auto-advance after a choice on phones (small delay so the tap registers visually). */
+  const advance = () => {
+    if (!isPhone()) return;
+    window.setTimeout(() => goTo(step + 1), 220);
+  };
+  const stepClass = (key: string) => (steps[step] === key ? " is-current" : "");
   const meta = kindMeta[result.kind];
 
   const matchedInstallers = useMemo(() => {
@@ -177,7 +206,8 @@ export function EnergyCalculator() {
   return (
     <div className="calc-shell">
       <form
-        className="calc-form"
+        ref={formRef}
+        className="calc-form is-wizard"
         onSubmit={(event) => {
           event.preventDefault();
           track("calculator_result", {
@@ -187,12 +217,20 @@ export function EnergyCalculator() {
           });
           document.getElementById("calc-result")?.scrollIntoView({
             behavior: "smooth",
-            block: "nearest",
+            block: "start",
           });
         }}
       >
         <p className="calc-step">Крок 1 · Сценарій</p>
-        <fieldset>
+        <div className="calc-wizard-progress" aria-live="polite">
+          <span>
+            Питання {step + 1} з {steps.length}
+          </span>
+          <div className="calc-wizard-bar" aria-hidden="true">
+            <span style={{ transform: `scaleX(${(step + 1) / steps.length})` }} />
+          </div>
+        </div>
+        <fieldset className={`calc-q${stepClass("housing")}`}>
           <legend>Де потрібен резерв?</legend>
           <div className="calc-options">
             {housingOptions.map((option) => (
@@ -211,6 +249,7 @@ export function EnergyCalculator() {
                       housing: option.id,
                       outdoorOk: option.id === "apartment" ? false : prev.outdoorOk,
                     }));
+                    advance();
                   }}
                 />
                 <span>
@@ -222,7 +261,7 @@ export function EnergyCalculator() {
           </div>
         </fieldset>
 
-        <fieldset>
+        <fieldset className={`calc-q${stepClass("outage")}`}>
           <legend>Скільки годин відключення типово?</legend>
           <div className="calc-options calc-options-row">
             {outageOptions.map((option) => (
@@ -234,7 +273,10 @@ export function EnergyCalculator() {
                   type="radio"
                   name="outage"
                   checked={input.outageHours === option.id}
-                  onChange={() => patch("outageHours", option.id)}
+                  onChange={() => {
+                    patch("outageHours", option.id);
+                    advance();
+                  }}
                 />
                 <span>
                   <strong>{option.label}</strong>
@@ -244,7 +286,7 @@ export function EnergyCalculator() {
           </div>
         </fieldset>
 
-        <fieldset>
+        <fieldset className={`calc-q${stepClass("load")}`}>
           <legend>Що обов’язково має працювати?</legend>
           <div className="calc-options">
             {loadOptions.map((option) => (
@@ -256,7 +298,10 @@ export function EnergyCalculator() {
                   type="radio"
                   name="load"
                   checked={input.criticalLoad === option.id}
-                  onChange={() => patch("criticalLoad", option.id)}
+                  onChange={() => {
+                    patch("criticalLoad", option.id);
+                    advance();
+                  }}
                 />
                 <span>
                   <strong>{option.label}</strong>
@@ -267,7 +312,7 @@ export function EnergyCalculator() {
         </fieldset>
 
         {input.housing === "house" ? (
-          <fieldset>
+          <fieldset className={`calc-q${stepClass("outdoor")}`}>
             <legend>Чи є місце на вулиці під генератор?</legend>
             <div className="calc-options calc-options-row">
               {[
@@ -282,7 +327,10 @@ export function EnergyCalculator() {
                     type="radio"
                     name="outdoor"
                     checked={input.outdoorOk === option.id}
-                    onChange={() => patch("outdoorOk", option.id)}
+                    onChange={() => {
+                      patch("outdoorOk", option.id);
+                      advance();
+                    }}
                   />
                   <span>
                     <strong>{option.label}</strong>
@@ -293,7 +341,7 @@ export function EnergyCalculator() {
           </fieldset>
         ) : null}
 
-        <fieldset>
+        <fieldset className={`calc-q${stepClass("budget")}`}>
           <legend>Бюджет на старт</legend>
           <div className="calc-options calc-options-row">
             {budgetOptions.map((option) => (
@@ -305,7 +353,10 @@ export function EnergyCalculator() {
                   type="radio"
                   name="budget"
                   checked={input.budget === option.id}
-                  onChange={() => patch("budget", option.id)}
+                  onChange={() => {
+                    patch("budget", option.id);
+                    advance();
+                  }}
                 />
                 <span>
                   <strong>{option.label}</strong>
@@ -315,7 +366,7 @@ export function EnergyCalculator() {
           </div>
         </fieldset>
 
-        <label className="calc-city">
+        <label className={`calc-city calc-q${stepClass("city")}`}>
           Місто
           <select
             value={input.city}
@@ -329,9 +380,25 @@ export function EnergyCalculator() {
           </select>
         </label>
 
-        <button type="submit" className="btn btn-primary calc-jump-btn">
-          До результату
-        </button>
+        <div className="calc-wizard-nav">
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => goTo(step - 1)}
+            disabled={step === 0}
+          >
+            ← Назад
+          </button>
+          {step < steps.length - 1 ? (
+            <button type="button" className="btn btn-primary" onClick={() => goTo(step + 1)}>
+              Далі →
+            </button>
+          ) : (
+            <button type="submit" className="btn btn-primary">
+              Показати результат
+            </button>
+          )}
+        </div>
       </form>
 
       <aside className="calc-result" id="calc-result" aria-live="polite" ref={resultRef}>
