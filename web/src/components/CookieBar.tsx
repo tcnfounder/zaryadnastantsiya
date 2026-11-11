@@ -42,7 +42,7 @@ const STYLES = `
 .cookie-bar button{appearance:none;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:auto;height:40px;min-height:40px;max-height:40px;margin:0;padding:0 14px;border-radius:999px;font-family:inherit;font-size:13px;font-weight:600;line-height:1;white-space:nowrap;cursor:pointer}
 .cookie-bar__no{background:transparent;color:var(--jb-fg);border:1px solid color-mix(in srgb,var(--jb-fg) 24%,transparent)}
 .cookie-bar__yes{background:var(--jb-accent);color:var(--jb-accent-fg);border:0}
-@media(max-width:640px){.cookie-bar{flex-direction:column;align-items:stretch;left:10px;right:10px;gap:8px;padding:10px 10px 10px 12px}.cookie-bar__actions{width:100%;margin-left:0}.cookie-bar__actions button{flex:1 1 0;min-width:0;width:auto;padding:0 10px}}
+@media(max-width:640px){.cookie-bar{flex-direction:column;align-items:stretch;left:10px;right:10px;gap:8px;padding:10px 10px 10px 12px}.cookie-bar__copy{flex:0 0 auto}.cookie-bar__actions{width:100%;margin-left:0}.cookie-bar__actions button{flex:1 1 0;min-width:0;width:auto;padding:0 10px}}
 `;
 
 export function CookieBar({
