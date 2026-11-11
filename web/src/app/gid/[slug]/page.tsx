@@ -137,6 +137,17 @@ export default async function GuidePage({ params }: PageProps) {
           </Link>
         </div>
 
+        {guide.slug !== "zyma-bez-svitla" ? (
+          <p style={{ margin: "1.25rem 0 0", padding: "0.75rem 1rem", borderLeft: "3px solid var(--amber)", fontSize: "0.95rem" }}>
+            <strong>Зима 2026/27:</strong> котел, інтернет, холодні акумулятори й заряд між
+            відключеннями — у чеклісті{" "}
+            <Link href="/gid/zyma-bez-svitla" style={{ color: "var(--amber)", fontWeight: 600 }}>
+              «Зима без світла: як підготуватися»
+            </Link>
+            .
+          </p>
+        ) : null}
+
         {guide.tables?.map((table) => (
           <figure key={table.caption} className="guide-table-wrap">
             <figcaption>{table.caption}</figcaption>

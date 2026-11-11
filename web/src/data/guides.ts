@@ -45,6 +45,9 @@ export const MONEY_GUIDE_SLUGS = new Set([
   "invertor",
   "generator",
   "ecoflow",
+  // Winter 2026/27 package
+  "paverbank",
+  "zyma-bez-svitla",
 ]);
 
 /**
@@ -53,7 +56,10 @@ export const MONEY_GUIDE_SLUGS = new Set([
  * (portable, buy, Bluetti/EcoFlow, EV charger) are where a thin guide can rank.
  */
 export const HOME_MONEY_GUIDE_SLUGS = [
+  "zyma-bez-svitla",
+  "zaryadna-stantsiya-dlya-kotla",
   "dbzh-dlya-routera",
+  "paverbank",
   "zaryadna-stantsiya-dlya-kvartyry",
   "portatyvna-zaryadna-stantsiya",
   "kupyty-zaryadnu-stantsiyu",

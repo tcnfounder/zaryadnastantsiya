@@ -1,4 +1,11 @@
 import type { Guide } from "../guide-types";
+import akumulyator_lifepo4 from "./akumulyator-lifepo4";
+import bluetti from "./bluetti";
+import ecoflow from "./ecoflow";
+import ecoflow_delta_2 from "./ecoflow-delta-2";
+import paverbank from "./paverbank";
+import zaryadna_stantsiya_dlya_kotla from "./zaryadna-stantsiya-dlya-kotla";
+import zyma_bez_svitla from "./zyma-bez-svitla";
 import akumulyator_dlya_invertora from "./akumulyator-dlya-invertora";
 import avr_dlya_generatora from "./avr-dlya-generatora";
 import benzynovyy_generator from "./benzynovyy-generator";
@@ -29,6 +36,12 @@ import zaryadni_stantsii_dlya_domu from "./zaryadni-stantsii-dlya-domu";
  * and brand-new guides. One file per guide keeps editorial diffs reviewable.
  */
 export const guideOverrides: Guide[] = [
+  // Winter 2026/27 long-form rewrites
+  akumulyator_lifepo4,
+  bluetti,
+  ecoflow,
+  ecoflow_delta_2,
+  zaryadna_stantsiya_dlya_kotla,
   akumulyator_dlya_invertora,
   benzynovyy_generator,
   dyzelnyy_generator,
@@ -48,6 +61,9 @@ export const guideOverrides: Guide[] = [
 ];
 
 export const newGuides: Guide[] = [
+  // Winter 2026/27
+  paverbank,
+  zyma_bez_svitla,
   avr_dlya_generatora,
   dbzh,
   dbzh_dlya_routera,

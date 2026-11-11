@@ -230,11 +230,12 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "zaryadna-stantsiya-3-kvt" ||
     slug === "kupyty-zaryadnu-stantsiyu" ||
     slug === "reytynh-zaryadnykh-stantsiy" ||
-    slug === "zaryadna-stantsiya-z-sonyachnoyu-panellyu"
+    slug === "zaryadna-stantsiya-z-sonyachnoyu-panellyu" ||
+    slug === "zyma-bez-svitla"
   ) {
     return products.filter((p) => p.category === "station").slice(0, limit);
   }
-  if (slug === "zaryadna-stantsiya-300-vt" || slug === "dbzh-dlya-routera") {
+  if (slug === "zaryadna-stantsiya-300-vt" || slug === "dbzh-dlya-routera" || slug === "paverbank") {
     const stations = products.filter((p) => p.category === "station");
     return [...stations].sort((a, b) => a.priceUah - b.priceUah).slice(0, limit);
   }

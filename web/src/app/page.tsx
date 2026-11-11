@@ -44,6 +44,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section" id="zyma" style={{ paddingBottom: 0 }}>
+        <aside className="guide-table-wrap" style={{ padding: "1.25rem 1.5rem", borderLeft: "4px solid var(--amber)" }}>
+          <p className="eyebrow" style={{ margin: 0 }}>Зима 2026/27</p>
+          <h2 style={{ margin: "0.25rem 0 0.5rem" }}>Підготуйтеся до відключень до морозів</h2>
+          <p style={{ margin: "0 0 0.75rem" }}>
+            Котел, інтернет і холодильник — що потрібно саме вам і скільки годин це протримає.
+          </p>
+          <p style={{ margin: 0, display: "flex", flexWrap: "wrap", gap: "0.5rem 1.25rem", fontWeight: 600 }}>
+            <Link href="/gid/zyma-bez-svitla" style={{ color: "var(--amber)" }}>Чекліст: зима без світла</Link>
+            <Link href="/gid/zaryadna-stantsiya-dlya-kotla" style={{ color: "var(--amber)" }}>Станція для котла</Link>
+            <Link href="/gid/dbzh-dlya-routera" style={{ color: "var(--amber)" }}>ДБЖ для роутера</Link>
+            <Link href="/gid/paverbank" style={{ color: "var(--amber)" }}>Павербанк</Link>
+          </p>
+        </aside>
+      </section>
+
       <section className="section" id="dobirky">
         <div className="section-head">
           <p className="eyebrow">Категорії</p>
