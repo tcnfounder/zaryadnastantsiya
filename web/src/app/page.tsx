@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaqSection } from "@/components/FaqSection";
+import { HeroEstimator } from "@/components/HeroEstimator";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { SiloLinks } from "@/components/SiloLinks";
@@ -18,17 +18,8 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
 
       <section className="hero-masthead">
-        <div className="hero-masthead-media">
-          <Image
-            src="/hero-power-station.jpg"
-            alt="Портативна зарядна станція для резерву під час відключення світла в Україні"
-            fill
-            priority
-            sizes="100vw"
-            className="hero-masthead-photo"
-          />
-          <div className="hero-masthead-veil" aria-hidden="true" />
-        </div>
+        <div className="hero-grid-bg" aria-hidden="true" />
+        <div className="hero-layout">
         <div className="hero-masthead-copy">
           <p className="eyebrow">{site.name} · Україна</p>
           <h1>Зарядна станція, інвертор чи генератор під блекаут</h1>
@@ -70,6 +61,8 @@ export default function HomePage() {
               </li>
             </ul>
           </nav>
+        </div>
+        <HeroEstimator />
         </div>
       </section>
 

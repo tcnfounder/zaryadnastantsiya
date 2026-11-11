@@ -2592,3 +2592,191 @@ h3 {
 #dobirky {
   padding-top: clamp(3rem, 6vw, 4.5rem);
 }
+
+/* ── UX v3: photo-free hero (no AI imagery) ── */
+.hero-masthead {
+  min-height: 0;
+  padding:
+    calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(2.5rem, 7vw, 5rem))
+    clamp(1.25rem, 4vw, 3rem)
+    clamp(2.75rem, 7vw, 5rem);
+  background:
+    radial-gradient(60rem 30rem at 85% 20%, rgba(224, 154, 46, 0.16), transparent 60%),
+    radial-gradient(40rem 26rem at 0% 100%, rgba(61, 90, 115, 0.35), transparent 65%),
+    #141b24;
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(244, 240, 232, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 240, 232, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.6) 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.6) 55%, transparent 100%);
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.hero-layout .hero-masthead-copy {
+  margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+}
+
+/* Estimator card */
+.hero-estimator {
+  padding: clamp(1.15rem, 2.5vw, 1.6rem);
+  border: 1px solid rgba(244, 240, 232, 0.14);
+  border-radius: 18px;
+  background: rgba(244, 240, 232, 0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  animation: rise-in 0.95s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-estimator-title {
+  margin: 0 0 0.9rem;
+  color: #f7f3eb;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  letter-spacing: -0.02em;
+}
+
+.hero-estimator-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin: 0 0 1.15rem;
+  padding: 0.3rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.hero-estimator-tabs button {
+  display: grid;
+  justify-items: center;
+  gap: 0.05rem;
+  min-height: 3.1rem;
+  padding: 0.45rem 0.4rem;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: rgba(244, 240, 232, 0.7);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-estimator-tabs button strong {
+  font-size: 1.02rem;
+}
+
+.hero-estimator-tabs button span {
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.hero-estimator-tabs button:hover {
+  color: #fff;
+}
+
+.hero-estimator-tabs button.is-active {
+  background: var(--amber);
+  color: #1a2330;
+}
+
+.hero-estimator-rows {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-estimator-row-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+  color: rgba(244, 240, 232, 0.85);
+  font-size: 0.95rem;
+}
+
+.hero-estimator-row-head em {
+  color: rgba(244, 240, 232, 0.5);
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.hero-estimator-row-head strong {
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.hero-estimator-bar {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(244, 240, 232, 0.1);
+}
+
+.hero-estimator-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--amber), var(--amber-bright));
+  transform-origin: 0 50%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-estimator-model {
+  margin: 0 0 0.35rem;
+  color: rgba(244, 240, 232, 0.85);
+  font-size: 0.9rem;
+}
+
+.hero-estimator-note {
+  margin: 0;
+  color: rgba(244, 240, 232, 0.55);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.hero-estimator a {
+  color: var(--amber-bright);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-estimator-bar span {
+    transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-masthead {
+    min-height: 0;
+    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 2rem);
+  }
+}

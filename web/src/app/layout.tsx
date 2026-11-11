@@ -65,9 +65,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/hero-power-station.jpg",
-        width: 1920,
-        height: 1080,
+        url: "/og-zaryadna.png",
+        width: 1200,
+        height: 630,
         alt: `${site.name} — резервне живлення`,
       },
     ],
