@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Teko, Unbounded } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { AppHeader } from "@/components/AppHeader";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import WebMcpRegister from "@/components/WebMcpRegister";
@@ -84,6 +85,8 @@ export default function RootLayout({
     >
       <body className="site-shell min-h-full flex flex-col antialiased">
         <GoogleAnalytics />
+        {/* Cookieless Vercel Web Analytics: second counter to cross-check GA4. */}
+        <Analytics />
         <WebMcpRegister />
         <AppHeader />
         <main className="flex flex-1 flex-col">{children}</main>
