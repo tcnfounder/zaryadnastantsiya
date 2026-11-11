@@ -1,4 +1,8 @@
 import type { Guide } from "../guide-types";
+import deye_6_kvt from "./deye-6-kvt";
+import generator from "./generator";
+import invertor_12_220 from "./invertor-12-220";
+import invertor_5_kvt from "./invertor-5-kvt";
 import akumulyator_lifepo4 from "./akumulyator-lifepo4";
 import bluetti from "./bluetti";
 import ecoflow from "./ecoflow";
@@ -36,6 +40,11 @@ import zaryadni_stantsii_dlya_domu from "./zaryadni-stantsii-dlya-domu";
  * and brand-new guides. One file per guide keeps editorial diffs reviewable.
  */
 export const guideOverrides: Guide[] = [
+  // Nov 2026: last thin money pages -> long-form
+  deye_6_kvt,
+  generator,
+  invertor_12_220,
+  invertor_5_kvt,
   // Winter 2026/27 long-form rewrites
   akumulyator_lifepo4,
   bluetti,
