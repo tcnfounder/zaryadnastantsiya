@@ -43,10 +43,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) return {};
-  // Absolute title keeps SERP length ≤ ~60 (template would push money guides over limit).
+  // Absolute title keeps SERP length ≤ ~60: add the brand only when it fits,
+  // otherwise ship the short SERP title alone. (The old fallback used the longer
+  // h1 + brand, so 26 of 55 guides had 70–96 char titles truncated in Google.)
   const fullTitle = `${guide.title} · ${site.name}`;
   return {
-    title: { absolute: fullTitle.length > 60 ? `${guide.h1} · ${site.name}` : fullTitle },
+    title: { absolute: fullTitle.length > 60 ? guide.title : fullTitle },
     description: guide.description,
     alternates: {
       canonical: `${site.url}/gid/${guide.slug}`,

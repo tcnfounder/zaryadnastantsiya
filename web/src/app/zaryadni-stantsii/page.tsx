@@ -5,27 +5,28 @@ import { JsonLd } from "@/components/JsonLd";
 import { ProductList } from "@/components/ProductList";
 import { ScenarioLinks } from "@/components/ScenarioLinks";
 import { stationFaq } from "@/data/faq";
-import { productsByCategory } from "@/data/products";
+import { formatPrice, productsByCategory } from "@/data/products";
 import { site } from "@/data/site";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Зарядні станції для дому та квартири",
+  title: "Зарядні станції: ціни й порівняння",
   description:
-    "Порівняння портативних зарядних станцій в Україні: ємність Wh, потужність W, сценарії відключень, ціни та огляди моделей EcoFlow, Bluetti, Jackery.",
+    "Зарядні станції EcoFlow, Bluetti, Jackery: таблиця ємності Wh, потужності W і цін у ₴, ціна за 1 Вт·год, для яких приладів і скільки годин вистачить. Купити з порівнянням.",
   alternates: {
     canonical: `${site.url}/zaryadni-stantsii`,
   },
   openGraph: {
-    title: "Зарядні станції — порівняння для України",
+    title: "Зарядні станції: ціни й порівняння моделей",
     description:
-      "Добірка портативних станцій під реальні години блекауту в квартирі й будинку.",
+      "Таблиця Wh, W і цін у ₴ для популярних зарядних станцій в Україні.",
     url: `${site.url}/zaryadni-stantsii`,
     locale: "uk_UA",
   },
 };
 
 export default function StationsPage() {
+  const stations = [...productsByCategory("station")].sort((a, b) => a.priceUah - b.priceUah);
   return (
     <div className="page-section">
       <JsonLd
@@ -45,7 +46,7 @@ export default function StationsPage() {
             lineHeight: 1.05,
           }}
         >
-          Зарядні станції для квартири й дому
+          Зарядні станції: ціни й порівняння
         </h1>
         <p>
           Порівнюйте ємність (Wh), вихідну потужність (W) і орієнтовну ціну в ₴.
@@ -82,6 +83,56 @@ export default function StationsPage() {
           .
         </p>
       </div>
+      <aside className="guide-table-wrap" style={{ padding: "1rem 1.25rem", borderLeft: "4px solid var(--amber)" }}>
+        <strong>Обираєте станцію для квартири?</strong>{" "}
+        Ми розібрали це окремо: скільки Вт·год потрібно на 4–8 годин без світла, чи
+        потягне станція холодильник і що встигне зарядитися між відключеннями —{" "}
+        <Link href="/gid/zaryadna-stantsiya-dlya-kvartyry" style={{ color: "var(--amber)", fontWeight: 600 }}>
+          зарядна станція для квартири: розрахунок і моделі
+        </Link>
+        .
+      </aside>
+      <figure className="guide-table-wrap">
+        <figcaption>Порівняння зарядних станцій: ємність, потужність і ціна</figcaption>
+        <div className="guide-table-scroll">
+          <table className="guide-table">
+            <thead>
+              <tr>
+                <th scope="col">Модель</th>
+                <th scope="col">Ємність</th>
+                <th scope="col">Потужність</th>
+                <th scope="col">Ціна від</th>
+                <th scope="col">₴ за 1 Вт·год</th>
+                <th scope="col">Роутер 25 Вт</th>
+                <th scope="col">Для чого</th>
+              </tr>
+            </thead>
+            <tbody>
+              {stations.map((p) => (
+                <tr key={p.id}>
+                  <td>
+                    <Link href={`/tovary/${p.id}`} style={{ fontWeight: 600 }}>
+                      {p.brand} {p.name}
+                    </Link>
+                  </td>
+                  <td>{p.capacityWh.toLocaleString("uk-UA")} Вт·год</td>
+                  <td>{p.outputW.toLocaleString("uk-UA")} Вт</td>
+                  <td>{formatPrice(p.priceUah)}</td>
+                  <td>{(p.priceUah / p.capacityWh).toFixed(0)} ₴</td>
+                  {/* 0.85 = typical inverter losses + reserve, same factor as the calculator guide */}
+                  <td>≈ {Math.floor((p.capacityWh * 0.85) / 25)} год</td>
+                  <td>{p.bestFor}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ fontSize: "0.85rem", color: "var(--muted, #5e574e)", margin: "0.5rem 0 0" }}>
+          Ціни орієнтовні, перевіряйте актуальну вартість у магазині. Час роботи роутера —
+          з урахуванням ~15 % втрат інвертора; точний розрахунок під ваші прилади — у{" "}
+          <Link href="/kalkulyator">калькуляторі</Link>.
+        </p>
+      </figure>
       <ProductList products={productsByCategory("station")} />
       <div style={{ marginTop: "3rem" }}>
         <FaqSection
