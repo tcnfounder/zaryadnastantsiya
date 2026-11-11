@@ -61,10 +61,13 @@ export function GoogleAnalytics() {
           document.addEventListener('click', function (e) {
             var el = e.target && e.target.closest ? e.target.closest('a[href*="/go/"]') : null;
             if (!el) return;
-            var m = (el.getAttribute('href') || '').match(/\/go\/([^/?#]+)/);
-            if (!m) return;
+            // No regex literal here: inside this template string "\\/" collapses to "/",
+            // which turned /\\/go\\/.../ into a "//" comment and broke the whole script.
+            var href = el.getAttribute('href') || '';
+            var id = (href.split('/go/')[1] || '').split(/[?#]/)[0].split('/')[0];
+            if (!id) return;
             gtag('event', 'affiliate_click', {
-              product_id: m[1],
+              product_id: id,
               link_text: (el.textContent || '').trim().slice(0, 80),
               page_path: path,
               transport_type: 'beacon'
