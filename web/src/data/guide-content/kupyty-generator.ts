@@ -104,12 +104,11 @@ const guide: Guide = {
   ],
   cta: "generators",
   relatedSlugs: [
-    "generator-3-kvt",
-    "generator-5-kvt",
-    "generator-dlya-domu",
-    "invertornyy-generator",
-    "benzynovyy-generator",
-  ],
+     "generator-3-kvt",
+     "generator-dlya-domu",
+     "invertornyy-generator",
+     "benzynovyy-generator",
+   ],
   midCta: {
     title: "Визначте потужність до покупки",
     text: "Калькулятор складе список ваших приладів із пусковими струмами і підкаже клас генератора, щоб не переплатити за зайві кіловати.",

@@ -102,12 +102,12 @@ const guide: Guide = {
   ],
   cta: "calculator",
   relatedSlugs: [
-    "zaryadna-stantsiya-dlya-kotla",
-    "dbzh",
-    "akumulyator-dlya-invertora",
-    "akumulyator-lifepo4",
-    "invertor-dlya-domu",
-  ],
+     "zaryadna-stantsiya-dlya-kotla",
+     "dbzh",
+     "akumulyator-dlya-invertora",
+     "akumulyator-lifepo4",
+     "invertor-dlya-domu",
+   ],
   midCta: {
     title: "Підберіть АКБ під свій котел",
     text: "Вкажіть потужність котла, насосів і тривалість відключень — калькулятор порахує ємність акумулятора й потужність ДБЖ.",

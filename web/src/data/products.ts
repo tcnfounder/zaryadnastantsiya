@@ -261,7 +261,6 @@ export function productsForMoneyGuide(slug: string, limit = 3): Product[] {
     slug === "invertor" ||
     slug === "invertor-3-kvt" ||
     slug === "invertor-5-kvt" ||
-    slug === "invertor-8-kvt" ||
     slug === "invertor-12-220" ||
     slug === "deye-6-kvt" ||
     slug === "akumulyator-lifepo4" ||

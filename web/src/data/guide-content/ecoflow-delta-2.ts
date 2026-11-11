@@ -113,12 +113,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "ecoflow",
-    "bluetti",
-    "zaryadna-stantsiya-dlya-kvartyry",
-    "zaryadna-stantsiya-dlya-kotla",
-    "zaryadna-stantsiya-1-kvt",
-  ],
+     "ecoflow",
+     "bluetti",
+     "zaryadna-stantsiya-dlya-kvartyry",
+     "zaryadna-stantsiya-dlya-kotla",
+     "zaryadna-stantsiya-1-kvt",
+   ],
   extraLinks: [
     { href: "/tovary/ecoflow-delta-2", label: "EcoFlow DELTA 2: картка, ціна і магазини" },
     { href: "/zaryadni-stantsii", label: "Порівняння всіх зарядних станцій" },

@@ -20,7 +20,6 @@ export const MONEY_GUIDE_SLUGS = new Set([
   "zaryadna-stantsiya-3-kvt",
   "zaryadna-stantsiya-1-kvt",
   "deye-6-kvt",
-  "invertor-8-kvt",
   "invertor-3-kvt",
   "invertor-5-kvt",
   "invertor-12-220",
@@ -114,10 +113,8 @@ const baseGuides: Guide[] = [
     ],
     cta: "calculator",
     relatedSlugs: [
-      "hibrydnyy-invertor-5-kvt",
-      "invertor-dlya-domu",
-      "pidklyuchennya-invertora",
-    ],
+       "invertor-dlya-domu",
+     ],
   },
   {
     slug: "invertor-dlya-domu",
@@ -158,10 +155,9 @@ const baseGuides: Guide[] = [
     ],
     cta: "inverters",
     relatedSlugs: [
-      "hibrydnyy-invertor",
-      "pidklyuchennya-invertora",
-      "generator-dlya-domu",
-    ],
+       "hibrydnyy-invertor",
+       "generator-dlya-domu",
+     ],
   },
   {
     slug: "zaryadni-stantsii-dlya-domu",
@@ -196,7 +192,11 @@ const baseGuides: Guide[] = [
       },
     ],
     cta: "stations",
-    relatedSlugs: ["zaryadna-stantsiya-dlya-kvartyry", "zaryadna-stantsiya-dlya-kotla", "invertor-dlya-domu"],
+    relatedSlugs: [
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "zaryadna-stantsiya-dlya-kotla",
+       "invertor-dlya-domu",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-dlya-kvartyry",
@@ -291,12 +291,10 @@ const baseGuides: Guide[] = [
     },
     cta: "calculator",
     relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "komplekt-rezervnogo-zhyvlennya-kvartyra",
-      "stantsiya-chy-invertor-chy-generator",
-      "ecoflow-delta-2",
-      "generator-dlya-kvartyry",
-    ],
+       "portatyvna-zaryadna-stantsiya",
+       "stantsiya-chy-invertor-chy-generator",
+       "ecoflow-delta-2",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-dlya-kotla",
@@ -385,77 +383,14 @@ const baseGuides: Guide[] = [
       text: "Вкажіть котел (або його Вт), години блекауту й інші прилади — калькулятор покаже клас станції або чи вже потрібен інвертор.",
     },
     cta: "calculator",
-    relatedSlugs: ["invertor-dlya-kotla", "dbzh", "zaryadna-stantsiya-dlya-kvartyry", "zaryadna-stantsiya-2-kvt", "stantsiya-chy-invertor-chy-generator", "invertor-dlya-domu"],
-  },
-  {
-    slug: "komplekt-rezervnogo-zhyvlennya-kvartyra",
-    title: "Комплект резервного живлення для квартири",
-    h1: "Комплект резервного живлення для квартири",
-    description:
-      "З чого складається комплект резервного живлення для квартири: інвертор, АКБ, станція, безпека й монтаж в Україні.",
-    keyword: "комплект резервного живлення для квартири",
-    searchVolume: 1300,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Комплект резерву для квартири зазвичай означає інвертор + акумулятор (іноді готову станцію) під конкретні години блекауту без генератора.",
-    sections: [
-      {
-        heading: "Базовий склад",
-        body: "Інвертор потрібної потужності, АКБ з запасом Wh, кабелі й захист, інструкція сценарію (що вмикаємо першим). Портативна станція може бути «комплектом із коробки».",
-      },
-      {
-        heading: "Як не переплатити",
-        body: "Не беріть максимум «на всяк випадок». Пройдіть калькулятор: житло, години, критичні прилади — і вже потім оберіть категорію.",
-      },
-      {
-        heading: "Роль монтажника",
-        body: "Якщо комплект іде в щит квартири — потрібен фахівець. На сайті монтажні компанії отримують такі ліди після сценарію в калькуляторі.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чим комплект відрізняється від станції?",
-        answer:
-          "Станція — готовий пристрій. Комплект інвертор+АКБ збирається під ваш щит і години автономії, тому гнучкіший, але потребує грамотного підключення.",
-      },
-    ],
-    cta: "calculator",
-    relatedSlugs: ["zaryadna-stantsiya-dlya-kvartyry", "invertor-dlya-domu", "pidklyuchennya-invertora"],
-  },
-  {
-    slug: "pidklyuchennya-invertora",
-    title: "Підключення інвертора: схема, безпека, типові помилки",
-    h1: "Підключення інвертора",
-    description:
-      "Як правильно підключити інвертор у квартирі чи будинку: щит, АКБ, захист, типові помилки та коли потрібен монтажник.",
-    keyword: "підключення інвертора",
-    searchVolume: 720,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Підключення інвертора до щита — критична точка безпеки. Від схеми залежить, чи не «зустрінуться» мережа й резерв і чи витримає кабель пускові струми.",
-    sections: [
-      {
-        heading: "Що має бути в схемі",
-        body: "Ввід, захист, коректний bypass/АВР за потреби, окремі лінії критичних споживачів, правильний переріз і полярність АКБ. Це не місце для імпровізації.",
-      },
-      {
-        heading: "DIY проти монтажника",
-        body: "Портативну станцію вмикаєте в розетку самі. Стаціонарний інвертор у щит — робота для бригади з допуском і досвідом.",
-      },
-      {
-        heading: "Після підключення",
-        body: "Перевірте час автономії на реальному навантаженні, шум, нагрів, коректність індикації. Збережіть схему — знадобиться для сервісу.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чи можна підключити інвертор паралельно розетці?",
-        answer:
-          "Небезпечні «скрутки» й зворотна подача в мережу — ризик для вас і енергомережі. Використовуйте штатну схему та фахівця.",
-      },
-    ],
-    cta: "claim",
-    relatedSlugs: ["invertor-dlya-domu", "hibrydnyy-invertor", "komplekt-rezervnogo-zhyvlennya-kvartyra"],
+    relatedSlugs: [
+       "invertor-dlya-kotla",
+       "dbzh",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "zaryadna-stantsiya-2-kvt",
+       "stantsiya-chy-invertor-chy-generator",
+       "invertor-dlya-domu",
+     ],
   },
   {
     slug: "invertornyy-generator",
@@ -499,7 +434,10 @@ const baseGuides: Guide[] = [
       },
     ],
     cta: "generators",
-    relatedSlugs: ["generator-dlya-domu", "generator-3-kvt", "generator-5-kvt"],
+    relatedSlugs: [
+       "generator-dlya-domu",
+       "generator-3-kvt",
+     ],
   },
   {
     slug: "generator-dlya-domu",
@@ -543,7 +481,10 @@ const baseGuides: Guide[] = [
       },
     ],
     cta: "calculator",
-    relatedSlugs: ["invertornyy-generator", "generator-3-kvt", "generator-5-kvt"],
+    relatedSlugs: [
+       "invertornyy-generator",
+       "generator-3-kvt",
+     ],
   },
   {
     slug: "generator-3-kvt",
@@ -587,51 +528,10 @@ const baseGuides: Guide[] = [
       },
     ],
     cta: "generators",
-    relatedSlugs: ["generator-5-kvt", "generator-dlya-domu", "invertornyy-generator"],
-  },
-  {
-    slug: "generator-5-kvt",
-    title: "Генератор 5 кВт: запас для будинку під довгі відключення",
-    h1: "Генератор 5 кВт для будинку",
-    description:
-      "Генератор 5 кВт для приватного будинку: які навантаження закриває, бензин чи дизель, коли потрібен монтаж і порівняння з 3 кВт.",
-    keyword: "генератор 5 квт",
-    searchVolume: 2400,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Генератор 5 кВт дає запас під одночасні споживачі в приватному будинку: світло, холодильник, частина кухні, іноді насос — за умови грамотного розподілу ліній.",
-    sections: [
-      {
-        heading: "Для кого 5 кВт",
-        body: "Будинок, де 3 кВт уже «впритул», або є насос/котел і кілька критичних розеток. Це не завжди «весь будинок», але значно комфортніший резерв.",
-      },
-      {
-        heading: "Паливо й години роботи",
-        body: "Рахуйте не лише кВт, а бак і витрати л/год. Довгі блекаути вимагають запасу палива й безпечного зберігання.",
-      },
-      {
-        heading: "Підключення до щита",
-        body: "Для постійного резерву потрібні АВР/перемикач і монтажник. Не живіть будинок через подовжувач «на око».",
-      },
-      {
-        heading: "Порівняйте з інвертором",
-        body: "Якщо важлива тиша й нічний режим без вихлопу — інвертор+АКБ може закрити частину сценарію, а генератор лишиться на довгі години.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чи потягне генератор 5 кВт електрокотел?",
-        answer:
-          "Залежить від потужності котла й інших споживачів. Багато котлів їдять кілька кВт — тоді 5 кВт може бути впритул. Перевірте паспорт.",
-      },
-      {
-        question: "Бензин чи дизель на 5 кВт?",
-        answer:
-          "Бензин простіший у старті й сервісі. Дизель вигідніший на довгих годинах. Для дому поруч із вікнами дивіться також інверторні моделі.",
-      },
-    ],
-    cta: "calculator",
-    relatedSlugs: ["avr-dlya-generatora", "generator-3-kvt", "generator-dlya-domu", "invertornyy-generator"],
+    relatedSlugs: [
+       "generator-dlya-domu",
+       "invertornyy-generator",
+     ],
   },
   {
     slug: "kupyty-generator",
@@ -675,7 +575,10 @@ const baseGuides: Guide[] = [
       },
     ],
     cta: "generators",
-    relatedSlugs: ["generator-dlya-domu", "generator-3-kvt", "generator-5-kvt"],
+    relatedSlugs: [
+       "generator-dlya-domu",
+       "generator-3-kvt",
+     ],
   },
   {
     slug: "kupyty-invertor",
@@ -719,7 +622,10 @@ const baseGuides: Guide[] = [
       },
     ],
     cta: "inverters",
-    relatedSlugs: ["invertor-dlya-domu", "hibrydnyy-invertor", "pidklyuchennya-invertora"],
+    relatedSlugs: [
+       "invertor-dlya-domu",
+       "hibrydnyy-invertor",
+     ],
   },
   {
     slug: "vidklyuchennya-svitla",
@@ -807,7 +713,14 @@ const baseGuides: Guide[] = [
       text: "Впишіть години блекауту й список «має працювати» — калькулятор розкладе, чи вистачить станції, чи вже потрібен інвертор з АКБ (або генератор зовні).",
     },
     cta: "calculator",
-    relatedSlugs: ["dbzh-dlya-routera", "zaryadna-stantsiya-dlya-kvartyry", "invertor-dlya-kotla", "portatyvna-zaryadna-stantsiya", "ecoflow-delta-2", "invertor-3-kvt"],
+    relatedSlugs: [
+       "dbzh-dlya-routera",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "invertor-dlya-kotla",
+       "portatyvna-zaryadna-stantsiya",
+       "ecoflow-delta-2",
+       "invertor-3-kvt",
+     ],
   },
   {
     slug: "ecoflow",
@@ -886,12 +799,12 @@ const baseGuides: Guide[] = [
     },
     cta: "stations",
     relatedSlugs: [
-      "ecoflow-delta-2",
-      "zaryadna-stantsiya",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "portatyvna-zaryadna-stantsiya",
-      "bluetti",
-    ],
+       "ecoflow-delta-2",
+       "zaryadna-stantsiya",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "portatyvna-zaryadna-stantsiya",
+       "bluetti",
+     ],
   },
   {
     slug: "zaryadna-stantsiya",
@@ -974,7 +887,14 @@ const baseGuides: Guide[] = [
       text: "Задайте години блекауту й прилади — калькулятор порахує орієнтир Wh/W і покаже станції (або скаже, що вже потрібен інвертор).",
     },
     cta: "stations",
-    relatedSlugs: ["reytynh-zaryadnykh-stantsiy", "zaryadna-stantsiya-300-vt", "vidklyuchennya-svitla", "portatyvna-zaryadna-stantsiya", "kupyty-zaryadnu-stantsiyu", "ecoflow"],
+    relatedSlugs: [
+       "reytynh-zaryadnykh-stantsiy",
+       "zaryadna-stantsiya-300-vt",
+       "vidklyuchennya-svitla",
+       "portatyvna-zaryadna-stantsiya",
+       "kupyty-zaryadnu-stantsiyu",
+       "ecoflow",
+     ],
   },
   {
     slug: "invertor",
@@ -1040,7 +960,14 @@ const baseGuides: Guide[] = [
       text: "Список приладів і години відключень → калькулятор підкаже клас інвертора (чи станцію замість нього) і орієнтир моделей у ₴.",
     },
     cta: "inverters",
-    relatedSlugs: ["dbzh", "akumulyator-dlya-invertora", "vidklyuchennya-svitla", "invertor-3-kvt", "hibrydnyy-invertor", "invertor-dlya-domu"],
+    relatedSlugs: [
+       "dbzh",
+       "akumulyator-dlya-invertora",
+       "vidklyuchennya-svitla",
+       "invertor-3-kvt",
+       "hibrydnyy-invertor",
+       "invertor-dlya-domu",
+     ],
   },
   {
     slug: "generator",
@@ -1106,7 +1033,14 @@ const baseGuides: Guide[] = [
       text: "Опишіть житло, години й важкі споживачі (насос, котел). Калькулятор покаже, чи логічний генератор зовні, чи тихіший шлях через інвертор/станцію.",
     },
     cta: "generators",
-    relatedSlugs: ["invertornyy-generator", "avr-dlya-generatora", "hazovyy-generator", "vidklyuchennya-svitla", "generator-dlya-domu", "kupyty-generator"],
+    relatedSlugs: [
+       "invertornyy-generator",
+       "avr-dlya-generatora",
+       "hazovyy-generator",
+       "vidklyuchennya-svitla",
+       "generator-dlya-domu",
+       "kupyty-generator",
+     ],
   },
   {
     slug: "bluetti",
@@ -1206,12 +1140,12 @@ const baseGuides: Guide[] = [
     },
     cta: "stations",
     relatedSlugs: [
-      "ecoflow",
-      "portatyvna-zaryadna-stantsiya",
-      "kupyty-zaryadnu-stantsiyu",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "zaryadna-stantsiya-dlya-elektromobilya",
-    ],
+       "ecoflow",
+       "portatyvna-zaryadna-stantsiya",
+       "kupyty-zaryadnu-stantsiyu",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "zaryadna-stantsiya-dlya-elektromobilya",
+     ],
   },
   {
     slug: "stantsiya-chy-invertor-chy-generator",
@@ -1313,12 +1247,12 @@ const baseGuides: Guide[] = [
     },
     cta: "calculator",
     relatedSlugs: [
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "zaryadna-stantsiya",
-      "invertor",
-      "generator",
-      "portatyvna-zaryadna-stantsiya",
-    ],
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "zaryadna-stantsiya",
+       "invertor",
+       "generator",
+       "portatyvna-zaryadna-stantsiya",
+     ],
   },
   {
     slug: "kupyty-zaryadnu-stantsiyu",
@@ -1401,12 +1335,12 @@ const baseGuides: Guide[] = [
       { href: "/misto/dnipro", label: "Купити зарядну станцію в Дніпрі" },
     ],
     relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "ecoflow",
-      "bluetti",
-      "zaryadna-stantsiya",
-      "zaryadna-stantsiya-dlya-elektromobilya",
-    ],
+       "portatyvna-zaryadna-stantsiya",
+       "ecoflow",
+       "bluetti",
+       "zaryadna-stantsiya",
+       "zaryadna-stantsiya-dlya-elektromobilya",
+     ],
   },
   {
     slug: "portatyvna-zaryadna-stantsiya",
@@ -1509,7 +1443,14 @@ const baseGuides: Guide[] = [
       text: "Вкажіть години блекауту й прилади — калькулятор покаже, чи вистачить компактного класу, чи вже потрібен DELTA/AC180 або інвертор з АКБ.",
     },
     cta: "stations",
-    relatedSlugs: ["zaryadna-stantsiya-z-sonyachnoyu-panellyu", "reytynh-zaryadnykh-stantsiy", "kupyty-zaryadnu-stantsiyu", "ecoflow", "bluetti", "zaryadna-stantsiya-dlya-elektromobilya"],
+    relatedSlugs: [
+       "zaryadna-stantsiya-z-sonyachnoyu-panellyu",
+       "reytynh-zaryadnykh-stantsiy",
+       "kupyty-zaryadnu-stantsiyu",
+       "ecoflow",
+       "bluetti",
+       "zaryadna-stantsiya-dlya-elektromobilya",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-dlya-elektromobilya",
@@ -1609,12 +1550,12 @@ const baseGuides: Guide[] = [
     },
     cta: "calculator",
     relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "kupyty-zaryadnu-stantsiyu",
-      "ecoflow",
-      "bluetti",
-      "zaryadna-stantsiya",
-    ],
+       "portatyvna-zaryadna-stantsiya",
+       "kupyty-zaryadnu-stantsiyu",
+       "ecoflow",
+       "bluetti",
+       "zaryadna-stantsiya",
+     ],
   },
   {
     slug: "akumulyator-dlya-invertora",
@@ -1659,10 +1600,9 @@ const baseGuides: Guide[] = [
     ],
     cta: "calculator",
     relatedSlugs: [
-      "invertor-dlya-domu",
-      "hibrydnyy-invertor",
-      "pidklyuchennya-invertora",
-    ],
+       "invertor-dlya-domu",
+       "hibrydnyy-invertor",
+     ],
   },
   {
     slug: "invertor-12-220",
@@ -1737,12 +1677,12 @@ const baseGuides: Guide[] = [
     },
     cta: "inverters",
     relatedSlugs: [
-      "invertor-3-kvt",
-      "akumulyator-lifepo4",
-      "akumulyator-dlya-invertora",
-      "invertor-dlya-domu",
-      "portatyvna-zaryadna-stantsiya",
-    ],
+       "invertor-3-kvt",
+       "akumulyator-lifepo4",
+       "akumulyator-dlya-invertora",
+       "invertor-dlya-domu",
+       "portatyvna-zaryadna-stantsiya",
+     ],
   },
   {
     slug: "benzynovyy-generator",
@@ -1787,10 +1727,10 @@ const baseGuides: Guide[] = [
     ],
     cta: "generators",
     relatedSlugs: [
-      "generator",
-      "generator-dlya-domu",
-      "dyzelnyy-generator",
-    ],
+       "generator",
+       "generator-dlya-domu",
+       "dyzelnyy-generator",
+     ],
   },
   {
     slug: "dyzelnyy-generator",
@@ -1835,10 +1775,9 @@ const baseGuides: Guide[] = [
     ],
     cta: "claim",
     relatedSlugs: [
-      "benzynovyy-generator",
-      "generator-5-kvt",
-      "generator-dlya-domu",
-    ],
+       "benzynovyy-generator",
+       "generator-dlya-domu",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-2-kvt",
@@ -1928,14 +1867,14 @@ const baseGuides: Guide[] = [
     },
     cta: "calculator",
     relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "zaryadna-stantsiya-dlya-kotla",
-      "zaryadna-stantsiya-1-kvt",
-      "zaryadna-stantsiya-3-kvt",
-      "kupyty-zaryadnu-stantsiyu",
-      "stantsiya-chy-invertor-chy-generator",
-    ],
+       "portatyvna-zaryadna-stantsiya",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "zaryadna-stantsiya-dlya-kotla",
+       "zaryadna-stantsiya-1-kvt",
+       "zaryadna-stantsiya-3-kvt",
+       "kupyty-zaryadnu-stantsiyu",
+       "stantsiya-chy-invertor-chy-generator",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-1-kvt",
@@ -2018,7 +1957,14 @@ const baseGuides: Guide[] = [
       text: "Внесіть прилади й години — калькулятор покаже, чи клас ~1000 W достатній, чи логічніший 2 кВт або інвертор.",
     },
     cta: "calculator",
-    relatedSlugs: ["zaryadna-stantsiya-300-vt", "portatyvna-zaryadna-stantsiya", "zaryadna-stantsiya-2-kvt", "zaryadna-stantsiya-3-kvt", "zaryadna-stantsiya-dlya-kvartyry", "stantsiya-chy-invertor-chy-generator"],
+    relatedSlugs: [
+       "zaryadna-stantsiya-300-vt",
+       "portatyvna-zaryadna-stantsiya",
+       "zaryadna-stantsiya-2-kvt",
+       "zaryadna-stantsiya-3-kvt",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "stantsiya-chy-invertor-chy-generator",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-3-kvt",
@@ -2107,61 +2053,13 @@ const baseGuides: Guide[] = [
     },
     cta: "calculator",
     relatedSlugs: [
-      "zaryadna-stantsiya-2-kvt",
-      "zaryadna-stantsiya-1-kvt",
-      "zaryadna-stantsiya-dlya-kotla",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "invertor-3-kvt",
-      "stantsiya-chy-invertor-chy-generator",
-    ],
-  },
-  {
-    slug: "generator-dlya-kvartyry",
-    title: "Генератор для квартири: чому майже ніколи",
-    h1: "Генератор для квартири — реальні альтернативи",
-    description:
-      "Чи можна ставити генератор у квартирі в Україні, які ризики й що обрати замість нього: зарядна станція або інвертор.",
-    keyword: "генератор для квартири",
-    searchVolume: 2400,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Запит «генератор для квартири» популярний, але відповідь майже завжди: ні, не в житловому приміщенні. Вихлоп CO і норми пожежної безпеки. Для квартири — станція або інвертор + АКБ.",
-    sections: [
-      {
-        heading: "Чому не генератор",
-        body: "Оксид вуглецю, шум, вібрація, заборона експлуатації в закритих приміщеннях. Балкон без окремого безпечного відведення — теж ризик.",
-      },
-      {
-        heading: "Що ставити замість",
-        body: "Портативна зарядна станція для коротких блекаутів. Інвертор + АКБ — для тихих довших годин із монтажем у щит.",
-      },
-      {
-        heading: "Коли генератор доречний",
-        body: "Приватний будинок, двір, окремий майданчик, АВР. Тоді дивіться бензин/дизель гіди.",
-      },
-      {
-        heading: "Калькулятор",
-        body: "Оберіть «квартира» в калькуляторі — отримаєте сценарій без небезпечних рекомендацій «генератор у коридорі».",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чи можна генератор на балконі?",
-        answer:
-          "Практично й безпеково — ні для житлової квартири. Шукайте станцію або інвертор.",
-      },
-      {
-        question: "Що купити для квартири замість генератора?",
-        answer:
-          "Портативну зарядну станцію або комплект інвертор + акумулятор із монтажем.",
-      },
-    ],
-    cta: "calculator",
-    relatedSlugs: [
-      "portatyvna-zaryadna-stantsiya",
-      "komplekt-rezervnogo-zhyvlennya-kvartyra",
-      "benzynovyy-generator",
-    ],
+       "zaryadna-stantsiya-2-kvt",
+       "zaryadna-stantsiya-1-kvt",
+       "zaryadna-stantsiya-dlya-kotla",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "invertor-3-kvt",
+       "stantsiya-chy-invertor-chy-generator",
+     ],
   },
   {
     slug: "invertor-3-kvt",
@@ -2240,12 +2138,12 @@ const baseGuides: Guide[] = [
     },
     cta: "calculator",
     relatedSlugs: [
-      "invertor-5-kvt",
-      "invertor-2-kvt",
-      "akumulyator-lifepo4",
-      "invertor-12-220",
-      "vidklyuchennya-svitla",
-    ],
+       "invertor-5-kvt",
+       "invertor-2-kvt",
+       "akumulyator-lifepo4",
+       "invertor-12-220",
+       "vidklyuchennya-svitla",
+     ],
   },
   {
     slug: "invertor-5-kvt",
@@ -2320,12 +2218,10 @@ const baseGuides: Guide[] = [
     },
     cta: "inverters",
     relatedSlugs: [
-      "invertor-3-kvt",
-      "deye-6-kvt",
-      "hibrydnyy-invertor-5-kvt",
-      "akumulyator-lifepo4",
-      "invertor-6-kvt",
-    ],
+       "invertor-3-kvt",
+       "deye-6-kvt",
+       "akumulyator-lifepo4",
+     ],
   },
   {
     slug: "invertor-deye",
@@ -2370,10 +2266,8 @@ const baseGuides: Guide[] = [
     ],
     cta: "claim",
     relatedSlugs: [
-      "deye-6-kvt",
-      "hibrydnyy-invertor-5-kvt",
-      "pidklyuchennya-invertora",
-    ],
+       "deye-6-kvt",
+     ],
   },
   {
     slug: "invertor-dlya-kotla",
@@ -2418,10 +2312,10 @@ const baseGuides: Guide[] = [
     ],
     cta: "calculator",
     relatedSlugs: [
-      "zaryadna-stantsiya-dlya-kotla",
-      "invertor-dlya-domu",
-      "invertor-3-kvt",
-    ],
+       "zaryadna-stantsiya-dlya-kotla",
+       "invertor-dlya-domu",
+       "invertor-3-kvt",
+     ],
   },
   {
     slug: "invertor-dlya-kvartyry",
@@ -2466,10 +2360,9 @@ const baseGuides: Guide[] = [
     ],
     cta: "calculator",
     relatedSlugs: [
-      "invertor-3-kvt",
-      "portatyvna-zaryadna-stantsiya",
-      "komplekt-rezervnogo-zhyvlennya-kvartyra",
-    ],
+       "invertor-3-kvt",
+       "portatyvna-zaryadna-stantsiya",
+     ],
   },
   {
     slug: "zaryadna-stantsiya-anker",
@@ -2514,54 +2407,10 @@ const baseGuides: Guide[] = [
     ],
     cta: "stations",
     relatedSlugs: [
-      "ecoflow",
-      "bluetti",
-      "portatyvna-zaryadna-stantsiya",
-    ],
-  },
-  {
-    slug: "rezervne-zhyvlennya",
-    title: "Резервне живлення: станція, інвертор чи генератор",
-    h1: "Резервне живлення під відключення світла",
-    description:
-      "Резервне живлення в Україні: як обрати між зарядною станцією, інвертором з АКБ і генератором для квартири й будинку.",
-    keyword: "резервне живлення",
-    searchVolume: 1600,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Резервне живлення — не одна «чарівна» коробка, а сценарій: скільки годин, які прилади, квартира чи будинок. Від цього залежить станція, інвертор або генератор.",
-    sections: [
-      {
-        heading: "Три шляхи",
-        body: "Портативна станція — швидко. Інвертор + АКБ — тихо й довше. Генератор — вуличний запас на важкі години.",
-      },
-      {
-        heading: "Квартира",
-        body: "Генератор у житлі — ні. Станція або інвертор з монтажем у щит.",
-      },
-      {
-        heading: "Будинок",
-        body: "Часто гібрид: станція на легке + інвертор/генератор на довге. Калькулятор зводить навантаження.",
-      },
-      {
-        heading: "Монтаж",
-        body: "Якщо схема йде в щит — довірте підключення кваліфікованому електрику.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Що таке резервне живлення для дому?",
-        answer:
-          "Система, яка тримає пріоритетні прилади під час відключення мережі: станція, інвертор+АКБ або генератор.",
-      },
-      {
-        question: "З чого почати вибір?",
-        answer:
-          "З годин блекауту й списку приладів у калькуляторі — потім техніка й монтаж.",
-      },
-    ],
-    cta: "calculator",
-    relatedSlugs: ["dbzh-dlya-routera", "dbzh", "stantsiya-chy-invertor-chy-generator", "vidklyuchennya-svitla", "komplekt-rezervnogo-zhyvlennya-kvartyra"],
+       "ecoflow",
+       "bluetti",
+       "portatyvna-zaryadna-stantsiya",
+     ],
   },
   {
     slug: "invertor-2-kvt",
@@ -2606,187 +2455,10 @@ const baseGuides: Guide[] = [
     ],
     cta: "calculator",
     relatedSlugs: [
-      "invertor-3-kvt",
-      "invertor-5-kvt",
-      "invertor-dlya-kvartyry",
-    ],
-  },
-  {
-    slug: "hibrydnyy-invertor-5-kvt",
-    title: "Гібридний інвертор 5 кВт: коли брати для дому",
-    h1: "Гібридний інвертор 5 кВт під блекаут",
-    description:
-      "Гібридний інвертор 5 кВт в Україні: резерв від мережі й АКБ, навантаження будинку, відмінність від 3 кВт і монтаж.",
-    keyword: "гібридний інвертор 5 квт",
-    searchVolume: 3600,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Гібридний інвертор 5 кВт — типовий клас для приватного будинку: мережа + АКБ під відключення, опційно панелі пізніше. Головне — кВт, батарея й схема щита, а не слоган «сонячний».",
-    sections: [
-      {
-        heading: "Кому потрібен саме гібрид 5 кВт",
-        body: "Будинок із насосом, кількома пріоритетними лініями, планом на АКБ і тихий резерв без вихлопу.",
-      },
-      {
-        heading: "Резерв без панелей",
-        body: "Гібрид може заряджати АКБ від мережі й віддавати резерв під блекаут навіть без СЕС. Панелі — другий етап, не обов’язкова умова старту.",
-      },
-      {
-        heading: "Батарея й напруга",
-        body: "На 5 кВт частіше 24/48 В. Недооцінена ємність = інвертор є, а годин резерву немає.",
-      },
-      {
-        heading: "Монтаж у щит",
-        body: "АВР, захист і переріз кабелю — робота кваліфікованого електрика.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чим гібридний інвертор 5 кВт відрізняється від звичайного?",
-        answer:
-          "Гнучкіша робота з мережею й АКБ. Для резерву важливі синусоїда, кВт і батарея — не обов’язково панелі з першого дня.",
-      },
-      {
-        question: "3 чи 5 кВт гібрид?",
-        answer:
-          "3 кВт — квартира й легкий дім. 5 кВт — якщо потрібен запас на пуски й кілька ліній. Пройдіть калькулятор.",
-      },
-    ],
-    cta: "claim",
-    relatedSlugs: [
-      "hibrydnyy-invertor",
-      "invertor-5-kvt",
-      "invertor-deye",
-    ],
-  },
-  {
-    slug: "invertor-6-kvt",
-    title: "Інвертор 6 кВт: запас для будинку під довгі відключення",
-    h1: "Інвертор 6 кВт для дому",
-    description:
-      "Інвертор 6 кВт в Україні: коли брати замість 5 кВт, які навантаження закриває, АКБ, гібрид і монтаж.",
-    keyword: "інвертор 6 квт",
-    searchVolume: 4400,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Інвертор 6 кВт обирають, коли 5 кВт уже «впритул»: більше одночасних ліній, важчі пуски, довший список пріоритетів. Це клас для серйозного домашнього резерву.",
-    sections: [
-      {
-        heading: "Кому потрібні 6 кВт",
-        body: "Будинок із насосом, бойлером по черзі, майстернею чи кількома лініями одночасно без постійної роботи на межі.",
-      },
-      {
-        heading: "6 кВт vs 5 кВт",
-        body: "Різниця не завжди критична, але запас знімає стрес на пусках. Краще порахувати список приладів, ніж купувати «на око».",
-      },
-      {
-        heading: "АКБ і напруга",
-        body: "Системи 6 кВт майже завжди 48 В класу. Ємність батареї визначає години, не лише наклейка кВт на інверторі.",
-      },
-      {
-        heading: "Монтаж",
-        body: "Щит, захист, АВР — зона бригади. Саморобні схеми на такій потужності небезпечні.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чи потрібен інвертор 6 кВт для квартири?",
-        answer:
-          "Рідко. Для квартири частіше 2–3 кВт або станція. 6 кВт — типово для будинку.",
-      },
-      {
-        question: "Інвертор 6 кВт чи Deye 6 кВт?",
-        answer:
-          "Спочатку кВт і АКБ під сценарій, потім бренд. Окремий гід — Deye 6 кВт.",
-      },
-    ],
-    cta: "inverters",
-    relatedSlugs: [
-      "invertor-5-kvt",
-      "invertor-8-kvt",
-      "deye-6-kvt",
-      "hibrydnyy-invertor-5-kvt",
-    ],
-  },
-  {
-    slug: "invertor-8-kvt",
-    title: "Інвертор 8 кВт: міст між 6 і 10 кВт",
-    h1: "Інвертор 8 кВт для дому",
-    description:
-      "Інвертор 8 кВт в Україні: коли брати замість 6 кВт, які навантаження закриває, АКБ 48 В, порівняння з 10 кВт і монтаж.",
-    keyword: "інвертор 8 квт",
-    searchVolume: 1300,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Інвертор 8 кВт — проміжний клас між 6 і 10 кВт: більше запасу на одночасні лінії та пуски, ніж у «шестірці», без повної ціни десятки. Для квартири майже завжди надлишок; для будинку з насосом, котлом по черзі та майстернею — частий компроміс.",
-    tables: [
-      {
-        caption: "8 кВт — коли має сенс",
-        headers: ["Ситуація", "6 кВт", "8 кВт", "10 кВт"],
-        rows: [
-          ["Квартира, легкий резерв", "Часто так", "Надлишок", "Надлишок"],
-          ["Будинок, насос + холодильник", "Можливо впритул", "Запас", "Максимум"],
-          ["Кілька ліній одночасно", "Ризик на пусках", "Комфортніше", "Запас"],
-          ["Бюджет", "Нижчий", "Середній", "Вищий"],
-        ],
-      },
-    ],
-    sections: [
-      {
-        heading: "Кому потрібні саме 8 кВт",
-        body: "Приватний будинок, коли 6 кВт уже близько до ліміту за списком приладів, але 10 кВт виглядає переплатою. Типово: насос, холодильник, освітлення, зв’язок, майстерня або додаткова лінія «на черзі».",
-      },
-      {
-        heading: "8 vs 6 vs 10 кВт",
-        body: "6 кВт закриває більшість сценаріїв. 10 кВт — для важких одночасних навантажень. 8 кВт — золота середина, якщо калькулятор показує стабільний запас 1–2 кВт над піком. Не купуйте «більше» без списку приладів.",
-      },
-      {
-        heading: "АКБ і 48 В LiFePO4",
-        body: "На 8 кВт майже завжди 48 В батарея класу LiFePO4. Кіловати інвертора без Wh не дають годин — спочатку сценарій блекауту, потім ємність. Дивіться гід «акумулятор LiFePO4».",
-      },
-      {
-        heading: "Гібрид і Deye",
-        body: "Багато 8 кВт моделей — гібридного класу (мережа + АКБ). Порівняйте також Deye 6 кВт і гід «інвертор 10 кВт», якщо сумніваєтесь у крайніх класах.",
-      },
-      {
-        heading: "Монтаж",
-        body: "Щит, АВР, захист і переріз кабелю — лише кваліфікований електрик. Спершу визначте потрібні кВт у калькуляторі, потім обговорюйте схему з монтажником.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чи потрібен інвертор 8 кВт для квартири?",
-        answer:
-          "Майже ніколи. Для квартири — станція або 2–3 кВт. 8 кВт — будинок і важкі сценарії.",
-      },
-      {
-        question: "8 кВт чи 6 кВт?",
-        answer:
-          "Якщо 6 кВт з запасом по пусках — достатньо. 8 кВт — коли список одночасних споживачів ширший або плануєте розширення ліній.",
-      },
-      {
-        question: "8 кВт чи 10 кВт?",
-        answer:
-          "10 кВт — коли одночасне навантаження стабільно високе. 8 кВт — компроміс ціни й запасу; порахуйте в калькуляторі.",
-      },
-      {
-        question: "Чи можна 8 кВт без панелей?",
-        answer:
-          "Так, як резерв від мережі + АКБ. Сонячні панелі — опційний другий етап.",
-      },
-    ],
-    midCta: {
-      title: "8 кВт — чи не вистачить 6?",
-      text: "Внесіть прилади й години блекауту: калькулятор покаже, чи потрібен клас 8 кВт, чи достатньо 6 кВт або станції.",
-    },
-    cta: "calculator",
-    relatedSlugs: [
-      "invertor-6-kvt",
-      "invertor-10-kvt",
-      "invertor-5-kvt",
-      "akumulyator-lifepo4",
-      "deye-6-kvt",
-    ],
+       "invertor-3-kvt",
+       "invertor-5-kvt",
+       "invertor-dlya-kvartyry",
+     ],
   },
   {
     slug: "deye-6-kvt",
@@ -2866,12 +2538,10 @@ const baseGuides: Guide[] = [
     },
     cta: "claim",
     relatedSlugs: [
-      "invertor-deye",
-      "invertor-5-kvt",
-      "invertor-6-kvt",
-      "akumulyator-lifepo4",
-      "hibrydnyy-invertor-5-kvt",
-    ],
+       "invertor-deye",
+       "invertor-5-kvt",
+       "akumulyator-lifepo4",
+     ],
   },
   {
     slug: "akumulyator-lifepo4",
@@ -2959,7 +2629,14 @@ const baseGuides: Guide[] = [
       text: "Вкажіть години блекауту й прилади — калькулятор оцінить потрібний Wh до того, як ви замовите «мінімальну» батарею з вітрини.",
     },
     cta: "calculator",
-    relatedSlugs: ["helevyy-akumulyator", "akumulyator-dlya-invertora", "invertor-3-kvt", "invertor-5-kvt", "deye-6-kvt", "invertor-12-220"],
+    relatedSlugs: [
+       "helevyy-akumulyator",
+       "akumulyator-dlya-invertora",
+       "invertor-3-kvt",
+       "invertor-5-kvt",
+       "deye-6-kvt",
+       "invertor-12-220",
+     ],
   },
   {
     slug: "ecoflow-delta-2",
@@ -3042,109 +2719,12 @@ const baseGuides: Guide[] = [
     },
     cta: "stations",
     relatedSlugs: [
-      "ecoflow",
-      "portatyvna-zaryadna-stantsiya",
-      "zaryadna-stantsiya-dlya-kvartyry",
-      "invertor-3-kvt",
-      "vidklyuchennya-svitla",
-    ],
-  },
-  {
-    slug: "invertor-10-kvt",
-    title: "Інвертор 10 кВт: коли потрібен такий запас",
-    h1: "Інвертор 10 кВт для дому",
-    description:
-      "Інвертор 10 кВт в Україні: кому потрібен замість 5–6 кВт, АКБ, гібрид, монтаж і ризики надлишкової потужності.",
-    keyword: "інвертор 10 квт",
-    searchVolume: 4400,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Інвертор 10 кВт — клас для серйозного будинку: кілька ліній одночасно, важчі пуски, запас на розширення. Для квартири майже завжди надлишок. Спочатку сценарій і АКБ, потім кВт.",
-    sections: [
-      {
-        heading: "Кому реально потрібні 10 кВт",
-        body: "Великий будинок, майстерня, кілька насосів/ліній, план на гібрид із запасом. Якщо список приладів тягне 5–6 кВт із запасом — не переплачуйте за 10 «на всяк випадок» без розрахунку.",
-      },
-      {
-        heading: "10 vs 6 vs 5 кВт",
-        body: "5–6 кВт закривають більшість приватних сценаріїв. 10 кВт має сенс, коли одночасне навантаження й пуски стабільно вищі. Дивіться гіди 5/6 кВт і гібрид 6 кВт.",
-      },
-      {
-        heading: "АКБ обов’язково в рівнянні",
-        body: "На 10 кВт майже завжди 48 В LiFePO4 клас і серйозна ємність Wh. Інакше отримаєте потужний інвертор без годин резерву.",
-      },
-      {
-        heading: "Монтаж",
-        body: "Щит, захист, АВР і кабель — лише професійний електрик.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Чи потрібен інвертор 10 кВт для квартири?",
-        answer:
-          "Ні, майже ніколи. Для квартири — станція або 2–3 кВт. 10 кВт — будинок і важкі сценарії.",
-      },
-      {
-        question: "10 кВт інвертор без панелей?",
-        answer:
-          "Так, як резерв від мережі + АКБ. Панелі — опційний другий етап у гібриді.",
-      },
-    ],
-    cta: "inverters",
-    relatedSlugs: [
-      "invertor-6-kvt",
-      "invertor-8-kvt",
-      "hibrydnyy-invertor-6-kvt",
-      "akumulyator-lifepo4",
-    ],
-  },
-  {
-    slug: "hibrydnyy-invertor-6-kvt",
-    title: "Гібридний інвертор 6 кВт для дому",
-    h1: "Гібридний інвертор 6 кВт під блекаут",
-    description:
-      "Гібридний інвертор 6 кВт в Україні: резерв від мережі й АКБ, порівняння з 5 кВт і Deye 6 кВт, монтаж.",
-    keyword: "гібридний інвертор 6 квт",
-    searchVolume: 2900,
-    dateModified: GUIDE_UPDATED,
-    intro:
-      "Гібридний інвертор 6 кВт — типовий клас для будинку з АКБ і запасом на пуски. Можна стартувати без панелей (мережа + батарея) і додати СЕС пізніше. Порівняйте також Deye 6 кВт і загальний гід «інвертор 6 кВт».",
-    sections: [
-      {
-        heading: "Кому підходить 6 кВт гібрид",
-        body: "Будинок із насосом, кількома пріоритетними лініями, планом на LiFePO4. Для квартири без щита спочатку станція або 2–3 кВт.",
-      },
-      {
-        heading: "5 чи 6 кВт",
-        body: "Різниця часто в запасі на пуски й одночасні лінії. Рахуйте список приладів — не беріть «більше» без сценарію. Є окремі гіди на гібрид 5 кВт і Deye 6 кВт.",
-      },
-      {
-        heading: "АКБ і напруга",
-        body: "Частіше 48 В LiFePO4. Ємність Wh визначає години, не наклейка кВт на інверторі.",
-      },
-      {
-        heading: "Монтаж і безпека",
-        body: "Щит і захист — зона кваліфікованого електрика; самостійне підключення до щита небезпечне.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Гібридний інвертор 6 кВт чи Deye 6 кВт?",
-        answer:
-          "Deye — один із брендів у цьому класі. Спочатку кВт/АКБ/сервіс, потім модель.",
-      },
-      {
-        question: "Чи потрібні панелі одразу?",
-        answer:
-          "Ні. Резерв може працювати від мережі й АКБ; СЕС — другий етап.",
-      },
-    ],
-    cta: "claim",
-    relatedSlugs: [
-      "deye-6-kvt",
-      "invertor-6-kvt",
-      "hibrydnyy-invertor-5-kvt",
-    ],
+       "ecoflow",
+       "portatyvna-zaryadna-stantsiya",
+       "zaryadna-stantsiya-dlya-kvartyry",
+       "invertor-3-kvt",
+       "vidklyuchennya-svitla",
+     ],
   },
 ];
 
@@ -3188,8 +2768,7 @@ export function guidesForProduct(product: {
       "invertor-2-kvt",
       "invertor-3-kvt",
       "invertor-5-kvt",
-      "invertor-8-kvt",
-      "invertor-12-220",
+          "invertor-12-220",
       "akumulyator-dlya-invertora",
     );
   }
@@ -3198,7 +2777,7 @@ export function guidesForProduct(product: {
   if (brand.includes("anker")) slugs.push("zaryadna-stantsiya-anker");
   if (brand.includes("deye")) slugs.push("invertor-deye", "deye-6-kvt");
   if (product.category === "inverter") {
-    slugs.push("akumulyator-lifepo4", "invertor-10-kvt");
+    slugs.push("akumulyator-lifepo4", "invertor-dlya-domu");
   }
   return [...new Set(slugs)]
     .map((slug) => getGuide(slug))

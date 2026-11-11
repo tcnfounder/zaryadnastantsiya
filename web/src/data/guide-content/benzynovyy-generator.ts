@@ -111,12 +111,11 @@ const guide: Guide = {
   ],
   cta: "generators",
   relatedSlugs: [
-    "generator-dlya-domu",
-    "invertornyy-generator",
-    "dyzelnyy-generator",
-    "generator-5-kvt",
-    "avr-dlya-generatora",
-  ],
+     "generator-dlya-domu",
+     "invertornyy-generator",
+     "dyzelnyy-generator",
+     "avr-dlya-generatora",
+   ],
   midCta: {
     title: "Порахуйте пусковий пік свого будинку",
     text: "Додайте насос, холодильник і котел у калькулятор — він підкаже, вистачить 3 кВт чи потрібно 5 кВт і більше.",

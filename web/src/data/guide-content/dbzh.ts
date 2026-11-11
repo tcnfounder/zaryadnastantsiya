@@ -109,12 +109,12 @@ const guide: Guide = {
   ],
   cta: "calculator",
   relatedSlugs: [
-    "dbzh-dlya-routera",
-    "invertor-dlya-kotla",
-    "akumulyator-dlya-invertora",
-    "invertor-dlya-domu",
-    "stantsiya-chy-invertor-chy-generator",
-  ],
+     "dbzh-dlya-routera",
+     "invertor-dlya-kotla",
+     "akumulyator-dlya-invertora",
+     "invertor-dlya-domu",
+     "stantsiya-chy-invertor-chy-generator",
+   ],
   midCta: {
     title: "Скільки годин потягне ваш ДБЖ",
     text: "Вкажіть пристрої та тривалість відключень — калькулятор порахує потрібну потужність і ємність акумулятора.",

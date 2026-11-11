@@ -94,12 +94,12 @@ const guide: Guide = {
   ],
   cta: "generators",
   relatedSlugs: [
-    "generator-dlya-domu",
-    "avr-dlya-generatora",
-    "benzynovyy-generator",
-    "dyzelnyy-generator",
-    "stantsiya-chy-invertor-chy-generator",
-  ],
+     "generator-dlya-domu",
+     "avr-dlya-generatora",
+     "benzynovyy-generator",
+     "dyzelnyy-generator",
+     "stantsiya-chy-invertor-chy-generator",
+   ],
   midCta: {
     title: "Порахуйте, скільки кВт·год з’їсть ваше відключення",
     text: "Введіть котел, насос і холодильник у калькулятор — отримаєте навантаження, від якого залежить витрата газу чи бензину.",

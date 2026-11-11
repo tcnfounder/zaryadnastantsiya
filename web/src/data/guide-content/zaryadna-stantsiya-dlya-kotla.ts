@@ -120,12 +120,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "invertor-dlya-kotla",
-    "zaryadni-stantsii-dlya-domu",
-    "ecoflow-delta-2",
-    "akumulyator-lifepo4",
-    "generator-dlya-domu",
-  ],
+     "invertor-dlya-kotla",
+     "zaryadni-stantsii-dlya-domu",
+     "ecoflow-delta-2",
+     "akumulyator-lifepo4",
+     "generator-dlya-domu",
+   ],
   midCta: {
     title: "Котел, насоси й роутер — в одному розрахунку",
     text: "Внесіть потужність котла з таблички, додаткові насоси і тривалість найдовшого відключення — калькулятор покаже, скільки Вт·год потрібно і чи вистачить однієї станції.",

@@ -112,12 +112,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "portatyvna-zaryadna-stantsiya",
-    "zaryadna-stantsiya",
-    "zaryadna-stantsiya-300-vt",
-    "stantsiya-chy-invertor-chy-generator",
-    "hibrydnyy-invertor"
-  ],
+     "portatyvna-zaryadna-stantsiya",
+     "zaryadna-stantsiya",
+     "zaryadna-stantsiya-300-vt",
+     "stantsiya-chy-invertor-chy-generator",
+     "hibrydnyy-invertor",
+   ],
   midCta: {
     title: "Порахуйте, скільки дасть сонце, а скільки мережа",
     text: "Калькулятор допоможе оцінити добову потребу у Вт·год і зрозуміти, яку частку реально покриє ваша панель."

@@ -105,12 +105,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "zaryadna-stantsiya-1-kvt",
-    "dbzh-dlya-routera",
-    "portatyvna-zaryadna-stantsiya",
-    "reytynh-zaryadnykh-stantsiy",
-    "zaryadna-stantsiya-dlya-kvartyry"
-  ],
+     "zaryadna-stantsiya-1-kvt",
+     "dbzh-dlya-routera",
+     "portatyvna-zaryadna-stantsiya",
+     "reytynh-zaryadnykh-stantsiy",
+     "zaryadna-stantsiya-dlya-kvartyry",
+   ],
   midCta: {
     title: "Вистачить 300 Вт чи потрібно більше",
     text: "Додайте свої прилади в калькулятор і побачите, чи вкладаєтеся в 300 Вт та скільки годин протримається станція."

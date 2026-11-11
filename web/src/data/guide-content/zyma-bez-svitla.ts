@@ -144,12 +144,12 @@ const guide: Guide = {
   ],
   cta: "calculator",
   relatedSlugs: [
-    "zaryadna-stantsiya-dlya-kotla",
-    "invertor-dlya-kotla",
-    "generator-dlya-domu",
-    "dbzh-dlya-routera",
-    "akumulyator-lifepo4",
-  ],
+     "zaryadna-stantsiya-dlya-kotla",
+     "invertor-dlya-kotla",
+     "generator-dlya-domu",
+     "dbzh-dlya-routera",
+     "akumulyator-lifepo4",
+   ],
   midCta: {
     title: "Порахуйте свій зимовий резерв",
     text: "Додайте котел, насос, роутер, холодильник і світло, вкажіть найдовше вікно без світла, і калькулятор покаже, скільки Вт·год і Вт потрібно саме вашому дому.",

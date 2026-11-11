@@ -104,12 +104,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "zaryadna-stantsiya-dlya-kotla",
-    "zaryadna-stantsiya-dlya-kvartyry",
-    "invertor-dlya-domu",
-    "stantsiya-chy-invertor-chy-generator",
-    "generator-dlya-domu",
-  ],
+     "zaryadna-stantsiya-dlya-kotla",
+     "zaryadna-stantsiya-dlya-kvartyry",
+     "invertor-dlya-domu",
+     "stantsiya-chy-invertor-chy-generator",
+     "generator-dlya-domu",
+   ],
   midCta: {
     title: "Розділіть будинок на «станцію» і «решту»",
     text: "Внесіть котел, насос і інші прилади в калькулятор, щоб побачити, що закриє станція, а для чого знадобиться інвертор чи генератор.",

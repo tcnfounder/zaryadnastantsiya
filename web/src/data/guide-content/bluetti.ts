@@ -115,12 +115,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "ecoflow",
-    "zaryadna-stantsiya-dlya-kvartyry",
-    "reytynh-zaryadnykh-stantsiy",
-    "zaryadna-stantsiya-dlya-kotla",
-    "zaryadna-stantsiya-z-sonyachnoyu-panellyu",
-  ],
+     "ecoflow",
+     "zaryadna-stantsiya-dlya-kvartyry",
+     "reytynh-zaryadnykh-stantsiy",
+     "zaryadna-stantsiya-dlya-kotla",
+     "zaryadna-stantsiya-z-sonyachnoyu-panellyu",
+   ],
   midCta: {
     title: "Чи вистачить вам 1152 Вт·год AC180?",
     text: "Відмітьте прилади і тривалість відключень — калькулятор покаже, чи закриває ваш сценарій станція класу 1 кВт·год, чи варто дивитися на 2 кВт·год або інвертор.",

@@ -102,12 +102,12 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
-    "zaryadni-stantsii-dlya-domu",
-    "kupyty-zaryadnu-stantsiyu",
-    "zaryadna-stantsiya-dlya-kvartyry",
-    "zaryadna-stantsiya-dlya-kotla",
-    "ecoflow-delta-2"
-  ],
+     "zaryadni-stantsii-dlya-domu",
+     "kupyty-zaryadnu-stantsiyu",
+     "zaryadna-stantsiya-dlya-kvartyry",
+     "zaryadna-stantsiya-dlya-kotla",
+     "ecoflow-delta-2",
+   ],
   midCta: {
     title: "Перерахуйте рейтинг під свої прилади",
     text: "Калькулятор покаже, скільки Вт·год і Вт вам потрібно, щоб обрати станцію з рейтингу без переплати."

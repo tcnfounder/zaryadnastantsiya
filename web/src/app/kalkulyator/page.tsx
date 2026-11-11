@@ -178,7 +178,7 @@ export default function CalculatorPage() {
             <Link href="/gid/hibrydnyy-invertor">Гібридний інвертор</Link>
           </li>
           <li>
-            <Link href="/gid/pidklyuchennya-invertora">Підключення інвертора</Link>
+            <Link href="/gid/invertor-dlya-domu">Підключення інвертора</Link>
           </li>
           <li>
             <Link href="/gid/generator-dlya-domu">Генератор для дому</Link>
