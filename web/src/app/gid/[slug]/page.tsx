@@ -124,7 +124,7 @@ export default async function GuidePage({ params }: PageProps) {
           <p className="guide-byline">
             Автор: <Link href="/pro-nas">Редакція {site.name}</Link> · Перевірено{" "}
             {new Date(guide.dateModified).toLocaleDateString("uk-UA")} ·{" "}
-            <Link href="/pro-nas#metodolohiya">Як ми готуємо гіди</Link>
+            <Link href="/yak-my-rakhuyemo">Як ми рахуємо</Link>
           </p>
         </div>
 
@@ -210,6 +210,11 @@ export default async function GuidePage({ params }: PageProps) {
               оплатою. Точніший підбір — у калькуляторі.
             </p>
             <ProductList products={models} />
+            <p style={{ fontSize: "0.85rem", margin: "0.75rem 0 0", opacity: 0.8 }}>
+              Частина посилань «Дивитись пропозиції» може бути партнерською — ціна для вас не
+              змінюється, а рекомендація не залежить від комісії.{" "}
+              <Link href="/pro-nas#yak-my-zaroblyayemo">Як ми заробляємо</Link>
+            </p>
             <p style={{ marginTop: "1.25rem" }}>
               <Link href="/kalkulyator" className="btn btn-primary">
                 Порахувати свій сценарій

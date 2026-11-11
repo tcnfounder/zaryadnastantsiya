@@ -106,6 +106,10 @@ export default function AboutPage() {
               електриком.
             </li>
           </ul>
+          <p>
+            Усі формули й коефіцієнти за замовчуванням зібрані на сторінці{" "}
+            <Link href="/yak-my-rakhuyemo">Як ми рахуємо</Link>.
+          </p>
         </section>
 
         <section className="guide-block">

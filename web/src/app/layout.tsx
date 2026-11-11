@@ -101,7 +101,8 @@ export default function RootLayout({
             пропозиції» — партнерські посилання: ми можемо отримати комісію, ціна
             для вас не змінюється. Монтажні компанії з позначкою «Реклама»
             оплатили розміщення.{" "}
-            <a href="/pro-nas">Про нас і методологія</a> ·{" "}
+            <a href="/pro-nas">Про нас</a> ·{" "}
+            <a href="/yak-my-rakhuyemo">Як ми рахуємо</a> ·{" "}
             <a href={`mailto:${site.salesEmail}`}>{site.salesEmail}</a>
           </p>
           <p className="site-footer-credit">

@@ -60,6 +60,43 @@ export default function HomePage() {
         </aside>
       </section>
 
+      <section className="section" aria-label="Чому нам можна довіряти" style={{ paddingBottom: 0 }}>
+        <ul
+          style={{
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gap: "0.75rem 1.5rem",
+            fontSize: "0.95rem",
+          }}
+        >
+          <li>
+            <strong>Незалежні.</strong> Не продаємо техніку і не беремо гроші за місце моделі
+            в підборі.
+          </li>
+          <li>
+            <strong>Відкриті формули.</strong> Кожен розрахунок можна перевірити —{" "}
+            <Link href="/yak-my-rakhuyemo" style={{ color: "var(--amber)", fontWeight: 600 }}>
+              як ми рахуємо
+            </Link>
+            .
+          </li>
+          <li>
+            <strong>Дата перевірки.</strong> На кожному гіді видно, коли редакція востаннє
+            звірила ціни й цифри.
+          </li>
+          <li>
+            <strong>Безпека першою.</strong> Генератор — тільки надворі, щиток — тільки через
+            АВР і електрика.{" "}
+            <Link href="/pro-nas" style={{ color: "var(--amber)", fontWeight: 600 }}>
+              Про нас
+            </Link>
+          </li>
+        </ul>
+      </section>
+
       <section className="section" id="dobirky">
         <div className="section-head">
           <p className="eyebrow">Категорії</p>
