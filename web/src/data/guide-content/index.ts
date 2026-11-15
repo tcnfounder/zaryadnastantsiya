@@ -34,12 +34,22 @@ import zaryadna_stantsiya_300_vt from "./zaryadna-stantsiya-300-vt";
 import zaryadna_stantsiya_dlya_kvartyry from "./zaryadna-stantsiya-dlya-kvartyry";
 import zaryadna_stantsiya_z_sonyachnoyu_panellyu from "./zaryadna-stantsiya-z-sonyachnoyu-panellyu";
 import zaryadni_stantsii_dlya_domu from "./zaryadni-stantsii-dlya-domu";
+import zaryadna_stantsiya_1_kvt from "./zaryadna-stantsiya-1-kvt";
+import zaryadna_stantsiya_2_kvt from "./zaryadna-stantsiya-2-kvt";
+import zaryadna_stantsiya_3_kvt from "./zaryadna-stantsiya-3-kvt";
+import ecoflow_delta_2_max from "./ecoflow-delta-2-max";
+import ecoflow_river_2_pro from "./ecoflow-river-2-pro";
+import bluetti_eb3a from "./bluetti-eb3a";
 
 /**
  * Long-form rewrites of existing guides (same slug → replaces the thin original)
  * and brand-new guides. One file per guide keeps editorial diffs reviewable.
  */
 export const guideOverrides: Guide[] = [
+  // Nov 15 2026: power-class pages -> long-form (300 W pattern ranks top 5)
+  zaryadna_stantsiya_1_kvt,
+  zaryadna_stantsiya_2_kvt,
+  zaryadna_stantsiya_3_kvt,
   // Nov 2026: last thin money pages -> long-form
   deye_6_kvt,
   generator,
@@ -70,6 +80,10 @@ export const guideOverrides: Guide[] = [
 ];
 
 export const newGuides: Guide[] = [
+  // Nov 15 2026: model guides (DataForSEO UA volumes 14.8K / 12.1K / 6.6K)
+  ecoflow_delta_2_max,
+  ecoflow_river_2_pro,
+  bluetti_eb3a,
   // Winter 2026/27
   paverbank,
   zyma_bez_svitla,

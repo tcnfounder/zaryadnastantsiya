@@ -115,6 +115,7 @@ const guide: Guide = {
   ],
   cta: "stations",
   relatedSlugs: [
+     "bluetti-eb3a",
      "ecoflow",
      "zaryadna-stantsiya-dlya-kvartyry",
      "reytynh-zaryadnykh-stantsiy",

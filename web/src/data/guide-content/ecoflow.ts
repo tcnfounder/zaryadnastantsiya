@@ -109,6 +109,8 @@ const guide: Guide = {
   cta: "stations",
   relatedSlugs: [
      "ecoflow-delta-2",
+     "ecoflow-delta-2-max",
+     "ecoflow-river-2-pro",
      "bluetti",
      "zaryadna-stantsiya-dlya-kvartyry",
      "reytynh-zaryadnykh-stantsiy",

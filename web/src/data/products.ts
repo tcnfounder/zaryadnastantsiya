@@ -67,6 +67,39 @@ export const products: Product[] = [
     featured: true,
   },
   {
+    id: "ecoflow-river-2-pro",
+    name: "RIVER 2 Pro",
+    brand: "EcoFlow",
+    category: "station",
+    capacityWh: 768,
+    outputW: 800,
+    priceUah: 28999,
+    rating: 4.6,
+    bestFor: "Холодильник, котел і зв’язок на одне відключення",
+    seoDescription:
+      "EcoFlow RIVER 2 Pro — зарядна станція 768 Wh / 800 W на LiFePO4 для роутера, холодильника й котла під час відключень в Україні.",
+    guide:
+      "RIVER 2 Pro тримає роутер понад добу, холодильник близько 13 годин і котел близько 8 годин, а від мережі заряджається приблизно за 70 хвилин. Мікрохвильовку й чайник 800 Вт не потягнуть — для них потрібен клас 1800 Вт.",
+    affiliateUrl:
+      "https://rozetka.com.ua/ua/search/?text=EcoFlow%20RIVER%202%20Pro",
+  },
+  {
+    id: "bluetti-eb3a",
+    name: "EB3A",
+    brand: "Bluetti",
+    category: "station",
+    capacityWh: 268,
+    outputW: 600,
+    priceUah: 14999,
+    rating: 4.5,
+    bestFor: "Роутер, ноутбук і світло, легкий резерв",
+    seoDescription:
+      "Bluetti EB3A — компактна зарядна станція 268 Wh / 600 W вагою 4,6 кг для роутера, ноутбука й освітлення під час відключень.",
+    guide:
+      "EB3A протримає роутер близько 10 годин або ноутбук майже 4 години і може працювати як безперебійник для мережевого обладнання. Холодильник і котел — лише на короткий час.",
+    affiliateUrl: "https://rozetka.com.ua/ua/search/?text=Bluetti%20EB3A",
+  },
+  {
     id: "ecoflow-delta-2-max",
     name: "DELTA 2 Max",
     brand: "EcoFlow",

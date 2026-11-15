@@ -2745,11 +2745,15 @@ export function getGuide(slug: string) {
 
 /** Guides to surface on a product page by category / brand. */
 export function guidesForProduct(product: {
+  id?: string;
   category: "station" | "generator" | "inverter";
   brand: string;
 }) {
   const brand = product.brand.toLowerCase();
-  const slugs: string[] = ["vidklyuchennya-svitla"];
+  // A dedicated model guide (/gid/<product id>) is the most relevant link.
+  const slugs: string[] = [];
+  if (product.id && getGuide(product.id)) slugs.push(product.id);
+  slugs.push("vidklyuchennya-svitla");
   if (product.category === "station") {
     slugs.push(
       "zaryadna-stantsiya",
