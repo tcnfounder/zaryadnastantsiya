@@ -174,6 +174,15 @@ export function EnergyCalculator() {
   const stepIndex =
     chosenStep ?? (prefill.outageHours ? (prefill.criticalLoad ? 3 : 2) : 0);
   const step = Math.min(stepIndex, steps.length - 1);
+  // Deep links to #calc-result: the browser jumps before the prefill re-renders
+  // the form (phones skip wizard steps, so it gets shorter) — re-align after.
+  useEffect(() => {
+    if (!search || window.location.hash !== "#calc-result") return;
+    // Effects run after commit, so layout already reflects the prefill.
+    // Instant: a landing jump shouldn't animate past the page intro.
+    resultRef.current?.scrollIntoView({ block: "start", behavior: "instant" });
+  }, [search]);
+
   const formRef = useRef<HTMLFormElement>(null);
   const isPhone = () =>
     typeof window !== "undefined" && window.matchMedia("(max-width: 959px)").matches;
