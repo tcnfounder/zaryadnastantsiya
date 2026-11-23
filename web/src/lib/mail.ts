@@ -138,10 +138,12 @@ export async function saveLeadContact(lead: {
       body: JSON.stringify({ ...base, attributes }),
     });
 
+  // The Brevo account is shared with other sites: tag where the lead came from.
+  const tags = { SIGNUP_SITE: "zaryadnastantsiya.com.ua", LEAD_CHANNEL: lead.kind };
   try {
-    let response = await post({ FIRSTNAME: lead.name, ...(sms ? { SMS: sms } : {}) });
+    let response = await post({ FIRSTNAME: lead.name, ...tags, ...(sms ? { SMS: sms } : {}) });
     // A rejected attribute (e.g. SMS already used by another contact) must not lose the lead.
-    if (!response.ok && response.status === 400) response = await post({ FIRSTNAME: lead.name });
+    if (!response.ok && response.status === 400) response = await post({ FIRSTNAME: lead.name, ...tags });
     if (!response.ok) {
       const detail = await response.text().catch(() => "");
       console.error("[lead-contact-error]", response.status, detail.slice(0, 300));
