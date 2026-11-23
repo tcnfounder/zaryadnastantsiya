@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { saveLeadContact, sendMail } from "@/lib/mail";
 
 const NOINDEX = { "X-Robots-Tag": "noindex, nofollow" };
 
@@ -34,13 +35,8 @@ async function notifyWebhook(payload: Record<string, unknown>) {
   }
 }
 
-async function notifyResend(payload: Record<string, unknown>) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CLAIM_NOTIFY_TO;
-  const from = process.env.CLAIM_NOTIFY_FROM;
-  if (!apiKey || !to || !from) return;
-
-  const text = [
+function leadEmailText(payload: Record<string, unknown>) {
+  return [
     "Нова заявка з калькулятора ZaryadnaStantsiya",
     "",
     `Ім'я: ${payload.name}`,
@@ -52,28 +48,6 @@ async function notifyResend(payload: Record<string, unknown>) {
     `Монтаж: ${payload.needsInstaller ? "так" : "ні"}`,
     `Нотатка: ${payload.note || "—"}`,
   ].join("\n");
-
-  try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        subject: `Calc lead: ${payload.city} · ${payload.solution}`,
-        text,
-      }),
-    });
-    if (!response.ok) {
-      const detail = await response.text();
-      console.error("[calc-lead-resend-error]", response.status, detail);
-    }
-  } catch (error) {
-    console.error("[calc-lead-resend-error]", error);
-  }
 }
 
 export async function POST(request: Request) {
@@ -112,8 +86,22 @@ export async function POST(request: Request) {
     createdAt: new Date().toISOString(),
   };
 
-  await Promise.all([notifyWebhook(lead), notifyResend(lead)]);
+  const to = process.env.CLAIM_NOTIFY_TO?.trim();
+  const [, mail] = await Promise.all([
+    notifyWebhook(lead),
+    to
+      ? sendMail({
+          from: process.env.CLAIM_NOTIFY_FROM?.trim() || "onboarding@resend.dev",
+          to,
+          subject: `Calc lead: ${lead.city} · ${lead.solution}`,
+          text: leadEmailText(lead),
+          tag: "calc-lead",
+        })
+      : Promise.resolve({ ok: false as const, reason: "notify_to_not_configured" }),
+    saveLeadContact({ kind: "calc", name: lead.name, phone: lead.phone }),
+  ]);
   console.info("[calc-lead]", lead);
+  if (!mail.ok) console.error("[calc-lead-UNDELIVERED]", mail.reason, lead.createdAt);
 
   return NextResponse.json({ ok: true }, { headers: NOINDEX });
 }

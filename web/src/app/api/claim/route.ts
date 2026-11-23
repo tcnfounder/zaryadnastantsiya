@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { claimPackages, type ClaimPackageId } from "@/data/packages";
 import { site } from "@/data/site";
+import { saveLeadContact, sendMail } from "@/lib/mail";
 
 export const runtime = "nodejs";
 
@@ -56,6 +57,7 @@ async function notifyWebhook(payload: Record<string, unknown>) {
   }
 }
 
+/** Brevo first, then Resend (see `@/lib/mail`). Name kept for the two callers below. */
 async function sendResendEmail(input: {
   from: string;
   to: string;
@@ -63,38 +65,7 @@ async function sendResendEmail(input: {
   subject: string;
   text: string;
 }) {
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-  if (!apiKey) {
-    return { ok: false as const, reason: "resend_not_configured" };
-  }
-
-  try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: input.from,
-        to: [input.to],
-        reply_to: input.replyTo,
-        subject: input.subject,
-        text: input.text,
-      }),
-    });
-
-    if (!response.ok) {
-      const detail = await response.text().catch(() => "");
-      console.error("[claim-resend-error]", response.status, detail);
-      return { ok: false as const, reason: `resend_${response.status}` };
-    }
-
-    return { ok: true as const };
-  } catch (error) {
-    console.error("[claim-resend-error]", error);
-    return { ok: false as const, reason: "resend_exception" };
-  }
+  return sendMail({ ...input, tag: "claim" });
 }
 
 async function notifyOwner(payload: {
@@ -110,7 +81,7 @@ async function notifyOwner(payload: {
   const from = process.env.CLAIM_NOTIFY_FROM?.trim() || "onboarding@resend.dev";
 
   if (!to) {
-    return { ok: false as const, reason: "resend_not_configured" };
+    return { ok: false as const, reason: "notify_to_not_configured" };
   }
 
   const pkg = claimPackages.find((item) => item.id === payload.packageId);
@@ -232,6 +203,7 @@ export async function POST(request: Request) {
     notifyWebhook(lead),
     notifyOwner({ company, email, city, packageId, phone, message }),
     notifyApplicant({ company, email, city, packageId }),
+    saveLeadContact({ kind: "claim", name: company, email, phone }),
   ]);
 
   console.info(
@@ -252,6 +224,9 @@ export async function POST(request: Request) {
 
   const delivered =
     webhookResult.ok || ownerResult.ok || applicantResult.ok;
+  if (!webhookResult.ok && !ownerResult.ok) {
+    console.error("[claim-lead-UNDELIVERED]", lead.createdAt);
+  }
 
   // Always accept a valid lead. Delivery failures stay in Railway logs so the
   // form never dies with a Cloudflare 502 HTML page.
