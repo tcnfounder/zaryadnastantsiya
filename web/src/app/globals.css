@@ -1082,6 +1082,11 @@ body:has(.hero-masthead) .site-header:not(.is-scrolled) .site-header-cta:hover {
   }
 }
 
+/* Deep links land on #calc-result (e.g. from kolysvitlo with ?hours=); keep it clear of the sticky header. */
+.calc-result {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
 .calc-form,
 .calc-result {
   padding: 1.35rem 1.35rem 1.5rem;
