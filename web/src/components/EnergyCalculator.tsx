@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, useTransition, type FormEvent } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  useTransition,
+  type FormEvent,
+} from "react";
 import { track } from "@/lib/track";
 import {
   calculatorCities,
@@ -71,6 +79,29 @@ const defaultInput: CalculatorInput = {
   city: "Київ",
 };
 
+/**
+ * Prefill from the URL so other pages (e.g. kolysvitlo.com.ua queue pages, which
+ * know a queue's daily outage hours) can deep-link straight into a scenario:
+ * /kalkulyator?hours=8&home=apartment&load=fridge&city=Львів
+ */
+export function inputFromSearch(search: string): Partial<CalculatorInput> {
+  const params = new URLSearchParams(search);
+  const out: Partial<CalculatorInput> = {};
+  const hours = Number(params.get("hours"));
+  if (Number.isFinite(hours) && hours > 0) {
+    out.outageHours = hours < 4 ? "short" : hours <= 10 ? "medium" : "long";
+  }
+  const home = params.get("home");
+  if (home === "apartment" || home === "house") out.housing = home;
+  const load = params.get("load");
+  if (load === "light" || load === "fridge" || load === "pump" || load === "whole") {
+    out.criticalLoad = load;
+  }
+  const city = params.get("city")?.trim();
+  if (city && city.length <= 40) out.city = city;
+  return out;
+}
+
 function scenarioLine(input: CalculatorInput) {
   const housing = input.housing === "apartment" ? "квартира" : "будинок";
   const hours =
@@ -90,8 +121,25 @@ function scenarioLine(input: CalculatorInput) {
   return `${housing} · ${hours} · ${load} · ${input.city}`;
 }
 
+const noopSubscribe = () => () => {};
+
 export function EnergyCalculator() {
-  const [input, setInput] = useState<CalculatorInput>(defaultInput);
+  // URL prefill: read the query string as an external store so the static
+  // server render ("" → defaults) hydrates cleanly, then picks up the link.
+  const search = useSyncExternalStore(
+    noopSubscribe,
+    () => window.location.search,
+    () => "",
+  );
+  const prefill = useMemo(() => inputFromSearch(search), [search]);
+  // `edited` holds the full input once the visitor changes anything.
+  const [edited, setEdited] = useState<CalculatorInput | null>(null);
+  const input = useMemo(
+    () => edited ?? { ...defaultInput, ...prefill },
+    [edited, prefill],
+  );
+  const setInput = (update: (prev: CalculatorInput) => CalculatorInput) =>
+    setEdited((prev) => update(prev ?? { ...defaultInput, ...prefill }));
   const [leadStatus, setLeadStatus] = useState<"idle" | "ok" | "error">("idle");
   const [pending, startTransition] = useTransition();
   const [contact, setContact] = useState({ name: "", phone: "", note: "" });
@@ -121,7 +169,10 @@ export function EnergyCalculator() {
     "budget",
     "city",
   ];
-  const [stepIndex, setStepIndex] = useState(0);
+  const [chosenStep, setStepIndex] = useState<number | null>(null);
+  // Phones: a prefilled link skips the questions it already answered.
+  const stepIndex =
+    chosenStep ?? (prefill.outageHours ? (prefill.criticalLoad ? 3 : 2) : 0);
   const step = Math.min(stepIndex, steps.length - 1);
   const formRef = useRef<HTMLFormElement>(null);
   const isPhone = () =>
