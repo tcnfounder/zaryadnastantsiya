@@ -102,6 +102,17 @@ export function inputFromSearch(search: string): Partial<CalculatorInput> {
   return out;
 }
 
+/** "у Києві" — locative for the preset cities; free-typed cities stay readable. */
+const CITY_LOCATIVE: Record<string, string> = {
+  Київ: "у Києві",
+  Львів: "у Львові",
+  Одеса: "в Одесі",
+  Харків: "у Харкові",
+  Дніпро: "у Дніпрі",
+  "Інше місто": "у вашому місті",
+};
+const inCity = (city: string) => CITY_LOCATIVE[city] ?? `у місті ${city}`;
+
 function scenarioLine(input: CalculatorInput) {
   const housing = input.housing === "apartment" ? "квартира" : "будинок";
   const hours =
@@ -537,7 +548,7 @@ export function EnergyCalculator() {
 
         {result.needsInstaller ? (
           <div className="calc-installer">
-            <h3>Потрібен монтаж у {input.city}</h3>
+            <h3>Потрібен монтаж {inCity(input.city)}</h3>
             <p>{result.installerReason}</p>
             {matchedInstallers.length > 0 ? (
               <ul>
@@ -600,8 +611,8 @@ export function EnergyCalculator() {
             <h3>Монтаж не обов’язковий</h3>
             <p>
               Для цього сценарію можна стартувати з готової станції. Якщо пізніше
-              знадобиться щит чи генератор —{" "}
-              <Link href="/claim">монтажні компанії</Link> вже в каталозі.
+              знадобиться щит чи генератор — оберіть цей сценарій у калькуляторі, і ми
+              підберемо монтажника.
             </p>
             <Link href="/zaryadni-stantsii" className="btn btn-primary">
               Дивитись станції

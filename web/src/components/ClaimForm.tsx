@@ -176,7 +176,7 @@ export function ClaimForm({ initialPackageId = "featured" }: ClaimFormProps) {
           </div>
           <div className="field">
             <label htmlFor="company">Назва компанії</label>
-            <input id="company" name="company" required placeholder="SunLab Kyiv" />
+            <input id="company" name="company" required placeholder="Назва вашої компанії" />
           </div>
           <div className="field">
             <label htmlFor="email">Корпоративна пошта</label>

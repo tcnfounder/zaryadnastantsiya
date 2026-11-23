@@ -165,7 +165,7 @@ export default async function CityPage({ params }: PageProps) {
             .
           </p>
         </div>
-        <InstallerList items={localInstallers} />
+        <InstallerList items={localInstallers} cityLocative={city.genitive} />
 
         <FaqSection
           items={city.faqs}

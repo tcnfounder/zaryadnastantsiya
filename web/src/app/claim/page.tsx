@@ -115,11 +115,11 @@ export default async function ClaimPage({ searchParams }: PageProps) {
       </div>
 
       <div className="section-head" style={{ marginTop: "3rem" }}>
-        <p className="eyebrow">Приклади профілів</p>
-        <h2>Монтажні компанії вже в добірках</h2>
+        <p className="eyebrow">Каталог монтажників</p>
+        <h2>Перші місця в містах ще вільні</h2>
         <p>
           Після підтвердження профілю компанія з’являється в регіональних блоках
-          поруч із релевантними категоріями.
+          поруч із релевантними категоріями та в результатах калькулятора.
         </p>
       </div>
       <InstallerList />
